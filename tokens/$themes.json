@@ -1,0 +1,11 @@
+[
+  {
+    "id": "logbook-light",
+    "name": "Logbook Light",
+    "selectedTokenSets": {
+      "core": "source",
+      "semantic": "enabled"
+    },
+    "$figmaStyleReferences": {}
+  }
+]

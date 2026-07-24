@@ -1,0 +1,40 @@
+# Logbook Design System
+
+Design system de Logbook (corrections audio d'enseignants analysées par
+IA), reconstruit et modernisé en code sur **MUI** + **RemixIcon**,
+responsive et accessible AA par défaut.
+
+Le process complet (comment modifier un token, surcharger un composant,
+synchroniser avec Figma...) est documenté dans
+[`.claude/skills/logbook-design-system/SKILL.md`](.claude/skills/logbook-design-system/SKILL.md).
+
+## Installation
+
+```bash
+npm install
+npm run tokens:build   # génère src/theme/generated/tokens.ts depuis tokens/*.json
+```
+
+## Scripts
+
+| Commande | Effet |
+| --- | --- |
+| `npm run storybook` | Environnement de test des composants — http://localhost:6006, hot-reload live |
+| `npm run dev` | App Vite minimale (aperçu rapide hors Storybook) |
+| `npm run tokens:build` | Régénère le thème MUI depuis `tokens/*.json` (à relancer après toute modif de tokens) |
+| `npm run build` | Build de production de l'app |
+| `npm run build-storybook` | Build statique de Storybook (déployable, ex. pour partager avec l'équipe) |
+
+## Structure
+
+- `tokens/` — source de vérité des design tokens (format Tokens Studio, consommable depuis Figma)
+- `src/theme/` — thème MUI généré depuis les tokens + overrides de composants
+- `src/icons/` — icônes RemixIcon utilisées par Logbook
+- `src/stories/Foundations/` — couleurs, typographie, spacing, icônes
+- `src/stories/Components/` — composants MUI themés (Button, TextField, Chip, Card...)
+
+## À faire avant la présentation à l'équipe Logbook
+
+Les tokens de `tokens/core.json` et `tokens/semantic.json` sont des
+**placeholders** — voir la section "Limites connues" du SKILL.md pour
+remplacer la palette et la police par la charte réelle de Logbook.
