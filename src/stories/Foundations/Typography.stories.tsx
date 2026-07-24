@@ -5,10 +5,10 @@ const variants = ['h1', 'h2', 'h3', 'body1', 'body2', 'button'] as const;
 
 function TypographyFoundations() {
   return (
-    <Stack spacing={2} sx={{ p: 2 }} divider={<Divider flexItem />}>
+    <Stack spacing={0.5} sx={{ p: 2, maxWidth: 900 }} divider={<Divider flexItem />}>
       {variants.map((variant) => (
         <Stack key={variant} direction="row" spacing={2} sx={{ alignItems: 'baseline' }}>
-          <Typography variant="body2" color="text.secondary" sx={{ width: 80, flexShrink: 0 }}>
+          <Typography variant="body2" color="text.secondary" sx={{ width: 100, flexShrink: 0, fontWeight: 500 }}>
             {variant}
           </Typography>
           <Typography variant={variant}>Corrections plus efficaces et plus humaines</Typography>
@@ -21,7 +21,7 @@ function TypographyFoundations() {
 const meta: Meta<typeof TypographyFoundations> = {
   title: 'Foundations/Typography',
   component: TypographyFoundations,
-  parameters: { layout: 'fullscreen' },
+  parameters: { layout: 'padded' },
 };
 
 export default meta;

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Box, Stack, Typography, Paper } from '@mui/material';
+import { Box, Stack, Typography, Paper, useTheme } from '@mui/material';
 import { designTokens } from '../../theme/generated/tokens';
 
 const { color } = designTokens;
@@ -51,6 +51,7 @@ function SemanticGroup({
 }
 
 function ColorFoundations() {
+  const theme = useTheme();
   const semanticGroups = [
     ['primary', color.primary],
     ['secondary', color.secondary],
@@ -67,9 +68,10 @@ function ColorFoundations() {
           Couleurs sémantiques
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-          Valeurs placeholder — à remplacer par la charte Logbook réelle dans{' '}
-          <code>tokens/semantic.json</code>. Chaque combinaison main/dark +
-          contrastText respecte un contraste AA (4.5:1) pour le texte blanc.
+          Charte Logbook (<code>tokens/semantic.json</code>). Chaque
+          combinaison main/dark + contrastText doit respecter un contraste AA
+          (4.5:1) — vérifier avec l'addon a11y de Storybook après toute
+          modification de tokens.
         </Typography>
         <Stack spacing={3}>
           {semanticGroups.map(([name, tokens]) => (
@@ -84,10 +86,18 @@ function ColorFoundations() {
         </Typography>
         <Stack direction="row" spacing={2} useFlexGap sx={{ flexWrap: 'wrap' }}>
           <Swatch label="background.default" hex={color.background.default} textColor={color.text.primary} />
-          <Swatch label="background.paper" hex={color.background.paper} textColor={color.text.primary} />
-          <Swatch label="text.primary" hex={color.text.primary} textColor={color.background.paper} />
-          <Swatch label="text.secondary" hex={color.text.secondary} textColor={color.background.paper} />
-          <Swatch label="divider" hex={color.divider} textColor={color.text.primary} />
+          <Swatch
+            label="background.paper"
+            hex={color.background['paper-elevation-1']}
+            textColor={color.text.primary}
+          />
+          <Swatch label="text.primary" hex={color.text.primary} textColor={color.background['paper-elevation-1']} />
+          <Swatch
+            label="text.secondary"
+            hex={color.text.secondary}
+            textColor={color.background['paper-elevation-1']}
+          />
+          <Swatch label="divider (défaut MUI)" hex={theme.palette.divider} textColor={color.text.primary} />
         </Stack>
       </Box>
     </Stack>
@@ -97,7 +107,7 @@ function ColorFoundations() {
 const meta: Meta<typeof ColorFoundations> = {
   title: 'Foundations/Colors',
   component: ColorFoundations,
-  parameters: { layout: 'fullscreen' },
+  parameters: { layout: 'padded' },
 };
 
 export default meta;

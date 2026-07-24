@@ -1,6 +1,7 @@
 import type { Preview } from '@storybook/react-vite'
 import React from 'react';
 import { LogbookThemeProvider } from '../src/theme/LogbookThemeProvider';
+import { Box } from '@mui/material';
 
 const preview: Preview = {
   parameters: {
@@ -20,7 +21,9 @@ const preview: Preview = {
   decorators: [
     (Story) => (
       <LogbookThemeProvider>
-        <Story />
+        <Box sx={{ backgroundColor: 'background.default', minHeight: '100vh' }}>
+          <Story />
+        </Box>
       </LogbookThemeProvider>
     ),
   ],

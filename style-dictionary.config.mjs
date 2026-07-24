@@ -8,10 +8,21 @@ function isTokenLeaf(node) {
   return node && typeof node === 'object' && 'value' in node && 'type' in node;
 }
 
-function formatShadow(value) {
-  const { x, y, blur, spread, color } = value;
-  return `${x}px ${y}px ${blur}px ${spread}px ${color}`;
+// Le plugin Tokens Studio exporte les ombres en couches {shadowType, radius,
+// color, offsetX, offsetY, spread}, en tableau pour un token composite
+// ("shadow") ou en objet unique pour une ombre simple ("custom-shadow").
+function formatShadowLayer(layer) {
+  const { offsetX, offsetY, radius, spread, color } = layer;
+  return `${offsetX}px ${offsetY}px ${radius}px ${spread}px ${color}`;
 }
+
+function formatShadow(value) {
+  return Array.isArray(value) ? value.map(formatShadowLayer).join(', ') : formatShadowLayer(value);
+}
+
+// Figma/Tokens Studio nomme cette clé "contrasttext" ; MUI attend "contrastText"
+// sur PaletteColorOptions. Renommage de clé uniquement, aucune valeur modifiée.
+const KEY_RENAMES = { contrasttext: 'contrastText' };
 
 function resolveNode(node) {
   if (isTokenLeaf(node)) {
@@ -23,7 +34,8 @@ function resolveNode(node) {
       case 'fontSizes':
       case 'lineHeights':
         return Number(value);
-      case 'boxShadow':
+      case 'shadow':
+      case 'custom-shadow':
         return formatShadow(value);
       case 'typography':
         return {
@@ -39,7 +51,7 @@ function resolveNode(node) {
 
   const out = {};
   for (const [key, child] of Object.entries(node)) {
-    out[key] = resolveNode(child);
+    out[KEY_RENAMES[key] ?? key] = resolveNode(child);
   }
   return out;
 }

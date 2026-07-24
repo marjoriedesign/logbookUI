@@ -10,5 +10,8 @@ export const typographyOptions: TypographyVariantsOptions = {
   h3: typography.h3,
   body1: typography.body1,
   body2: typography.body2,
-  button: { ...typography.button, textTransform: 'none' },
+  // Aucun token "button" dans tokens/semantic.json pour l'instant : seule la
+  // police est pilotée par les tokens, le reste vient des défauts MUI en
+  // attendant qu'un style de texte dédié soit défini côté Figma.
+  button: { fontFamily: fontFamilies.body, textTransform: 'none' },
 };

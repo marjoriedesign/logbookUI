@@ -4,11 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently --names \"tokens,storybook\" --prefix \"[{name}]\" \"npm run tokens:watch\" \"npm run storybook\"",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
     "tokens:build": "node style-dictionary.config.mjs",
+    "tokens:watch": "chokidar 'tokens/**/*.json' --command 'npm run tokens:build'",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -21,24 +22,26 @@
     "react-dom": "^19.2.7"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^5.2.1",
+    "@storybook/addon-a11y": "^10.5.4",
+    "@storybook/addon-docs": "^10.5.4",
+    "@storybook/addon-mcp": "^0.7.0",
+    "@storybook/addon-vitest": "^10.5.4",
+    "@storybook/react-vite": "^10.5.4",
     "@types/node": "^24.13.2",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
+    "@vitest/browser-playwright": "^4.1.10",
+    "@vitest/coverage-v8": "^4.1.10",
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^10.0.3",
     "oxlint": "^1.71.0",
+    "playwright": "^1.61.1",
+    "storybook": "^10.5.4",
     "style-dictionary": "^5.5.0",
     "typescript": "~6.0.2",
     "vite": "^8.1.1",
-    "storybook": "^10.5.4",
-    "@storybook/react-vite": "^10.5.4",
-    "@chromatic-com/storybook": "^5.2.1",
-    "@storybook/addon-vitest": "^10.5.4",
-    "@storybook/addon-a11y": "^10.5.4",
-    "@storybook/addon-docs": "^10.5.4",
-    "@storybook/addon-mcp": "^0.7.0",
-    "vitest": "^4.1.10",
-    "playwright": "^1.61.1",
-    "@vitest/browser-playwright": "^4.1.10",
-    "@vitest/coverage-v8": "^4.1.10"
+    "vitest": "^4.1.10"
   }
 }

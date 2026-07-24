@@ -5,14 +5,14 @@ import * as icons from '../../icons';
 function IconFoundations() {
   const entries = Object.entries(icons);
   return (
-    <Stack direction="row" spacing={2} sx={{ p: 2, flexWrap: 'wrap' }}>
+    <Stack direction="row" spacing={1.5} sx={{ p: 3, flexWrap: 'wrap', gap: 2 }}>
       {entries.map(([name, Icon]) => (
         <Paper
           key={name}
           variant="outlined"
           sx={{
-            width: 120,
-            p: 2,
+            width: 100,
+            p: 1.5,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -20,7 +20,7 @@ function IconFoundations() {
           }}
         >
           <Icon size={24} />
-          <Typography variant="body2" sx={{ textAlign: 'center', wordBreak: 'break-word' }}>
+          <Typography variant="caption" sx={{ textAlign: 'center', wordBreak: 'break-word', lineHeight: 1.3 }}>
             {name}
           </Typography>
         </Paper>
@@ -32,7 +32,7 @@ function IconFoundations() {
 const meta: Meta<typeof IconFoundations> = {
   title: 'Foundations/Icons',
   component: IconFoundations,
-  parameters: { layout: 'fullscreen' },
+  parameters: { layout: 'padded' },
 };
 
 export default meta;
