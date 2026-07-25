@@ -422,6 +422,8 @@ export const designTokens = {
     "10": 80,
     "11": 88,
     "12": 96,
+    "3xs": 4,
+    "2xs": 6,
     "xs": 8,
     "sm": 16,
     "md": 24,

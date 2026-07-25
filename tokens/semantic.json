@@ -392,6 +392,14 @@
     "common": {}
   },
   "spacing": {
+    "3xs": {
+      "value": 4,
+      "type": "dimension"
+    },
+    "2xs": {
+      "value": 6,
+      "type": "dimension"
+    },
     "6": {
       "value": 48,
       "type": "dimension"
