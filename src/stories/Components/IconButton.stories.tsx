@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { IconButton, Stack } from '@mui/material';
 import { RiMicLine } from '../../icons';
-import { PageLayout } from '../PageLayout';
+import { PageLayout, Sections, Section } from '../PageLayout';
 
 const meta: Meta<typeof IconButton> = {
   title: 'Components/IconButton',
@@ -16,28 +16,32 @@ const meta: Meta<typeof IconButton> = {
 export default meta;
 type Story = StoryObj<typeof IconButton>;
 
-export const Default: Story = {};
-
-export const Colors: Story = {
+export const Default: Story = {
   render: (args) => (
-    <Stack direction="row" spacing={1}>
-      <IconButton {...args} color="primary" />
-      <IconButton {...args} color="secondary" />
-      <IconButton {...args} color="default" />
-    </Stack>
-  ),
-};
+    <Sections>
+      <Section title="Default">
+        <IconButton {...args} />
+      </Section>
 
-export const Sizes: Story = {
-  render: (args) => (
-    <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
-      <IconButton {...args} size="small" />
-      <IconButton {...args} size="medium" />
-      <IconButton {...args} size="large" />
-    </Stack>
-  ),
-};
+      <Section title="Colors">
+        <Stack direction="row" spacing={1}>
+          <IconButton {...args} color="primary" />
+          <IconButton {...args} color="secondary" />
+          <IconButton {...args} color="default" />
+        </Stack>
+      </Section>
 
-export const Disabled: Story = {
-  args: { disabled: true },
+      <Section title="Sizes">
+        <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
+          <IconButton {...args} size="small" />
+          <IconButton {...args} size="medium" />
+          <IconButton {...args} size="large" />
+        </Stack>
+      </Section>
+
+      <Section title="Disabled">
+        <IconButton {...args} disabled />
+      </Section>
+    </Sections>
+  ),
 };

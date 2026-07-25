@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
-import { PageLayout } from '../PageLayout';
+import { PageLayout, Sections, Section } from '../PageLayout';
 
 function CorrectionTypeSelect({ error, disabled }: { error?: boolean; disabled?: boolean }) {
   return (
@@ -24,12 +24,20 @@ const meta: Meta<typeof CorrectionTypeSelect> = {
 export default meta;
 type Story = StoryObj<typeof CorrectionTypeSelect>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  render: () => (
+    <Sections>
+      <Section title="Default">
+        <CorrectionTypeSelect />
+      </Section>
 
-export const Disabled: Story = {
-  args: { disabled: true },
-};
+      <Section title="Disabled">
+        <CorrectionTypeSelect disabled />
+      </Section>
 
-export const ErrorState: Story = {
-  args: { error: true },
+      <Section title="ErrorState">
+        <CorrectionTypeSelect error />
+      </Section>
+    </Sections>
+  ),
 };

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { LinearProgress, Stack, Typography } from '@mui/material';
-import { PageLayout } from '../PageLayout';
+import { PageLayout, Sections, Section } from '../PageLayout';
 
 const meta: Meta<typeof LinearProgress> = {
   title: 'Components/LinearProgress',
@@ -12,31 +12,31 @@ const meta: Meta<typeof LinearProgress> = {
 export default meta;
 type Story = StoryObj<typeof LinearProgress>;
 
-export const Determinate: Story = {
+export const Default: Story = {
   render: () => (
-    <Stack spacing={1} sx={{ width: 280 }}>
-      <Typography variant="body2" color="text.secondary">
-        12 corrections sur 20 terminées
-      </Typography>
-      <LinearProgress variant="determinate" value={60} />
-    </Stack>
-  ),
-};
+    <Sections>
+      <Section title="Determinate">
+        <Stack spacing={1} sx={{ width: 280 }}>
+          <Typography variant="body2" color="text.secondary">
+            12 corrections sur 20 terminées
+          </Typography>
+          <LinearProgress variant="determinate" value={60} />
+        </Stack>
+      </Section>
 
-export const Indeterminate: Story = {
-  render: () => (
-    <Stack sx={{ width: 280 }}>
-      <LinearProgress />
-    </Stack>
-  ),
-};
+      <Section title="Indeterminate">
+        <Stack sx={{ width: 280 }}>
+          <LinearProgress />
+        </Stack>
+      </Section>
 
-export const Colors: Story = {
-  render: () => (
-    <Stack spacing={2} sx={{ width: 280 }}>
-      <LinearProgress variant="determinate" value={70} color="primary" />
-      <LinearProgress variant="determinate" value={70} color="secondary" />
-      <LinearProgress variant="determinate" value={70} color="success" />
-    </Stack>
+      <Section title="Colors">
+        <Stack spacing={2} sx={{ width: 280 }}>
+          <LinearProgress variant="determinate" value={70} color="primary" />
+          <LinearProgress variant="determinate" value={70} color="secondary" />
+          <LinearProgress variant="determinate" value={70} color="success" />
+        </Stack>
+      </Section>
+    </Sections>
   ),
 };

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button, Stack } from '@mui/material';
-import { PageLayout } from '../PageLayout';
+import { PageLayout, Sections, Section } from '../PageLayout';
 
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',
@@ -28,40 +28,44 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Default: Story = {};
-
-export const Variants: Story = {
+export const Default: Story = {
   render: (args) => (
-    <Stack direction="row" spacing={2}>
-      <Button {...args} variant="contained">
-        Contained
-      </Button>
-      <Button {...args} variant="outlined">
-        Outlined
-      </Button>
-      <Button {...args} variant="text">
-        Text
-      </Button>
-    </Stack>
-  ),
-};
+    <Sections>
+      <Section title="Default">
+        <Button {...args} />
+      </Section>
 
-export const Sizes: Story = {
-  render: (args) => (
-    <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
-      <Button {...args} size="small">
-        Small
-      </Button>
-      <Button {...args} size="medium">
-        Medium
-      </Button>
-      <Button {...args} size="large">
-        Large
-      </Button>
-    </Stack>
-  ),
-};
+      <Section title="Variants">
+        <Stack direction="row" spacing={2}>
+          <Button {...args} variant="contained">
+            Contained
+          </Button>
+          <Button {...args} variant="outlined">
+            Outlined
+          </Button>
+          <Button {...args} variant="text">
+            Text
+          </Button>
+        </Stack>
+      </Section>
 
-export const Disabled: Story = {
-  args: { disabled: true },
+      <Section title="Sizes">
+        <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
+          <Button {...args} size="small">
+            Small
+          </Button>
+          <Button {...args} size="medium">
+            Medium
+          </Button>
+          <Button {...args} size="large">
+            Large
+          </Button>
+        </Stack>
+      </Section>
+
+      <Section title="Disabled">
+        <Button {...args} disabled />
+      </Section>
+    </Sections>
+  ),
 };

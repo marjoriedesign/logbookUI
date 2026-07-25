@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Badge, IconButton } from '@mui/material';
 import { RiFileTextLine } from '../../icons';
-import { PageLayout } from '../PageLayout';
+import { PageLayout, Sections, Section } from '../PageLayout';
 
 const meta: Meta<typeof Badge> = {
   title: 'Components/Badge',
@@ -12,32 +12,32 @@ const meta: Meta<typeof Badge> = {
 export default meta;
 type Story = StoryObj<typeof Badge>;
 
-export const Count: Story = {
+export const Default: Story = {
   render: () => (
-    <Badge badgeContent={3} color="error">
-      <IconButton aria-label="Corrections reçues">
-        <RiFileTextLine size={22} />
-      </IconButton>
-    </Badge>
-  ),
-};
+    <Sections>
+      <Section title="Count">
+        <Badge badgeContent={3} color="error">
+          <IconButton aria-label="Corrections reçues">
+            <RiFileTextLine size={22} />
+          </IconButton>
+        </Badge>
+      </Section>
 
-export const Dot: Story = {
-  render: () => (
-    <Badge variant="dot" color="primary">
-      <IconButton aria-label="Nouvelles corrections">
-        <RiFileTextLine size={22} />
-      </IconButton>
-    </Badge>
-  ),
-};
+      <Section title="Dot">
+        <Badge variant="dot" color="primary">
+          <IconButton aria-label="Nouvelles corrections">
+            <RiFileTextLine size={22} />
+          </IconButton>
+        </Badge>
+      </Section>
 
-export const Max: Story = {
-  render: () => (
-    <Badge badgeContent={120} max={99} color="error">
-      <IconButton aria-label="Corrections reçues">
-        <RiFileTextLine size={22} />
-      </IconButton>
-    </Badge>
+      <Section title="Max">
+        <Badge badgeContent={120} max={99} color="error">
+          <IconButton aria-label="Corrections reçues">
+            <RiFileTextLine size={22} />
+          </IconButton>
+        </Badge>
+      </Section>
+    </Sections>
   ),
 };
