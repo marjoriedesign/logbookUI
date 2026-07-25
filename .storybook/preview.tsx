@@ -16,7 +16,17 @@ const preview: Preview = {
       // 'error' : toute violation de contraste/aria fait échouer les tests —
       // cohérent avec l'exigence AA du design system Logbook.
       test: 'error'
-    }
+    },
+
+    options: {
+      storySort: {
+        order: [
+          'Foundations',
+          'Components',
+          ['Button', 'IconButton', 'Chip', 'Switch', 'TextField', 'Select', 'Badge', 'Avatar'],
+        ],
+      },
+    },
   },
   decorators: [
     (Story) => (

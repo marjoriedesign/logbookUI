@@ -96,7 +96,7 @@
         "type": "color"
       },
       "light": {
-        "value": "#88ddb7",
+        "value": "#b9ead3",
         "type": "color"
       },
       "contrasttext": {
@@ -174,7 +174,7 @@
         "type": "color"
       },
       "light": {
-        "value": "#ffb090",
+        "value": "#faccbb",
         "type": "color"
       },
       "_states": {
@@ -208,15 +208,15 @@
     },
     "info": {
       "main": {
-        "value": "#d1c4e9",
+        "value": "#b2dfdb",
         "type": "color"
       },
       "dark": {
-        "value": "#9575cd",
+        "value": "#00796b",
         "type": "color"
       },
       "light": {
-        "value": "#ede7f6",
+        "value": "#e0f2f1",
         "type": "color"
       },
       "_states": {

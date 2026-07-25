@@ -32,6 +32,13 @@ export const Default: Story = {
       </Section>
 
       <Section title="Subtle">
+        {/* Rendue/Autre/Analysée/Consultée reprennent les 4 mêmes teintes que
+            les avatars illustrés et les Initials (Components/Avatar) :
+            orange.100/yellow.200/green.100/teal.100. Rendue (success.light)
+            et Consultée (info.main) reprennent ces teintes directement via
+            les tokens (cf. tokens/semantic.json), sans sx dédié ; Autre et
+            Analysée gardent un sx car warning/error.subtle.background ne
+            correspondent pas à yellow.200/orange.100. */}
         <Stack direction="row" spacing={1}>
           <Chip label="Non réalisée" color="secondary" variant="subtle" />
           <Chip label="Rendue" color="success" variant="subtle" />
@@ -41,7 +48,12 @@ export const Default: Story = {
             variant="subtle"
             sx={{ backgroundColor: designTokens.color.yellow['200'] }}
           />
-          <Chip label="Analysée" color="error" variant="subtle" />
+          <Chip
+            label="Analysée"
+            color="error"
+            variant="subtle"
+            sx={{ backgroundColor: designTokens.color.orange['100'] }}
+          />
           <Chip label="Consultée" color="info" variant="subtle" />
         </Stack>
       </Section>

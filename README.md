@@ -29,9 +29,11 @@ npm run tokens:build   # génère src/theme/generated/tokens.ts depuis tokens/*.
 
 - `tokens/` — source de vérité des design tokens (format Tokens Studio, consommable depuis Figma)
 - `src/theme/` — thème MUI généré depuis les tokens + overrides de composants
+- `src/components/` — wrappers de composants sans équivalent natif MUI (ex. `LogbookIconButton`, cf. CLAUDE.md sur l'ordre de modification des composants)
 - `src/icons/` — icônes RemixIcon utilisées par Logbook
-- `src/stories/Foundations/` — couleurs, typographie, spacing, icônes
-- `src/stories/Components/` — composants MUI themés (Button, TextField, Chip, Card...)
+- `src/assets/` — visuels (avatars illustrés, illustrations, logo)
+- `src/stories/Foundations/` — couleurs, typographie, spacing, icônes, visuels
+- `src/stories/Components/` — composants MUI themés (Button, IconButton, TextField, Chip, Switch, Avatar, Badge, Card...)
 
 ## État des tokens
 

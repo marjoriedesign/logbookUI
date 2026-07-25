@@ -324,7 +324,7 @@ export const designTokens = {
     "success": {
       "main": "#4ad09a",
       "dark": "#00864a",
-      "light": "#88ddb7",
+      "light": "#b9ead3",
       "contrastText": "#ffffff",
       "_states": {
         "hover": "#2e7d32",
@@ -351,7 +351,7 @@ export const designTokens = {
     "error": {
       "main": "#ff7940",
       "dark": "#bf4205",
-      "light": "#ffb090",
+      "light": "#faccbb",
       "_states": {
         "hover": "#d32f2f",
         "selected": "#d32f2f",
@@ -364,9 +364,9 @@ export const designTokens = {
       }
     },
     "info": {
-      "main": "#d1c4e9",
-      "dark": "#9575cd",
-      "light": "#ede7f6",
+      "main": "#b2dfdb",
+      "dark": "#00796b",
+      "light": "#e0f2f1",
       "_states": {
         "hover": "#0288d1",
         "selected": "#0288d1",

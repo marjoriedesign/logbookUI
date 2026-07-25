@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Box, Typography, Paper } from '@mui/material';
+import { Box, Typography, Paper, Link } from '@mui/material';
 import { designTokens } from '../../theme/generated/tokens';
 import { PageLayout } from '../PageLayout';
 import * as icons from '../../icons';
@@ -10,6 +10,9 @@ function IconFoundations() {
   const entries = Object.entries(icons);
   return (
     <PageLayout title="Icônes">
+      <Link href="https://remixicon.com/" target="_blank" rel="noopener noreferrer" sx={{ display: 'block', mb: 3 }}>
+        https://remixicon.com/
+      </Link>
       <Box
         sx={{
           display: 'grid',

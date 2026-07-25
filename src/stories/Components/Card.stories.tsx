@@ -23,7 +23,7 @@ function AudioFeedbackCard() {
           </Typography>
           <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
             <IconButton size="small" color="primary" aria-label="Écouter la correction audio">
-              <RiPlayCircleLine size={28} />
+              <RiPlayCircleLine size="1em" />
             </IconButton>
             <Typography variant="body2" color="text.secondary">
               1 min 24

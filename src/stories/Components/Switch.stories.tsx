@@ -1,11 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Switch, FormControlLabel, Stack } from '@mui/material';
+import { Switch, FormControlLabel } from '@mui/material';
 import { PageLayout, Sections, Section } from '../PageLayout';
 
 const meta: Meta<typeof Switch> = {
   title: 'Components/Switch',
   component: Switch,
   decorators: [(Story) => (<PageLayout title="Switch"><Story /></PageLayout>)],
+  args: {
+    defaultChecked: true,
+  },
 };
 
 export default meta;
@@ -15,14 +18,7 @@ export const Default: Story = {
   render: (args) => (
     <Sections>
       <Section title="Default">
-        <FormControlLabel control={<Switch {...args} />} label="Notifier l’élève par email" />
-      </Section>
-
-      <Section title="Colors">
-        <Stack direction="row" spacing={2}>
-          <FormControlLabel control={<Switch defaultChecked color="primary" />} label="Primary" />
-          <FormControlLabel control={<Switch defaultChecked color="secondary" />} label="Secondary" />
-        </Stack>
+        <FormControlLabel control={<Switch {...args} />} label="Activité" />
       </Section>
 
       <Section title="Disabled">

@@ -64,15 +64,6 @@ function ColorFoundations() {
     <PageLayout title="Couleurs">
       <Stack spacing={4}>
         <Box>
-          <Typography variant="h4" gutterBottom>
-            Couleurs sémantiques
-          </Typography>
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-            Charte Logbook (<code>tokens/semantic.json</code>). Chaque
-            combinaison main/dark + contrastText doit respecter un contraste AA
-            (4.5:1) — vérifier avec l'addon a11y de Storybook après toute
-            modification de tokens.
-          </Typography>
           <Stack spacing={3}>
             {semanticGroups.map(([name, tokens]) => (
               <SemanticGroup key={name} name={name} tokens={tokens} />
@@ -81,7 +72,7 @@ function ColorFoundations() {
         </Box>
 
         <Box>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="body1" sx={{ fontWeight: 600, textTransform: 'capitalize', mb: 1 }}>
             Fond & texte
           </Typography>
           <Stack direction="row" spacing={2} useFlexGap sx={{ flexWrap: 'wrap' }}>

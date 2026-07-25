@@ -5,6 +5,14 @@ import { PageLayout, Sections, Section } from '../PageLayout';
 const colors = ['primary', 'secondary', 'success', 'warning', 'error', 'info'] as const;
 const variants = ['contained', 'outlined', 'text'] as const;
 
+// warning : retiré des variants outlined/text (démo jugée redondante).
+// info : retiré du variant text (démo jugée redondante avec outlined).
+const variantColors: Record<(typeof variants)[number], readonly (typeof colors)[number][]> = {
+  contained: colors,
+  outlined: ['primary', 'secondary', 'success', 'error', 'info'],
+  text: ['primary', 'secondary', 'success', 'error'],
+};
+
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',
   component: Button,
@@ -38,28 +46,25 @@ export const Default: Story = {
         <Button {...args} />
       </Section>
 
-      <Section title="Colors">
-        <Stack direction="row" spacing={2} useFlexGap sx={{ flexWrap: 'wrap' }}>
-          {colors.map((color) => (
-            <Button key={color} color={color} sx={{ textTransform: 'capitalize' }}>
-              {color}
-            </Button>
-          ))}
-        </Stack>
-      </Section>
-
       <Section title="Variants">
-        <Stack spacing={2}>
+        <Stack spacing={3}>
           {variants.map((variant) => (
-            <Stack key={variant} direction="row" spacing={2} useFlexGap sx={{ alignItems: 'center', flexWrap: 'wrap' }}>
-              <Typography variant="body2" sx={{ width: 90, flexShrink: 0, textTransform: 'capitalize', fontWeight: 500 }}>
+            <Stack key={variant} spacing={1}>
+              <Typography variant="body2" sx={{ textTransform: 'capitalize', fontWeight: 500 }}>
                 {variant}
               </Typography>
-              {colors.map((color) => (
-                <Button key={color} variant={variant} color={color} sx={{ textTransform: 'capitalize' }}>
-                  {color}
-                </Button>
-              ))}
+              <Stack direction="row" spacing={2} useFlexGap sx={{ flexWrap: 'wrap' }}>
+                {variantColors[variant].map((color) => (
+                  <Button
+                    key={color}
+                    variant={variant}
+                    color={color}
+                    sx={{ textTransform: 'capitalize' }}
+                  >
+                    {color}
+                  </Button>
+                ))}
+              </Stack>
             </Stack>
           ))}
         </Stack>

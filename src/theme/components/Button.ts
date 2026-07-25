@@ -57,10 +57,26 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
       style: { '--variant-containedBg': designTokens.color.error.dark },
     },
     {
+      // MUI applique nativement un contour en alpha(main, 0.5) — demandé ici
+      // en pleine opacité, identique au texte (déjà primary.main nativement).
+      props: { variant: 'outlined', color: 'primary' },
+      style: { '--variant-outlinedBorder': designTokens.color.primary.main },
+    },
+    {
+      // Contour explicitement demandé en secondary.main (#efe0c6, le fond de
+      // Secondary Contained), malgré un contraste de 1.30:1 contre blanc
+      // (sous le seuil de 3:1 recommandé pour un contour de bouton) : choix
+      // assumé par Marjorie. Le texte reste en contrastText pour la lisibilité.
+      // Au survol, le fond devient plein en secondary.main (au lieu du léger
+      // lavis natif de MUI) : le texte contrastText reste lisible dessus,
+      // c'est la même combinaison que Secondary Contained.
       props: { variant: 'outlined', color: 'secondary' },
       style: {
         '--variant-outlinedColor': designTokens.color.secondary.contrastText,
-        '--variant-outlinedBorder': designTokens.color.secondary.contrastText,
+        '--variant-outlinedBorder': designTokens.color.secondary.main,
+        '&:hover': {
+          '--variant-outlinedBg': designTokens.color.secondary.main,
+        },
       },
     },
     {
