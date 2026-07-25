@@ -78,6 +78,12 @@
           "value": "#000000",
           "type": "color"
         }
+      },
+      "subtle": {
+        "background": {
+          "value": "#f3f0e9",
+          "type": "color"
+        }
       }
     },
     "success": {
@@ -150,6 +156,12 @@
       "contrasttext": {
         "value": "#404040",
         "type": "color"
+      },
+      "subtle": {
+        "background": {
+          "value": "#ffcfbc",
+          "type": "color"
+        }
       }
     },
     "error": {
@@ -186,6 +198,12 @@
       "contrasttext": {
         "value": "#ffffff",
         "type": "color"
+      },
+      "subtle": {
+        "background": {
+          "value": "#ffcfbc",
+          "type": "color"
+        }
       }
     },
     "info": {

@@ -33,4 +33,83 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
       fontSize: designTokens.typography.button.large,
     },
   },
+  // En variant outlined/text, MUI utilise nativement `color.{X}.main` comme
+  // couleur de texte/bordure (voir @mui/material/Button/Button.js). Pour
+  // secondary/warning/success/error/info, ce `.main` est une teinte pastel
+  // pensée comme fond (associée à son `contrastText`), pas comme couleur de
+  // texte sur blanc : contraste AA insuffisant. On bascule vers la nuance la
+  // plus foncée déjà définie dans le même groupe de couleur (`.dark`, ou
+  // `.contrastText` quand `.dark` reste lui-même trop clair) — toujours une
+  // teinte existante de la même famille, jamais une couleur inventée.
+  variants: [
+    // En variant contained, MUI utilise `color.{X}.main` comme fond avec
+    // `color.{X}.contrastText` en texte. Pour success/error, `.main` est une
+    // teinte trop pastel du groupe pour porter le contrastText existant à
+    // 4.5:1 (1.95:1 et 2.61:1). On remonte dans la rampe primitive du même
+    // groupe (green/orange, tokens/core.json) jusqu'au premier cran assez
+    // saturé : `.dark` (green.800 et orange.900) est justement ce cran.
+    {
+      props: { variant: 'contained', color: 'success' },
+      style: { '--variant-containedBg': designTokens.color.success.dark },
+    },
+    {
+      props: { variant: 'contained', color: 'error' },
+      style: { '--variant-containedBg': designTokens.color.error.dark },
+    },
+    {
+      props: { variant: 'outlined', color: 'secondary' },
+      style: {
+        '--variant-outlinedColor': designTokens.color.secondary.contrastText,
+        '--variant-outlinedBorder': designTokens.color.secondary.contrastText,
+      },
+    },
+    {
+      props: { variant: 'text', color: 'secondary' },
+      style: { '--variant-textColor': designTokens.color.secondary.contrastText },
+    },
+    {
+      props: { variant: 'outlined', color: 'warning' },
+      style: {
+        '--variant-outlinedColor': designTokens.color.warning.contrastText,
+        '--variant-outlinedBorder': designTokens.color.warning.contrastText,
+      },
+    },
+    {
+      props: { variant: 'text', color: 'warning' },
+      style: { '--variant-textColor': designTokens.color.warning.contrastText },
+    },
+    {
+      props: { variant: 'outlined', color: 'success' },
+      style: {
+        '--variant-outlinedColor': designTokens.color.success.dark,
+        '--variant-outlinedBorder': designTokens.color.success.dark,
+      },
+    },
+    {
+      props: { variant: 'text', color: 'success' },
+      style: { '--variant-textColor': designTokens.color.success.dark },
+    },
+    {
+      props: { variant: 'outlined', color: 'error' },
+      style: {
+        '--variant-outlinedColor': designTokens.color.error.dark,
+        '--variant-outlinedBorder': designTokens.color.error.dark,
+      },
+    },
+    {
+      props: { variant: 'text', color: 'error' },
+      style: { '--variant-textColor': designTokens.color.error.dark },
+    },
+    {
+      props: { variant: 'outlined', color: 'info' },
+      style: {
+        '--variant-outlinedColor': designTokens.color.info.dark,
+        '--variant-outlinedBorder': designTokens.color.info.dark,
+      },
+    },
+    {
+      props: { variant: 'text', color: 'info' },
+      style: { '--variant-textColor': designTokens.color.info.dark },
+    },
+  ],
 };

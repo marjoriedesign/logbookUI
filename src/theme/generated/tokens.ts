@@ -85,16 +85,16 @@ export const designTokens = {
       "a700": "#00c853"
     },
     "orange": {
-      "50": "#fbeae7",
-      "100": "#ffcfbc",
-      "200": "#ffb090",
-      "300": "#ff9164",
-      "400": "#ff7940",
-      "500": "#ff641b",
-      "600": "#f45d17",
-      "700": "#e65612",
-      "800": "#d84f0e",
-      "900": "#bf4205",
+      "50": "#f9e9e6",
+      "100": "#faccbb",
+      "200": "#f8ac8f",
+      "300": "#f58c63",
+      "400": "#f37441",
+      "500": "#f15e1f",
+      "600": "#e7581b",
+      "700": "#d95116",
+      "800": "#cb4a13",
+      "900": "#b23e0c",
       "a100": "#ffd180",
       "a200": "#ffab40",
       "a400": "#ff9100",
@@ -229,16 +229,16 @@ export const designTokens = {
       "a700": "#aeea00"
     },
     "yellow": {
-      "50": "#fffeea",
-      "100": "#fff9cb",
-      "200": "#fff5a9",
-      "300": "#fff088",
-      "400": "#ffeb70",
-      "500": "#fde65b",
-      "600": "#ffdd5e",
-      "700": "#ffc857",
-      "800": "#fab14f",
-      "900": "#f18c43",
+      "50": "#fcf6e5",
+      "100": "#f8e8bb",
+      "200": "#f4da92",
+      "300": "#f1cd66",
+      "400": "#f0c146",
+      "500": "#edb734",
+      "600": "#ecaa30",
+      "700": "#eb992c",
+      "800": "#e98a27",
+      "900": "#e76d1f",
       "a100": "#ffff8d",
       "a200": "#ffff00",
       "a400": "#ffea00",
@@ -316,6 +316,9 @@ export const designTokens = {
         "focus": "#000000",
         "focusvisible": "#000000",
         "outlinedborder": "#000000"
+      },
+      "subtle": {
+        "background": "#f3f0e9"
       }
     },
     "success": {
@@ -340,7 +343,10 @@ export const designTokens = {
         "focusvisible": "#ef6c00",
         "outlinedborder": "#ef6c00"
       },
-      "contrastText": "#404040"
+      "contrastText": "#404040",
+      "subtle": {
+        "background": "#ffcfbc"
+      }
     },
     "error": {
       "main": "#ff7940",
@@ -352,7 +358,10 @@ export const designTokens = {
         "focusvisible": "#d32f2f",
         "outlinedborder": "#d32f2f"
       },
-      "contrastText": "#ffffff"
+      "contrastText": "#ffffff",
+      "subtle": {
+        "background": "#ffcfbc"
+      }
     },
     "info": {
       "main": "#d1c4e9",
