@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Avatar, AvatarGroup } from '@mui/material';
+import { PageLayout } from '../PageLayout';
 
 const meta: Meta<typeof AvatarGroup> = {
   title: 'Components/AvatarGroup',
   component: AvatarGroup,
+  decorators: [(Story) => (<PageLayout title="AvatarGroup"><Story /></PageLayout>)],
 };
 
 export default meta;

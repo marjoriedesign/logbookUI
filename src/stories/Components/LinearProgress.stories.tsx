@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { LinearProgress, Stack, Typography } from '@mui/material';
+import { PageLayout } from '../PageLayout';
 
 const meta: Meta<typeof LinearProgress> = {
   title: 'Components/LinearProgress',
   component: LinearProgress,
+  decorators: [(Story) => (<PageLayout title="LinearProgress"><Story /></PageLayout>)],
   parameters: { layout: 'padded' },
 };
 

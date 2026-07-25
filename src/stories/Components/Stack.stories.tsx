@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { ReactNode } from 'react';
 import { Stack, Paper, Typography } from '@mui/material';
+import { PageLayout } from '../PageLayout';
 
 function Block({ children }: { children: ReactNode }) {
   return (
@@ -13,6 +14,7 @@ function Block({ children }: { children: ReactNode }) {
 const meta: Meta<typeof Stack> = {
   title: 'Components/Stack',
   component: Stack,
+  decorators: [(Story) => (<PageLayout title="Stack"><Story /></PageLayout>)],
 };
 
 export default meta;

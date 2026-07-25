@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Table, TableHead, TableBody, TableRow, TableCell, Stack, Typography } from '@mui/material';
 import { RiCheckboxCircleFill, RiErrorWarningLine } from '../../icons';
+import { PageLayout } from '../PageLayout';
 
 const rows = [
   { student: 'Camille Dupont', type: 'Orale', status: 'Corrigée' as const },
@@ -43,6 +44,7 @@ function CorrectionsTable() {
 const meta: Meta<typeof CorrectionsTable> = {
   title: 'Components/Table',
   component: CorrectionsTable,
+  decorators: [(Story) => (<PageLayout title="Table"><Story /></PageLayout>)],
   parameters: { layout: 'padded' },
 };
 

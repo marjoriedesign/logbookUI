@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Card, CardContent, Stack, Typography, Chip, IconButton } from '@mui/material';
 import { RiMicLine, RiPlayCircleLine } from '../../icons';
+import { PageLayout } from '../PageLayout';
 
 function AudioFeedbackCard() {
   return (
@@ -37,6 +38,7 @@ function AudioFeedbackCard() {
 const meta: Meta<typeof AudioFeedbackCard> = {
   title: 'Components/Card',
   component: AudioFeedbackCard,
+  decorators: [(Story) => (<PageLayout title="Card"><Story /></PageLayout>)],
 };
 
 export default meta;

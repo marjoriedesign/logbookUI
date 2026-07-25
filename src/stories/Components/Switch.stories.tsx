@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Switch, FormControlLabel, Stack } from '@mui/material';
+import { PageLayout } from '../PageLayout';
 
 const meta: Meta<typeof Switch> = {
   title: 'Components/Switch',
   component: Switch,
+  decorators: [(Story) => (<PageLayout title="Switch"><Story /></PageLayout>)],
 };
 
 export default meta;

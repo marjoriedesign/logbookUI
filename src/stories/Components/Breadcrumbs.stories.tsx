@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Breadcrumbs, Link, Typography } from '@mui/material';
+import { PageLayout } from '../PageLayout';
 
 const meta: Meta<typeof Breadcrumbs> = {
   title: 'Components/Breadcrumbs',
   component: Breadcrumbs,
+  decorators: [(Story) => (<PageLayout title="Breadcrumbs"><Story /></PageLayout>)],
 };
 
 export default meta;

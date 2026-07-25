@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Box, Typography } from '@mui/material';
+import { PageLayout } from '../PageLayout';
 
 const meta: Meta<typeof Box> = {
   title: 'Components/Box',
   component: Box,
+  decorators: [(Story) => (<PageLayout title="Box"><Story /></PageLayout>)],
 };
 
 export default meta;

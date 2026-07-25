@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Box, Typography, Paper } from '@mui/material';
 import { designTokens } from '../../theme/generated/tokens';
-import { FoundationsLayout } from './FoundationsLayout';
+import { PageLayout } from '../PageLayout';
 import * as icons from '../../icons';
 
 const cellSize = designTokens.spacing['12']; // 96px
@@ -9,7 +9,7 @@ const cellSize = designTokens.spacing['12']; // 96px
 function IconFoundations() {
   const entries = Object.entries(icons);
   return (
-    <FoundationsLayout title="Icônes">
+    <PageLayout title="Icônes">
       <Box
         sx={{
           display: 'grid',
@@ -39,7 +39,7 @@ function IconFoundations() {
           </Paper>
         ))}
       </Box>
-    </FoundationsLayout>
+    </PageLayout>
   );
 }
 

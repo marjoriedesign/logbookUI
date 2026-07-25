@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Stack, Typography, Box } from '@mui/material';
 import { designTokens } from '../../theme/generated/tokens';
-import { FoundationsLayout } from './FoundationsLayout';
+import { PageLayout } from '../PageLayout';
 
 function SpacingFoundations() {
   const entries = Object.entries(designTokens.spacing);
   return (
-    <FoundationsLayout title="Spacing">
+    <PageLayout title="Spacing">
       <Stack spacing={0.5}>
         {entries.map(([name, px]) => (
           <Stack key={name} direction="row" spacing={2} sx={{ alignItems: 'center' }}>
@@ -20,7 +20,7 @@ function SpacingFoundations() {
           </Stack>
         ))}
       </Stack>
-    </FoundationsLayout>
+    </PageLayout>
   );
 }
 

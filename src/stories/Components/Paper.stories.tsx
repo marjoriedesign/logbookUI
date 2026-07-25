@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Paper, Stack, Typography } from '@mui/material';
+import { PageLayout } from '../PageLayout';
 
 const meta: Meta<typeof Paper> = {
   title: 'Components/Paper',
   component: Paper,
+  decorators: [(Story) => (<PageLayout title="Paper"><Story /></PageLayout>)],
   parameters: { layout: 'padded' },
 };
 

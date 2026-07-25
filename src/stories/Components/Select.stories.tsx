@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import { PageLayout } from '../PageLayout';
 
 function CorrectionTypeSelect({ error, disabled }: { error?: boolean; disabled?: boolean }) {
   return (
@@ -17,6 +18,7 @@ function CorrectionTypeSelect({ error, disabled }: { error?: boolean; disabled?:
 const meta: Meta<typeof CorrectionTypeSelect> = {
   title: 'Components/Select',
   component: CorrectionTypeSelect,
+  decorators: [(Story) => (<PageLayout title="Select"><Story /></PageLayout>)],
 };
 
 export default meta;

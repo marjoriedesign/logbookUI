@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button, Stack } from '@mui/material';
+import { PageLayout } from '../PageLayout';
 
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',
   component: Button,
+  decorators: [(Story) => (<PageLayout title="Button"><Story /></PageLayout>)],
   args: {
     children: 'Valider',
   },

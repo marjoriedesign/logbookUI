@@ -1,10 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Avatar, Stack } from '@mui/material';
 import { RiUserLine } from '../../icons';
+import { PageLayout } from '../PageLayout';
 
 const meta: Meta<typeof Avatar> = {
   title: 'Components/Avatar',
   component: Avatar,
+  decorators: [(Story) => (<PageLayout title="Avatar"><Story /></PageLayout>)],
 };
 
 export default meta;

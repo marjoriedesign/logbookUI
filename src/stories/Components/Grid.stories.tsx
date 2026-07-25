@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Grid, Paper, Typography } from '@mui/material';
+import { PageLayout } from '../PageLayout';
 
 function DemoGrid() {
   return (
@@ -18,6 +19,7 @@ function DemoGrid() {
 const meta: Meta<typeof DemoGrid> = {
   title: 'Components/Grid',
   component: DemoGrid,
+  decorators: [(Story) => (<PageLayout title="Grid"><Story /></PageLayout>)],
   parameters: { layout: 'padded' },
 };
 

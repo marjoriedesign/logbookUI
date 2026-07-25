@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Chip, Stack } from '@mui/material';
+import { PageLayout } from '../PageLayout';
 
 const meta: Meta<typeof Chip> = {
   title: 'Components/Chip',
   component: Chip,
+  decorators: [(Story) => (<PageLayout title="Chip"><Story /></PageLayout>)],
   args: {
     label: 'IA',
   },

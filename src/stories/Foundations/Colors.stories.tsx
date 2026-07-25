@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Box, Stack, Typography } from '@mui/material';
 import { designTokens } from '../../theme/generated/tokens';
-import { FoundationsLayout } from './FoundationsLayout';
+import { PageLayout } from '../PageLayout';
 
 const { color, spacing } = designTokens;
 const swatchSize = spacing['6']; // 48px
@@ -19,10 +19,10 @@ function Swatch({ label, hex }: { label: string; hex: string }) {
           backgroundColor: hex,
         }}
       />
-      <Typography variant="caption" sx={{ fontWeight: 600, wordBreak: 'break-word', lineHeight: 1.2 }}>
+      <Typography variant="caption" sx={{ fontWeight: 600, wordBreak: 'break-word' }}>
         {label}
       </Typography>
-      <Typography variant="caption" color="text.secondary" sx={{ wordBreak: 'break-word', lineHeight: 1.2 }}>
+      <Typography variant="caption" color="text.secondary" sx={{ wordBreak: 'break-word' }}>
         {hex}
       </Typography>
     </Stack>
@@ -38,7 +38,7 @@ function SemanticGroup({
 }) {
   return (
     <Stack spacing={1}>
-      <Typography variant="body1" sx={{ fontWeight: 600, textTransform: 'capitalize', lineHeight: 1.2 }}>
+      <Typography variant="body1" sx={{ fontWeight: 600, textTransform: 'capitalize' }}>
         {name}
       </Typography>
       <Stack direction="row" spacing={2} useFlexGap sx={{ flexWrap: 'wrap' }}>
@@ -61,13 +61,13 @@ function ColorFoundations() {
   ] as const;
 
   return (
-    <FoundationsLayout title="Couleurs">
+    <PageLayout title="Couleurs">
       <Stack spacing={4}>
         <Box>
-          <Typography variant="h4" gutterBottom sx={{ lineHeight: 1.2 }}>
+          <Typography variant="h4" gutterBottom>
             Couleurs sémantiques
           </Typography>
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 2, lineHeight: 1.2 }}>
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
             Charte Logbook (<code>tokens/semantic.json</code>). Chaque
             combinaison main/dark + contrastText doit respecter un contraste AA
             (4.5:1) — vérifier avec l'addon a11y de Storybook après toute
@@ -81,7 +81,7 @@ function ColorFoundations() {
         </Box>
 
         <Box>
-          <Typography variant="h4" gutterBottom sx={{ lineHeight: 1.2 }}>
+          <Typography variant="h4" gutterBottom>
             Fond & texte
           </Typography>
           <Stack direction="row" spacing={2} useFlexGap sx={{ flexWrap: 'wrap' }}>
@@ -92,7 +92,7 @@ function ColorFoundations() {
           </Stack>
         </Box>
       </Stack>
-    </FoundationsLayout>
+    </PageLayout>
   );
 }
 

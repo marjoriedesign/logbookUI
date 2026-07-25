@@ -1,10 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Badge, IconButton } from '@mui/material';
 import { RiFileTextLine } from '../../icons';
+import { PageLayout } from '../PageLayout';
 
 const meta: Meta<typeof Badge> = {
   title: 'Components/Badge',
   component: Badge,
+  decorators: [(Story) => (<PageLayout title="Badge"><Story /></PageLayout>)],
 };
 
 export default meta;

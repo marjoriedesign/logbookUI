@@ -1,10 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { IconButton, Stack } from '@mui/material';
 import { RiMicLine } from '../../icons';
+import { PageLayout } from '../PageLayout';
 
 const meta: Meta<typeof IconButton> = {
   title: 'Components/IconButton',
   component: IconButton,
+  decorators: [(Story) => (<PageLayout title="IconButton"><Story /></PageLayout>)],
   args: {
     'aria-label': 'Démarrer l’enregistrement',
     children: <RiMicLine size={20} />,

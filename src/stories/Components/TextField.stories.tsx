@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { TextField } from '@mui/material';
+import { PageLayout } from '../PageLayout';
 
 const meta: Meta<typeof TextField> = {
   title: 'Components/TextField',
   component: TextField,
+  decorators: [(Story) => (<PageLayout title="TextField"><Story /></PageLayout>)],
   args: {
     label: 'Nom de l’élève',
     placeholder: 'Ex: Camille Dupont',
