@@ -625,6 +625,11 @@ export const designTokens = {
       "paragraphIndent": 0,
       "paragraphSpacing": 0,
       "textCase": "none"
+    },
+    "button": {
+      "small": 13,
+      "medium": 14,
+      "large": 15
     }
   },
   "fontFamilies": {

@@ -33,8 +33,10 @@ npm run tokens:build   # génère src/theme/generated/tokens.ts depuis tokens/*.
 - `src/stories/Foundations/` — couleurs, typographie, spacing, icônes
 - `src/stories/Components/` — composants MUI themés (Button, TextField, Chip, Card...)
 
-## À faire avant la présentation à l'équipe Logbook
+## État des tokens
 
-Les tokens de `tokens/core.json` et `tokens/semantic.json` sont des
-**placeholders** — voir la section "Limites connues" du SKILL.md pour
-remplacer la palette et la police par la charte réelle de Logbook.
+La charte réelle de Logbook (palette teal/corail, police Zain) est
+intégrée dans `tokens/core.json` et `tokens/semantic.json`. Deux tokens
+sémantiques restent à définir côté Figma — `color.divider` et un style de
+texte `button` — voir les commentaires dans `src/theme/palette.ts` et
+`src/theme/typography.ts`.

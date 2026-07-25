@@ -1,31 +1,31 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Box, Stack, Typography, Paper, useTheme } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 import { designTokens } from '../../theme/generated/tokens';
+import { FoundationsLayout } from './FoundationsLayout';
 
-const { color } = designTokens;
+const { color, spacing } = designTokens;
+const swatchSize = spacing['6']; // 48px
 
-function Swatch({ label, hex, textColor }: { label: string; hex: string; textColor: string }) {
+function Swatch({ label, hex }: { label: string; hex: string }) {
   return (
-    <Paper
-      variant="outlined"
-      sx={{
-        width: 160,
-        p: 2,
-        backgroundColor: hex,
-        color: textColor,
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'flex-end',
-        minHeight: 80,
-      }}
-    >
-      <Typography variant="body2" sx={{ fontWeight: 600 }}>
+    <Stack spacing={0.5} sx={{ width: swatchSize }}>
+      <Box
+        sx={{
+          width: swatchSize,
+          height: swatchSize,
+          borderRadius: 1,
+          border: '1px solid',
+          borderColor: 'divider',
+          backgroundColor: hex,
+        }}
+      />
+      <Typography variant="caption" sx={{ fontWeight: 600, wordBreak: 'break-word' }}>
         {label}
       </Typography>
-      <Typography variant="body2" sx={{ opacity: 0.8 }}>
+      <Typography variant="caption" color="text.secondary" sx={{ wordBreak: 'break-word' }}>
         {hex}
       </Typography>
-    </Paper>
+    </Stack>
   );
 }
 
@@ -42,16 +42,15 @@ function SemanticGroup({
         {name}
       </Typography>
       <Stack direction="row" spacing={2} useFlexGap sx={{ flexWrap: 'wrap' }}>
-        <Swatch label="main" hex={tokens.main} textColor={tokens.contrastText} />
-        <Swatch label="light" hex={tokens.light} textColor={color.text.primary} />
-        <Swatch label="dark" hex={tokens.dark} textColor={tokens.contrastText} />
+        <Swatch label="main" hex={tokens.main} />
+        <Swatch label="light" hex={tokens.light} />
+        <Swatch label="dark" hex={tokens.dark} />
       </Stack>
     </Stack>
   );
 }
 
 function ColorFoundations() {
-  const theme = useTheme();
   const semanticGroups = [
     ['primary', color.primary],
     ['secondary', color.secondary],
@@ -62,45 +61,38 @@ function ColorFoundations() {
   ] as const;
 
   return (
-    <Stack spacing={4} sx={{ p: 2 }}>
-      <Box>
-        <Typography variant="h3" gutterBottom>
-          Couleurs sémantiques
-        </Typography>
-        <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-          Charte Logbook (<code>tokens/semantic.json</code>). Chaque
-          combinaison main/dark + contrastText doit respecter un contraste AA
-          (4.5:1) — vérifier avec l'addon a11y de Storybook après toute
-          modification de tokens.
-        </Typography>
-        <Stack spacing={3}>
-          {semanticGroups.map(([name, tokens]) => (
-            <SemanticGroup key={name} name={name} tokens={tokens} />
-          ))}
-        </Stack>
-      </Box>
+    <FoundationsLayout title="Couleurs">
+      <Stack spacing={4}>
+        <Box>
+          <Typography variant="h4" gutterBottom>
+            Couleurs sémantiques
+          </Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+            Charte Logbook (<code>tokens/semantic.json</code>). Chaque
+            combinaison main/dark + contrastText doit respecter un contraste AA
+            (4.5:1) — vérifier avec l'addon a11y de Storybook après toute
+            modification de tokens.
+          </Typography>
+          <Stack spacing={3}>
+            {semanticGroups.map(([name, tokens]) => (
+              <SemanticGroup key={name} name={name} tokens={tokens} />
+            ))}
+          </Stack>
+        </Box>
 
-      <Box>
-        <Typography variant="h3" gutterBottom>
-          Fond & texte
-        </Typography>
-        <Stack direction="row" spacing={2} useFlexGap sx={{ flexWrap: 'wrap' }}>
-          <Swatch label="background.default" hex={color.background.default} textColor={color.text.primary} />
-          <Swatch
-            label="background.paper"
-            hex={color.background['paper-elevation-1']}
-            textColor={color.text.primary}
-          />
-          <Swatch label="text.primary" hex={color.text.primary} textColor={color.background['paper-elevation-1']} />
-          <Swatch
-            label="text.secondary"
-            hex={color.text.secondary}
-            textColor={color.background['paper-elevation-1']}
-          />
-          <Swatch label="divider (défaut MUI)" hex={theme.palette.divider} textColor={color.text.primary} />
-        </Stack>
-      </Box>
-    </Stack>
+        <Box>
+          <Typography variant="h4" gutterBottom>
+            Fond & texte
+          </Typography>
+          <Stack direction="row" spacing={2} useFlexGap sx={{ flexWrap: 'wrap' }}>
+            <Swatch label="background.default" hex={color.background.default} />
+            <Swatch label="background.paper" hex={color.background['paper-elevation-1']} />
+            <Swatch label="text.primary" hex={color.text.primary} />
+            <Swatch label="text.secondary" hex={color.text.secondary} />
+          </Stack>
+        </Box>
+      </Stack>
+    </FoundationsLayout>
   );
 }
 

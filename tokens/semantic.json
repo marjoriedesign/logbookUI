@@ -1361,6 +1361,20 @@
         "textCase": "none"
       },
       "type": "custom-fontStyle"
+    },
+    "button": {
+      "small": {
+        "value": 13,
+        "type": "dimension"
+      },
+      "medium": {
+        "value": 14,
+        "type": "dimension"
+      },
+      "large": {
+        "value": 15,
+        "type": "dimension"
+      }
     }
   },
   "fontFamilies": {

@@ -44,6 +44,22 @@ export const Variants: Story = {
   ),
 };
 
+export const Sizes: Story = {
+  render: (args) => (
+    <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
+      <Button {...args} size="small">
+        Small
+      </Button>
+      <Button {...args} size="medium">
+        Medium
+      </Button>
+      <Button {...args} size="large">
+        Large
+      </Button>
+    </Stack>
+  ),
+};
+
 export const Disabled: Story = {
   args: { disabled: true },
 };

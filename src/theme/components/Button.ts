@@ -11,10 +11,18 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
       borderRadius: designTokens.borderRadius.md,
       paddingInline: designTokens.spacing.md,
       paddingBlock: designTokens.spacing.sm,
+      fontWeight: designTokens.fontWeights.bold,
     },
     sizeSmall: {
       paddingInline: designTokens.spacing.sm,
       paddingBlock: designTokens.spacing.xs,
+      fontSize: designTokens.typography.button.small,
+    },
+    sizeMedium: {
+      fontSize: designTokens.typography.button.medium,
+    },
+    sizeLarge: {
+      fontSize: designTokens.typography.button.large,
     },
   },
 };
