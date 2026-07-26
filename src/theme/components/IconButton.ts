@@ -19,14 +19,22 @@ export const MuiIconButton: Components<Theme>['MuiIconButton'] = {
     // icônes doivent utiliser size="1em" pour en hériter (cf. stories).
     // Aucun cran de spacing existant ne vaut 20 ou 24px : exception
     // explicite plutôt qu'un token, cf. CLAUDE.md "valeurs en dur".
+    // Padding ajusté pour que chaque taille d'IconButton (sans bordure)
+    // tombe exactement sur la hauteur du Button de même taille (Button.ts) :
+    // small 32px, medium 36px, large 46px (48px avec la bordure 1px du
+    // variant outlined de LogbookIconButton) — cohérence entre les deux
+    // composants, notamment quand ils cohabitent dans la navbar.
     sizeSmall: {
       fontSize: '20px',
+      padding: '6px',
     },
     sizeMedium: {
       fontSize: '24px',
+      padding: '6px',
     },
     sizeLarge: {
       fontSize: '24px',
+      padding: '11px',
     },
   },
   variants: [

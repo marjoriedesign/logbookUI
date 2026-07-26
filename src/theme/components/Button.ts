@@ -22,15 +22,36 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
       // Exception explicite : hauteur imposée à 32px, idem ci-dessus.
       paddingBlock: '8.203125px',
       fontSize: designTokens.typography.button.small,
+      // MUI fixe nativement la taille des icônes de startIcon/endIcon à 18px
+      // en small (voir commonIconStyles dans Button.js), indépendamment de
+      // notre fontSize/lineHeight — un bouton avec icône devient alors plus
+      // haut qu'un bouton texte seul (l'icône dépasse le line-height). On
+      // aligne ici la taille de l'icône sur le lineHeight (120%) du bouton
+      // pour que la hauteur reste la même avec ou sans icône.
+      '& .MuiButton-startIcon > *:first-of-type, & .MuiButton-endIcon > *:first-of-type': {
+        fontSize: '15.6px',
+      },
     },
     sizeMedium: {
       fontSize: designTokens.typography.button.medium,
+      '& .MuiButton-startIcon > *:first-of-type, & .MuiButton-endIcon > *:first-of-type': {
+        fontSize: '16.8px',
+      },
     },
     sizeLarge: {
       paddingInline: designTokens.spacing.lg,
-      // Exception explicite : hauteur imposée à 42px, idem ci-dessus.
-      paddingBlock: '12px',
+      // Exception explicite : hauteur imposée à 48px bordure comprise
+      // (mesurée sur le bouton outlined équivalent en prod, cf.
+      // LogbookNavbar) plutôt que 42px, pour rester fidèle à l'existant.
+      // Avec fontSize 15px, lineHeight 120% (18px) et 1px de bordure de
+      // chaque côté en outlined, 14px de padding tombe pile sur 48px total
+      // (14+14+18+1+1) — à condition que l'icône ne dépasse pas ce
+      // lineHeight, cf. override ci-dessous.
+      paddingBlock: '14px',
       fontSize: designTokens.typography.button.large,
+      '& .MuiButton-startIcon > *:first-of-type, & .MuiButton-endIcon > *:first-of-type': {
+        fontSize: '18px',
+      },
     },
   },
   // En variant outlined/text, MUI utilise nativement `color.{X}.main` comme

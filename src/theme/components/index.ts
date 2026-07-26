@@ -8,6 +8,8 @@ import { MuiAppBar } from './AppBar';
 import { MuiAvatarGroup } from './AvatarGroup';
 import { MuiSwitch } from './Switch';
 import { MuiFormControlLabel } from './FormControlLabel';
+import { MuiAlert } from './Alert';
+import { MuiCheckbox } from './Checkbox';
 
 export const components: Components<Theme> = {
   MuiButton,
@@ -22,4 +24,6 @@ export const components: Components<Theme> = {
   MuiAvatarGroup,
   MuiSwitch,
   MuiFormControlLabel,
+  MuiAlert,
+  MuiCheckbox,
 };

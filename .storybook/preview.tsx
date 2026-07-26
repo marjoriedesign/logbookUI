@@ -23,7 +23,7 @@ const preview: Preview = {
         order: [
           'Foundations',
           'Components',
-          ['Button', 'IconButton', 'Chip', 'Switch', 'TextField', 'Select', 'Badge', 'Avatar'],
+          ['Navbar', 'Button', 'IconButton', 'Chip', 'Switch', 'Checkbox', 'TextField', 'Select', 'Alert', 'Badge', 'Avatar'],
         ],
       },
     },

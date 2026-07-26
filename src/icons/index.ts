@@ -95,6 +95,7 @@ export {
   // Communication & notifications
   RiMailLine,
   RiChat3Line,
+  RiFeedbackLine,
   RiQuestionLine,
   RiQuestionAnswerLine,
   RiNotificationLine,
@@ -142,7 +143,7 @@ export {
   RiEyeCloseLine,
 
   // Partage & réseaux
-  RiShare2Line,
+  RiShareLine,
   RiLinksLine,
   RiInstagramLine,
   RiLinkedinLine,
