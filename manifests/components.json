@@ -1,0 +1,481 @@
+{
+  "v": 0,
+  "components": {
+    "foundations-colors": {
+      "id": "foundations-colors",
+      "name": "ColorFoundations",
+      "path": "./src/stories/Foundations/Colors.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "No component import found",
+        "message": "No component file found for the \"ColorFoundations\" component.\n  88 | }\n  89 |\n> 90 | const meta: Meta<typeof ColorFoundations> = {\n     | ^\n  91 |   title: 'Foundations/Colors',\n  92 |   component: ColorFoundations,\n  93 |   parameters: { layout: 'padded' },\n\n./src/stories/Foundations/Colors.stories.tsx:\nimport type { Meta, StoryObj } from '@storybook/react-vite';\nimport { Box, Stack, Typography } from '@mui/material';\nimport { designTokens } from '../../theme/generated/tokens';\nimport { PageLayout } from '../PageLayout';\n\nconst { color, spacing } = designTokens;\nconst swatchSize = spacing['6']; // 48px\n\nfunction Swatch({ label, hex }: { label: string; hex: string }) {\n  return (\n    <Stack spacing={0.5} sx={{ width: swatchSize }}>\n      <Box\n        sx={{\n          width: swatchSize,\n          height: swatchSize,\n          borderRadius: 1,\n          border: '1px solid',\n          borderColor: 'divider',\n          backgroundColor: hex,\n        }}\n      />\n      <Typography variant=\"caption\" sx={{ fontWeight: 600, wordBreak: 'break-word' }}>\n        {label}\n      </Typography>\n      <Typography variant=\"caption\" color=\"text.secondary\" sx={{ wordBreak: 'break-word' }}>\n        {hex}\n      </Typography>\n    </Stack>\n  );\n}\n\nfunction SemanticGroup({\n  name,\n  tokens,\n}: {\n  name: string;\n  tokens: { main: string; light: string; dark: string; contrastText: string };\n}) {\n  return (\n    <Stack spacing={1}>\n      <Typography variant=\"body1\" sx={{ fontWeight: 600, textTransform: 'capitalize' }}>\n        {name}\n      </Typography>\n      <Stack direction=\"row\" spacing={2} useFlexGap sx={{ flexWrap: 'wrap' }}>\n        <Swatch label=\"main\" hex={tokens.main} />\n        <Swatch label=\"light\" hex={tokens.light} />\n        <Swatch label=\"dark\" hex={tokens.dark} />\n      </Stack>\n    </Stack>\n  );\n}\n\nfunction ColorFoundations() {\n  const semanticGroups = [\n    ['primary', color.primary],\n    ['secondary', color.secondary],\n    ['success', color.success],\n    ['warning', color.warning],\n    ['error', color.error],\n    ['info', color.info],\n  ] as const;\n\n  return (\n    <PageLayout title=\"Couleurs\">\n      <Stack spacing={4}>\n        <Box>\n          <Stack spacing={3}>\n            {semanticGroups.map(([name, tokens]) => (\n              <SemanticGroup key={name} name={name} tokens={tokens} />\n            ))}\n          </Stack>\n        </Box>\n\n        <Box>\n          <Typography variant=\"body1\" sx={{ fontWeight: 600, textTransform: 'capitalize', mb: 1 }}>\n            Fond & texte\n          </Typography>\n          <Stack direction=\"row\" spacing={2} useFlexGap sx={{ flexWrap: 'wrap' }}>\n            <Swatch label=\"background.default\" hex={color.background.default} />\n            <Swatch label=\"background.paper\" hex={color.background['paper-elevation-1']} />\n            <Swatch label=\"text.primary\" hex={color.text.primary} />\n            <Swatch label=\"text.secondary\" hex={color.text.secondary} />\n          </Stack>\n        </Box>\n      </Stack>\n    </PageLayout>\n  );\n}\n\nconst meta: Meta<typeof ColorFoundations> = {\n  title: 'Foundations/Colors',\n  component: ColorFoundations,\n  parameters: { layout: 'padded' },\n};\n\nexport default meta;\ntype Story = StoryObj<typeof ColorFoundations>;\n\nexport const Palette: Story = {};\n"
+      },
+      "stories": [
+        {
+          "id": "foundations-colors--palette",
+          "name": "Palette",
+          "error": {
+            "name": "Error",
+            "message": "Could not generate snippet without component name."
+          }
+        }
+      ],
+      "import": "import { Box, Stack, Typography } from \"@mui/material\";\nimport { PageLayout } from \"logbook-design-system\";"
+    },
+    "foundations-icons": {
+      "id": "foundations-icons",
+      "name": "IconFoundations",
+      "path": "./src/stories/Foundations/Icons.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "No component import found",
+        "message": "No component file found for the \"IconFoundations\" component.\n  47 | }\n  48 |\n> 49 | const meta: Meta<typeof IconFoundations> = {\n     | ^\n  50 |   title: 'Foundations/Icons',\n  51 |   component: IconFoundations,\n  52 |   parameters: { layout: 'padded' },\n\n./src/stories/Foundations/Icons.stories.tsx:\nimport type { Meta, StoryObj } from '@storybook/react-vite';\nimport { Box, Typography, Paper, Link } from '@mui/material';\nimport { designTokens } from '../../theme/generated/tokens';\nimport { PageLayout } from '../PageLayout';\nimport * as icons from '../../icons';\n\nconst cellSize = designTokens.spacing['12']; // 96px\n\nfunction IconFoundations() {\n  const entries = Object.entries(icons);\n  return (\n    <PageLayout title=\"Icônes\">\n      <Link href=\"https://remixicon.com/\" target=\"_blank\" rel=\"noopener noreferrer\" sx={{ display: 'block', mb: 3 }}>\n        https://remixicon.com/\n      </Link>\n      <Box\n        sx={{\n          display: 'grid',\n          gridTemplateColumns: `repeat(auto-fill, ${cellSize}px)`,\n          gap: 2,\n        }}\n      >\n        {entries.map(([name, Icon]) => (\n          <Paper\n            key={name}\n            variant=\"outlined\"\n            sx={{\n              width: cellSize,\n              height: cellSize,\n              display: 'flex',\n              flexDirection: 'column',\n              alignItems: 'center',\n              justifyContent: 'center',\n              gap: 1,\n              p: 1,\n            }}\n          >\n            <Icon size={24} />\n            <Typography variant=\"caption\" sx={{ textAlign: 'center', wordBreak: 'break-word', lineHeight: 1.3 }}>\n              {name}\n            </Typography>\n          </Paper>\n        ))}\n      </Box>\n    </PageLayout>\n  );\n}\n\nconst meta: Meta<typeof IconFoundations> = {\n  title: 'Foundations/Icons',\n  component: IconFoundations,\n  parameters: { layout: 'padded' },\n};\n\nexport default meta;\ntype Story = StoryObj<typeof IconFoundations>;\n\nexport const RemixIconSet: Story = {};\n"
+      },
+      "stories": [
+        {
+          "id": "foundations-icons--remix-icon-set",
+          "name": "Remix Icon Set",
+          "snippet": "const RemixIconSet = () => <Icon />;"
+        }
+      ],
+      "import": "import { Box, Link, Paper, Typography } from \"@mui/material\";\nimport { PageLayout } from \"logbook-design-system\";"
+    },
+    "foundations-spacing": {
+      "id": "foundations-spacing",
+      "name": "SpacingFoundations",
+      "path": "./src/stories/Foundations/Spacing.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "No component import found",
+        "message": "No component file found for the \"SpacingFoundations\" component.\n  25 | }\n  26 |\n> 27 | const meta: Meta<typeof SpacingFoundations> = {\n     | ^\n  28 |   title: 'Foundations/Spacing',\n  29 |   component: SpacingFoundations,\n  30 |   parameters: { layout: 'padded' },\n\n./src/stories/Foundations/Spacing.stories.tsx:\nimport type { Meta, StoryObj } from '@storybook/react-vite';\nimport { Stack, Typography, Box } from '@mui/material';\nimport { designTokens } from '../../theme/generated/tokens';\nimport { PageLayout } from '../PageLayout';\n\nfunction SpacingFoundations() {\n  const entries = Object.entries(designTokens.spacing);\n  return (\n    <PageLayout title=\"Spacing\">\n      <Stack spacing={0.5}>\n        {entries.map(([name, px]) => (\n          <Stack key={name} direction=\"row\" spacing={2} sx={{ alignItems: 'center' }}>\n            <Typography variant=\"body2\" sx={{ width: 60, flexShrink: 0, fontWeight: 500 }}>\n              {name}\n            </Typography>\n            <Box sx={{ width: px, height: 16, backgroundColor: 'primary.main', borderRadius: 0.5 }} />\n            <Typography variant=\"body2\" color=\"text.secondary\">\n              {px}px\n            </Typography>\n          </Stack>\n        ))}\n      </Stack>\n    </PageLayout>\n  );\n}\n\nconst meta: Meta<typeof SpacingFoundations> = {\n  title: 'Foundations/Spacing',\n  component: SpacingFoundations,\n  parameters: { layout: 'padded' },\n};\n\nexport default meta;\ntype Story = StoryObj<typeof SpacingFoundations>;\n\nexport const Scale: Story = {};\n"
+      },
+      "stories": [
+        {
+          "id": "foundations-spacing--scale",
+          "name": "Scale",
+          "error": {
+            "name": "Error",
+            "message": "Could not generate snippet without component name."
+          }
+        }
+      ],
+      "import": "import { Box, Stack, Typography } from \"@mui/material\";\nimport { PageLayout } from \"logbook-design-system\";"
+    },
+    "foundations-typography": {
+      "id": "foundations-typography",
+      "name": "TypographyFoundations",
+      "path": "./src/stories/Foundations/Typography.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "Component file in node_modules",
+        "message": "File: /Users/marjorie/logbook-design-system/node_modules/@mui/material/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+      },
+      "stories": [
+        {
+          "id": "foundations-typography--type-ramp",
+          "name": "Type Ramp",
+          "snippet": "const TypeRamp = () => <Typography />;"
+        }
+      ],
+      "import": "import { Divider, PageLayout, Stack, Typography } from \"@mui/material\";"
+    },
+    "foundations-visuals": {
+      "id": "foundations-visuals",
+      "name": "VisualsFoundations",
+      "path": "./src/stories/Foundations/Visuals.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "No component import found",
+        "message": "No component file found for the \"VisualsFoundations\" component.\n  142 | }\n  143 |\n> 144 | const meta: Meta<typeof VisualsFoundations> = {\n      | ^\n  145 |   title: 'Foundations/Visuals',\n  146 |   component: VisualsFoundations,\n  147 |   parameters: { layout: 'padded' },\n\n./src/stories/Foundations/Visuals.stories.tsx:\nimport type { Meta, StoryObj } from '@storybook/react-vite';\nimport { Avatar, Box, Typography } from '@mui/material';\nimport { designTokens } from '../../theme/generated/tokens';\nimport { PageLayout, Sections, Section } from '../PageLayout';\n\nimport logoGreen from '../../assets/logo/LogoGreen.svg';\nimport logoWhite from '../../assets/logo/LogoWhite.svg';\n\nimport boy1 from '../../assets/avatars/Boy1.svg';\nimport boy2 from '../../assets/avatars/Boy2.svg';\nimport boy3 from '../../assets/avatars/Boy3.svg';\nimport boy4 from '../../assets/avatars/Boy4.svg';\nimport girl1 from '../../assets/avatars/Girl1.svg';\nimport girl2 from '../../assets/avatars/Girl2.svg';\nimport girl3 from '../../assets/avatars/Girl3.svg';\nimport girl4 from '../../assets/avatars/Girl4.svg';\n\nimport announcement from '../../assets/illustrations/Announcement.svg';\nimport certification from '../../assets/illustrations/Certification.svg';\nimport editing from '../../assets/illustrations/Editing.svg';\nimport feedback from '../../assets/illustrations/Feedback.svg';\nimport growth from '../../assets/illustrations/Growth.svg';\nimport inbox from '../../assets/illustrations/Inbox.svg';\nimport oralPractice from '../../assets/illustrations/OralPractice.svg';\n\nconst avatarVisuals = [\n  { name: 'Boy1', src: boy1 },\n  { name: 'Boy2', src: boy2 },\n  { name: 'Boy3', src: boy3 },\n  { name: 'Boy4', src: boy4 },\n  { name: 'Girl1', src: girl1 },\n  { name: 'Girl2', src: girl2 },\n  { name: 'Girl3', src: girl3 },\n  { name: 'Girl4', src: girl4 },\n];\n\nconst iconIllustrations = [\n  { name: 'Announcement', src: announcement },\n  { name: 'Certification', src: certification },\n  { name: 'Editing', src: editing },\n  { name: 'Feedback', src: feedback },\n  { name: 'Growth', src: growth },\n  { name: 'Inbox', src: inbox },\n  { name: 'Oral Practice', src: oralPractice },\n];\n\nconst avatarCellSize = designTokens.spacing['12']; // 96px, même cran que Foundations/Icons\nconst illustrationCellSize = 136; // taille native des assets (viewBox 136x136)\n\nfunction VisualsFoundations() {\n  return (\n    <PageLayout title=\"Visuals\">\n      <Sections>\n        <Section title=\"Logo\">\n          <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>\n            <Box\n              sx={{\n                display: 'flex',\n                alignItems: 'center',\n                justifyContent: 'center',\n                p: 3,\n                borderRadius: 1,\n                border: '1px solid',\n                borderColor: 'divider',\n              }}\n            >\n              <Box component=\"img\" src={logoGreen} alt=\"Logo Logbook (vert)\" sx={{ height: 40 }} />\n            </Box>\n            <Box\n              sx={{\n                display: 'flex',\n                alignItems: 'center',\n                justifyContent: 'center',\n                p: 3,\n                borderRadius: 1,\n                backgroundColor: designTokens.color.primary.main,\n              }}\n            >\n              <Box component=\"img\" src={logoWhite} alt=\"Logo Logbook (blanc)\" sx={{ height: 40 }} />\n            </Box>\n          </Box>\n        </Section>\n\n        <Section title=\"Avatars\">\n          <Box\n            sx={{\n              display: 'grid',\n              gridTemplateColumns: `repeat(auto-fill, ${avatarCellSize}px)`,\n              gap: 2,\n            }}\n          >\n            {avatarVisuals.map(({ name, src }) => (\n              <Box\n                key={name}\n                sx={{\n                  width: avatarCellSize,\n                  display: 'flex',\n                  flexDirection: 'column',\n                  alignItems: 'center',\n                  gap: 1,\n                }}\n              >\n                <Avatar src={src} alt={name} sx={{ width: 56, height: 56 }} />\n                <Typography variant=\"caption\" sx={{ textAlign: 'center' }}>\n                  {name}\n                </Typography>\n              </Box>\n            ))}\n          </Box>\n        </Section>\n\n        <Section title=\"Icon Illustrations\">\n          <Box\n            sx={{\n              display: 'grid',\n              gridTemplateColumns: `repeat(auto-fill, ${illustrationCellSize}px)`,\n              gap: 2,\n            }}\n          >\n            {iconIllustrations.map(({ name, src }) => (\n              <Box\n                key={name}\n                sx={{\n                  width: illustrationCellSize,\n                  display: 'flex',\n                  flexDirection: 'column',\n                  alignItems: 'center',\n                  gap: 1,\n                }}\n              >\n                <Box component=\"img\" src={src} alt={name} sx={{ width: illustrationCellSize, height: illustrationCellSize }} />\n                <Typography variant=\"caption\" sx={{ textAlign: 'center' }}>\n                  {name}\n                </Typography>\n              </Box>\n            ))}\n          </Box>\n        </Section>\n      </Sections>\n    </PageLayout>\n  );\n}\n\nconst meta: Meta<typeof VisualsFoundations> = {\n  title: 'Foundations/Visuals',\n  component: VisualsFoundations,\n  parameters: { layout: 'padded' },\n};\n\nexport default meta;\ntype Story = StoryObj<typeof VisualsFoundations>;\n\nexport const Default: Story = {};\n"
+      },
+      "stories": [
+        {
+          "id": "foundations-visuals--default",
+          "name": "Default",
+          "error": {
+            "name": "Error",
+            "message": "Could not generate snippet without component name."
+          }
+        }
+      ],
+      "import": "import { Avatar, Box, Typography } from \"@mui/material\";\nimport { PageLayout, Section, Sections } from \"logbook-design-system\";"
+    },
+    "components-button": {
+      "id": "components-button",
+      "name": "Button",
+      "path": "./src/stories/Components/Button.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "Component file in node_modules",
+        "message": "File: /Users/marjorie/logbook-design-system/node_modules/@mui/material/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+      },
+      "stories": [
+        {
+          "id": "components-button--default",
+          "name": "Default",
+          "snippet": "const Default = () => <Sections>\n    <Section title=\"Default\">\n        <Button>Valider</Button>\n    </Section>\n    <Section title=\"Variants\">\n        <Stack spacing={3}>\n            {variants.map((variant) => (\n              <Stack key={variant} spacing={1}>\n                <Typography variant=\"body2\" sx={{ textTransform: 'capitalize', fontWeight: 500 }}>\n                  {variant}\n                </Typography>\n                <Stack direction=\"row\" spacing={2} useFlexGap sx={{ flexWrap: 'wrap' }}>\n                  {variantColors[variant].map((color) => (\n                    <Button\n                      key={color}\n                      variant={variant}\n                      color={color}\n                      sx={{ textTransform: 'capitalize' }}\n                    >\n                      {color}\n                    </Button>\n                  ))}\n                </Stack>\n              </Stack>\n            ))}\n        </Stack>\n    </Section>\n    <Section title=\"Sizes\">\n        <Stack direction=\"row\" spacing={2} sx={{ alignItems: 'center' }}>\n            <Button size=\"small\">Small\n                          </Button>\n            <Button size=\"medium\">Medium\n                          </Button>\n            <Button size=\"large\">Large\n                          </Button>\n        </Stack>\n    </Section>\n    <Section title=\"Disabled\">\n        <Button disabled>Valider</Button>\n    </Section>\n</Sections>;"
+        }
+      ],
+      "import": "import { Button, PageLayout, Section, Sections, Stack, Typography } from \"@mui/material\";"
+    },
+    "components-iconbutton": {
+      "id": "components-iconbutton",
+      "name": "IconButton",
+      "path": "./src/stories/Components/IconButton.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "Component file in node_modules",
+        "message": "File: /Users/marjorie/logbook-design-system/node_modules/@mui/material/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+      },
+      "stories": [
+        {
+          "id": "components-iconbutton--default",
+          "name": "Default",
+          "snippet": "const Default = () => <Sections>\n    <Section title=\"Default\">\n        <IconButton aria-label=\"Démarrer l’enregistrement\"><RiMicLine size=\"1em\" /></IconButton>\n    </Section>\n    <Section title=\"Colors\">\n        <Stack direction=\"row\" spacing={1}>\n            <IconButton aria-label=\"Démarrer l’enregistrement\" color=\"primary\"><RiMicLine size=\"1em\" /></IconButton>\n            <IconButton aria-label=\"Démarrer l’enregistrement\" color=\"secondary\"><RiMicLine size=\"1em\" /></IconButton>\n            <IconButton aria-label=\"Démarrer l’enregistrement\" color=\"default\"><RiMicLine size=\"1em\" /></IconButton>\n        </Stack>\n    </Section>\n    <Section title=\"Filled\">\n        <Stack direction=\"row\" spacing={1}>\n            {semanticColors.map((c) => (\n              <LogbookIconButton key={c} {...args} variant=\"filled\" color={c} />\n            ))}\n        </Stack>\n    </Section>\n    <Section title=\"Outlined\">\n        <Stack direction=\"row\" spacing={1}>\n            {semanticColors.map((c) => (\n              <LogbookIconButton key={c} {...args} variant=\"outlined\" color={c} />\n            ))}\n        </Stack>\n    </Section>\n    <Section title=\"Sizes\">\n        <Stack direction=\"row\" spacing={1} sx={{ alignItems: 'center' }}>\n            <IconButton aria-label=\"Démarrer l’enregistrement\" size=\"small\"><RiMicLine size=\"1em\" /></IconButton>\n            <IconButton aria-label=\"Démarrer l’enregistrement\" size=\"medium\"><RiMicLine size=\"1em\" /></IconButton>\n        </Stack>\n    </Section>\n    <Section title=\"Disabled\">\n        <IconButton aria-label=\"Démarrer l’enregistrement\" disabled><RiMicLine size=\"1em\" /></IconButton>\n    </Section>\n</Sections>;"
+        }
+      ],
+      "import": "import {\n    IconButton,\n    LogbookIconButton,\n    PageLayout,\n    RiMicLine,\n    Section,\n    Sections,\n    Stack,\n} from \"@mui/material\";"
+    },
+    "components-chip": {
+      "id": "components-chip",
+      "name": "Chip",
+      "path": "./src/stories/Components/Chip.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "Component file in node_modules",
+        "message": "File: /Users/marjorie/logbook-design-system/node_modules/@mui/material/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+      },
+      "stories": [
+        {
+          "id": "components-chip--default",
+          "name": "Default",
+          "snippet": "const Default = () => <Sections>\n    <Section title=\"Default\">\n        <Chip label=\"Default\" />\n    </Section>\n    <Section title=\"Strong\">\n        <Stack direction=\"row\" spacing={1}>\n            <Chip label=\"Primary\" color=\"primary\" />\n            <Chip label=\"Secondary\" color=\"secondary\" />\n            <Chip label=\"Succès\" color=\"success\" />\n            <Chip label=\"Attention\" color=\"warning\" />\n        </Stack>\n    </Section>\n    <Section title=\"Subtle\">\n        {/* Rendue/Autre/Analysée/Consultée reprennent les 4 mêmes teintes que\n            les avatars illustrés et les Initials (Components/Avatar) :\n            orange.100/yellow.200/green.100/teal.100. Rendue (success.light)\n            et Consultée (info.main) reprennent ces teintes directement via\n            les tokens (cf. tokens/semantic.json), sans sx dédié ; Autre et\n            Analysée gardent un sx car warning/error.subtle.background ne\n            correspondent pas à yellow.200/orange.100. */}\n        <Stack direction=\"row\" spacing={1}>\n            <Chip label=\"Non réalisée\" color=\"secondary\" variant=\"subtle\" />\n            <Chip label=\"Rendue\" color=\"success\" variant=\"subtle\" />\n            <Chip\n                label=\"Autre\"\n                color=\"warning\"\n                variant=\"subtle\"\n                sx={{ backgroundColor: designTokens.color.yellow['200'] }} />\n            <Chip\n                label=\"Analysée\"\n                color=\"error\"\n                variant=\"subtle\"\n                sx={{ backgroundColor: designTokens.color.orange['100'] }} />\n            <Chip label=\"Consultée\" color=\"info\" variant=\"subtle\" />\n        </Stack>\n    </Section>\n</Sections>;"
+        }
+      ],
+      "import": "import { Chip, PageLayout, Section, Sections, Stack } from \"@mui/material\";"
+    },
+    "components-switch": {
+      "id": "components-switch",
+      "name": "Switch",
+      "path": "./src/stories/Components/Switch.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "Component file in node_modules",
+        "message": "File: /Users/marjorie/logbook-design-system/node_modules/@mui/material/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+      },
+      "stories": [
+        {
+          "id": "components-switch--default",
+          "name": "Default",
+          "snippet": "const Default = (args) => (\n  <Sections>\n    <Section title=\"Default\">\n      <FormControlLabel control={<Switch {...args} />} label=\"Activité\" />\n    </Section>\n\n    <Section title=\"Disabled\">\n      <FormControlLabel control={<Switch disabled />} label=\"Désactivé\" />\n    </Section>\n  </Sections>\n);"
+        }
+      ],
+      "import": "import { FormControlLabel, PageLayout, Section, Sections, Switch } from \"@mui/material\";"
+    },
+    "components-checkbox": {
+      "id": "components-checkbox",
+      "name": "Checkbox",
+      "path": "./src/stories/Components/Checkbox.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "Component file in node_modules",
+        "message": "File: /Users/marjorie/logbook-design-system/node_modules/@mui/material/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+      },
+      "stories": [
+        {
+          "id": "components-checkbox--default",
+          "name": "Default",
+          "snippet": "const Default = (args) => (\n  <Sections>\n    <Section title=\"Default\">\n      <FormControlLabel control={<Checkbox {...args} />} label=\"Recevoir les notifications\" />\n    </Section>\n\n    <Section title=\"Colors\">\n      <Stack direction=\"row\" spacing={2}>\n        {colors.map((c) => (\n          <FormControlLabel key={c} control={<Checkbox defaultChecked color={c} />} label={c} />\n        ))}\n      </Stack>\n    </Section>\n\n    <Section title=\"States\">\n      <Stack direction=\"row\" spacing={2}>\n        <FormControlLabel control={<Checkbox />} label=\"Non coché\" />\n        <FormControlLabel control={<Checkbox defaultChecked />} label=\"Coché\" />\n        <FormControlLabel control={<Checkbox indeterminate />} label=\"Indéterminé\" />\n        <FormControlLabel control={<Checkbox disabled />} label=\"Désactivé\" />\n        <FormControlLabel control={<Checkbox disabled defaultChecked />} label=\"Désactivé (coché)\" />\n      </Stack>\n    </Section>\n  </Sections>\n);"
+        }
+      ],
+      "import": "import { Checkbox, FormControlLabel, PageLayout, Section, Sections, Stack } from \"@mui/material\";"
+    },
+    "components-textfield": {
+      "id": "components-textfield",
+      "name": "TextField",
+      "path": "./src/stories/Components/TextField.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "Component file in node_modules",
+        "message": "File: /Users/marjorie/logbook-design-system/node_modules/@mui/material/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+      },
+      "stories": [
+        {
+          "id": "components-textfield--default",
+          "name": "Default",
+          "snippet": "const Default = () => <Sections>\n    <Section title=\"Default\">\n        <TextField label=\"Nom de l’élève\" placeholder=\"Ex: Camille Dupont\" />\n    </Section>\n    <Section title=\"HelperText\">\n        <TextField\n            label=\"Nom de l’élève\"\n            placeholder=\"Ex: Camille Dupont\"\n            helperText=\"Tel qu’il apparaît dans le registre de classe\" />\n    </Section>\n    <Section title=\"ErrorState\">\n        <TextField\n            label=\"Nom de l’élève\"\n            placeholder=\"Ex: Camille Dupont\"\n            error\n            helperText=\"Ce champ est requis\" />\n    </Section>\n    <Section title=\"Disabled\">\n        <TextField label=\"Nom de l’élève\" placeholder=\"Ex: Camille Dupont\" disabled />\n    </Section>\n</Sections>;"
+        }
+      ],
+      "import": "import { PageLayout, Section, Sections, TextField } from \"@mui/material\";"
+    },
+    "components-select": {
+      "id": "components-select",
+      "name": "CorrectionTypeSelect",
+      "path": "./src/stories/Components/Select.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "Component file in node_modules",
+        "message": "File: /Users/marjorie/logbook-design-system/node_modules/@mui/material/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+      },
+      "stories": [
+        {
+          "id": "components-select--default",
+          "name": "Default",
+          "snippet": "const Default = () => (\n  <Sections>\n    <Section title=\"Default\">\n      <CorrectionTypeSelect />\n    </Section>\n\n    <Section title=\"Disabled\">\n      <CorrectionTypeSelect disabled />\n    </Section>\n\n    <Section title=\"ErrorState\">\n      <CorrectionTypeSelect error />\n    </Section>\n  </Sections>\n);"
+        }
+      ],
+      "import": "import { FormControl, InputLabel, MenuItem, PageLayout, Section, Sections, Select } from \"@mui/material\";"
+    },
+    "components-alert": {
+      "id": "components-alert",
+      "name": "Alert",
+      "path": "./src/stories/Components/Alert.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "Component file in node_modules",
+        "message": "File: /Users/marjorie/logbook-design-system/node_modules/@mui/material/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+      },
+      "stories": [
+        {
+          "id": "components-alert--default",
+          "name": "Default",
+          "snippet": "const Default = () => (\n  <Sections>\n    <Section title=\"Standard\">\n      <Stack spacing={1}>\n        {severities.map((severity) => (\n          <Alert key={severity} severity={severity}>\n            {messages[severity]}\n          </Alert>\n        ))}\n      </Stack>\n    </Section>\n\n    <Section title=\"Outlined\">\n      <Stack spacing={1}>\n        {severities.map((severity) => (\n          <Alert key={severity} severity={severity} variant=\"outlined\">\n            {messages[severity]}\n          </Alert>\n        ))}\n      </Stack>\n    </Section>\n\n    <Section title=\"Filled\">\n      <Stack spacing={1}>\n        {severities.map((severity) => (\n          <Alert key={severity} severity={severity} variant=\"filled\">\n            {messages[severity]}\n          </Alert>\n        ))}\n      </Stack>\n    </Section>\n  </Sections>\n);"
+        }
+      ],
+      "import": "import { Alert, PageLayout, Section, Sections, Stack } from \"@mui/material\";"
+    },
+    "components-badge": {
+      "id": "components-badge",
+      "name": "Badge",
+      "path": "./src/stories/Components/Badge.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "Component file in node_modules",
+        "message": "File: /Users/marjorie/logbook-design-system/node_modules/@mui/material/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+      },
+      "stories": [
+        {
+          "id": "components-badge--default",
+          "name": "Default",
+          "snippet": "const Default = () => (\n  <Sections>\n    <Section title=\"Count\">\n      <Badge badgeContent={3} color=\"primary\">\n        <LogbookIconButton variant=\"outlined\" color=\"secondary\" aria-label=\"Corrections reçues\">\n          <RiFileTextLine size=\"1em\" />\n        </LogbookIconButton>\n      </Badge>\n    </Section>\n\n    <Section title=\"Dot\">\n      <Badge variant=\"dot\" color=\"primary\">\n        <LogbookIconButton variant=\"outlined\" color=\"secondary\" aria-label=\"Nouvelles corrections\">\n          <RiFileTextLine size=\"1em\" />\n        </LogbookIconButton>\n      </Badge>\n    </Section>\n\n    <Section title=\"Max\">\n      <Badge badgeContent={120} max={99} color=\"primary\">\n        <LogbookIconButton variant=\"outlined\" color=\"secondary\" aria-label=\"Corrections reçues\">\n          <RiFileTextLine size=\"1em\" />\n        </LogbookIconButton>\n      </Badge>\n    </Section>\n  </Sections>\n);"
+        }
+      ],
+      "import": "import { Badge, LogbookIconButton, PageLayout, RiFileTextLine, Section, Sections } from \"@mui/material\";"
+    },
+    "components-avatar": {
+      "id": "components-avatar",
+      "name": "Avatar",
+      "path": "./src/stories/Components/Avatar.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "Component file in node_modules",
+        "message": "File: /Users/marjorie/logbook-design-system/node_modules/@mui/material/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+      },
+      "stories": [
+        {
+          "id": "components-avatar--default",
+          "name": "Default",
+          "snippet": "const Default = () => (\n  <Sections>\n    <Section title=\"Initials\">\n      <Stack direction=\"row\" spacing={2}>\n        {/* Mêmes 4 teintes que les fonds des avatars illustrés (section\n            Illustrated), remplacées par leur équivalent le plus proche du\n            nuancier (orange.100/yellow.200/green.100/teal.100). */}\n        <Avatar sx={{ backgroundColor: designTokens.color.orange['100'], color: designTokens.color.text.secondary }}>\n          CD\n        </Avatar>\n        <Avatar sx={{ backgroundColor: designTokens.color.yellow['200'], color: designTokens.color.text.secondary }}>\n          CD\n        </Avatar>\n        <Avatar sx={{ backgroundColor: designTokens.color.green['100'], color: designTokens.color.text.secondary }}>\n          CD\n        </Avatar>\n        <Avatar sx={{ backgroundColor: designTokens.color.teal['100'], color: designTokens.color.text.secondary }}>\n          CD\n        </Avatar>\n      </Stack>\n    </Section>\n\n    <Section title=\"Icon\">\n      <Avatar>\n        <RiUserLine size={20} />\n      </Avatar>\n    </Section>\n\n    <Section title=\"Illustrated\">\n      <Stack direction=\"row\" spacing={2} useFlexGap sx={{ flexWrap: 'wrap' }}>\n        {avatarVisuals.map(({ name, src }) => (\n          <Box key={name} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0.5 }}>\n            <Avatar src={src} alt={name} />\n            <Typography variant=\"caption\" color=\"text.secondary\">\n              {name}\n            </Typography>\n          </Box>\n        ))}\n      </Stack>\n    </Section>\n\n    <Section title=\"Sizes\">\n      <Stack direction=\"row\" spacing={2} sx={{ alignItems: 'center' }}>\n        <Avatar src={boy1} alt=\"Boy1\" sx={{ width: 24, height: 24 }} />\n        <Avatar src={boy1} alt=\"Boy1\" />\n        <Avatar src={boy1} alt=\"Boy1\" sx={{ width: 56, height: 56 }} />\n      </Stack>\n    </Section>\n\n    <Section title=\"AvatarGroup\">\n      <AvatarGroup max={4}>\n        <Avatar src={boy1} alt=\"Boy1\" />\n        <Avatar src={girl1} alt=\"Girl1\" />\n        <Avatar src={boy2} alt=\"Boy2\" />\n        <Avatar src={girl2} alt=\"Girl2\" />\n        <Avatar src={boy3} alt=\"Boy3\" />\n      </AvatarGroup>\n    </Section>\n  </Sections>\n);"
+        }
+      ],
+      "import": "import {\n    Avatar,\n    AvatarGroup,\n    Box,\n    PageLayout,\n    RiUserLine,\n    Section,\n    Sections,\n    Stack,\n    Typography,\n} from \"@mui/material\";"
+    },
+    "components-box": {
+      "id": "components-box",
+      "name": "Box",
+      "path": "./src/stories/Components/Box.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "Component file in node_modules",
+        "message": "File: /Users/marjorie/logbook-design-system/node_modules/@mui/material/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+      },
+      "stories": [
+        {
+          "id": "components-box--default",
+          "name": "Default",
+          "snippet": "const Default = () => (\n  <Box\n    sx={{\n      p: 3,\n      borderRadius: 2,\n      border: '1px solid',\n      borderColor: 'divider',\n      backgroundColor: 'background.paper',\n    }}\n  >\n    <Typography variant=\"body2\">\n      Box est le conteneur de base — toute mise en forme passe par la prop{' '}\n      <code>sx</code>, qui lit le thème (couleurs, spacing, radius).\n    </Typography>\n  </Box>\n);"
+        }
+      ],
+      "import": "import { Box, PageLayout, Typography } from \"@mui/material\";"
+    },
+    "components-breadcrumbs": {
+      "id": "components-breadcrumbs",
+      "name": "Breadcrumbs",
+      "path": "./src/stories/Components/Breadcrumbs.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "Component file in node_modules",
+        "message": "File: /Users/marjorie/logbook-design-system/node_modules/@mui/material/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+      },
+      "stories": [
+        {
+          "id": "components-breadcrumbs--default",
+          "name": "Default",
+          "snippet": "const Default = () => (\n  <Breadcrumbs aria-label=\"Fil d’Ariane\">\n    <Link underline=\"hover\" color=\"inherit\" href=\"#\">\n      Classes\n    </Link>\n    <Link underline=\"hover\" color=\"inherit\" href=\"#\">\n      4ᵉ B\n    </Link>\n    <Typography color=\"text.primary\">Camille Dupont</Typography>\n  </Breadcrumbs>\n);"
+        }
+      ],
+      "import": "import { Breadcrumbs, Link, PageLayout, Typography } from \"@mui/material\";"
+    },
+    "components-card": {
+      "id": "components-card",
+      "name": "AudioFeedbackCard",
+      "path": "./src/stories/Components/Card.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "Component file in node_modules",
+        "message": "File: /Users/marjorie/logbook-design-system/node_modules/@mui/material/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+      },
+      "stories": [
+        {
+          "id": "components-card--audio-feedback",
+          "name": "Audio Feedback",
+          "snippet": "const AudioFeedback = () => <Card />;"
+        }
+      ],
+      "import": "import {\n    Card,\n    CardContent,\n    Chip,\n    IconButton,\n    PageLayout,\n    RiMicLine,\n    RiPlayCircleLine,\n    Stack,\n    Typography,\n} from \"@mui/material\";"
+    },
+    "components-grid": {
+      "id": "components-grid",
+      "name": "DemoGrid",
+      "path": "./src/stories/Components/Grid.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "Component file in node_modules",
+        "message": "File: /Users/marjorie/logbook-design-system/node_modules/@mui/material/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+      },
+      "stories": [
+        {
+          "id": "components-grid--responsive",
+          "name": "Responsive",
+          "snippet": "const Responsive = () => <Grid />;"
+        }
+      ],
+      "import": "import { Grid, PageLayout, Paper, Typography } from \"@mui/material\";"
+    },
+    "components-linearprogress": {
+      "id": "components-linearprogress",
+      "name": "LinearProgress",
+      "path": "./src/stories/Components/LinearProgress.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "Component file in node_modules",
+        "message": "File: /Users/marjorie/logbook-design-system/node_modules/@mui/material/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+      },
+      "stories": [
+        {
+          "id": "components-linearprogress--default",
+          "name": "Default",
+          "snippet": "const Default = () => (\n  <Sections>\n    <Section title=\"Determinate\">\n      <Stack spacing={1} sx={{ width: 280 }}>\n        <Typography variant=\"body2\" color=\"text.secondary\">\n          12 corrections sur 20 terminées\n        </Typography>\n        <LinearProgress variant=\"determinate\" value={60} />\n      </Stack>\n    </Section>\n\n    <Section title=\"Indeterminate\">\n      <Stack sx={{ width: 280 }}>\n        <LinearProgress />\n      </Stack>\n    </Section>\n\n    <Section title=\"Colors\">\n      <Stack spacing={2} sx={{ width: 280 }}>\n        <LinearProgress variant=\"determinate\" value={70} color=\"primary\" />\n        <LinearProgress variant=\"determinate\" value={70} color=\"secondary\" />\n        <LinearProgress variant=\"determinate\" value={70} color=\"success\" />\n      </Stack>\n    </Section>\n  </Sections>\n);"
+        }
+      ],
+      "import": "import { LinearProgress, PageLayout, Section, Sections, Stack, Typography } from \"@mui/material\";"
+    },
+    "components-paper": {
+      "id": "components-paper",
+      "name": "Paper",
+      "path": "./src/stories/Components/Paper.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "Component file in node_modules",
+        "message": "File: /Users/marjorie/logbook-design-system/node_modules/@mui/material/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+      },
+      "stories": [
+        {
+          "id": "components-paper--default",
+          "name": "Default",
+          "snippet": "const Default = () => (\n  <Sections>\n    <Section title=\"Elevations\">\n      <Stack direction=\"row\" spacing={3} useFlexGap sx={{ flexWrap: 'wrap', rowGap: '40px' }}>\n        {[0, 1, 3, 6, 12].map((elevation) => (\n          <Paper key={elevation} elevation={elevation} sx={{ p: 2, width: 140 }}>\n            <Typography variant=\"body2\">elevation={elevation}</Typography>\n          </Paper>\n        ))}\n      </Stack>\n    </Section>\n\n    <Section title=\"Outlined\">\n      <Paper variant=\"outlined\" sx={{ p: 2, width: 200 }}>\n        <Typography variant=\"body2\">variant=\"outlined\"</Typography>\n      </Paper>\n    </Section>\n  </Sections>\n);"
+        }
+      ],
+      "import": "import { PageLayout, Paper, Section, Sections, Stack, Typography } from \"@mui/material\";"
+    },
+    "components-stack": {
+      "id": "components-stack",
+      "name": "Stack",
+      "path": "./src/stories/Components/Stack.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "Component file in node_modules",
+        "message": "File: /Users/marjorie/logbook-design-system/node_modules/@mui/material/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+      },
+      "stories": [
+        {
+          "id": "components-stack--default",
+          "name": "Default",
+          "snippet": "const Default = () => (\n  <Sections>\n    <Section title=\"Row\">\n      <Stack direction=\"row\" spacing={2}>\n        <Block>1</Block>\n        <Block>2</Block>\n        <Block>3</Block>\n      </Stack>\n    </Section>\n\n    <Section title=\"Column\">\n      <Stack spacing={2} sx={{ maxWidth: 240 }}>\n        <Block>1</Block>\n        <Block>2</Block>\n        <Block>3</Block>\n      </Stack>\n    </Section>\n  </Sections>\n);"
+        }
+      ],
+      "import": "import { PageLayout, Paper, Section, Sections, Stack, Typography } from \"@mui/material\";"
+    },
+    "components-table": {
+      "id": "components-table",
+      "name": "CorrectionsTable",
+      "path": "./src/stories/Components/Table.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "Component file in node_modules",
+        "message": "File: /Users/marjorie/logbook-design-system/node_modules/@mui/material/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+      },
+      "stories": [
+        {
+          "id": "components-table--default",
+          "name": "Default",
+          "snippet": "const Default = () => <Table />;"
+        }
+      ],
+      "import": "import {\n    PageLayout,\n    RiCheckboxCircleFill,\n    RiErrorWarningLine,\n    Stack,\n    Table,\n    TableBody,\n    TableCell,\n    TableHead,\n    TableRow,\n    Typography,\n} from \"@mui/material\";"
+    },
+    "logbook-navbar": {
+      "id": "logbook-navbar",
+      "name": "NavbarDemo",
+      "path": "./src/stories/Logbook/Navbar.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "No component import found",
+        "message": "No component file found for the \"NavbarDemo\" component.\n  23 | }\n  24 |\n> 25 | const meta: Meta<typeof NavbarDemo> = {\n     | ^\n  26 |   title: 'Logbook/Navbar',\n  27 |   component: NavbarDemo,\n  28 |   decorators: [(Story) => (<PageLayout title=\"Navbar\"><Story /></PageLayout>)],\n\n./src/stories/Logbook/Navbar.stories.tsx:\nimport { useState } from 'react';\nimport type { Meta, StoryObj } from '@storybook/react-vite';\nimport { LogbookNavbar } from '../../components/LogbookNavbar';\nimport { PageLayout, Sections, Section } from '../PageLayout';\n\nconst classOptions = [\n  { value: '2de2', label: '2DE 2' },\n  { value: '2de1', label: '2DE 1' },\n  { value: '1eres', label: '1ÈRE S' },\n];\n\nfunction NavbarDemo() {\n  const [selectedClass, setSelectedClass] = useState('2de2');\n  return (\n    <LogbookNavbar\n      classOptions={classOptions}\n      selectedClass={selectedClass}\n      onClassChange={setSelectedClass}\n      userName=\"Axelle\"\n      notificationCount={1}\n    />\n  );\n}\n\nconst meta: Meta<typeof NavbarDemo> = {\n  title: 'Logbook/Navbar',\n  component: NavbarDemo,\n  decorators: [(Story) => (<PageLayout title=\"Navbar\"><Story /></PageLayout>)],\n};\n\nexport default meta;\ntype Story = StoryObj<typeof NavbarDemo>;\n\nexport const Default: Story = {\n  render: () => (\n    <Sections>\n      <Section title=\"Default\">\n        <NavbarDemo />\n      </Section>\n    </Sections>\n  ),\n};\n"
+      },
+      "stories": [
+        {
+          "id": "logbook-navbar--default",
+          "name": "Default",
+          "snippet": "const Default = () => (\n  <Sections>\n    <Section title=\"Default\">\n      <NavbarDemo />\n    </Section>\n  </Sections>\n);"
+        }
+      ],
+      "import": "import { LogbookNavbar, PageLayout, Section, Sections } from \"logbook-design-system\";"
+    },
+    "logbook-listenprogress": {
+      "id": "logbook-listenprogress",
+      "name": "LogbookListenProgress",
+      "path": "./src/stories/Logbook/ListenProgress.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "LogbookListenProgress",
+        "definedInFile": "/Users/marjorie/logbook-design-system/src/components/LogbookListenProgress.tsx",
+        "actualName": "LogbookListenProgress",
+        "exportName": "LogbookListenProgress",
+        "props": {
+          "value": {
+            "required": true,
+            "tsType": {
+              "name": "number"
+            },
+            "description": "Pourcentage écouté, peut dépasser 100 (relecture d'une partie de l'audio)."
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "logbook-listenprogress--default",
+          "name": "Default",
+          "snippet": "const Default = () => <Sections>\n    <Section title=\"Default\">\n        <LogbookListenProgress value={52} />\n    </Section>\n    <Section title=\"Examples\">\n        <Stack spacing={2}>\n            <LogbookListenProgress value={120} />\n            <LogbookListenProgress value={52} />\n            <LogbookListenProgress value={0} />\n        </Stack>\n    </Section>\n</Sections>;"
+        }
+      ],
+      "import": "import { LogbookListenProgress, PageLayout, Section, Sections } from \"logbook-design-system\";\nimport { Stack } from \"@mui/material\";"
+    }
+  },
+  "meta": {
+    "docgen": "react-docgen",
+    "durationMs": 289
+  }
+}

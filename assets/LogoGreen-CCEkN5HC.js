@@ -1,0 +1,1 @@
+import{i as e}from"./preload-helper-BdFrVu1K.js";var t,n=e((()=>{t=``+new URL(`LogoGreen-0swf8Xhw.svg`,import.meta.url).href}));export{n,t};
