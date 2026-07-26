@@ -10,7 +10,7 @@
         "type": "color"
       },
       "light": {
-        "value": "#42a5f5",
+        "value": "#afe6ee",
         "type": "color"
       },
       "contrasttext": {
@@ -19,7 +19,7 @@
       },
       "_states": {
         "hover": {
-          "value": "#efe0c6",
+          "value": "#3ba67b",
           "type": "color"
         },
         "selected": {
@@ -59,7 +59,7 @@
       },
       "_states": {
         "hover": {
-          "value": "#000000",
+          "value": "#a88e64",
           "type": "color"
         },
         "selected": {
@@ -105,7 +105,7 @@
       },
       "_states": {
         "hover": {
-          "value": "#2e7d32",
+          "value": "#006b3b",
           "type": "color"
         },
         "selected": {
@@ -137,7 +137,7 @@
       },
       "_states": {
         "hover": {
-          "value": "#ef6c00",
+          "value": "#333333",
           "type": "color"
         },
         "selected": {
@@ -179,7 +179,7 @@
       },
       "_states": {
         "hover": {
-          "value": "#d32f2f",
+          "value": "#993504",
           "type": "color"
         },
         "selected": {
@@ -221,7 +221,7 @@
       },
       "_states": {
         "hover": {
-          "value": "#0288d1",
+          "value": "#006156",
           "type": "color"
         },
         "selected": {

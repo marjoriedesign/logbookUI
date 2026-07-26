@@ -1,6 +1,12 @@
 import type { Components, Theme } from '@mui/material/styles';
 import { designTokens } from '../generated/tokens';
 
+const { color } = designTokens;
+// Pas de token "blanc" dédié : primary/success/error.contrastText valent
+// tous #ffffff déjà (cf. tokens/semantic.json) — réutilisé tel quel plutôt
+// que d'écrire la valeur en dur, même logique que Chip.ts.
+const white = color.success.contrastText;
+
 export const MuiButton: Components<Theme>['MuiButton'] = {
   defaultProps: {
     disableElevation: true,
@@ -70,12 +76,35 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
     // groupe (green/orange, tokens/core.json) jusqu'au premier cran assez
     // saturé : `.dark` (green.800 et orange.900) est justement ce cran.
     {
+      // .dark est déjà le fond au repos ici : sans la règle de survol
+      // ci-dessous, le hover natif de MUI (qui bascule aussi vers .dark)
+      // ne produirait aucun changement visible. `_states.hover` (nuance
+      // encore au-dessus de .dark, cf. tokens/semantic.json) plutôt qu'un
+      // calcul ad hoc, pour que cette teinte reste réutilisable telle
+      // quelle par les autres composants.
       props: { variant: 'contained', color: 'success' },
-      style: { '--variant-containedBg': designTokens.color.success.dark },
+      style: {
+        '--variant-containedBg': color.success.dark,
+        '&:hover': { '--variant-containedBg': color.success._states.hover },
+      },
     },
     {
       props: { variant: 'contained', color: 'error' },
-      style: { '--variant-containedBg': designTokens.color.error.dark },
+      style: {
+        '--variant-containedBg': color.error.dark,
+        '&:hover': { '--variant-containedBg': color.error._states.hover },
+      },
+    },
+    {
+      // Bug latent détecté à l'audit des survols : au repos, fond .main +
+      // texte contrastText (#404040) passe l'AA (7.14:1). Mais MUI bascule
+      // nativement le fond vers .dark au survol sans toucher au texte —
+      // #404040 sur le teal foncé de .dark tombe à 1.95:1. Le texte doit
+      // donc aussi passer au blanc au survol.
+      props: { variant: 'contained', color: 'info' },
+      style: {
+        '&:hover': { '--variant-containedColor': white },
+      },
     },
     {
       // MUI applique nativement un contour en alpha(main, 0.5) — demandé ici
@@ -105,48 +134,95 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
       style: { '--variant-textColor': designTokens.color.secondary.contrastText },
     },
     {
+      // Au survol, le contour et le texte passent à `_states.hover` (une
+      // nuance au-dessus de l'accent au repos) — pas de remplissage, contour
+      // et texte seulement, contrairement à Secondary Outlined ci-dessus.
       props: { variant: 'outlined', color: 'warning' },
       style: {
-        '--variant-outlinedColor': designTokens.color.warning.contrastText,
-        '--variant-outlinedBorder': designTokens.color.warning.contrastText,
+        '--variant-outlinedColor': color.warning.contrastText,
+        '--variant-outlinedBorder': color.warning.contrastText,
+        '&:hover': {
+          '--variant-outlinedColor': color.warning._states.hover,
+          '--variant-outlinedBorder': color.warning._states.hover,
+          '--variant-outlinedBg': 'transparent',
+        },
       },
     },
     {
       props: { variant: 'text', color: 'warning' },
-      style: { '--variant-textColor': designTokens.color.warning.contrastText },
+      style: {
+        '--variant-textColor': color.warning.contrastText,
+        '&:hover': {
+          '--variant-textColor': color.warning._states.hover,
+          '--variant-textBg': 'transparent',
+        },
+      },
     },
     {
       props: { variant: 'outlined', color: 'success' },
       style: {
-        '--variant-outlinedColor': designTokens.color.success.dark,
-        '--variant-outlinedBorder': designTokens.color.success.dark,
+        '--variant-outlinedColor': color.success.dark,
+        '--variant-outlinedBorder': color.success.dark,
+        '&:hover': {
+          '--variant-outlinedColor': color.success._states.hover,
+          '--variant-outlinedBorder': color.success._states.hover,
+          '--variant-outlinedBg': 'transparent',
+        },
       },
     },
     {
       props: { variant: 'text', color: 'success' },
-      style: { '--variant-textColor': designTokens.color.success.dark },
+      style: {
+        '--variant-textColor': color.success.dark,
+        '&:hover': {
+          '--variant-textColor': color.success._states.hover,
+          '--variant-textBg': 'transparent',
+        },
+      },
     },
     {
       props: { variant: 'outlined', color: 'error' },
       style: {
-        '--variant-outlinedColor': designTokens.color.error.dark,
-        '--variant-outlinedBorder': designTokens.color.error.dark,
+        '--variant-outlinedColor': color.error.dark,
+        '--variant-outlinedBorder': color.error.dark,
+        '&:hover': {
+          '--variant-outlinedColor': color.error._states.hover,
+          '--variant-outlinedBorder': color.error._states.hover,
+          '--variant-outlinedBg': 'transparent',
+        },
       },
     },
     {
       props: { variant: 'text', color: 'error' },
-      style: { '--variant-textColor': designTokens.color.error.dark },
+      style: {
+        '--variant-textColor': color.error.dark,
+        '&:hover': {
+          '--variant-textColor': color.error._states.hover,
+          '--variant-textBg': 'transparent',
+        },
+      },
     },
     {
       props: { variant: 'outlined', color: 'info' },
       style: {
-        '--variant-outlinedColor': designTokens.color.info.dark,
-        '--variant-outlinedBorder': designTokens.color.info.dark,
+        '--variant-outlinedColor': color.info.dark,
+        '--variant-outlinedBorder': color.info.dark,
+        '&:hover': {
+          '--variant-outlinedColor': color.info._states.hover,
+          '--variant-outlinedBorder': color.info._states.hover,
+          '--variant-outlinedBg': 'transparent',
+        },
       },
     },
     {
       props: { variant: 'text', color: 'info' },
-      style: { '--variant-textColor': designTokens.color.info.dark },
+      style: {
+        '--variant-textColor': color.info.dark,
+        '&:hover': {
+          '--variant-textColor': color.info._states.hover,
+          '--variant-textBg': 'transparent',
+        },
+      },
     },
   ],
 };

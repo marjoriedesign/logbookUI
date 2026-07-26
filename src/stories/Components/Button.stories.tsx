@@ -5,12 +5,10 @@ import { PageLayout, Sections, Section } from '../PageLayout';
 const colors = ['primary', 'secondary', 'success', 'warning', 'error', 'info'] as const;
 const variants = ['contained', 'outlined', 'text'] as const;
 
-// warning : retiré des variants outlined/text (démo jugée redondante).
-// info : retiré du variant text (démo jugée redondante avec outlined).
 const variantColors: Record<(typeof variants)[number], readonly (typeof colors)[number][]> = {
   contained: colors,
-  outlined: ['primary', 'secondary', 'success', 'error', 'info'],
-  text: ['primary', 'secondary', 'success', 'error'],
+  outlined: colors,
+  text: colors,
 };
 
 const meta: Meta<typeof Button> = {

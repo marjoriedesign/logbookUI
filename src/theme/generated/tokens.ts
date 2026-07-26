@@ -295,10 +295,10 @@ export const designTokens = {
     "primary": {
       "main": "#025358",
       "dark": "#4ad09a",
-      "light": "#42a5f5",
+      "light": "#afe6ee",
       "contrastText": "#ffffff",
       "_states": {
-        "hover": "#efe0c6",
+        "hover": "#3ba67b",
         "selected": "#000000",
         "focus": "#000000",
         "focusvisible": "#efe0c6",
@@ -311,7 +311,7 @@ export const designTokens = {
       "light": "#fdfaf3",
       "contrastText": "#025358",
       "_states": {
-        "hover": "#000000",
+        "hover": "#a88e64",
         "selected": "#000000",
         "focus": "#000000",
         "focusvisible": "#000000",
@@ -327,7 +327,7 @@ export const designTokens = {
       "light": "#b9ead3",
       "contrastText": "#ffffff",
       "_states": {
-        "hover": "#2e7d32",
+        "hover": "#006b3b",
         "selected": "#2e7d32",
         "focusvisible": "#2e7d32",
         "outlinedborder": "#2e7d32"
@@ -338,7 +338,7 @@ export const designTokens = {
       "dark": "#ffb090",
       "light": "#fbeae7",
       "_states": {
-        "hover": "#ef6c00",
+        "hover": "#333333",
         "selected": "#ef6c00",
         "focusvisible": "#ef6c00",
         "outlinedborder": "#ef6c00"
@@ -353,7 +353,7 @@ export const designTokens = {
       "dark": "#bf4205",
       "light": "#faccbb",
       "_states": {
-        "hover": "#d32f2f",
+        "hover": "#993504",
         "selected": "#d32f2f",
         "focusvisible": "#d32f2f",
         "outlinedborder": "#d32f2f"
@@ -368,7 +368,7 @@ export const designTokens = {
       "dark": "#00796b",
       "light": "#e0f2f1",
       "_states": {
-        "hover": "#0288d1",
+        "hover": "#006156",
         "selected": "#0288d1",
         "focusvisible": "#0288d1",
         "outlinedborder": "#0288d1"

@@ -16,7 +16,7 @@ export const Default: Story = {
   render: () => (
     <Sections>
       <Section title="Elevations">
-        <Stack direction="row" spacing={3} sx={{ flexWrap: 'wrap' }}>
+        <Stack direction="row" spacing={3} useFlexGap sx={{ flexWrap: 'wrap', rowGap: '40px' }}>
           {[0, 1, 3, 6, 12].map((elevation) => (
             <Paper key={elevation} elevation={elevation} sx={{ p: 2, width: 140 }}>
               <Typography variant="body2">elevation={elevation}</Typography>

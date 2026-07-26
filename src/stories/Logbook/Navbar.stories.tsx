@@ -23,7 +23,7 @@ function NavbarDemo() {
 }
 
 const meta: Meta<typeof NavbarDemo> = {
-  title: 'Components/Navbar',
+  title: 'Logbook/Navbar',
   component: NavbarDemo,
   decorators: [(Story) => (<PageLayout title="Navbar"><Story /></PageLayout>)],
 };

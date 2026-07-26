@@ -5,6 +5,17 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>logbook-design-system</title>
+    <!-- Police Zain (tokens/core.json fontFamilies) : déclarée dans le thème
+         mais jamais chargée nulle part dans ce repo jusqu'ici, contrairement
+         à la prod (voir Google Fonts css2 API) — sans ce lien, le navigateur
+         retombe silencieusement sur Helvetica Neue/Arial (cf. typography.ts),
+         qui n'a pas les mêmes proportions au même font-size. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zain:wght@200;300;400;700;800;900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="root"></div>

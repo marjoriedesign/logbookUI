@@ -10,6 +10,7 @@ import { MuiSwitch } from './Switch';
 import { MuiFormControlLabel } from './FormControlLabel';
 import { MuiAlert } from './Alert';
 import { MuiCheckbox } from './Checkbox';
+import { MuiSelect } from './Select';
 
 export const components: Components<Theme> = {
   MuiButton,
@@ -26,4 +27,5 @@ export const components: Components<Theme> = {
   MuiFormControlLabel,
   MuiAlert,
   MuiCheckbox,
+  MuiSelect,
 };

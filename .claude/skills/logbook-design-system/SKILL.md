@@ -39,13 +39,20 @@ src/theme/
 
 src/icons/index.ts        # ré-export ciblé des icônes RemixIcon utilisées
 
+src/components/           # wrappers/assemblages sans équivalent natif MUI
+                          # (LogbookIconButton, LogbookNavbar, LogbookListenProgress...)
+
 src/stories/
-  Foundations/            # Colors, Typography, Spacing, Icons — vue d'ensemble des tokens
-  Components/             # Button, TextField, Chip, Card... (vrais composants MUI themés)
+  Foundations/            # Colors, Typography, Spacing, Icons, Visuals — vue d'ensemble des tokens
+  Components/             # Button, TextField, Chip, Card... (composants MUI themés pris individuellement)
+  Logbook/                # assemblages propres au produit (Navbar, ListenProgress...),
+                          # catégorie Storybook séparée de Components
 
 .storybook/
-  main.ts                 # config Storybook (addons a11y, docs, vitest inclus par défaut)
+  main.ts                 # config Storybook (addons a11y, docs, vitest, mcp)
   preview.tsx              # decorator LogbookThemeProvider + parameter a11y.test = 'error'
+  preview-head.html        # <head> injecté dans l'iframe de preview (import Google Fonts Zain —
+                          # Storybook ne lit pas index.html, cf. section police plus bas)
 ```
 
 ## Ajouter ou modifier un token
@@ -74,6 +81,18 @@ Ne jamais éditer `src/theme/generated/tokens.ts` à la main — il est
    tokens.
 4. Ajouter/mettre à jour la story correspondante dans
    `src/stories/Components/`.
+
+## Composants Components/ vs Logbook/
+
+- `Components/` : un composant MUI thémé pris individuellement (Button,
+  Chip, Select...), y compris ses wrappers directs sans équivalent natif
+  (`LogbookIconButton` reste ici — c'est juste IconButton + une prop
+  `variant`, pas un assemblage).
+- `Logbook/` : un assemblage de plusieurs composants, propre au produit
+  (Navbar = AppBar + Select + Button + Badge + LogbookIconButton ;
+  ListenProgress = icône + barres + texte). Si le composant compose
+  plusieurs briques de `Components/` pour un usage produit précis, la
+  story va dans `src/stories/Logbook/`, pas `Components/`.
 
 ## Icônes (RemixIcon)
 
@@ -150,13 +169,17 @@ Le dossier `tokens/` est déjà au format attendu par le plugin
   "Accessibility" sous chaque story) — celui-ci fonctionne normalement,
   seul le runner CI headless est affecté.
 
-- Les valeurs de `tokens/core.json` et `semantic.json` sont des
-  **placeholders** (palette indigo/teal générique) : elles doivent être
-  remplacées par la charte graphique réelle de Logbook (couleurs de
-  marque, police). Après remplacement, relancer `npm run tokens:build`
-  et vérifier l'addon a11y pour confirmer que les nouvelles couleurs
-  respectent toujours le AA.
-- La police par défaut est "Inter" (`tokens/core.json` →
-  `fontFamilies`), à remplacer si Logbook a une police de marque
-  spécifique — penser à l'importer (Google Fonts, fichier local, etc.)
-  en plus de changer le token.
+- La charte réelle de Logbook (palette teal/corail, police Zain) est
+  intégrée dans `tokens/core.json`/`semantic.json` depuis la commit
+  "Intègre la charte Logbook réelle" — ce n'est plus un placeholder
+  indigo/teal générique. Toute nouvelle couleur doit dériver de cette
+  palette (cf. nuancier) et être revérifiée avec l'addon a11y.
+- La police Zain (`tokens/core.json` → `fontFamilies`) est chargée via
+  Google Fonts (poids 200/300/400/700/800/900) dans `index.html` (app) et
+  `.storybook/preview-head.html` (Storybook, qui ne lit pas
+  `index.html`). Sans ces deux imports, le token `fontFamily: "Zain"`
+  reste déclaré mais le navigateur retombe silencieusement sur
+  Helvetica Neue/Arial (cf. `typography.ts`) — même taille de police
+  déclarée, rendu visuellement plus petit/différent puisque les
+  proportions des glyphes changent d'une police à l'autre. Si le poids
+  d'un token change, penser à l'ajouter aussi à ces deux imports.

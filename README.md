@@ -29,11 +29,12 @@ npm run tokens:build   # génère src/theme/generated/tokens.ts depuis tokens/*.
 
 - `tokens/` — source de vérité des design tokens (format Tokens Studio, consommable depuis Figma)
 - `src/theme/` — thème MUI généré depuis les tokens + overrides de composants
-- `src/components/` — wrappers de composants sans équivalent natif MUI (ex. `LogbookIconButton`, cf. CLAUDE.md sur l'ordre de modification des composants)
+- `src/components/` — wrappers/compositions sans équivalent natif MUI (`LogbookIconButton`, `LogbookNavbar`, `LogbookListenProgress`, cf. CLAUDE.md sur l'ordre de modification des composants)
 - `src/icons/` — icônes RemixIcon utilisées par Logbook
 - `src/assets/` — visuels (avatars illustrés, illustrations, logo)
 - `src/stories/Foundations/` — couleurs, typographie, spacing, icônes, visuels
-- `src/stories/Components/` — composants MUI themés (Button, IconButton, TextField, Chip, Switch, Avatar, Badge, Card...)
+- `src/stories/Components/` — composants MUI themés pris individuellement (Button, IconButton, TextField, Chip, Switch, Checkbox, Select, Alert, Badge, Avatar, Card...)
+- `src/stories/Logbook/` — assemblages propres au produit Logbook, composés à partir des composants ci-dessus (Navbar, ListenProgress...) — catégorie Storybook séparée, distincte de Components
 
 ## État des tokens
 
@@ -42,3 +43,25 @@ intégrée dans `tokens/core.json` et `tokens/semantic.json`. Deux tokens
 sémantiques restent à définir côté Figma — `color.divider` et un style de
 texte `button` — voir les commentaires dans `src/theme/palette.ts` et
 `src/theme/typography.ts`.
+
+## Couleurs de survol (`_states.hover`)
+
+Chaque couleur sémantique (`tokens/semantic.json`) a un champ `_states.hover`
+— une teinte encore au-dessus de `.dark` (ou de `.contrastText` pour
+warning, dont `.dark` reste trop pâle), utilisée par `Button.ts` pour les
+survols de outlined/text et contained success/error. Ce champ existait déjà
+dans la structure (export Tokens Studio) mais ne contenait que des
+couleurs MUI par défaut jamais nettoyées (`#2e7d32`, `#ef6c00`...) — il est
+maintenant rempli avec de vraies valeurs dérivées de la charte, et
+réutilisable tel quel par n'importe quel autre composant qui a besoin de
+la même logique de survol (`color.success._states.hover`, etc.).
+
+## Police (Zain)
+
+Le token déclare `fontFamily: "Zain"`, mais le fichier de police lui-même
+est chargé séparément via Google Fonts — voir le `<link>` dans
+`index.html` (app) et dans `.storybook/preview-head.html` (Storybook, qui
+ne lit pas `index.html`). Sans ces deux imports, le navigateur retombe
+silencieusement sur Helvetica Neue/Arial au même `font-size` déclaré, avec
+un rendu visuellement plus petit (proportions de glyphes différentes). Si
+un nouveau poids de police est utilisé, l'ajouter aux deux imports.
