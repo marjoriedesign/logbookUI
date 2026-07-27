@@ -2,10 +2,14 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Paper, Stack, Typography } from '@mui/material';
 import { PageLayout, Sections, Section } from '../PageLayout';
 
+const NOTES = [
+  'Pas d’override de thème dédié : Paper est 100% MUI natif (ombres/rayon par défaut du thème global, pas de token Paper spécifique).',
+];
+
 const meta: Meta<typeof Paper> = {
   title: 'Components/Paper',
   component: Paper,
-  decorators: [(Story) => (<PageLayout title="Paper"><Story /></PageLayout>)],
+  decorators: [(Story) => (<PageLayout title="Paper" notes={NOTES}><Story /></PageLayout>)],
   parameters: { layout: 'padded', controls: { disable: true } },
 };
 

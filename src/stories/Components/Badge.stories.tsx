@@ -4,10 +4,14 @@ import { RiFileTextLine } from '../../icons';
 import { PageLayout, Sections, Section } from '../PageLayout';
 import { LogbookIconButton } from '../../components/LogbookIconButton';
 
+const NOTES = [
+  'Pas d’override de thème dédié (MuiBadge absent de src/theme/components/index.ts) : Badge est 100% MUI natif, ses couleurs viennent directement de la palette globale (primary.main/contrastText, etc. — mêmes tokens que partout ailleurs, rien de spécifique à documenter côté Figma pour ce composant en particulier).',
+];
+
 const meta: Meta<typeof Badge> = {
   title: 'Components/Badge',
   component: Badge,
-  decorators: [(Story) => (<PageLayout title="Badge"><Story /></PageLayout>)],
+  decorators: [(Story) => (<PageLayout title="Badge" notes={NOTES}><Story /></PageLayout>)],
   parameters: { controls: { disable: true } },
 };
 

@@ -16,10 +16,14 @@ function DemoGrid() {
   );
 }
 
+const NOTES = [
+  'Pas d’override de thème dédié : Grid est 100% MUI natif, son espacement (`spacing={2}`) lit theme.spacing comme n’importe quel composant.',
+];
+
 const meta: Meta<typeof DemoGrid> = {
   title: 'Components/Grid',
   component: DemoGrid,
-  decorators: [(Story) => (<PageLayout title="Grid"><Story /></PageLayout>)],
+  decorators: [(Story) => (<PageLayout title="Grid" notes={NOTES}><Story /></PageLayout>)],
   parameters: { layout: 'padded', controls: { disable: true } },
 };
 

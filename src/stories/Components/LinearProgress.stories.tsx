@@ -2,10 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { LinearProgress, Stack, Typography } from '@mui/material';
 import { PageLayout, Sections, Section } from '../PageLayout';
 
+const NOTES = [
+  'Pas d’override de thème dédié : LinearProgress est 100% MUI natif, ses couleurs viennent directement de la palette globale (primary/secondary/success.main).',
+  'Pour la progression d’écoute audio spécifique à Logbook (silhouette de barres façon égaliseur), voir Logbook/ListenProgress — un composant custom séparé, pas une variante de LinearProgress.',
+];
+
 const meta: Meta<typeof LinearProgress> = {
   title: 'Components/LinearProgress',
   component: LinearProgress,
-  decorators: [(Story) => (<PageLayout title="LinearProgress"><Story /></PageLayout>)],
+  decorators: [(Story) => (<PageLayout title="LinearProgress" notes={NOTES}><Story /></PageLayout>)],
   parameters: { layout: 'padded', controls: { disable: true } },
 };
 

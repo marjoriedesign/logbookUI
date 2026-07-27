@@ -290,10 +290,24 @@ function CorrectionsTable() {
   );
 }
 
+const TOKENS = [
+  { token: 'designTokens.spacing.xs', note: 'espacements internes (avatar+nom, icônes de réaction)' },
+  { token: 'designTokens.fontWeights.bold', note: 'nom de l’élève' },
+  { token: 'color.success.dark / warning.contrastText / error.dark', note: 'icônes de réaction (content/triste/très triste)' },
+  { token: 'color.text.secondary, color.primary.main', note: 'commentaire (icône chat), chevron d’action' },
+];
+
+const NOTES = [
+  'Assemblage composé à partir de composants déjà thémés individuellement (Table, Switch, Chip, Button, Avatar, LogbookIconButton, LogbookListenProgress) — voir leurs pages respectives pour le détail de leurs tokens.',
+  'Convention Chip vs Bouton pour la colonne État : chip = statut passif ("Rendue", "Consultée"), bouton = action à faire ("À corriger", "À analyser") — décision prise côté Storybook, pas encore validée contre l’implémentation prod réelle (cf. PROGRESS.md).',
+  'Sous 900px (breakpoint md), les colonnes Écoute/Note/Réaction/menu sont retirées du DOM (pas juste masquées en CSS) : le header (Table.ts) arrondit son dernier <th> via :last-of-type, un sélecteur qui ignore display:none et continuerait de cibler une cellule invisible sinon.',
+  'Le switch "Non réalisée" porte l’état de remise du devoir (coché = rendu) ; tant qu’il n’est pas coché ET corrigé+analysé, aucune Écoute/Note/Réaction n’a de sens.',
+];
+
 const meta: Meta<typeof CorrectionsTable> = {
   title: 'Logbook/CorrectionsTable',
   component: CorrectionsTable,
-  decorators: [(Story) => (<PageLayout title="CorrectionsTable"><Story /></PageLayout>)],
+  decorators: [(Story) => (<PageLayout title="CorrectionsTable" tokens={TOKENS} notes={NOTES}><Story /></PageLayout>)],
   parameters: { layout: 'padded', controls: { disable: true } },
 };
 

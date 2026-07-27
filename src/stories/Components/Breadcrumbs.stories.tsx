@@ -2,10 +2,14 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Breadcrumbs, Link, Typography } from '@mui/material';
 import { PageLayout } from '../PageLayout';
 
+const NOTES = [
+  'Pas d’override de thème dédié : Breadcrumbs est 100% MUI natif, ses couleurs (Link "inherit", text.primary) viennent de la palette globale.',
+];
+
 const meta: Meta<typeof Breadcrumbs> = {
   title: 'Components/Breadcrumbs',
   component: Breadcrumbs,
-  decorators: [(Story) => (<PageLayout title="Breadcrumbs"><Story /></PageLayout>)],
+  decorators: [(Story) => (<PageLayout title="Breadcrumbs" notes={NOTES}><Story /></PageLayout>)],
   parameters: { controls: { disable: true } },
 };
 

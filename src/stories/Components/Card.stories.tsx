@@ -35,10 +35,19 @@ function AudioFeedbackCard() {
   );
 }
 
+const TOKENS = [
+  { token: 'theme.palette.divider', note: 'couleur du contour (= color.divider = secondary.main, beige)' },
+  { token: 'designTokens.borderRadius.lg, shadow.sm', note: 'rayon (12px), ombre portée' },
+];
+
+const NOTES = [
+  'defaultProps : elevation=0 + variant="outlined" — jamais d’ombre CSS native de MUI, l’ombre visible vient uniquement du token shadow.sm posé explicitement dans le styleOverrides.',
+];
+
 const meta: Meta<typeof AudioFeedbackCard> = {
   title: 'Components/Card',
   component: AudioFeedbackCard,
-  decorators: [(Story) => (<PageLayout title="Card"><Story /></PageLayout>)],
+  decorators: [(Story) => (<PageLayout title="Card" tokens={TOKENS} notes={NOTES}><Story /></PageLayout>)],
   parameters: { controls: { disable: true } },
 };
 

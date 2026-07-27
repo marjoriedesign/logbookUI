@@ -24,10 +24,21 @@ const avatarVisuals = [
   { name: 'Girl4', src: girl4 },
 ];
 
+const TOKENS = [
+  { token: 'color.secondary.subtle.background, text.secondary', note: 'fallback "colorDefault" (Avatar sans image/couleur, ex. le "+N" d’AvatarGroup)' },
+  { token: 'color.orange.100 / yellow.200 / green.100 / teal.100', note: 'fonds des avatars "Initials" — posés en sx directement dans la story, pas dans le thème' },
+];
+
+const NOTES = [
+  'Fallback colorDefault corrigé à l’AA : le défaut MUI natif (#bdbdbd + texte blanc, 1.87:1) est hors nuancier et sous le seuil — remplacé par un fond pastel + text.secondary (8.42:1).',
+  'Les 4 teintes "Initials" ne sont pas des tokens de thème pour Avatar : elles sont posées directement en sx dans chaque story, à reproduire manuellement si utilisées ailleurs.',
+  'AvatarGroup : spacing="small" (chevauchement -16px au lieu de -8px par défaut) et un z-index inversé sur 10 niveaux (en dur, sans lien à un token) pour empiler les avatars de gauche à droite plutôt que l’ordre natif MUI.',
+];
+
 const meta: Meta<typeof Avatar> = {
   title: 'Components/Avatar',
   component: Avatar,
-  decorators: [(Story) => (<PageLayout title="Avatar"><Story /></PageLayout>)],
+  decorators: [(Story) => (<PageLayout title="Avatar" tokens={TOKENS} notes={NOTES}><Story /></PageLayout>)],
   parameters: { controls: { disable: true } },
 };
 

@@ -11,10 +11,14 @@ function Block({ children }: { children: ReactNode }) {
   );
 }
 
+const NOTES = [
+  'Pas d’override de thème dédié : Stack est 100% MUI natif, son espacement (`spacing={2}`) lit theme.spacing.',
+];
+
 const meta: Meta<typeof Stack> = {
   title: 'Components/Stack',
   component: Stack,
-  decorators: [(Story) => (<PageLayout title="Stack"><Story /></PageLayout>)],
+  decorators: [(Story) => (<PageLayout title="Stack" notes={NOTES}><Story /></PageLayout>)],
   parameters: { controls: { disable: true } },
 };
 
