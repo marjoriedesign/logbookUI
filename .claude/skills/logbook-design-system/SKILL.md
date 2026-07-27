@@ -70,6 +70,16 @@ src/stories/
 Ne jamais éditer `src/theme/generated/tokens.ts` à la main — il est
 écrasé au prochain `npm run tokens:build`.
 
+`tokens/semantic.json` doit référencer `core.json` (`{color.ramp.shade}`)
+plutôt que copier une valeur figée, même quand il faut approcher la
+primitive la plus proche (nuance visuelle acceptée) plutôt que la valeur
+exacte demandée — voir README "semantic.json référence core.json" pour le
+détail et les deux exceptions (`common.white`/`common.black`).
+
+Piège : ne jamais nommer un enfant de token littéralement `value` (ex.
+`typography.textField.value`) — c'est un nom réservé par Style Dictionary
+en interne, ça provoque une boucle infinie au build.
+
 ## Surcharger un composant MUI
 
 1. Créer (ou éditer) un fichier dans `src/theme/components/`, ex.

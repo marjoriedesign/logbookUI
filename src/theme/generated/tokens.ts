@@ -292,13 +292,17 @@ export const designTokens = {
       "a400": "#78909c",
       "a700": "#455a64"
     },
+    "common": {
+      "white": "#ffffff",
+      "black": "#000000"
+    },
     "primary": {
       "main": "#025358",
       "dark": "#4ad09a",
       "light": "#afe6ee",
       "contrastText": "#ffffff",
       "_states": {
-        "hover": "#3ba67b",
+        "hover": "#26a69a",
         "selected": "#000000",
         "focus": "#000000",
         "focusvisible": "#efe0c6",
@@ -311,7 +315,7 @@ export const designTokens = {
       "light": "#fdfaf3",
       "contrastText": "#025358",
       "_states": {
-        "hover": "#a88e64",
+        "hover": "#7a7872",
         "selected": "#000000",
         "focus": "#000000",
         "focusvisible": "#000000",
@@ -327,40 +331,40 @@ export const designTokens = {
       "light": "#b9ead3",
       "contrastText": "#ffffff",
       "_states": {
-        "hover": "#006b3b",
-        "selected": "#2e7d32",
-        "focusvisible": "#2e7d32",
-        "outlinedborder": "#2e7d32"
+        "hover": "#006634",
+        "selected": "#33691e",
+        "focusvisible": "#33691e",
+        "outlinedborder": "#33691e"
       }
     },
     "warning": {
-      "main": "#ffcfbc",
-      "dark": "#ffb090",
-      "light": "#fbeae7",
+      "main": "#faccbb",
+      "dark": "#f8ac8f",
+      "light": "#f9e9e6",
       "_states": {
-        "hover": "#333333",
-        "selected": "#ef6c00",
-        "focusvisible": "#ef6c00",
-        "outlinedborder": "#ef6c00"
+        "hover": "#263238",
+        "selected": "#ff6d00",
+        "focusvisible": "#ff6d00",
+        "outlinedborder": "#ff6d00"
       },
-      "contrastText": "#404040",
+      "contrastText": "#47453f",
       "subtle": {
-        "background": "#ffcfbc"
+        "background": "#faccbb"
       }
     },
     "error": {
-      "main": "#ff7940",
-      "dark": "#bf4205",
+      "main": "#ff6e40",
+      "dark": "#b23e0c",
       "light": "#faccbb",
       "_states": {
-        "hover": "#993504",
+        "hover": "#b23e0c",
         "selected": "#d32f2f",
         "focusvisible": "#d32f2f",
         "outlinedborder": "#d32f2f"
       },
       "contrastText": "#ffffff",
       "subtle": {
-        "background": "#ffcfbc"
+        "background": "#faccbb"
       }
     },
     "info": {
@@ -368,12 +372,12 @@ export const designTokens = {
       "dark": "#00796b",
       "light": "#e0f2f1",
       "_states": {
-        "hover": "#006156",
+        "hover": "#00695c",
         "selected": "#0288d1",
         "focusvisible": "#0288d1",
         "outlinedborder": "#0288d1"
       },
-      "contrastText": "#404040"
+      "contrastText": "#47453f"
     },
     "background": {
       "default": "#ffffff",
@@ -405,8 +409,8 @@ export const designTokens = {
     },
     "text": {
       "primary": "#000000",
-      "secondary": "#404040",
-      "disabled": "#aaaaaa",
+      "secondary": "#47453f",
+      "disabled": "#a4a19b",
       "_states": {
         "hover": "#000000",
         "selected": "#000000",
@@ -418,9 +422,9 @@ export const designTokens = {
       "active": "#efe0c6",
       "hover": "#000000",
       "selected": "#000000",
-      "disabledbackground": "#aaaaaa",
+      "disabledbackground": "#a4a19b",
       "focus": "#000000",
-      "disabled": "#aaaaaa"
+      "disabled": "#a4a19b"
     }
   },
   "spacing": {
@@ -641,6 +645,294 @@ export const designTokens = {
       "small": 13,
       "medium": 14,
       "large": 15
+    },
+    "alert": {
+      "title": {
+        "fontSize": 16,
+        "textDecoration": "none",
+        "fontFamily": "Zain",
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 24,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      },
+      "description": {
+        "fontSize": 14,
+        "textDecoration": "none",
+        "fontFamily": "Zain",
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 20,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      }
+    },
+    "avatar": {
+      "initialsLg": {
+        "fontSize": 20,
+        "textDecoration": "none",
+        "fontFamily": "Zain",
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 20,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      },
+      "initialsSm": {
+        "fontSize": 10,
+        "textDecoration": "none",
+        "fontFamily": "Zain",
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 10,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      },
+      "initialsMd": {
+        "fontSize": 12,
+        "textDecoration": "none",
+        "fontFamily": "Zain",
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 12,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      }
+    },
+    "badge": {
+      "label": {
+        "fontSize": 12,
+        "textDecoration": "none",
+        "fontFamily": "Zain",
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 20,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      }
+    },
+    "bottomNavigation": {
+      "activeLabel": {
+        "fontSize": 14,
+        "textDecoration": "none",
+        "fontFamily": "Zain",
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 23.24,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      }
+    },
+    "chip": {
+      "label": {
+        "fontSize": 13,
+        "textDecoration": "none",
+        "fontFamily": "Zain",
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 18,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      }
+    },
+    "datePicker": {
+      "currentMonth": {
+        "fontSize": 16,
+        "textDecoration": "none",
+        "fontFamily": "Zain",
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 24,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      }
+    },
+    "list": {
+      "subheader": {
+        "fontSize": 14,
+        "textDecoration": "none",
+        "fontFamily": "Zain",
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 48,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      }
+    },
+    "menu": {
+      "itemDefault": {
+        "fontSize": 16,
+        "textDecoration": "none",
+        "fontFamily": "Zain",
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 24,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      },
+      "itemDense": {
+        "fontSize": 14,
+        "textDecoration": "none",
+        "fontFamily": "Zain",
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 24,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      }
+    },
+    "table": {
+      "header": {
+        "fontSize": 14,
+        "textDecoration": "none",
+        "fontFamily": "Zain",
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 24,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      }
+    },
+    "tooltip": {
+      "label": {
+        "fontSize": 10,
+        "textDecoration": "none",
+        "fontFamily": "Zain",
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 14,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      }
+    },
+    "dataGrid": {
+      "aggregationColumnHeader": {
+        "fontSize": 12,
+        "textDecoration": "none",
+        "fontFamily": "Zain",
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 12,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      }
+    },
+    "_library": {
+      "heading": {
+        "fontSize": 64,
+        "textDecoration": "none",
+        "fontFamily": "Zain",
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 116.7,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      }
+    },
+    "charts": {
+      "group": {
+        "fontSize": 12,
+        "textDecoration": "none",
+        "fontFamily": "Zain",
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 20,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      }
+    },
+    "textField": {
+      "label": {
+        "fontSize": 12,
+        "textDecoration": "none",
+        "fontFamily": "Zain",
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 12,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      },
+      "text": {
+        "fontSize": 16,
+        "textDecoration": "none",
+        "fontFamily": "Zain",
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 24,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      },
+      "helper": {
+        "fontSize": 12,
+        "textDecoration": "none",
+        "fontFamily": "Zain",
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 20,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      }
     }
   },
   "fontFamilies": {

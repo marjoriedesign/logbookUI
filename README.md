@@ -44,6 +44,26 @@ sémantiques restent à définir côté Figma — `color.divider` et un style de
 texte `button` — voir les commentaires dans `src/theme/palette.ts` et
 `src/theme/typography.ts`.
 
+## semantic.json référence core.json
+
+Les couleurs de `tokens/semantic.json` sont désormais des **références**
+vers `tokens/core.json` (`"value": "{color.cyan.900}"`) plutôt que des
+copies de valeur figées, partout où c'est possible — y compris en
+approchant la primitive la plus proche quand il n'existe pas de
+correspondance exacte (Tokens Studio/Figma peut alors afficher le vrai
+lien entre une couleur sémantique et sa primitive). Deux couleurs restent
+en dehors de ce système : `color.common.white`/`color.common.black`
+(`#ffffff`/`#000000`), ajoutées comme primitives dédiées dans
+`core.json` — aucune rampe existante n'a de vrai blanc/noir pur (le plus
+clair est `grey.50`, un blanc cassé chaud), et plusieurs tokens à fort
+impact (`background.default`, `text.primary`, tous les `contrastText`)
+doivent rester exactement blancs/noirs.
+
+**Piège Style Dictionary** : le nom de clé `value` est réservé en interne
+par l'outil — un groupe de tokens ne doit jamais avoir un enfant nommé
+littéralement `value` (ça provoque une boucle infinie au build). C'est
+pour ça que `typography.textField` a un champ `text`, pas `value`.
+
 ## Couleurs de survol (`_states.hover`)
 
 Chaque couleur sémantique (`tokens/semantic.json`) a un champ `_states.hover`
