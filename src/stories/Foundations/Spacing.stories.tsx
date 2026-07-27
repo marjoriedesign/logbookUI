@@ -27,7 +27,7 @@ function SpacingFoundations() {
 const meta: Meta<typeof SpacingFoundations> = {
   title: 'Foundations/Spacing',
   component: SpacingFoundations,
-  parameters: { layout: 'padded' },
+  parameters: { layout: 'padded', controls: { disable: true } },
 };
 
 export default meta;

@@ -8,6 +8,7 @@ const meta: Meta<typeof Checkbox> = {
   title: 'Components/Checkbox',
   component: Checkbox,
   decorators: [(Story) => (<PageLayout title="Checkbox"><Story /></PageLayout>)],
+  parameters: { controls: { disable: true } },
 };
 
 export default meta;

@@ -90,7 +90,7 @@ function ColorFoundations() {
 const meta: Meta<typeof ColorFoundations> = {
   title: 'Foundations/Colors',
   component: ColorFoundations,
-  parameters: { layout: 'padded' },
+  parameters: { layout: 'padded', controls: { disable: true } },
 };
 
 export default meta;

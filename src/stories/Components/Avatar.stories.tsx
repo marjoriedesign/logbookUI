@@ -28,6 +28,7 @@ const meta: Meta<typeof Avatar> = {
   title: 'Components/Avatar',
   component: Avatar,
   decorators: [(Story) => (<PageLayout title="Avatar"><Story /></PageLayout>)],
+  parameters: { controls: { disable: true } },
 };
 
 export default meta;

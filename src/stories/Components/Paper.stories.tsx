@@ -6,7 +6,7 @@ const meta: Meta<typeof Paper> = {
   title: 'Components/Paper',
   component: Paper,
   decorators: [(Story) => (<PageLayout title="Paper"><Story /></PageLayout>)],
-  parameters: { layout: 'padded' },
+  parameters: { layout: 'padded', controls: { disable: true } },
 };
 
 export default meta;

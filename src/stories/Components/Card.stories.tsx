@@ -39,6 +39,7 @@ const meta: Meta<typeof AudioFeedbackCard> = {
   title: 'Components/Card',
   component: AudioFeedbackCard,
   decorators: [(Story) => (<PageLayout title="Card"><Story /></PageLayout>)],
+  parameters: { controls: { disable: true } },
 };
 
 export default meta;

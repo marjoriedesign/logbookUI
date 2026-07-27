@@ -45,7 +45,7 @@ const meta: Meta<typeof CorrectionsTable> = {
   title: 'Components/Table',
   component: CorrectionsTable,
   decorators: [(Story) => (<PageLayout title="Table"><Story /></PageLayout>)],
-  parameters: { layout: 'padded' },
+  parameters: { layout: 'padded', controls: { disable: true } },
 };
 
 export default meta;

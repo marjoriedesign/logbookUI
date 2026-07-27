@@ -6,7 +6,7 @@ const meta: Meta<typeof LinearProgress> = {
   title: 'Components/LinearProgress',
   component: LinearProgress,
   decorators: [(Story) => (<PageLayout title="LinearProgress"><Story /></PageLayout>)],
-  parameters: { layout: 'padded' },
+  parameters: { layout: 'padded', controls: { disable: true } },
 };
 
 export default meta;

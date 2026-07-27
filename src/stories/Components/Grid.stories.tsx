@@ -20,7 +20,7 @@ const meta: Meta<typeof DemoGrid> = {
   title: 'Components/Grid',
   component: DemoGrid,
   decorators: [(Story) => (<PageLayout title="Grid"><Story /></PageLayout>)],
-  parameters: { layout: 'padded' },
+  parameters: { layout: 'padded', controls: { disable: true } },
 };
 
 export default meta;

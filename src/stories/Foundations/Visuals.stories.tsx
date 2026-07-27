@@ -144,7 +144,7 @@ function VisualsFoundations() {
 const meta: Meta<typeof VisualsFoundations> = {
   title: 'Foundations/Visuals',
   component: VisualsFoundations,
-  parameters: { layout: 'padded' },
+  parameters: { layout: 'padded', controls: { disable: true } },
 };
 
 export default meta;

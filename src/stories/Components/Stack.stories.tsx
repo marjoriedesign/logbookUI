@@ -15,6 +15,7 @@ const meta: Meta<typeof Stack> = {
   title: 'Components/Stack',
   component: Stack,
   decorators: [(Story) => (<PageLayout title="Stack"><Story /></PageLayout>)],
+  parameters: { controls: { disable: true } },
 };
 
 export default meta;

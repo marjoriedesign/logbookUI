@@ -98,7 +98,7 @@ function TypographyFoundations() {
 const meta: Meta<typeof TypographyFoundations> = {
   title: 'Foundations/Typography',
   component: TypographyFoundations,
-  parameters: { layout: 'padded' },
+  parameters: { layout: 'padded', controls: { disable: true } },
 };
 
 export default meta;

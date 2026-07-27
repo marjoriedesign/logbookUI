@@ -35,6 +35,7 @@ const meta: Meta<typeof CorrectionTypeSelect> = {
   title: 'Components/Select',
   component: CorrectionTypeSelect,
   decorators: [(Story) => (<PageLayout title="Select"><Story /></PageLayout>)],
+  parameters: { controls: { disable: true } },
 };
 
 export default meta;

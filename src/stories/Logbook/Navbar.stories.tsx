@@ -26,6 +26,7 @@ const meta: Meta<typeof NavbarDemo> = {
   title: 'Logbook/Navbar',
   component: NavbarDemo,
   decorators: [(Story) => (<PageLayout title="Navbar"><Story /></PageLayout>)],
+  parameters: { controls: { disable: true } },
 };
 
 export default meta;

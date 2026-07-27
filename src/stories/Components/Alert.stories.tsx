@@ -14,6 +14,7 @@ const meta: Meta<typeof Alert> = {
   title: 'Components/Alert',
   component: Alert,
   decorators: [(Story) => (<PageLayout title="Alert"><Story /></PageLayout>)],
+  parameters: { controls: { disable: true } },
 };
 
 export default meta;

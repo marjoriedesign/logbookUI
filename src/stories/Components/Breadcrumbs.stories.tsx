@@ -6,6 +6,7 @@ const meta: Meta<typeof Breadcrumbs> = {
   title: 'Components/Breadcrumbs',
   component: Breadcrumbs,
   decorators: [(Story) => (<PageLayout title="Breadcrumbs"><Story /></PageLayout>)],
+  parameters: { controls: { disable: true } },
 };
 
 export default meta;

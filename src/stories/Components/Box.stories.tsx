@@ -6,6 +6,7 @@ const meta: Meta<typeof Box> = {
   title: 'Components/Box',
   component: Box,
   decorators: [(Story) => (<PageLayout title="Box"><Story /></PageLayout>)],
+  parameters: { controls: { disable: true } },
 };
 
 export default meta;

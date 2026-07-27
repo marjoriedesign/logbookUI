@@ -49,7 +49,7 @@ function IconFoundations() {
 const meta: Meta<typeof IconFoundations> = {
   title: 'Foundations/Icons',
   component: IconFoundations,
-  parameters: { layout: 'padded' },
+  parameters: { layout: 'padded', controls: { disable: true } },
 };
 
 export default meta;

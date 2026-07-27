@@ -8,6 +8,7 @@ const meta: Meta<typeof Badge> = {
   title: 'Components/Badge',
   component: Badge,
   decorators: [(Story) => (<PageLayout title="Badge"><Story /></PageLayout>)],
+  parameters: { controls: { disable: true } },
 };
 
 export default meta;
