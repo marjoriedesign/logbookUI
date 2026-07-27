@@ -380,14 +380,17 @@
         }
       }
     },
-    "divider": {},
+    "divider": {
+      "value": "{color.brown.50}",
+      "type": "color"
+    },
     "action": {
       "active": {
         "value": "{color.brown.50}",
         "type": "color"
       },
       "hover": {
-        "value": "{color.common.black}",
+        "value": "{color.grey.50}",
         "type": "color"
       },
       "selected": {

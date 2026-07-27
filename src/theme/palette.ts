@@ -16,7 +16,14 @@ export const palette: PaletteOptions = {
     paper: color.background['paper-elevation-1'],
   },
   text: color.text,
-  // color.divider n'existe pas encore côté tokens/semantic.json (groupe vide,
-  // stub non rempli) : à faire arbitrer par Marjorie avant de le brancher ici.
-  // En attendant, MUI applique sa valeur par défaut.
+  // Beige (color.brown.50, même valeur que secondary.main) : bordures des
+  // composants "outlined" (Card, séparateurs de Table...) — cf.
+  // tokens/semantic.json.
+  divider: color.divider,
+  action: {
+    // Fond au survol (ex. TableRow hover, Select hover) : même beige
+    // (color.grey.50, #fdfaf3) que le fond du header de Table, demandé
+    // explicitement pour unifier les deux — cf. tokens/semantic.json.
+    hover: color.action.hover,
+  },
 };

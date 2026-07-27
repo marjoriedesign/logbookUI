@@ -40,13 +40,8 @@ export function LogbookNavbar({
 }: LogbookNavbarProps) {
   return (
     <AppBar position="static">
-      <Toolbar
-        sx={{
-          justifyContent: 'space-between',
-          paddingInline: `${designTokens.spacing.lg}px !important`,
-          paddingBlock: `${designTokens.spacing.sm}px`,
-        }}
-      >
+      {/* Padding géré par le thème (MuiToolbar, cf. theme/components/Toolbar.ts) */}
+      <Toolbar sx={{ justifyContent: 'space-between' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: `${designTokens.spacing.lg}px` }}>
           {/* Logo : masqué sous 900px (breakpoint md) pour laisser la place
               au reste de la navbar sur petit écran. */}
@@ -63,6 +58,7 @@ export function LogbookNavbar({
               value={selectedClass}
               onChange={(event: SelectChangeEvent) => onClassChange(event.target.value)}
               sx={{ minWidth: 96 }}
+              aria-label="Classe"
             >
               {classOptions.map((option) => (
                 <MenuItem key={option.value} value={option.value}>

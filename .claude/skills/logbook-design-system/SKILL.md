@@ -193,3 +193,11 @@ Le dossier `tokens/` est déjà au format attendu par le plugin
   déclarée, rendu visuellement plus petit/différent puisque les
   proportions des glyphes changent d'une police à l'autre. Si le poids
   d'un token change, penser à l'ajouter aussi à ces deux imports.
+- **`Checkbox indeterminate` déclenche une alerte axe-core (`aria-conditional-attr`)** :
+  MUI pose lui-même `aria-checked="mixed"` sur l'input natif dans ce cas
+  (`@mui/material/Checkbox/Checkbox.js`), ce qu'axe considère invalide pour
+  un `<input type="checkbox">` natif — c'est un choix délibéré de MUI (rendre
+  l'état indéterminé fiablement annoncé aux lecteurs d'écran), pas un défaut
+  introduit par ce design system. Ne pas forker `Checkbox` pour ce point :
+  le comportement natif de MUI est le comportement recommandé, l'alerte axe
+  est un faux positif connu sur ce pattern précis.

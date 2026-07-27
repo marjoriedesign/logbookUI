@@ -25,7 +25,7 @@ const preview: Preview = {
           'Components',
           ['Button', 'IconButton', 'Chip', 'Switch', 'Checkbox', 'TextField', 'Select', 'Alert', 'Badge', 'Avatar'],
           'Logbook',
-          ['Navbar', 'ListenProgress'],
+          ['Navbar', 'ListenProgress', 'CorrectionsTable'],
         ],
       },
     },

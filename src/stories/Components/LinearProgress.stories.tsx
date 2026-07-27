@@ -17,24 +17,24 @@ export const Default: Story = {
     <Sections>
       <Section title="Determinate">
         <Stack spacing={1} sx={{ width: 280 }}>
-          <Typography variant="body2" color="text.secondary">
+          <Typography id="linear-progress-label" variant="body2" color="text.secondary">
             12 corrections sur 20 terminées
           </Typography>
-          <LinearProgress variant="determinate" value={60} />
+          <LinearProgress variant="determinate" value={60} aria-labelledby="linear-progress-label" />
         </Stack>
       </Section>
 
       <Section title="Indeterminate">
         <Stack sx={{ width: 280 }}>
-          <LinearProgress />
+          <LinearProgress aria-label="Chargement en cours" />
         </Stack>
       </Section>
 
       <Section title="Colors">
         <Stack spacing={2} sx={{ width: 280 }}>
-          <LinearProgress variant="determinate" value={70} color="primary" />
-          <LinearProgress variant="determinate" value={70} color="secondary" />
-          <LinearProgress variant="determinate" value={70} color="success" />
+          <LinearProgress variant="determinate" value={70} color="primary" aria-label="Progression (primary)" />
+          <LinearProgress variant="determinate" value={70} color="secondary" aria-label="Progression (secondary)" />
+          <LinearProgress variant="determinate" value={70} color="success" aria-label="Progression (success)" />
         </Stack>
       </Section>
     </Sections>

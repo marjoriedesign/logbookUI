@@ -2,14 +2,15 @@
 // une liste explicite et éviter d'importer tout le catalogue par erreur.
 // Catalogue complet : https://remixicon.com
 //
+// Uniquement des icônes "Line" (outline) dans ce projet, jamais de "Fill" —
+// sauf demande explicite et ponctuelle pour un cas précis.
+//
 // Ajouter une icône : l'importer ici depuis '@remixicon/react', puis
 // l'utiliser via `import { RiMicLine } from '@/icons'` (ou chemin relatif).
 
 export {
   RiMicLine,
-  RiMicFill,
   RiCheckboxCircleLine,
-  RiCheckboxCircleFill,
   RiErrorWarningLine,
   RiVolumeUpLine,
   RiPlayCircleLine,
@@ -54,6 +55,8 @@ export {
   RiCloseLargeLine,
   RiPencilLine,
   RiEdit2Line,
+  RiBallPenLine,
+  RiBardLine,
   RiDeleteBinLine,
   RiUploadLine,
   RiUpload2Line,
@@ -82,7 +85,7 @@ export {
   RiSparklingLine,
   RiEmotionLine,
   RiEmotionNormalLine,
-  RiEmotionLaughFill,
+  RiEmotionLaughLine,
   RiEmotionSadLine,
   RiEmotionUnhappyLine,
   RiEmotion2Line,
@@ -117,12 +120,12 @@ export {
 
   // Navigation & structure
   RiHomeLine,
-  RiHomeFill,
   RiInformationLine,
   RiDashboardLine,
   RiMenuLine,
-  RiMoreLine,
-  RiMore2Line,
+  // Exception explicite au principe "outline only" (demandée pour ce cas
+  // précis, cf. CorrectionsTable) : RiMoreFill plutôt que RiMoreLine.
+  RiMoreFill,
   RiMapPinLine,
   RiTimeLine,
   RiCalendarLine,
@@ -147,7 +150,6 @@ export {
   RiLinksLine,
   RiInstagramLine,
   RiLinkedinLine,
-  RiLinkedinBoxFill,
   RiYoutubeLine,
 
   // Texte & IA

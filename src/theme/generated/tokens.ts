@@ -418,9 +418,10 @@ export const designTokens = {
         "focusvisible": "#000000"
       }
     },
+    "divider": "#efe0c6",
     "action": {
       "active": "#efe0c6",
-      "hover": "#000000",
+      "hover": "#fdfaf3",
       "selected": "#000000",
       "disabledbackground": "#a4a19b",
       "focus": "#000000",

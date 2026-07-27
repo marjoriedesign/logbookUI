@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Table, TableHead, TableBody, TableRow, TableCell, Stack, Typography } from '@mui/material';
-import { RiCheckboxCircleFill, RiErrorWarningLine } from '../../icons';
+import { RiCheckboxCircleLine, RiErrorWarningLine } from '../../icons';
 import { PageLayout } from '../PageLayout';
 
 const rows = [
@@ -27,7 +27,7 @@ function CorrectionsTable() {
             <TableCell>
               <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
                 {row.status === 'Corrigée' ? (
-                  <RiCheckboxCircleFill size={16} />
+                  <RiCheckboxCircleLine size={16} />
                 ) : (
                   <RiErrorWarningLine size={16} />
                 )}

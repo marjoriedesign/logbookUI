@@ -5,12 +5,15 @@ import { MuiTextField, MuiOutlinedInput, MuiInputLabel, MuiFormHelperText } from
 import { MuiChip } from './Chip';
 import { MuiCard } from './Card';
 import { MuiAppBar } from './AppBar';
+import { MuiToolbar } from './Toolbar';
 import { MuiAvatarGroup } from './AvatarGroup';
+import { MuiAvatar } from './Avatar';
 import { MuiSwitch } from './Switch';
 import { MuiFormControlLabel } from './FormControlLabel';
 import { MuiAlert } from './Alert';
 import { MuiCheckbox } from './Checkbox';
 import { MuiSelect } from './Select';
+import { MuiTable, MuiTableCell } from './Table';
 
 export const components: Components<Theme> = {
   MuiButton,
@@ -22,10 +25,14 @@ export const components: Components<Theme> = {
   MuiChip,
   MuiCard,
   MuiAppBar,
+  MuiToolbar,
   MuiAvatarGroup,
+  MuiAvatar,
   MuiSwitch,
   MuiFormControlLabel,
   MuiAlert,
   MuiCheckbox,
   MuiSelect,
+  MuiTable,
+  MuiTableCell,
 };
