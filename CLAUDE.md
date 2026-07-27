@@ -21,3 +21,6 @@ Règles non négociables. Le mode d'emploi est dans `.claude/skills/logbook-desi
 
 ## Qualité
 - Responsive et accessibilité AA : non négociables sur chaque composant livré.
+
+## Fin de session
+- Mettre à jour `PROGRESS.md` avant de clôturer : fait/validé, en cours, décisions en attente, prochaine étape. Factuel uniquement.
