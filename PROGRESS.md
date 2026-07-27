@@ -18,6 +18,7 @@ Factuel uniquement. Mis à jour à la fin de chaque session (cf. CLAUDE.md).
 - Storybook : un composant = une seule page ; interlignage 120% harmonisé sur toutes les pages ; build/déploiement Storybook et Chromatic réactivés.
 - `tsconfig` strict activé.
 - Repo Git poussé sur GitHub (`origin/main` = `github.com/marjoriedesign/logbookUI`, à jour avec le local).
+- Champs `_states` (selected/focus/focusVisible/outlinedBorder par couleur, `action.active/selected/focus/disabled/disabledBackground`, `common.black_states`/`white_states`) nettoyés dans `tokens/semantic.json` : remplacés par les vraies valeurs par défaut de MUI (superpositions alpha sur `main`/noir/blanc aux opacités officielles MUI 4/8/12/50%, encodées en hex 8 chiffres) au lieu des couleurs pleines placeholder jamais nettoyées de l'export Tokens Studio initial. `action.active/selected/focus/disabled/disabledBackground` câblé explicitement dans `palette.ts` (purement déclaratif, aucun changement de rendu — `action.hover` et `success/error/warning/info._states.hover`, seuls champs déjà consommés par `Button.ts`, restent inchangés). Documenté dans le README, section "Autres champs `_states`".
 
 ## En cours / à moitié fait
 

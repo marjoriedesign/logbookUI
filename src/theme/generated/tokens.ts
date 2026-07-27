@@ -294,7 +294,23 @@ export const designTokens = {
     },
     "common": {
       "white": "#ffffff",
-      "black": "#000000"
+      "black": "#000000",
+      "black_states": {
+        "main": "#000000",
+        "hover": "#0000000A",
+        "selected": "#00000014",
+        "focus": "#0000001F",
+        "focusvisible": "#0000001F",
+        "outlinedborder": "#00000080"
+      },
+      "white_states": {
+        "main": "#ffffff",
+        "hover": "#ffffff0A",
+        "selected": "#ffffff14",
+        "focus": "#ffffff1F",
+        "focusvisible": "#ffffff1F",
+        "outlinedborder": "#ffffff80"
+      }
     },
     "primary": {
       "main": "#025358",
@@ -302,11 +318,11 @@ export const designTokens = {
       "light": "#afe6ee",
       "contrastText": "#ffffff",
       "_states": {
-        "hover": "#26a69a",
-        "selected": "#000000",
-        "focus": "#000000",
-        "focusvisible": "#efe0c6",
-        "outlinedborder": "#efe0c6"
+        "hover": "#0253580A",
+        "selected": "#02535814",
+        "focus": "#0253581F",
+        "focusvisible": "#0253581F",
+        "outlinedborder": "#02535880"
       }
     },
     "secondary": {
@@ -315,11 +331,11 @@ export const designTokens = {
       "light": "#fdfaf3",
       "contrastText": "#025358",
       "_states": {
-        "hover": "#7a7872",
-        "selected": "#000000",
-        "focus": "#000000",
-        "focusvisible": "#000000",
-        "outlinedborder": "#000000"
+        "hover": "#efe0c60A",
+        "selected": "#efe0c614",
+        "focus": "#efe0c61F",
+        "focusvisible": "#efe0c61F",
+        "outlinedborder": "#efe0c680"
       },
       "subtle": {
         "background": "#f3f0e9"
@@ -332,9 +348,9 @@ export const designTokens = {
       "contrastText": "#ffffff",
       "_states": {
         "hover": "#006634",
-        "selected": "#33691e",
-        "focusvisible": "#33691e",
-        "outlinedborder": "#33691e"
+        "selected": "#4ad09a14",
+        "focusvisible": "#4ad09a1F",
+        "outlinedborder": "#4ad09a80"
       }
     },
     "warning": {
@@ -343,9 +359,9 @@ export const designTokens = {
       "light": "#f9e9e6",
       "_states": {
         "hover": "#263238",
-        "selected": "#ff6d00",
-        "focusvisible": "#ff6d00",
-        "outlinedborder": "#ff6d00"
+        "selected": "#faccbb14",
+        "focusvisible": "#faccbb1F",
+        "outlinedborder": "#faccbb80"
       },
       "contrastText": "#47453f",
       "subtle": {
@@ -358,9 +374,9 @@ export const designTokens = {
       "light": "#faccbb",
       "_states": {
         "hover": "#b23e0c",
-        "selected": "#d32f2f",
-        "focusvisible": "#d32f2f",
-        "outlinedborder": "#d32f2f"
+        "selected": "#ff6e4014",
+        "focusvisible": "#ff6e401F",
+        "outlinedborder": "#ff6e4080"
       },
       "contrastText": "#ffffff",
       "subtle": {
@@ -373,9 +389,9 @@ export const designTokens = {
       "light": "#e0f2f1",
       "_states": {
         "hover": "#00695c",
-        "selected": "#0288d1",
-        "focusvisible": "#0288d1",
-        "outlinedborder": "#0288d1"
+        "selected": "#b2dfdb14",
+        "focusvisible": "#b2dfdb1F",
+        "outlinedborder": "#b2dfdb80"
       },
       "contrastText": "#47453f"
     },
@@ -412,20 +428,20 @@ export const designTokens = {
       "secondary": "#47453f",
       "disabled": "#a4a19b",
       "_states": {
-        "hover": "#000000",
-        "selected": "#000000",
-        "focus": "#000000",
-        "focusvisible": "#000000"
+        "hover": "#0000000A",
+        "selected": "#00000014",
+        "focus": "#0000001F",
+        "focusvisible": "#0000001F"
       }
     },
     "divider": "#efe0c6",
     "action": {
-      "active": "#efe0c6",
+      "active": "#0000008A",
       "hover": "#fdfaf3",
-      "selected": "#000000",
-      "disabledbackground": "#a4a19b",
-      "focus": "#000000",
-      "disabled": "#a4a19b"
+      "selected": "#00000014",
+      "disabledbackground": "#0000001F",
+      "focus": "#0000001F",
+      "disabled": "#00000042"
     }
   },
   "spacing": {

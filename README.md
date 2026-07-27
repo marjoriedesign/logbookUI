@@ -76,6 +76,35 @@ maintenant rempli avec de vraies valeurs dérivées de la charte, et
 réutilisable tel quel par n'importe quel autre composant qui a besoin de
 la même logique de survol (`color.success._states.hover`, etc.).
 
+## Autres champs `_states` (selected/focus/focusVisible/outlinedBorder, action, common)
+
+Au-delà de `_states.hover` (ci-dessus), chaque groupe de couleur
+(`primary`, `secondary`, `success`, `warning`, `error`, `info`, `text`),
+`action` et les nouveaux `common.black_states`/`common.white_states`
+contenaient des valeurs héritées de l'export Tokens Studio jamais
+nettoyées (couleurs pleines et opaques, ex. noir plein en guise de
+`selected`) — non consommées par le code, mais visibles côté Figma une
+fois la synchro Tokens Studio active. Elles sont maintenant remplies avec
+les vraies valeurs que MUI calcule par défaut : superpositions en alpha
+sur la couleur `main` du groupe (ou sur le noir pour `text`/`action`, le
+blanc pour `common.white_states`), aux opacités officielles de MUI —
+`hoverOpacity` 4 %, `selectedOpacity` 8 %, `focusOpacity` 12 %, et 50 %
+pour `outlinedBorder` (valeur du contour `outlined` de `Button`, cf.
+`node_modules/@mui/material/Button/Button.js`) — encodées en hex 8
+chiffres (`#RRGGBBAA`, même convention que `shadow` dans
+`tokens/semantic.json`). `focusVisible` reprend la même opacité que
+`focus` : MUI n'a pas d'opacité distincte pour cet état dans son thème
+par défaut.
+
+Seul `action.active/selected/focus/disabled/disabledBackground` est
+câblé dans `palette.ts` (en plus de `action.hover`, qui reste la
+teinte beige custom déjà en place) — purement déclaratif, ce sont déjà
+les valeurs par défaut de MUI, donc aucun changement de rendu. Les
+champs par couleur (`primary._states`, `success._states`...) restent de
+la donnée de token disponible via `designTokens`, à consommer comme
+`Button.ts` le fait déjà pour `_states.hover`, si un composant en a
+besoin plus tard.
+
 ## Police (Zain)
 
 Le token déclare `fontFamily: "Zain"`, mais le fichier de police lui-même

@@ -19,23 +19,23 @@
       },
       "_states": {
         "hover": {
-          "value": "{color.teal.400}",
+          "value": "#0253580A",
           "type": "color"
         },
         "selected": {
-          "value": "{color.common.black}",
+          "value": "#02535814",
           "type": "color"
         },
         "focus": {
-          "value": "{color.common.black}",
+          "value": "#0253581F",
           "type": "color"
         },
         "focusvisible": {
-          "value": "{color.brown.50}",
+          "value": "#0253581F",
           "type": "color"
         },
         "outlinedborder": {
-          "value": "{color.brown.50}",
+          "value": "#02535880",
           "type": "color"
         }
       }
@@ -59,23 +59,23 @@
       },
       "_states": {
         "hover": {
-          "value": "{color.grey.600}",
+          "value": "#efe0c60A",
           "type": "color"
         },
         "selected": {
-          "value": "{color.common.black}",
+          "value": "#efe0c614",
           "type": "color"
         },
         "focus": {
-          "value": "{color.common.black}",
+          "value": "#efe0c61F",
           "type": "color"
         },
         "focusvisible": {
-          "value": "{color.common.black}",
+          "value": "#efe0c61F",
           "type": "color"
         },
         "outlinedborder": {
-          "value": "{color.common.black}",
+          "value": "#efe0c680",
           "type": "color"
         }
       },
@@ -109,15 +109,15 @@
           "type": "color"
         },
         "selected": {
-          "value": "{color.lightgreen.900}",
+          "value": "#4ad09a14",
           "type": "color"
         },
         "focusvisible": {
-          "value": "{color.lightgreen.900}",
+          "value": "#4ad09a1F",
           "type": "color"
         },
         "outlinedborder": {
-          "value": "{color.lightgreen.900}",
+          "value": "#4ad09a80",
           "type": "color"
         }
       }
@@ -141,15 +141,15 @@
           "type": "color"
         },
         "selected": {
-          "value": "{color.orange.a700}",
+          "value": "#faccbb14",
           "type": "color"
         },
         "focusvisible": {
-          "value": "{color.orange.a700}",
+          "value": "#faccbb1F",
           "type": "color"
         },
         "outlinedborder": {
-          "value": "{color.orange.a700}",
+          "value": "#faccbb80",
           "type": "color"
         }
       },
@@ -183,15 +183,15 @@
           "type": "color"
         },
         "selected": {
-          "value": "{color.red.700}",
+          "value": "#ff6e4014",
           "type": "color"
         },
         "focusvisible": {
-          "value": "{color.red.700}",
+          "value": "#ff6e401F",
           "type": "color"
         },
         "outlinedborder": {
-          "value": "{color.red.700}",
+          "value": "#ff6e4080",
           "type": "color"
         }
       },
@@ -225,15 +225,15 @@
           "type": "color"
         },
         "selected": {
-          "value": "{color.lightblue.700}",
+          "value": "#b2dfdb14",
           "type": "color"
         },
         "focusvisible": {
-          "value": "{color.lightblue.700}",
+          "value": "#b2dfdb1F",
           "type": "color"
         },
         "outlinedborder": {
-          "value": "{color.lightblue.700}",
+          "value": "#b2dfdb80",
           "type": "color"
         }
       },
@@ -363,19 +363,19 @@
       },
       "_states": {
         "hover": {
-          "value": "{color.common.black}",
+          "value": "#0000000A",
           "type": "color"
         },
         "selected": {
-          "value": "{color.common.black}",
+          "value": "#00000014",
           "type": "color"
         },
         "focus": {
-          "value": "{color.common.black}",
+          "value": "#0000001F",
           "type": "color"
         },
         "focusvisible": {
-          "value": "{color.common.black}",
+          "value": "#0000001F",
           "type": "color"
         }
       }
@@ -386,7 +386,7 @@
     },
     "action": {
       "active": {
-        "value": "{color.brown.50}",
+        "value": "#0000008A",
         "type": "color"
       },
       "hover": {
@@ -394,23 +394,76 @@
         "type": "color"
       },
       "selected": {
-        "value": "{color.common.black}",
+        "value": "#00000014",
         "type": "color"
       },
       "disabledbackground": {
-        "value": "{color.grey.500}",
+        "value": "#0000001F",
         "type": "color"
       },
       "focus": {
-        "value": "{color.common.black}",
+        "value": "#0000001F",
         "type": "color"
       },
       "disabled": {
-        "value": "{color.grey.500}",
+        "value": "#00000042",
         "type": "color"
       }
     },
-    "common": {}
+    "common": {
+      "black_states": {
+        "main": {
+          "value": "{color.common.black}",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#0000000A",
+          "type": "color"
+        },
+        "selected": {
+          "value": "#00000014",
+          "type": "color"
+        },
+        "focus": {
+          "value": "#0000001F",
+          "type": "color"
+        },
+        "focusvisible": {
+          "value": "#0000001F",
+          "type": "color"
+        },
+        "outlinedborder": {
+          "value": "#00000080",
+          "type": "color"
+        }
+      },
+      "white_states": {
+        "main": {
+          "value": "{color.common.white}",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#ffffff0A",
+          "type": "color"
+        },
+        "selected": {
+          "value": "#ffffff14",
+          "type": "color"
+        },
+        "focus": {
+          "value": "#ffffff1F",
+          "type": "color"
+        },
+        "focusvisible": {
+          "value": "#ffffff1F",
+          "type": "color"
+        },
+        "outlinedborder": {
+          "value": "#ffffff80",
+          "type": "color"
+        }
+      }
+    }
   },
   "spacing": {
     "3xs": {
