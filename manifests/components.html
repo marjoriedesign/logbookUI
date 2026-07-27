@@ -2039,7 +2039,7 @@ Code:
                 </div>
                 <pre><code>import {
     PageLayout,
-    RiCheckboxCircleFill,
+    RiCheckboxCircleLine,
     RiErrorWarningLine,
     Stack,
     Table,
@@ -2151,12 +2151,16 @@ Code:
                 <pre><code>import {
     Avatar,
     Box,
+    Button,
     Chip,
     LogbookIconButton,
     LogbookListenProgress,
     PageLayout,
+    RiArrowRightSLine,
+    RiBallPenLine,
+    RiBardLine,
     RiChat3Line,
-    RiMore2Line,
+    RiMoreFill,
     Switch,
     Table,
     TableBody,
@@ -2279,6 +2283,10 @@ Code:
   &lt;Sections&gt;
     &lt;Section title=&quot;Default&quot;&gt;
       &lt;CorrectionTypeSelect /&gt;
+    &lt;/Section&gt;
+
+    &lt;Section title=&quot;WithLabel&quot;&gt;
+      &lt;CorrectionTypeSelect label=&quot;Type de correction&quot; /&gt;
     &lt;/Section&gt;
 
     &lt;Section title=&quot;Disabled&quot;&gt;
@@ -2782,24 +2790,24 @@ Code:
   &lt;Sections&gt;
     &lt;Section title=&quot;Determinate&quot;&gt;
       &lt;Stack spacing={1} sx={{ width: 280 }}&gt;
-        &lt;Typography variant=&quot;body2&quot; color=&quot;text.secondary&quot;&gt;
+        &lt;Typography id=&quot;linear-progress-label&quot; variant=&quot;body2&quot; color=&quot;text.secondary&quot;&gt;
           12 corrections sur 20 terminées
         &lt;/Typography&gt;
-        &lt;LinearProgress variant=&quot;determinate&quot; value={60} /&gt;
+        &lt;LinearProgress variant=&quot;determinate&quot; value={60} aria-labelledby=&quot;linear-progress-label&quot; /&gt;
       &lt;/Stack&gt;
     &lt;/Section&gt;
 
     &lt;Section title=&quot;Indeterminate&quot;&gt;
       &lt;Stack sx={{ width: 280 }}&gt;
-        &lt;LinearProgress /&gt;
+        &lt;LinearProgress aria-label=&quot;Chargement en cours&quot; /&gt;
       &lt;/Stack&gt;
     &lt;/Section&gt;
 
     &lt;Section title=&quot;Colors&quot;&gt;
       &lt;Stack spacing={2} sx={{ width: 280 }}&gt;
-        &lt;LinearProgress variant=&quot;determinate&quot; value={70} color=&quot;primary&quot; /&gt;
-        &lt;LinearProgress variant=&quot;determinate&quot; value={70} color=&quot;secondary&quot; /&gt;
-        &lt;LinearProgress variant=&quot;determinate&quot; value={70} color=&quot;success&quot; /&gt;
+        &lt;LinearProgress variant=&quot;determinate&quot; value={70} color=&quot;primary&quot; aria-label=&quot;Progression (primary)&quot; /&gt;
+        &lt;LinearProgress variant=&quot;determinate&quot; value={70} color=&quot;secondary&quot; aria-label=&quot;Progression (secondary)&quot; /&gt;
+        &lt;LinearProgress variant=&quot;determinate&quot; value={70} color=&quot;success&quot; aria-label=&quot;Progression (success)&quot; /&gt;
       &lt;/Stack&gt;
     &lt;/Section&gt;
   &lt;/Sections&gt;
@@ -5234,7 +5242,7 @@ Code:
                 </div>
                 <pre><code>import {
     PageLayout,
-    RiCheckboxCircleFill,
+    RiCheckboxCircleLine,
     RiErrorWarningLine,
     Stack,
     Table,
@@ -5346,12 +5354,16 @@ Code:
                 <pre><code>import {
     Avatar,
     Box,
+    Button,
     Chip,
     LogbookIconButton,
     LogbookListenProgress,
     PageLayout,
+    RiArrowRightSLine,
+    RiBallPenLine,
+    RiBardLine,
     RiChat3Line,
-    RiMore2Line,
+    RiMoreFill,
     Switch,
     Table,
     TableBody,
@@ -5474,6 +5486,10 @@ Code:
   &lt;Sections&gt;
     &lt;Section title=&quot;Default&quot;&gt;
       &lt;CorrectionTypeSelect /&gt;
+    &lt;/Section&gt;
+
+    &lt;Section title=&quot;WithLabel&quot;&gt;
+      &lt;CorrectionTypeSelect label=&quot;Type de correction&quot; /&gt;
     &lt;/Section&gt;
 
     &lt;Section title=&quot;Disabled&quot;&gt;
@@ -5830,24 +5846,24 @@ Code:
   &lt;Sections&gt;
     &lt;Section title=&quot;Determinate&quot;&gt;
       &lt;Stack spacing={1} sx={{ width: 280 }}&gt;
-        &lt;Typography variant=&quot;body2&quot; color=&quot;text.secondary&quot;&gt;
+        &lt;Typography id=&quot;linear-progress-label&quot; variant=&quot;body2&quot; color=&quot;text.secondary&quot;&gt;
           12 corrections sur 20 terminées
         &lt;/Typography&gt;
-        &lt;LinearProgress variant=&quot;determinate&quot; value={60} /&gt;
+        &lt;LinearProgress variant=&quot;determinate&quot; value={60} aria-labelledby=&quot;linear-progress-label&quot; /&gt;
       &lt;/Stack&gt;
     &lt;/Section&gt;
 
     &lt;Section title=&quot;Indeterminate&quot;&gt;
       &lt;Stack sx={{ width: 280 }}&gt;
-        &lt;LinearProgress /&gt;
+        &lt;LinearProgress aria-label=&quot;Chargement en cours&quot; /&gt;
       &lt;/Stack&gt;
     &lt;/Section&gt;
 
     &lt;Section title=&quot;Colors&quot;&gt;
       &lt;Stack spacing={2} sx={{ width: 280 }}&gt;
-        &lt;LinearProgress variant=&quot;determinate&quot; value={70} color=&quot;primary&quot; /&gt;
-        &lt;LinearProgress variant=&quot;determinate&quot; value={70} color=&quot;secondary&quot; /&gt;
-        &lt;LinearProgress variant=&quot;determinate&quot; value={70} color=&quot;success&quot; /&gt;
+        &lt;LinearProgress variant=&quot;determinate&quot; value={70} color=&quot;primary&quot; aria-label=&quot;Progression (primary)&quot; /&gt;
+        &lt;LinearProgress variant=&quot;determinate&quot; value={70} color=&quot;secondary&quot; aria-label=&quot;Progression (secondary)&quot; /&gt;
+        &lt;LinearProgress variant=&quot;determinate&quot; value={70} color=&quot;success&quot; aria-label=&quot;Progression (success)&quot; /&gt;
       &lt;/Stack&gt;
     &lt;/Section&gt;
   &lt;/Sections&gt;

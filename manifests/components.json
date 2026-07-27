@@ -221,7 +221,7 @@
         {
           "id": "components-select--default",
           "name": "Default",
-          "snippet": "const Default = () => (\n  <Sections>\n    <Section title=\"Default\">\n      <CorrectionTypeSelect />\n    </Section>\n\n    <Section title=\"Disabled\">\n      <CorrectionTypeSelect disabled />\n    </Section>\n\n    <Section title=\"ErrorState\">\n      <CorrectionTypeSelect error />\n    </Section>\n  </Sections>\n);"
+          "snippet": "const Default = () => (\n  <Sections>\n    <Section title=\"Default\">\n      <CorrectionTypeSelect />\n    </Section>\n\n    <Section title=\"WithLabel\">\n      <CorrectionTypeSelect label=\"Type de correction\" />\n    </Section>\n\n    <Section title=\"Disabled\">\n      <CorrectionTypeSelect disabled />\n    </Section>\n\n    <Section title=\"ErrorState\">\n      <CorrectionTypeSelect error />\n    </Section>\n  </Sections>\n);"
         }
       ],
       "import": "import { FormControl, InputLabel, MenuItem, PageLayout, Section, Sections, Select } from \"@mui/material\";"
@@ -365,7 +365,7 @@
         {
           "id": "components-linearprogress--default",
           "name": "Default",
-          "snippet": "const Default = () => (\n  <Sections>\n    <Section title=\"Determinate\">\n      <Stack spacing={1} sx={{ width: 280 }}>\n        <Typography variant=\"body2\" color=\"text.secondary\">\n          12 corrections sur 20 terminées\n        </Typography>\n        <LinearProgress variant=\"determinate\" value={60} />\n      </Stack>\n    </Section>\n\n    <Section title=\"Indeterminate\">\n      <Stack sx={{ width: 280 }}>\n        <LinearProgress />\n      </Stack>\n    </Section>\n\n    <Section title=\"Colors\">\n      <Stack spacing={2} sx={{ width: 280 }}>\n        <LinearProgress variant=\"determinate\" value={70} color=\"primary\" />\n        <LinearProgress variant=\"determinate\" value={70} color=\"secondary\" />\n        <LinearProgress variant=\"determinate\" value={70} color=\"success\" />\n      </Stack>\n    </Section>\n  </Sections>\n);"
+          "snippet": "const Default = () => (\n  <Sections>\n    <Section title=\"Determinate\">\n      <Stack spacing={1} sx={{ width: 280 }}>\n        <Typography id=\"linear-progress-label\" variant=\"body2\" color=\"text.secondary\">\n          12 corrections sur 20 terminées\n        </Typography>\n        <LinearProgress variant=\"determinate\" value={60} aria-labelledby=\"linear-progress-label\" />\n      </Stack>\n    </Section>\n\n    <Section title=\"Indeterminate\">\n      <Stack sx={{ width: 280 }}>\n        <LinearProgress aria-label=\"Chargement en cours\" />\n      </Stack>\n    </Section>\n\n    <Section title=\"Colors\">\n      <Stack spacing={2} sx={{ width: 280 }}>\n        <LinearProgress variant=\"determinate\" value={70} color=\"primary\" aria-label=\"Progression (primary)\" />\n        <LinearProgress variant=\"determinate\" value={70} color=\"secondary\" aria-label=\"Progression (secondary)\" />\n        <LinearProgress variant=\"determinate\" value={70} color=\"success\" aria-label=\"Progression (success)\" />\n      </Stack>\n    </Section>\n  </Sections>\n);"
         }
       ],
       "import": "import { LinearProgress, PageLayout, Section, Sections, Stack, Typography } from \"@mui/material\";"
@@ -422,7 +422,7 @@
           "snippet": "const Default = () => <Table />;"
         }
       ],
-      "import": "import {\n    PageLayout,\n    RiCheckboxCircleFill,\n    RiErrorWarningLine,\n    Stack,\n    Table,\n    TableBody,\n    TableCell,\n    TableHead,\n    TableRow,\n    Typography,\n} from \"@mui/material\";"
+      "import": "import {\n    PageLayout,\n    RiCheckboxCircleLine,\n    RiErrorWarningLine,\n    Stack,\n    Table,\n    TableBody,\n    TableCell,\n    TableHead,\n    TableRow,\n    Typography,\n} from \"@mui/material\";"
     },
     "logbook-navbar": {
       "id": "logbook-navbar",
@@ -489,11 +489,11 @@
           "snippet": "const Default = () => <Table />;"
         }
       ],
-      "import": "import {\n    Avatar,\n    Box,\n    Chip,\n    LogbookIconButton,\n    LogbookListenProgress,\n    PageLayout,\n    RiChat3Line,\n    RiMore2Line,\n    Switch,\n    Table,\n    TableBody,\n    TableCell,\n    TableHead,\n    TableRow,\n    Typography,\n} from \"@mui/material\";"
+      "import": "import {\n    Avatar,\n    Box,\n    Button,\n    Chip,\n    LogbookIconButton,\n    LogbookListenProgress,\n    PageLayout,\n    RiArrowRightSLine,\n    RiBallPenLine,\n    RiBardLine,\n    RiChat3Line,\n    RiMoreFill,\n    Switch,\n    Table,\n    TableBody,\n    TableCell,\n    TableHead,\n    TableRow,\n    Typography,\n} from \"@mui/material\";"
     }
   },
   "meta": {
     "docgen": "react-docgen",
-    "durationMs": 305
+    "durationMs": 329
   }
 }
