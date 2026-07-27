@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note info" style="margin-bottom: 16px;">
-            <strong>Tip:</strong> You are using <code>react-docgen</code> (the default). Generation took <strong>0.4s</strong>. For higher quality prop types, consider switching to <code>react-docgen-typescript</code> in your <code>main.ts</code>:
+            <strong>Tip:</strong> You are using <code>react-docgen</code> (the default). Generation took <strong>0.2s</strong>. For higher quality prop types, consider switching to <code>react-docgen-typescript</code> in your <code>main.ts</code>:
             <pre><code>typescript: {
   reactDocgen: 'react-docgen-typescript',
 }</code></pre>
@@ -1812,7 +1812,7 @@ Code:
      | ^
   91 |   title: &#39;Foundations/Colors&#39;,
   92 |   component: ColorFoundations,
-  93 |   parameters: { layout: &#39;padded&#39; },
+  93 |   parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
 
 ./src/stories/Foundations/Colors.stories.tsx:
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;;
@@ -1907,7 +1907,7 @@ function ColorFoundations() {
 const meta: Meta&lt;typeof ColorFoundations&gt; = {
   title: &#39;Foundations/Colors&#39;,
   component: ColorFoundations,
-  parameters: { layout: &#39;padded&#39; },
+  parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
 };
 
 export default meta;
@@ -2593,7 +2593,7 @@ Code:
      | ^
   50 |   title: &#39;Foundations/Icons&#39;,
   51 |   component: IconFoundations,
-  52 |   parameters: { layout: &#39;padded&#39; },
+  52 |   parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
 
 ./src/stories/Foundations/Icons.stories.tsx:
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;;
@@ -2647,7 +2647,7 @@ function IconFoundations() {
 const meta: Meta&lt;typeof IconFoundations&gt; = {
   title: &#39;Foundations/Icons&#39;,
   component: IconFoundations,
-  parameters: { layout: &#39;padded&#39; },
+  parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
 };
 
 export default meta;
@@ -2993,6 +2993,7 @@ const meta: Meta&lt;typeof NavbarDemo&gt; = {
   title: &#39;Logbook/Navbar&#39;,
   component: NavbarDemo,
   decorators: [(Story) =&gt; (&lt;PageLayout title=&quot;Navbar&quot;&gt;&lt;Story /&gt;&lt;/PageLayout&gt;)],
+  parameters: { controls: { disable: true } },
 };
 
 export default meta;
@@ -3216,7 +3217,7 @@ Code:
      | ^
   28 |   title: &#39;Foundations/Spacing&#39;,
   29 |   component: SpacingFoundations,
-  30 |   parameters: { layout: &#39;padded&#39; },
+  30 |   parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
 
 ./src/stories/Foundations/Spacing.stories.tsx:
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;;
@@ -3248,7 +3249,7 @@ function SpacingFoundations() {
 const meta: Meta&lt;typeof SpacingFoundations&gt; = {
   title: &#39;Foundations/Spacing&#39;,
   component: SpacingFoundations,
-  parameters: { layout: &#39;padded&#39; },
+  parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
 };
 
 export default meta;
@@ -3790,7 +3791,7 @@ Code:
       | ^
   145 |   title: &#39;Foundations/Visuals&#39;,
   146 |   component: VisualsFoundations,
-  147 |   parameters: { layout: &#39;padded&#39; },
+  147 |   parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
 
 ./src/stories/Foundations/Visuals.stories.tsx:
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;;
@@ -3939,7 +3940,7 @@ function VisualsFoundations() {
 const meta: Meta&lt;typeof VisualsFoundations&gt; = {
   title: &#39;Foundations/Visuals&#39;,
   component: VisualsFoundations,
-  parameters: { layout: &#39;padded&#39; },
+  parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
 };
 
 export default meta;
@@ -6498,7 +6499,7 @@ Code:
      | ^
   91 |   title: &#39;Foundations/Colors&#39;,
   92 |   component: ColorFoundations,
-  93 |   parameters: { layout: &#39;padded&#39; },
+  93 |   parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
 
 ./src/stories/Foundations/Colors.stories.tsx:
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;;
@@ -6593,7 +6594,7 @@ function ColorFoundations() {
 const meta: Meta&lt;typeof ColorFoundations&gt; = {
   title: &#39;Foundations/Colors&#39;,
   component: ColorFoundations,
-  parameters: { layout: &#39;padded&#39; },
+  parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
 };
 
 export default meta;
@@ -6687,7 +6688,7 @@ import { PageLayout } from "logbook-design-system";</code></pre>
      | ^
   50 |   title: &#39;Foundations/Icons&#39;,
   51 |   component: IconFoundations,
-  52 |   parameters: { layout: &#39;padded&#39; },
+  52 |   parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
 
 ./src/stories/Foundations/Icons.stories.tsx:
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;;
@@ -6741,7 +6742,7 @@ function IconFoundations() {
 const meta: Meta&lt;typeof IconFoundations&gt; = {
   title: &#39;Foundations/Icons&#39;,
   component: IconFoundations,
-  parameters: { layout: &#39;padded&#39; },
+  parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
 };
 
 export default meta;
@@ -6865,6 +6866,7 @@ const meta: Meta&lt;typeof NavbarDemo&gt; = {
   title: &#39;Logbook/Navbar&#39;,
   component: NavbarDemo,
   decorators: [(Story) =&gt; (&lt;PageLayout title=&quot;Navbar&quot;&gt;&lt;Story /&gt;&lt;/PageLayout&gt;)],
+  parameters: { controls: { disable: true } },
 };
 
 export default meta;
@@ -6970,7 +6972,7 @@ export const Default: Story = {
      | ^
   28 |   title: &#39;Foundations/Spacing&#39;,
   29 |   component: SpacingFoundations,
-  30 |   parameters: { layout: &#39;padded&#39; },
+  30 |   parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
 
 ./src/stories/Foundations/Spacing.stories.tsx:
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;;
@@ -7002,7 +7004,7 @@ function SpacingFoundations() {
 const meta: Meta&lt;typeof SpacingFoundations&gt; = {
   title: &#39;Foundations/Spacing&#39;,
   component: SpacingFoundations,
-  parameters: { layout: &#39;padded&#39; },
+  parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
 };
 
 export default meta;
@@ -7096,7 +7098,7 @@ import { PageLayout } from "logbook-design-system";</code></pre>
       | ^
   145 |   title: &#39;Foundations/Visuals&#39;,
   146 |   component: VisualsFoundations,
-  147 |   parameters: { layout: &#39;padded&#39; },
+  147 |   parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
 
 ./src/stories/Foundations/Visuals.stories.tsx:
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;;
@@ -7245,7 +7247,7 @@ function VisualsFoundations() {
 const meta: Meta&lt;typeof VisualsFoundations&gt; = {
   title: &#39;Foundations/Visuals&#39;,
   component: VisualsFoundations,
-  parameters: { layout: &#39;padded&#39; },
+  parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
 };
 
 export default meta;
