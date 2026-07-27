@@ -489,11 +489,11 @@
           "snippet": "const Default = () => <Table />;"
         }
       ],
-      "import": "import {\n    Avatar,\n    Box,\n    Button,\n    Chip,\n    LogbookIconButton,\n    LogbookListenProgress,\n    PageLayout,\n    RiArrowRightSLine,\n    RiBallPenLine,\n    RiBardLine,\n    RiChat3Line,\n    RiMoreFill,\n    Switch,\n    Table,\n    TableBody,\n    TableCell,\n    TableHead,\n    TableRow,\n    Typography,\n} from \"@mui/material\";"
+      "import": "import {\n    Avatar,\n    Box,\n    Button,\n    Chip,\n    LogbookIconButton,\n    LogbookListenProgress,\n    PageLayout,\n    RiArrowRightSLine,\n    RiBallPenLine,\n    RiBardLine,\n    RiChat3Line,\n    RiMoreFill,\n    Switch,\n    Table,\n    TableBody,\n    TableCell,\n    TableHead,\n    TableRow,\n    TableSortLabel,\n    Typography,\n} from \"@mui/material\";"
     }
   },
   "meta": {
     "docgen": "react-docgen",
-    "durationMs": 329
+    "durationMs": 412
   }
 }
