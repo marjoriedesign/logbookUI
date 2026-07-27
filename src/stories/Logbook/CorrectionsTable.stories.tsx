@@ -6,12 +6,15 @@ import {
   TableBody,
   TableRow,
   TableCell,
+  TableSortLabel,
   Avatar,
   Switch,
   Chip,
   Button,
   Box,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from '@mui/material';
 import {
   RiEmotionLaughLine,
@@ -58,7 +61,11 @@ const etatWidth = '128px';
 // Sous 900px (breakpoint md), on ne garde que Élève/Non réalisée/État/Note —
 // Écoute, Réaction et le menu disparaissent ; la Note (qui a sa propre
 // colonne au-dessus de md) passe alors sous le chip/bouton d'État.
-const hideOnNarrow = { display: { xs: 'none', md: 'table-cell' } } as const;
+// Ces colonnes sont retirées du DOM (pas juste masquées en CSS) : le header
+// (cf. theme/components/Table.ts) arrondit et borde son dernier <th> via
+// `:last-of-type`, un sélecteur qui ignore `display:none` et continuerait de
+// cibler une cellule invisible — l'espace à droite du header ne serait alors
+// plus symétrique à celui de gauche une fois les colonnes masquées.
 
 const reactionIcons: Record<Reaction, { Icon: typeof RiEmotionLaughLine; color: string }> = {
   content: { Icon: RiEmotionLaughLine, color: designTokens.color.success.dark },
@@ -140,7 +147,7 @@ const initialRows: RowData[] = [
   },
 ];
 
-function CorrectionsRow({ row: initialRow }: { row: RowData }) {
+function CorrectionsRow({ row: initialRow, isNarrow }: { row: RowData; isNarrow: boolean }) {
   const [row, setRow] = useState(initialRow);
   const reaction = row.reaction ? reactionIcons[row.reaction] : null;
 
@@ -200,63 +207,83 @@ function CorrectionsRow({ row: initialRow }: { row: RowData }) {
         )}
         {/* Sous 900px, la Note (qui perd sa propre colonne) s'affiche ici,
             sous le chip/bouton d'État — rien du tout si pas de note. */}
-        {row.state === 'consulted' && row.note !== null && (
-          <Typography
-            variant="body2"
-            color="text.secondary"
-            sx={{ display: { xs: 'block', md: 'none' }, mt: 0.5 }}
-          >
+        {isNarrow && row.state === 'consulted' && row.note !== null && (
+          <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
             {row.note}/20
           </Typography>
         )}
       </TableCell>
-      <TableCell sx={hideOnNarrow}>
-        {row.state === 'consulted' && row.listened !== null && <LogbookListenProgress value={row.listened} />}
-      </TableCell>
-      <TableCell sx={hideOnNarrow}>
-        {row.state === 'consulted' && row.note !== null && (
-          <Typography variant="body2" color="text.secondary">
-            {row.note}/20
-          </Typography>
-        )}
-      </TableCell>
-      <TableCell sx={hideOnNarrow}>
-        {row.state === 'consulted' && (
+      {!isNarrow && (
+        <TableCell>
+          {row.state === 'consulted' && row.listened !== null && <LogbookListenProgress value={row.listened} />}
+        </TableCell>
+      )}
+      {!isNarrow && (
+        <TableCell>
+          {row.state === 'consulted' && row.note !== null && (
+            <Typography variant="body2" color="text.secondary">
+              {row.note}/20
+            </Typography>
+          )}
+        </TableCell>
+      )}
+      {!isNarrow && (
+        <TableCell>
+          {row.state === 'consulted' && (
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: `${designTokens.spacing.xs}px` }}>
+              {reaction && <reaction.Icon size={20} color={reaction.color} />}
+              {row.hasComment && <RiChat3Line size={18} color={designTokens.color.text.secondary} />}
+            </Box>
+          )}
+        </TableCell>
+      )}
+      {!isNarrow && (
+        <TableCell>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: `${designTokens.spacing.xs}px` }}>
-            {reaction && <reaction.Icon size={20} color={reaction.color} />}
-            {row.hasComment && <RiChat3Line size={18} color={designTokens.color.text.secondary} />}
+            <LogbookIconButton variant="outlined" color="secondary" aria-label="Actions" size="small">
+              <RiMoreFill size="1em" />
+            </LogbookIconButton>
+            <RiArrowRightSLine size={20} color={designTokens.color.primary.main} />
           </Box>
-        )}
-      </TableCell>
-      <TableCell sx={hideOnNarrow}>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: `${designTokens.spacing.xs}px` }}>
-          <LogbookIconButton variant="outlined" color="secondary" aria-label="Actions" size="small">
-            <RiMoreFill size="1em" />
-          </LogbookIconButton>
-          <RiArrowRightSLine size={20} color={designTokens.color.primary.main} />
-        </Box>
-      </TableCell>
+        </TableCell>
+      )}
     </TableRow>
   );
 }
 
 function CorrectionsTable() {
+  const [order, setOrder] = useState<'asc' | 'desc'>('asc');
+  const theme = useTheme();
+  const isNarrow = useMediaQuery(theme.breakpoints.down('md'));
+
+  const sortedRows = [...initialRows].sort((a, b) =>
+    order === 'asc' ? a.student.localeCompare(b.student) : b.student.localeCompare(a.student),
+  );
+
   return (
     <Table>
       <TableHead>
         <TableRow>
-          <TableCell>Élève</TableCell>
+          <TableCell sortDirection={order}>
+            <TableSortLabel
+              active
+              direction={order}
+              onClick={() => setOrder((prev) => (prev === 'asc' ? 'desc' : 'asc'))}
+            >
+              Élève
+            </TableSortLabel>
+          </TableCell>
           <TableCell>Non réalisée</TableCell>
           <TableCell>État</TableCell>
-          <TableCell sx={hideOnNarrow}>Écoute</TableCell>
-          <TableCell sx={hideOnNarrow}>Note</TableCell>
-          <TableCell sx={hideOnNarrow}>Réaction</TableCell>
-          <TableCell sx={hideOnNarrow} />
+          {!isNarrow && <TableCell>Écoute</TableCell>}
+          {!isNarrow && <TableCell>Note</TableCell>}
+          {!isNarrow && <TableCell>Réaction</TableCell>}
+          {!isNarrow && <TableCell />}
         </TableRow>
       </TableHead>
       <TableBody>
-        {initialRows.map((row) => (
-          <CorrectionsRow key={row.student} row={row} />
+        {sortedRows.map((row) => (
+          <CorrectionsRow key={row.student} row={row} isNarrow={isNarrow} />
         ))}
       </TableBody>
     </Table>

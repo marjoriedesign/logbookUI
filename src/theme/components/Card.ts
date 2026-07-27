@@ -7,8 +7,8 @@ export const MuiCard: Components<Theme>['MuiCard'] = {
     variant: 'outlined',
   },
   styleOverrides: {
-    // theme.palette.divider : pas encore de token dédié dans
-    // tokens/semantic.json, cf. palette.ts.
+    // theme.palette.divider : cf. tokens/semantic.json (color.divider) et
+    // palette.ts.
     root: ({ theme }) => ({
       borderRadius: designTokens.borderRadius.lg,
       borderColor: theme.palette.divider,

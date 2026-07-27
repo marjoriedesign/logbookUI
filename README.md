@@ -34,15 +34,15 @@ npm run tokens:build   # génère src/theme/generated/tokens.ts depuis tokens/*.
 - `src/assets/` — visuels (avatars illustrés, illustrations, logo)
 - `src/stories/Foundations/` — couleurs, typographie, spacing, icônes, visuels
 - `src/stories/Components/` — composants MUI themés pris individuellement (Button, IconButton, TextField, Chip, Switch, Checkbox, Select, Alert, Badge, Avatar, Card...)
-- `src/stories/Logbook/` — assemblages propres au produit Logbook, composés à partir des composants ci-dessus (Navbar, ListenProgress...) — catégorie Storybook séparée, distincte de Components
+- `src/stories/Logbook/` — assemblages propres au produit Logbook, composés à partir des composants ci-dessus (Navbar, ListenProgress, CorrectionsTable...) — catégorie Storybook séparée, distincte de Components
 
 ## État des tokens
 
 La charte réelle de Logbook (palette teal/corail, police Zain) est
-intégrée dans `tokens/core.json` et `tokens/semantic.json`. Deux tokens
-sémantiques restent à définir côté Figma — `color.divider` et un style de
-texte `button` — voir les commentaires dans `src/theme/palette.ts` et
-`src/theme/typography.ts`.
+intégrée dans `tokens/core.json` et `tokens/semantic.json`. Un style de
+texte reste à définir : `typography.button` n'a pas de token composite
+dédié (seules les tailles `typography.button.small/medium/large` existent) —
+voir le commentaire dans `src/theme/typography.ts`.
 
 ## semantic.json référence core.json
 

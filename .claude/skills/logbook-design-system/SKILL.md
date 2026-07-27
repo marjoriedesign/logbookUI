@@ -45,8 +45,8 @@ src/components/           # wrappers/assemblages sans équivalent natif MUI
 src/stories/
   Foundations/            # Colors, Typography, Spacing, Icons, Visuals — vue d'ensemble des tokens
   Components/             # Button, TextField, Chip, Card... (composants MUI themés pris individuellement)
-  Logbook/                # assemblages propres au produit (Navbar, ListenProgress...),
-                          # catégorie Storybook séparée de Components
+  Logbook/                # assemblages propres au produit (Navbar, ListenProgress,
+                          # CorrectionsTable...), catégorie Storybook séparée de Components
 
 .storybook/
   main.ts                 # config Storybook (addons a11y, docs, vitest, mcp)
@@ -133,6 +133,16 @@ dans la story `Foundations/Icons`.
 - Vérifier chaque composant via le sélecteur de viewport de Storybook
   (icône appareil dans la toolbar) sur mobile/tablette/desktop avant de
   considérer une story terminée.
+- **Piège `display:none` + `:first-of-type`/`:last-of-type`** : masquer une
+  colonne de tableau en responsive via `sx={{ display: { xs: 'none', md:
+  'table-cell' } }}` ne la retire pas du DOM — un sélecteur CSS structurel
+  comme `:last-of-type` (utilisé par `MuiTableCell.head` dans
+  `theme/components/Table.ts` pour arrondir/border le coin du header)
+  continue de cibler cette cellule invisible plutôt que la vraie dernière
+  cellule visible. Dans ce cas, préférer le rendu conditionnel en JS
+  (`useMediaQuery(theme.breakpoints.down('md'))` + `{!isNarrow && <TableCell>...}`)
+  pour que la cellule soit réellement absente du DOM sous le point de
+  rupture (cf. `CorrectionsTable`).
 
 ## Lancer l'environnement de test
 
