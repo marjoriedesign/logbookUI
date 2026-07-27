@@ -472,10 +472,28 @@
         }
       ],
       "import": "import { LogbookListenProgress, PageLayout, Section, Sections } from \"logbook-design-system\";\nimport { Stack } from \"@mui/material\";"
+    },
+    "logbook-correctionstable": {
+      "id": "logbook-correctionstable",
+      "name": "CorrectionsTable",
+      "path": "./src/stories/Logbook/CorrectionsTable.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "Component file in node_modules",
+        "message": "File: /Users/marjorie/logbook-design-system/node_modules/@mui/material/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+      },
+      "stories": [
+        {
+          "id": "logbook-correctionstable--default",
+          "name": "Default",
+          "snippet": "const Default = () => <Table />;"
+        }
+      ],
+      "import": "import {\n    Avatar,\n    Box,\n    Chip,\n    LogbookIconButton,\n    LogbookListenProgress,\n    PageLayout,\n    RiChat3Line,\n    RiMore2Line,\n    Switch,\n    Table,\n    TableBody,\n    TableCell,\n    TableHead,\n    TableRow,\n    Typography,\n} from \"@mui/material\";"
     }
   },
   "meta": {
     "docgen": "react-docgen",
-    "durationMs": 289
+    "durationMs": 305
   }
 }
