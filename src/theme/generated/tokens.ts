@@ -659,9 +659,45 @@ export const designTokens = {
       "textCase": "none"
     },
     "button": {
-      "small": 13,
-      "medium": 14,
-      "large": 15
+      "small": {
+        "fontSize": 13,
+        "textDecoration": "none",
+        "fontFamily": "Zain",
+        "fontWeight": 700,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 15.6,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      },
+      "medium": {
+        "fontSize": 14,
+        "textDecoration": "none",
+        "fontFamily": "Zain",
+        "fontWeight": 700,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 16.8,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      },
+      "large": {
+        "fontSize": 15,
+        "textDecoration": "none",
+        "fontFamily": "Zain",
+        "fontWeight": 700,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 18,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      }
     },
     "alert": {
       "title": {

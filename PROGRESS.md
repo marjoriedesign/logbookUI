@@ -19,6 +19,7 @@ Factuel uniquement. Mis à jour à la fin de chaque session (cf. CLAUDE.md).
 - `tsconfig` strict activé.
 - Repo Git poussé sur GitHub (`origin/main` = `github.com/marjoriedesign/logbookUI`, à jour avec le local).
 - Champs `_states` (selected/focus/focusVisible/outlinedBorder par couleur, `action.active/selected/focus/disabled/disabledBackground`, `common.black_states`/`white_states`) nettoyés dans `tokens/semantic.json` : remplacés par les vraies valeurs par défaut de MUI (superpositions alpha sur `main`/noir/blanc aux opacités officielles MUI 4/8/12/50%, encodées en hex 8 chiffres) au lieu des couleurs pleines placeholder jamais nettoyées de l'export Tokens Studio initial. `action.active/selected/focus/disabled/disabledBackground` câblé explicitement dans `palette.ts` (purement déclaratif, aucun changement de rendu — `action.hover` et `success/error/warning/info._states.hover`, seuls champs déjà consommés par `Button.ts`, restent inchangés). Documenté dans le README, section "Autres champs `_states`".
+- `typography.button.small/medium/large` : converti en vrai token composite (fontSize/fontWeight/lineHeight/letterSpacing/textCase), verrouillant ce que `Button.ts` rendait déjà (fontWeight 700, lineHeight 120%, letterSpacing 0 — MUI n'applique son calcul de letterSpacing par défaut que si `fontFamily` reste Roboto, jamais le cas ici puisque le thème force Zain). `Button.ts`/`Chip.ts` mis à jour pour lire `.fontSize` sur l'objet composite au lieu d'un nombre brut. Aucun changement de rendu.
 
 ## En cours / à moitié fait
 
@@ -30,7 +31,6 @@ Factuel uniquement. Mis à jour à la fin de chaque session (cf. CLAUDE.md).
 
 - **Version MUI** : v9 utilisée actuellement, non tranchée — à valider avec l'équipe dev Logbook avant toute nouvelle génération de composants.
 - **Chip vs Bouton pour la colonne État de `CorrectionsTable`** : convention actuelle dans le Storybook — chip pour un statut passif ("Rendue", "Consultée"), bouton pour une action à faire ("À corriger", "À analyser") — pas encore validée contre l'implémentation prod réelle.
-- **`typography.button`** : pas de token composite dédié (seules les tailles `small`/`medium`/`large` existent) — à définir côté Figma.
 
 ## Prochaine étape
 

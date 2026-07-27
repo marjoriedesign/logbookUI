@@ -39,10 +39,19 @@ npm run tokens:build   # génère src/theme/generated/tokens.ts depuis tokens/*.
 ## État des tokens
 
 La charte réelle de Logbook (palette teal/corail, police Zain) est
-intégrée dans `tokens/core.json` et `tokens/semantic.json`. Un style de
-texte reste à définir : `typography.button` n'a pas de token composite
-dédié (seules les tailles `typography.button.small/medium/large` existent) —
-voir le commentaire dans `src/theme/typography.ts`.
+intégrée dans `tokens/core.json` et `tokens/semantic.json`.
+
+`typography.button.small/medium/large` est maintenant un vrai token
+composite (fontSize/fontWeight/lineHeight/letterSpacing/textCase), au même
+format que `h1`-`h6`. Ces valeurs correspondent à ce que `Button.ts`
+rendait déjà (fontWeight 700, lineHeight 120 % du fontSize, pas de
+majuscules) — figées ici pour que Figma/Tokens Studio en récupère la
+définition exacte. Détail letterSpacing : MUI calcule normalement un
+letter-spacing par défaut par variante (`0.02857em` pour `button`), mais
+ce calcul ne s'applique que si `fontFamily` reste `"Roboto"` (voir
+`node_modules/@mui/material/styles/createTypography.js`) — comme notre
+thème force `fontFamily: "Zain"`, ce calcul ne s'exécute jamais, d'où
+`letterSpacing: 0` (comportement déjà en place, maintenant explicite).
 
 ## semantic.json référence core.json
 

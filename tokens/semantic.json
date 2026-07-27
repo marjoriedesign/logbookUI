@@ -1446,16 +1446,52 @@
     },
     "button": {
       "small": {
-        "value": 13,
-        "type": "dimension"
+        "value": {
+          "fontSize": 13,
+          "textDecoration": "none",
+          "fontFamily": "Zain",
+          "fontWeight": 700,
+          "fontStyle": "normal",
+          "fontStretch": "normal",
+          "letterSpacing": 0,
+          "lineHeight": 15.6,
+          "paragraphIndent": 0,
+          "paragraphSpacing": 0,
+          "textCase": "none"
+        },
+        "type": "custom-fontStyle"
       },
       "medium": {
-        "value": 14,
-        "type": "dimension"
+        "value": {
+          "fontSize": 14,
+          "textDecoration": "none",
+          "fontFamily": "Zain",
+          "fontWeight": 700,
+          "fontStyle": "normal",
+          "fontStretch": "normal",
+          "letterSpacing": 0,
+          "lineHeight": 16.8,
+          "paragraphIndent": 0,
+          "paragraphSpacing": 0,
+          "textCase": "none"
+        },
+        "type": "custom-fontStyle"
       },
       "large": {
-        "value": 15,
-        "type": "dimension"
+        "value": {
+          "fontSize": 15,
+          "textDecoration": "none",
+          "fontFamily": "Zain",
+          "fontWeight": 700,
+          "fontStyle": "normal",
+          "fontStretch": "normal",
+          "letterSpacing": 0,
+          "lineHeight": 18,
+          "paragraphIndent": 0,
+          "paragraphSpacing": 0,
+          "textCase": "none"
+        },
+        "type": "custom-fontStyle"
       }
     },
     "alert": {

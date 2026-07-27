@@ -20,7 +20,7 @@ export const MuiChip: Components<Theme>['MuiChip'] = {
       fontWeight: designTokens.fontWeights.bold,
       // Pas de token "chip" dédié : réutilise typography.button.small (13px),
       // seule valeur 13px déjà existante dans les tokens.
-      fontSize: designTokens.typography.button.small,
+      fontSize: designTokens.typography.button.small.fontSize,
     },
   },
   variants: [

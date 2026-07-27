@@ -27,7 +27,7 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
       paddingInline: designTokens.spacing.sm,
       // Exception explicite : hauteur imposée à 32px, idem ci-dessus.
       paddingBlock: '8.203125px',
-      fontSize: designTokens.typography.button.small,
+      fontSize: designTokens.typography.button.small.fontSize,
       // MUI fixe nativement la taille des icônes de startIcon/endIcon à 18px
       // en small (voir commonIconStyles dans Button.js), indépendamment de
       // notre fontSize/lineHeight — un bouton avec icône devient alors plus
@@ -39,7 +39,7 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
       },
     },
     sizeMedium: {
-      fontSize: designTokens.typography.button.medium,
+      fontSize: designTokens.typography.button.medium.fontSize,
       '& .MuiButton-startIcon > *:first-of-type, & .MuiButton-endIcon > *:first-of-type': {
         fontSize: '16.8px',
       },
@@ -54,7 +54,7 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
       // (14+14+18+1+1) — à condition que l'icône ne dépasse pas ce
       // lineHeight, cf. override ci-dessous.
       paddingBlock: '14px',
-      fontSize: designTokens.typography.button.large,
+      fontSize: designTokens.typography.button.large.fontSize,
       '& .MuiButton-startIcon > *:first-of-type, & .MuiButton-endIcon > *:first-of-type': {
         fontSize: '18px',
       },
