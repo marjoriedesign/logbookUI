@@ -6,14 +6,13 @@ import { designTokens } from '../../theme/generated/tokens';
 const TOKENS = [
   { token: 'color.{X}.main/contrastText', note: 'fond/texte du variant filled (Strong)' },
   { token: 'color.secondary.subtle.background, text.secondary', note: 'fond/texte du variant subtle — texte toujours unifié sur text.secondary' },
-  { token: 'typography.button.small', note: 'fontSize réutilisé (13px) — pas de token "chip" dédié consommé, bien que typography.chip.label existe dans les tokens' },
-  { token: 'designTokens.fontWeights.bold, borderRadius.md', note: 'poids du texte (700), rayon (8px, pas pill)' },
+  { token: 'typography.chip.label', note: 'fontSize(13)/fontWeight(400)/lineHeight(18) — token composite dédié' },
+  { token: 'designTokens.borderRadius.md', note: 'rayon (8px, pas pill)' },
 ];
 
 const NOTES = [
   'variant="subtle" est une extension custom (officiellement supportée par MUI), pas un variant natif — fond pastel + texte unifié sur text.secondary, pour les statuts discrets.',
   'Strong Info et Erreur sortent du nuancier standard : orange.800/deeppurple.700 posés en dur (sx, pas token) pour tenir le contraste AA (4.64:1 / 9.17:1) — à signaler si Figma doit reproduire ces deux teintes.',
-  'typography.chip.label (13px/400/18px) existe dans tokens/semantic.json mais n’est pas consommé par le thème : Chip.ts réutilise typography.button.small à la place — à clarifier si ce doublon est voulu.',
 ];
 
 const meta: Meta<typeof Chip> = {

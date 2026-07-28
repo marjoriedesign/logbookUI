@@ -17,10 +17,10 @@ export const MuiChip: Components<Theme>['MuiChip'] = {
   styleOverrides: {
     root: {
       borderRadius: designTokens.borderRadius.md,
-      fontWeight: designTokens.fontWeights.bold,
-      // Pas de token "chip" dédié : réutilise typography.button.small (13px),
-      // seule valeur 13px déjà existante dans les tokens.
-      fontSize: designTokens.typography.button.small.fontSize,
+      fontFamily: designTokens.typography.chip.label.fontFamily,
+      fontWeight: designTokens.typography.chip.label.fontWeight,
+      fontSize: designTokens.typography.chip.label.fontSize,
+      lineHeight: `${designTokens.typography.chip.label.lineHeight}px`,
     },
   },
   variants: [
