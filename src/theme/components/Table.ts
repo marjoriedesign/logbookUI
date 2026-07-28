@@ -9,6 +9,13 @@ export const MuiTable: Components<Theme>['MuiTable'] = {
   styleOverrides: {
     root: {
       borderCollapse: 'separate',
+      // Fond blanc explicite plutôt que transparent (qui ne montrait le
+      // blanc que par transparence via le fond de page, background.default).
+      // color.background['paper-elevation-0'] plutôt que
+      // theme.palette.background.paper ('paper-elevation-1', grey.50, réservé
+      // au header) : paper-elevation-0 n'est pas câblé sur palette.ts (seul
+      // paper-elevation-1 l'est), donc lu directement depuis designTokens.
+      backgroundColor: designTokens.color.background['paper-elevation-0'],
     },
   },
 };
