@@ -404,7 +404,7 @@ export const designTokens = {
       },
       "contrastText": "#47453f",
       "strong": {
-        "background": "#512da8"
+        "background": "#00796b"
       },
       "subtle": {
         "background": "#b2dfdb"

@@ -5,7 +5,7 @@ import { designTokens } from '../../theme/generated/tokens';
 
 const NOTES = [
   'variant="subtle" est une extension custom (officiellement supportée par MUI), pas un variant natif — fond pastel + texte unifié sur text.secondary, pour les statuts discrets.',
-  'Strong error/warning partagent la même teinte (orange.800) et Strong info sort aussi du nuancier habituel (deeppurple.700) — écarts assumés par Marjorie pour tenir le contraste AA (4.64:1 / 4.64:1 / 9.17:1), à signaler si Figma doit reproduire ces teintes.',
+  'Strong error/warning partagent la même teinte (orange.800), hors nuancier error/warning habituel — écart assumé par Marjorie pour tenir le contraste AA (4.64:1). Strong info (teal.700) reste dans la palette info habituelle (= info.dark), 5.32:1.',
 ];
 
 const meta: Meta<typeof Chip> = {

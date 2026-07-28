@@ -261,7 +261,7 @@
       },
       "strong": {
         "background": {
-          "value": "{color.deeppurple.700}",
+          "value": "{color.teal.700}",
           "type": "color"
         }
       },

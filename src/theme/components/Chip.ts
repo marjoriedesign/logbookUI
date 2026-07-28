@@ -51,9 +51,10 @@ export const MuiChip: Components<Theme>['MuiChip'] = {
       props: { variant: 'filled', color: 'warning' },
       style: { backgroundColor: color.warning.strong.background, color: color.primary.contrastText },
     },
-    // Fond imposé par Marjorie (deeppurple.700, hors palette info habituelle),
-    // désormais un cran dédié color.info.strong.background — texte comme
-    // Primary (contrastText blanc) : 9.17:1, conforme.
+    // Fond en teal.700 (= color.info.dark, donc dans la palette info
+    // habituelle — remplace l'ancien deeppurple.700, hors palette),
+    // via le cran dédié color.info.strong.background — texte comme
+    // Primary (contrastText blanc) : 5.32:1, conforme.
     {
       props: { variant: 'filled', color: 'info' },
       style: { backgroundColor: color.info.strong.background, color: color.primary.contrastText },
