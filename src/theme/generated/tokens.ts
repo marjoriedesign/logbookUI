@@ -368,7 +368,7 @@ export const designTokens = {
       },
       "contrastText": "#47453f",
       "subtle": {
-        "background": "#faccbb"
+        "background": "#f4da92"
       },
       "strong": {
         "background": "#cb4a13"

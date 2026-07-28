@@ -62,15 +62,14 @@ export const MuiChip: Components<Theme>['MuiChip'] = {
 
     // Variant 'subtle' : fond pastel + texte foncé, pour les statuts
     // discrets (ex. "À analyser", "Rendue"...). Chaque couleur a désormais
-    // son propre cran dédié `subtle.background`, tous vérifiés comme
-    // existant déjà dans le nuancier (secondary: grey.200 ; warning:
-    // orange.100, l'ancien `main` libéré par le passage du palier Strong à
-    // `.dark` ; success: green.100 ; info: teal.100 ; error: cran dédié
-    // distinct de `.light`, qui vaut la même valeur par coïncidence).
-    // Texte unifié sur `text.secondary` (#404040) pour les 5 : déjà présent
+    // son propre cran dédié `subtle.background` (les 4 mêmes teintes que les
+    // avatars illustrés/Initials, cf. Components/Avatar) : secondary:
+    // grey.200 ; success: green.100 ; warning: yellow.200 (pas orange.100,
+    // qui collisionnait avec error) ; error: orange.100 ; info: teal.100.
+    // Texte unifié sur `text.secondary` (#47453f) pour les 5 : déjà présent
     // dans le nuancier (repris jusqu'ici par warning/info.contrastText) et
-    // seule valeur qui atteint l'AA sur les 5 fonds à la fois (7.14:1 sur
-    // info, le plus faible des 5 après son passage au teal).
+    // seule valeur qui atteint l'AA sur les 5 fonds à la fois (6.58:1 sur
+    // error, le plus faible des 5).
     {
       props: { variant: 'subtle', color: 'secondary' },
       style: {

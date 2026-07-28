@@ -165,7 +165,7 @@
       },
       "subtle": {
         "background": {
-          "value": "{color.orange.100}",
+          "value": "{color.yellow.200}",
           "type": "color"
         }
       },

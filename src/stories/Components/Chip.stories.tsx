@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Chip, Stack } from '@mui/material';
 import { PageLayout, Sections, Section } from '../PageLayout';
-import { designTokens } from '../../theme/generated/tokens';
 
 const NOTES = [
   'variant="subtle" est une extension custom (officiellement supportée par MUI), pas un variant natif — fond pastel + texte unifié sur text.secondary, pour les statuts discrets.',
@@ -41,26 +40,16 @@ export const Default: Story = {
       <Section title="Subtle">
         {/* Rendue/Autre/Analysée/Consultée reprennent les 4 mêmes teintes que
             les avatars illustrés et les Initials (Components/Avatar) :
-            orange.100/yellow.200/green.100/teal.100. Rendue (success.light)
-            et Consultée (info.main) reprennent ces teintes directement via
-            les tokens (cf. tokens/semantic.json), sans sx dédié ; Autre et
-            Analysée gardent un sx car warning/error.subtle.background ne
-            correspondent pas à yellow.200/orange.100. */}
+            orange.100/yellow.200/green.100/teal.100 — toutes via
+            color.{X}.subtle.background (cf. tokens/semantic.json), sans sx
+            dédié : Non réalisée=grey.200, Rendue=green.100 (success),
+            Autre=yellow.200 (warning), Analysée=orange.100 (error),
+            Consultée=teal.100 (info). */}
         <Stack direction="row" spacing={1}>
           <Chip label="Non réalisée" color="secondary" variant="subtle" />
           <Chip label="Rendue" color="success" variant="subtle" />
-          <Chip
-            label="Autre"
-            color="warning"
-            variant="subtle"
-            sx={{ backgroundColor: designTokens.color.yellow['200'] }}
-          />
-          <Chip
-            label="Analysée"
-            color="error"
-            variant="subtle"
-            sx={{ backgroundColor: designTokens.color.orange['100'] }}
-          />
+          <Chip label="Autre" color="warning" variant="subtle" />
+          <Chip label="Analysée" color="error" variant="subtle" />
           <Chip label="Consultée" color="info" variant="subtle" />
         </Stack>
       </Section>
