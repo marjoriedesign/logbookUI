@@ -120,6 +120,12 @@
           "value": "#4ad09a80",
           "type": "color"
         }
+      },
+      "subtle": {
+        "background": {
+          "value": "{color.green.100}",
+          "type": "color"
+        }
       }
     },
     "warning": {
@@ -256,6 +262,12 @@
       "strong": {
         "background": {
           "value": "{color.deeppurple.700}",
+          "type": "color"
+        }
+      },
+      "subtle": {
+        "background": {
+          "value": "{color.teal.100}",
           "type": "color"
         }
       }

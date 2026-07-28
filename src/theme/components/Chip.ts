@@ -60,14 +60,12 @@ export const MuiChip: Components<Theme>['MuiChip'] = {
     },
 
     // Variant 'subtle' : fond pastel + texte foncé, pour les statuts
-    // discrets (ex. "À analyser", "Rendue"...). Couleurs de fond imposées par
-    // Marjorie, toutes vérifiées comme existant déjà dans le nuancier :
-    // - secondary : cran dédié `subtle.background` (grey.200)
-    // - warning   : `subtle.background` = orange.100 (#ffcfbc, l'ancien `main`
-    //   de warning, libéré par le passage de son palier Strong à `.dark`)
-    // - info      : `main` (#b2dfdb, teal — cf. tokens/semantic.json)
-    // - success   : `light` (#b9ead3)
-    // - error     : cran dédié `subtle.background`
+    // discrets (ex. "À analyser", "Rendue"...). Chaque couleur a désormais
+    // son propre cran dédié `subtle.background`, tous vérifiés comme
+    // existant déjà dans le nuancier (secondary: grey.200 ; warning:
+    // orange.100, l'ancien `main` libéré par le passage du palier Strong à
+    // `.dark` ; success: green.100 ; info: teal.100 ; error: cran dédié
+    // distinct de `.light`, qui vaut la même valeur par coïncidence).
     // Texte unifié sur `text.secondary` (#404040) pour les 5 : déjà présent
     // dans le nuancier (repris jusqu'ici par warning/info.contrastText) et
     // seule valeur qui atteint l'AA sur les 5 fonds à la fois (7.14:1 sur
@@ -90,11 +88,11 @@ export const MuiChip: Components<Theme>['MuiChip'] = {
     },
     {
       props: { variant: 'subtle', color: 'info' },
-      style: { backgroundColor: color.info.main, color: color.text.secondary, border: 'none' },
+      style: { backgroundColor: color.info.subtle.background, color: color.text.secondary, border: 'none' },
     },
     {
       props: { variant: 'subtle', color: 'success' },
-      style: { backgroundColor: color.success.light, color: color.text.secondary, border: 'none' },
+      style: { backgroundColor: color.success.subtle.background, color: color.text.secondary, border: 'none' },
     },
     {
       props: { variant: 'subtle', color: 'error' },

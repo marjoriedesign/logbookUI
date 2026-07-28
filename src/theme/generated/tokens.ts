@@ -351,6 +351,9 @@ export const designTokens = {
         "selected": "#4ad09a14",
         "focusvisible": "#4ad09a1F",
         "outlinedborder": "#4ad09a80"
+      },
+      "subtle": {
+        "background": "#b9ead3"
       }
     },
     "warning": {
@@ -402,6 +405,9 @@ export const designTokens = {
       "contrastText": "#47453f",
       "strong": {
         "background": "#512da8"
+      },
+      "subtle": {
+        "background": "#b2dfdb"
       }
     },
     "background": {
