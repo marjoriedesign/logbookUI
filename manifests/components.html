@@ -1740,24 +1740,16 @@ Code:
     &lt;Section title=&quot;Subtle&quot;&gt;
         {/* Rendue/Autre/Analysée/Consultée reprennent les 4 mêmes teintes que
             les avatars illustrés et les Initials (Components/Avatar) :
-            orange.100/yellow.200/green.100/teal.100. Rendue (success.light)
-            et Consultée (info.main) reprennent ces teintes directement via
-            les tokens (cf. tokens/semantic.json), sans sx dédié ; Autre et
-            Analysée gardent un sx car warning/error.subtle.background ne
-            correspondent pas à yellow.200/orange.100. */}
+            orange.100/yellow.200/green.100/teal.100 — toutes via
+            color.{X}.subtle.background (cf. tokens/semantic.json), sans sx
+            dédié : Non réalisée=grey.200, Rendue=green.100 (success),
+            Autre=yellow.200 (warning), Analysée=orange.100 (error),
+            Consultée=teal.100 (info). */}
         &lt;Stack direction=&quot;row&quot; spacing={1}&gt;
             &lt;Chip label=&quot;Non réalisée&quot; color=&quot;secondary&quot; variant=&quot;subtle&quot; /&gt;
             &lt;Chip label=&quot;Rendue&quot; color=&quot;success&quot; variant=&quot;subtle&quot; /&gt;
-            &lt;Chip
-                label=&quot;Autre&quot;
-                color=&quot;warning&quot;
-                variant=&quot;subtle&quot;
-                sx={{ backgroundColor: designTokens.color.yellow[&#39;200&#39;] }} /&gt;
-            &lt;Chip
-                label=&quot;Analysée&quot;
-                color=&quot;error&quot;
-                variant=&quot;subtle&quot;
-                sx={{ backgroundColor: designTokens.color.orange[&#39;100&#39;] }} /&gt;
+            &lt;Chip label=&quot;Autre&quot; color=&quot;warning&quot; variant=&quot;subtle&quot; /&gt;
+            &lt;Chip label=&quot;Analysée&quot; color=&quot;error&quot; variant=&quot;subtle&quot; /&gt;
             &lt;Chip label=&quot;Consultée&quot; color=&quot;info&quot; variant=&quot;subtle&quot; /&gt;
         &lt;/Stack&gt;
     &lt;/Section&gt;
@@ -5510,24 +5502,16 @@ Code:
     &lt;Section title=&quot;Subtle&quot;&gt;
         {/* Rendue/Autre/Analysée/Consultée reprennent les 4 mêmes teintes que
             les avatars illustrés et les Initials (Components/Avatar) :
-            orange.100/yellow.200/green.100/teal.100. Rendue (success.light)
-            et Consultée (info.main) reprennent ces teintes directement via
-            les tokens (cf. tokens/semantic.json), sans sx dédié ; Autre et
-            Analysée gardent un sx car warning/error.subtle.background ne
-            correspondent pas à yellow.200/orange.100. */}
+            orange.100/yellow.200/green.100/teal.100 — toutes via
+            color.{X}.subtle.background (cf. tokens/semantic.json), sans sx
+            dédié : Non réalisée=grey.200, Rendue=green.100 (success),
+            Autre=yellow.200 (warning), Analysée=orange.100 (error),
+            Consultée=teal.100 (info). */}
         &lt;Stack direction=&quot;row&quot; spacing={1}&gt;
             &lt;Chip label=&quot;Non réalisée&quot; color=&quot;secondary&quot; variant=&quot;subtle&quot; /&gt;
             &lt;Chip label=&quot;Rendue&quot; color=&quot;success&quot; variant=&quot;subtle&quot; /&gt;
-            &lt;Chip
-                label=&quot;Autre&quot;
-                color=&quot;warning&quot;
-                variant=&quot;subtle&quot;
-                sx={{ backgroundColor: designTokens.color.yellow[&#39;200&#39;] }} /&gt;
-            &lt;Chip
-                label=&quot;Analysée&quot;
-                color=&quot;error&quot;
-                variant=&quot;subtle&quot;
-                sx={{ backgroundColor: designTokens.color.orange[&#39;100&#39;] }} /&gt;
+            &lt;Chip label=&quot;Autre&quot; color=&quot;warning&quot; variant=&quot;subtle&quot; /&gt;
+            &lt;Chip label=&quot;Analysée&quot; color=&quot;error&quot; variant=&quot;subtle&quot; /&gt;
             &lt;Chip label=&quot;Consultée&quot; color=&quot;info&quot; variant=&quot;subtle&quot; /&gt;
         &lt;/Stack&gt;
     &lt;/Section&gt;
