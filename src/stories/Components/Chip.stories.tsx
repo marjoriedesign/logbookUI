@@ -3,14 +3,6 @@ import { Chip, Stack } from '@mui/material';
 import { PageLayout, Sections, Section } from '../PageLayout';
 import { designTokens } from '../../theme/generated/tokens';
 
-const TOKENS = [
-  { token: 'color.success.dark, primary/secondary.main+contrastText', note: 'fond/texte du variant filled (Strong) — success/primary/secondary' },
-  { token: 'color.error/warning/info.strong.background', note: 'fond du variant filled (Strong) pour error/warning/info — cran dédié référençant orange.800/deeppurple.700 (hors nuancier error/warning/info habituel, imposé par Marjorie pour l’AA)' },
-  { token: 'color.secondary.subtle.background, text.secondary', note: 'fond/texte du variant subtle — texte toujours unifié sur text.secondary' },
-  { token: 'typography.chip.label', note: 'fontSize(13)/fontWeight(400)/lineHeight(18) — token composite dédié' },
-  { token: 'designTokens.borderRadius.md', note: 'rayon (8px, pas pill)' },
-];
-
 const NOTES = [
   'variant="subtle" est une extension custom (officiellement supportée par MUI), pas un variant natif — fond pastel + texte unifié sur text.secondary, pour les statuts discrets.',
   'Strong error/warning partagent la même teinte (orange.800) et Strong info sort aussi du nuancier habituel (deeppurple.700) — écarts assumés par Marjorie pour tenir le contraste AA (4.64:1 / 4.64:1 / 9.17:1), à signaler si Figma doit reproduire ces teintes.',
@@ -19,7 +11,7 @@ const NOTES = [
 const meta: Meta<typeof Chip> = {
   title: 'Components/Chip',
   component: Chip,
-  decorators: [(Story) => (<PageLayout title="Chip" tokens={TOKENS} notes={NOTES}><Story /></PageLayout>)],
+  decorators: [(Story) => (<PageLayout title="Chip" notes={NOTES}><Story /></PageLayout>)],
   args: {
     label: 'Default',
   },

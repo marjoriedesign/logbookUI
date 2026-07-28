@@ -31,14 +31,6 @@ function CorrectionTypeSelect({
   );
 }
 
-const TOKENS = [
-  { token: 'color.primary.main', note: 'couleur du texte sélectionné' },
-  { token: 'color.secondary.main', note: 'contour au repos et au survol (MuiOutlinedInput — partagé avec TextField)' },
-  { token: 'color.action.hover', note: 'fond au survol — beige quasi blanc (grey.50, #fdfaf3), même teinte que le header de Table' },
-  { token: 'color.action.disabled', note: 'contour au survol d’un Select désactivé' },
-  { token: 'designTokens.borderRadius.md', note: 'rayon du root Select (md, différent du sm partagé TextField)' },
-];
-
 const NOTES = [
   'Fond au survol volontairement léger (beige quasi blanc) plutôt qu’un remplissage plein comme Button Secondary Outlined : un Select reste un champ de formulaire, pas une action — un survol trop appuyé serait perçu comme un état pressé.',
   'Contour au survol figé explicitement sur secondary.main (même teinte qu’au repos) : sans ce override, MUI assombrit nativement le contour vers le noir au survol.',
@@ -48,7 +40,7 @@ const NOTES = [
 const meta: Meta<typeof CorrectionTypeSelect> = {
   title: 'Components/Select',
   component: CorrectionTypeSelect,
-  decorators: [(Story) => (<PageLayout title="Select" tokens={TOKENS} notes={NOTES}><Story /></PageLayout>)],
+  decorators: [(Story) => (<PageLayout title="Select" notes={NOTES}><Story /></PageLayout>)],
   parameters: { controls: { disable: true } },
 };
 

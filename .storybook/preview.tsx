@@ -22,6 +22,7 @@ const preview: Preview = {
       storySort: {
         order: [
           'Foundations',
+          ['Colors', 'Icons', 'Spacing', 'Typography', 'Visuals', 'Tokens'],
           'Components',
           ['Button', 'IconButton', 'Chip', 'Switch', 'Checkbox', 'TextField', 'Select', 'Alert', 'Badge', 'Avatar'],
           'Logbook',

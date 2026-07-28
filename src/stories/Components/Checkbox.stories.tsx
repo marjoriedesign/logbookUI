@@ -4,10 +4,6 @@ import { PageLayout, Sections, Section } from '../PageLayout';
 
 const colors = ['primary', 'secondary', 'success', 'warning', 'error', 'info'] as const;
 
-const TOKENS = [
-  { token: 'color.secondary/warning.contrastText, success/error/info.dark', note: 'couleur de la coche cochée/indéterminée par color' },
-];
-
 const NOTES = [
   'Substitution nécessaire : color.{X}.main (couleur native MUI pour la coche) est trop pastel pour tenir 3:1 sur fond blanc en secondary/success/warning/error/info — remplacé par la teinte la plus foncée déjà retenue ailleurs (.dark, ou .contrastText si .dark reste trop clair).',
   'Limitation connue, pas un bug du thème : Checkbox indeterminate déclenche une alerte axe-core (aria-conditional-attr) — MUI pose lui-même aria-checked="mixed" sur l’input natif, un choix délibéré pour l’accessibilité lecteur d’écran. Documenté dans SKILL.md.',
@@ -16,7 +12,7 @@ const NOTES = [
 const meta: Meta<typeof Checkbox> = {
   title: 'Components/Checkbox',
   component: Checkbox,
-  decorators: [(Story) => (<PageLayout title="Checkbox" tokens={TOKENS} notes={NOTES}><Story /></PageLayout>)],
+  decorators: [(Story) => (<PageLayout title="Checkbox" notes={NOTES}><Story /></PageLayout>)],
   parameters: { controls: { disable: true } },
 };
 

@@ -2,12 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Switch, FormControlLabel } from '@mui/material';
 import { PageLayout, Sections, Section } from '../PageLayout';
 
-const TOKENS = [
-  { token: 'color.secondary.main', note: 'piste à l’état off, et piste+rond à l’état désactivé' },
-  { token: 'color.primary.main', note: 'piste à l’état on (color="primary")' },
-  { token: 'color.primary.contrastText', note: 'rond (thumb), toujours blanc' },
-];
-
 const NOTES = [
   'Dimensions figées en dur (piste 36×22px, rond 16px) : aucun cran de spacing existant ne correspond — exception documentée dans Switch.ts.',
   'État désactivé : piste transparente + contour secondary.main, rond secondary.main — logique de Secondary Outlined (Button) reprise manuellement, car "secondary" n’existe pas comme couleur native sur Switch.',
@@ -17,7 +11,7 @@ const NOTES = [
 const meta: Meta<typeof Switch> = {
   title: 'Components/Switch',
   component: Switch,
-  decorators: [(Story) => (<PageLayout title="Switch" tokens={TOKENS} notes={NOTES}><Story /></PageLayout>)],
+  decorators: [(Story) => (<PageLayout title="Switch" notes={NOTES}><Story /></PageLayout>)],
   args: {
     defaultChecked: true,
   },

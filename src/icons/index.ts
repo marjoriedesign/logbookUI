@@ -155,4 +155,7 @@ export {
   // Texte & IA
   RiText,
   RiAiGenerateText,
+
+  // Design & tokens
+  RiPaletteLine,
 } from '@remixicon/react';

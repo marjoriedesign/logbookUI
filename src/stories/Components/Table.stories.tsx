@@ -41,12 +41,6 @@ function CorrectionsTable() {
   );
 }
 
-const TOKENS = [
-  { token: 'theme.palette.divider', note: 'bordure des cellules, reprise sans l’éclaircissement natif de MUI (qui l’éclaircit de 88%, rendant le beige quasi invisible)' },
-  { token: 'theme.palette.background.paper', note: 'fond du header (= color.grey.50, #fdfaf3)' },
-  { token: 'designTokens.borderRadius.md', note: 'coins arrondis du header, sur les cellules extérieures uniquement (first/last-of-type)' },
-];
-
 const NOTES = [
   'borderCollapse passé à "separate" (au lieu du "collapse" natif) : un border-radius sur une cellule de table n’a aucun effet visuel en collapse — comportement CSS standard, indépendant de MUI.',
   'Voir aussi Logbook/CorrectionsTable pour la version complète (tri, switch, chips/boutons d’état, responsive) — cette page-ci n’en montre qu’un sous-ensemble simplifié.',
@@ -55,7 +49,7 @@ const NOTES = [
 const meta: Meta<typeof CorrectionsTable> = {
   title: 'Components/Table',
   component: CorrectionsTable,
-  decorators: [(Story) => (<PageLayout title="Table" tokens={TOKENS} notes={NOTES}><Story /></PageLayout>)],
+  decorators: [(Story) => (<PageLayout title="Table" notes={NOTES}><Story /></PageLayout>)],
   parameters: { layout: 'padded', controls: { disable: true } },
 };
 

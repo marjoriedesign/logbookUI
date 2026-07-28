@@ -6,11 +6,6 @@ import { LogbookIconButton } from '../../components/LogbookIconButton';
 
 const semanticColors = ['primary', 'secondary', 'success', 'warning', 'error', 'info'] as const;
 
-const TOKENS = [
-  { token: 'color.secondary/warning.contrastText, success/error/info.dark', note: 'couleur de l’icône par color, sur IconButton natif (sans variant)' },
-  { token: 'designTokens.borderRadius.md', note: 'rayon des variants filled/outlined (LogbookIconButton)' },
-];
-
 const NOTES = [
   'IconButton MUI natif n’a pas de prop `variant` (contrairement à Button/Chip) : impossible à étendre via theme.components.MuiIconButton.variants. Les variants filled/outlined vivent dans le wrapper src/components/LogbookIconButton.tsx, pas dans le thème.',
   'Tailles d’icône (20px small, 24px medium/large) et padding figés en dur dans IconButton.ts : aucun cran de spacing existant ne correspond — exception documentée.',
@@ -20,7 +15,7 @@ const NOTES = [
 const meta: Meta<typeof IconButton> = {
   title: 'Components/IconButton',
   component: IconButton,
-  decorators: [(Story) => (<PageLayout title="IconButton" tokens={TOKENS} notes={NOTES}><Story /></PageLayout>)],
+  decorators: [(Story) => (<PageLayout title="IconButton" notes={NOTES}><Story /></PageLayout>)],
   args: {
     'aria-label': 'Démarrer l’enregistrement',
     children: <RiMicLine size="1em" />,

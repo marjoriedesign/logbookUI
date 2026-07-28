@@ -1,66 +1,40 @@
 import type { ReactNode } from 'react';
 import { Box, Stack, Typography } from '@mui/material';
+import { RiLightbulbLine } from '../icons';
+import { designTokens } from '../theme/generated/tokens';
 
-export interface TokenEntry {
-  /** Chemin du token, ex. "color.primary.main". */
-  token: string;
-  /** Valeur résolue (hex/px), affichée à titre indicatif — le token reste la source de vérité. */
-  value?: string;
-  /** Où/pourquoi ce token est utilisé. */
-  note?: string;
-}
-
-// Bloc "Tokens & repères" affiché après la démo de chaque page Components
-// (pas Logbook, qui assemble plusieurs composants déjà documentés
-// individuellement) : à quels tokens (src/theme/components/*.ts) le
-// composant est relié, et les décisions/exceptions importantes à connaître
-// avant de reproduire le composant côté Figma ou de le modifier côté code.
-// Volontairement discret (petit, atténué, pas de cadre) : c'est un repère
-// pour qui cherche, pas le contenu principal de la page. Absent des pages
-// Foundations, qui sont déjà elles-mêmes la documentation des tokens.
-function TokenNotes({ tokens, notes }: { tokens?: TokenEntry[]; notes?: string[] }) {
-  if (!tokens?.length && !notes?.length) return null;
+// Encadré "À savoir" affiché après la démo de chaque page Components (pas
+// Logbook, qui assemble plusieurs composants déjà documentés
+// individuellement) : décisions/exceptions importantes à connaître avant de
+// reproduire le composant côté Figma ou de le modifier côté code. Absent
+// des pages Foundations, qui sont déjà elles-mêmes la documentation des
+// tokens.
+function TokenNotes({ notes }: { notes?: string[] }) {
+  if (!notes?.length) return null;
   return (
-    <Box sx={{ mt: 6, pt: 2, borderTop: '1px solid', borderColor: 'divider', maxWidth: 760 }}>
-      <Stack spacing={1.5}>
-        {tokens?.length ? (
-          <Stack spacing={0.5}>
-            <Typography variant="caption" color="text.disabled" sx={{ fontWeight: 700, textTransform: 'uppercase', letterSpacing: 0.5 }}>
-              Tokens utilisés
-            </Typography>
-            {tokens.map((t) => (
-              <Stack key={t.token} direction="row" spacing={1} sx={{ alignItems: 'baseline', flexWrap: 'wrap' }}>
-                <Typography component="code" variant="caption" color="text.secondary" sx={{ fontFamily: 'monospace', fontWeight: 600 }}>
-                  {t.token}
-                </Typography>
-                {t.value && (
-                  <Typography component="code" variant="caption" color="text.disabled" sx={{ fontFamily: 'monospace' }}>
-                    {t.value}
-                  </Typography>
-                )}
-                {t.note && (
-                  <Typography variant="caption" color="text.disabled">
-                    — {t.note}
-                  </Typography>
-                )}
-              </Stack>
-            ))}
-          </Stack>
-        ) : null}
-        {notes?.length ? (
-          <Stack spacing={0.5}>
-            <Typography variant="caption" color="text.disabled" sx={{ fontWeight: 700, textTransform: 'uppercase', letterSpacing: 0.5 }}>
-              À savoir
-            </Typography>
-            <Stack component="ul" spacing={0.25} sx={{ m: 0, pl: 2.5 }}>
-              {notes.map((n, i) => (
-                <Typography key={i} component="li" variant="caption" color="text.disabled">
-                  {n}
-                </Typography>
-              ))}
-            </Stack>
-          </Stack>
-        ) : null}
+    <Box
+      sx={{
+        mt: 6,
+        p: 2,
+        borderRadius: 2,
+        border: '1px solid',
+        borderColor: 'divider',
+        backgroundColor: designTokens.color.secondary.subtle.background,
+        maxWidth: 760,
+      }}
+    >
+      <Stack direction="row" spacing={1} sx={{ alignItems: 'center', mb: 1 }}>
+        <RiLightbulbLine size={18} color={designTokens.color.text.secondary} />
+        <Typography variant="caption" sx={{ fontWeight: 700, textTransform: 'uppercase', letterSpacing: 0.5 }}>
+          À savoir
+        </Typography>
+      </Stack>
+      <Stack component="ul" spacing={0.5} sx={{ m: 0, pl: 2.5 }}>
+        {notes.map((n, i) => (
+          <Typography key={i} component="li" variant="body2" color="text.secondary">
+            {n}
+          </Typography>
+        ))}
       </Stack>
     </Box>
   );
@@ -71,12 +45,10 @@ function TokenNotes({ tokens, notes }: { tokens?: TokenEntry[]; notes?: string[]
 // (src/theme/typography.ts), pas par ce composant.
 export function PageLayout({
   title,
-  tokens,
   notes,
   children,
 }: {
   title: string;
-  tokens?: TokenEntry[];
   notes?: string[];
   children: ReactNode;
 }) {
@@ -84,7 +56,7 @@ export function PageLayout({
     <Box sx={{ pt: 5, px: 2, pb: 4 }}>
       <Typography variant="h3">{title}</Typography>
       <Box sx={{ mt: 5 }}>{children}</Box>
-      <TokenNotes tokens={tokens} notes={notes} />
+      <TokenNotes notes={notes} />
     </Box>
   );
 }
