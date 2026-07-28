@@ -445,6 +445,24 @@
       ],
       "import": "import {\n    PageLayout,\n    RiCheckboxCircleLine,\n    RiErrorWarningLine,\n    Stack,\n    Table,\n    TableBody,\n    TableCell,\n    TableHead,\n    TableRow,\n    Typography,\n} from \"@mui/material\";"
     },
+    "components-tabs": {
+      "id": "components-tabs",
+      "name": "CorrectionTabs",
+      "path": "./src/stories/Components/Tabs.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "Component file in node_modules",
+        "message": "File: /Users/marjorie/logbook-design-system/node_modules/@mui/material/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+      },
+      "stories": [
+        {
+          "id": "components-tabs--default",
+          "name": "Default",
+          "snippet": "const Default = () => (\n  <Sections>\n    <Section title=\"Default\">\n      <CorrectionTabs />\n    </Section>\n  </Sections>\n);"
+        }
+      ],
+      "import": "import { PageLayout, RiLineChartLine, RiMicLine, Section, Sections, Tab, Tabs } from \"@mui/material\";"
+    },
     "logbook-navbar": {
       "id": "logbook-navbar",
       "name": "NavbarDemo",
@@ -510,11 +528,83 @@
           "snippet": "const Default = () => <Table />;"
         }
       ],
-      "import": "import {\n    Avatar,\n    Box,\n    Button,\n    Chip,\n    LogbookIconButton,\n    LogbookListenProgress,\n    PageLayout,\n    RiArrowRightSLine,\n    RiBallPenLine,\n    RiBardLine,\n    RiChat3Line,\n    RiMoreFill,\n    Switch,\n    Table,\n    TableBody,\n    TableCell,\n    TableHead,\n    TableRow,\n    TableSortLabel,\n    Typography,\n} from \"@mui/material\";"
+      "import": "import {\n    Avatar,\n    Box,\n    Button,\n    Chip,\n    LogbookIconButton,\n    LogbookListenProgress,\n    PageLayout,\n    RiArrowDownLine,\n    RiArrowRightSLine,\n    RiBallPenLine,\n    RiBardLine,\n    RiChat3Line,\n    RiMoreFill,\n    Switch,\n    Table,\n    TableBody,\n    TableCell,\n    TableHead,\n    TableRow,\n    Typography,\n} from \"@mui/material\";"
+    },
+    "logbook-statcard": {
+      "id": "logbook-statcard",
+      "name": "LogbookStatCard",
+      "path": "./src/stories/Logbook/StatCard.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "LogbookStatCard",
+        "definedInFile": "/Users/marjorie/logbook-design-system/src/components/LogbookStatCard.tsx",
+        "actualName": "LogbookStatCard",
+        "exportName": "LogbookStatCard",
+        "props": {
+          "icon": {
+            "required": true,
+            "tsType": {
+              "name": "string"
+            },
+            "description": "Illustration Logbook (import SVG depuis src/assets/illustrations)."
+          },
+          "iconAlt": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "''",
+              "computed": false
+            }
+          },
+          "label": {
+            "required": true,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "value": {
+            "required": true,
+            "tsType": {
+              "name": "union",
+              "raw": "string | number",
+              "elements": [
+                {
+                  "name": "string"
+                },
+                {
+                  "name": "number"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "suffix": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": "Ex. \"/20\" — rendu dans un style plus discret que `value`."
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "logbook-statcard--default",
+          "name": "Default",
+          "snippet": "const Default = () => <Sections>\n    <Section title=\"Default\">\n        <LogbookStatCard\n            icon={certification}\n            iconAlt=\"Certification\"\n            label=\"Moyenne\"\n            value={0}\n            suffix=\"/20\" />\n    </Section>\n    <Section title=\"Examples\">\n        <Stack direction=\"row\" spacing={2}>\n            <LogbookStatCard\n                icon={certification}\n                iconAlt=\"Certification\"\n                label=\"Moyenne\"\n                value={16}\n                suffix=\"/20\" />\n            <LogbookStatCard\n                icon={growth}\n                iconAlt=\"Croissance\"\n                label=\"Progression\"\n                value=\"+12\"\n                suffix=\"%\" />\n        </Stack>\n    </Section>\n</Sections>;"
+        }
+      ],
+      "import": "import { LogbookStatCard, PageLayout, Section, Sections } from \"logbook-design-system\";\nimport { Stack } from \"@mui/material\";"
     }
   },
   "meta": {
     "docgen": "react-docgen",
-    "durationMs": 236
+    "durationMs": 272
   }
 }
