@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">25/26 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">26/26 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">3/26 story errors</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">26/27 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">27/27 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">4/27 story errors</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note info" style="margin-bottom: 16px;">
-            <strong>Tip:</strong> You are using <code>react-docgen</code> (the default). Generation took <strong>0.2s</strong>. For higher quality prop types, consider switching to <code>react-docgen-typescript</code> in your <code>main.ts</code>:
+            <strong>Tip:</strong> You are using <code>react-docgen</code> (the default). Generation took <strong>0.3s</strong>. For higher quality prop types, consider switching to <code>react-docgen-typescript</code> in your <code>main.ts</code>:
             <pre><code>typescript: {
   reactDocgen: 'react-docgen-typescript',
 }</code></pre>
@@ -1733,6 +1733,8 @@ Code:
             &lt;Chip label=&quot;Secondary&quot; color=&quot;secondary&quot; /&gt;
             &lt;Chip label=&quot;Succès&quot; color=&quot;success&quot; /&gt;
             &lt;Chip label=&quot;Attention&quot; color=&quot;warning&quot; /&gt;
+            &lt;Chip label=&quot;Erreur&quot; color=&quot;error&quot; /&gt;
+            &lt;Chip label=&quot;Info&quot; color=&quot;info&quot; /&gt;
         &lt;/Stack&gt;
     &lt;/Section&gt;
     &lt;Section title=&quot;Subtle&quot;&gt;
@@ -3649,6 +3651,380 @@ Code:
   class="card 
   has-error 
   has-info 
+  has-story-error
+  no-doc-error"
+  role="listitem"
+  aria-label="TokensFoundations">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-err"></span> TokensFoundations</h2>
+      <div class="badges">
+        <label for="c-24-foundations-tokens-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-24-foundations-tokens-info" class="badge info as-toggle">1 info</label>
+        <label for="c-24-foundations-tokens-stories" class="badge err as-toggle">1/1 story errors</label>
+        
+        
+      </div>
+    </div>
+    <div class="meta" title="./src/stories/Foundations/Tokens.stories.tsx">foundations-tokens · ./src/stories/Foundations/Tokens.stories.tsx</div>
+    
+    
+    
+  </div>
+
+  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
+  <input id="c-24-foundations-tokens-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-24-foundations-tokens-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-24-foundations-tokens-stories" class="tg tg-stories" type="checkbox" hidden />
+  
+  
+  
+
+  <div class="panels">
+    
+        <div class="panel panel-err">
+          
+    <div class="note err">
+      <div class="note-title">Prop type error</div>
+      <div class="note-body"><pre><code>No component file found for the &quot;TokensFoundations&quot; component.
+  273 | }
+  274 |
+&gt; 275 | const meta: Meta&lt;typeof TokensFoundations&gt; = {
+      | ^
+  276 |   title: &#39;Foundations/Tokens&#39;,
+  277 |   component: TokensFoundations,
+  278 |   parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
+
+./src/stories/Foundations/Tokens.stories.tsx:
+import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;;
+import { Box, Stack, Typography } from &#39;@mui/material&#39;;
+import { RiPaletteLine } from &#39;../../icons&#39;;
+import { PageLayout, Sections, Section } from &#39;../PageLayout&#39;;
+import { designTokens } from &#39;../../theme/generated/tokens&#39;;
+import coreJson from &#39;../../../tokens/core.json&#39;;
+import semanticJson from &#39;../../../tokens/semantic.json&#39;;
+
+// Lit les fichiers de tokens bruts (pas designTokens/generated, qui a déjà
+// résolu chaque référence en hex et perdu l&#39;alias d&#39;origine) pour retrouver
+// la chaîne de référence telle que Tokens Studio/Figma l&#39;affiche
+// (&quot;cyan / 900&quot;), pas seulement la couleur finale.
+
+const core = coreJson as unknown as { color: Record&lt;string, Record&lt;string, { value: string }&gt;&gt; };
+const semantic = semanticJson as unknown as { color: Record&lt;string, unknown&gt; };
+
+type ColorLeaf = { value: string; type: string };
+
+function isColorLeaf(node: unknown): node is ColorLeaf {
+  return (
+    typeof node === &#39;object&#39; &amp;&amp;
+    node !== null &amp;&amp;
+    (node as Record&lt;string, unknown&gt;).type === &#39;color&#39; &amp;&amp;
+    typeof (node as Record&lt;string, unknown&gt;).value === &#39;string&#39;
+  );
+}
+
+const REF_RE = /^\{color\.([\w-]+)\.([\w-]+)\}$/;
+
+function resolve(raw: string): { hex: string; ref: string } {
+  const match = REF_RE.exec(raw);
+  if (match) {
+    const [, family, step] = match;
+    const hex = core.color[family]?.[step]?.value ?? raw;
+    return { hex, ref: `${family} / ${step}` };
+  }
+  // Valeur littérale (ex. superposition d&#39;état en alpha) : pas de primitive
+  // à référencer, la valeur elle-même sert de repère.
+  return { hex: raw, ref: raw };
+}
+
+const DISPLAY_NAMES: Record&lt;string, string&gt; = {
+  contrasttext: &#39;contrastText&#39;,
+  focusvisible: &#39;focusVisible&#39;,
+  outlinedborder: &#39;outlinedBorder&#39;,
+  disabledbackground: &#39;disabledBackground&#39;,
+};
+
+function displayName(key: string) {
+  return DISPLAY_NAMES[key] ?? key;
+}
+
+// ---------- Core : primitives Material réellement référencées par Theme ----------
+// tokens/core.json importe les 19 familles complètes du nuancier Material
+// (~270 teintes) : n&#39;affiche ici que les familles/crans que le thème
+// référence vraiment, pas le nuancier Material brut au complet.
+
+function usedCorePrimitives() {
+  const used = new Map&lt;string, Set&lt;string&gt;&gt;();
+  const re = /\{color\.([\w-]+)\.([\w-]+)\}/g;
+  const text = JSON.stringify(semantic);
+  let match: RegExpExecArray | null;
+  while ((match = re.exec(text))) {
+    const [, family, step] = match;
+    if (!used.has(family)) used.set(family, new Set());
+    used.get(family)!.add(step);
+  }
+  return Array.from(used.entries())
+    .map(([family, steps]) =&gt; [family, Array.from(steps).sort()] as const)
+    .sort(([a], [b]) =&gt; a.localeCompare(b));
+}
+
+function CoreSwatch({ family, step }: { family: string; step: string }) {
+  const hex = core.color[family][step].value;
+  return (
+    &lt;Stack spacing={0.5} sx={{ width: 76 }}&gt;
+      &lt;Box sx={{ width: 56, height: 56, borderRadius: 1, border: &#39;1px solid&#39;, borderColor: &#39;divider&#39;, backgroundColor: hex }} /&gt;
+      &lt;Typography variant=&quot;caption&quot; sx={{ fontWeight: 600 }}&gt;
+        {family}/{step}
+      &lt;/Typography&gt;
+      &lt;Typography variant=&quot;caption&quot; color=&quot;text.secondary&quot;&gt;
+        {hex}
+      &lt;/Typography&gt;
+    &lt;/Stack&gt;
+  );
+}
+
+function CoreSection() {
+  return (
+    &lt;Stack spacing={3}&gt;
+      {usedCorePrimitives().map(([family, steps]) =&gt; (
+        &lt;Stack key={family} spacing={1}&gt;
+          &lt;Typography variant=&quot;body1&quot; sx={{ fontWeight: 600 }}&gt;
+            {family}
+          &lt;/Typography&gt;
+          &lt;Stack direction=&quot;row&quot; spacing={2} useFlexGap sx={{ flexWrap: &#39;wrap&#39; }}&gt;
+            {steps.map((step) =&gt; (
+              &lt;CoreSwatch key={step} family={family} step={step} /&gt;
+            ))}
+          &lt;/Stack&gt;
+        &lt;/Stack&gt;
+      ))}
+    &lt;/Stack&gt;
+  );
+}
+
+// ---------- Theme : palette sémantique, présentation façon Figma ----------
+
+interface Row {
+  name: string;
+  hex: string;
+  ref: string;
+}
+
+// Fusionne les champs qui résolvent exactement à la même valeur (ex. les 24
+// paper-elevation-N à #ffffff, ou focus/focusVisible partageant la même
+// opacité) en une seule ligne, plutôt que de répéter la même couleur.
+function buildRows(node: Record&lt;string, unknown&gt;): Row[] {
+  const byValue = new Map&lt;string, { hex: string; ref: string; names: string[] }&gt;();
+  for (const [key, value] of Object.entries(node)) {
+    if (!isColorLeaf(value)) continue;
+    const { hex, ref } = resolve(value.value);
+    const mapKey = `${hex}__${ref}`;
+    const entry = byValue.get(mapKey) ?? { hex, ref, names: [] };
+    entry.names.push(displayName(key));
+    byValue.set(mapKey, entry);
+  }
+  return Array.from(byValue.values()).map(({ hex, ref, names }) =&gt; ({
+    hex,
+    ref,
+    name: names.length &gt; 3 ? `${names.slice(0, 2).join(&#39;, &#39;)} +${names.length - 2} autres` : names.join(&#39;, &#39;),
+  }));
+}
+
+function TokenTable({ rows }: { rows: Row[] }) {
+  if (!rows.length) return null;
+  return (
+    &lt;Stack sx={{ border: &#39;1px solid&#39;, borderColor: &#39;divider&#39;, borderRadius: 2, overflow: &#39;hidden&#39;, maxWidth: 560 }}&gt;
+      &lt;Stack direction=&quot;row&quot; sx={{ backgroundColor: &#39;background.paper&#39;, px: 2, py: 1 }}&gt;
+        &lt;Typography variant=&quot;caption&quot; sx={{ fontWeight: 700, width: 220, flexShrink: 0 }}&gt;
+          Name
+        &lt;/Typography&gt;
+        &lt;Typography variant=&quot;caption&quot; sx={{ fontWeight: 700 }}&gt;
+          Valeur
+        &lt;/Typography&gt;
+      &lt;/Stack&gt;
+      {rows.map((row) =&gt; (
+        &lt;Stack
+          key={row.name}
+          direction=&quot;row&quot;
+          sx={{ alignItems: &#39;center&#39;, px: 2, py: 1.25, borderTop: &#39;1px solid&#39;, borderColor: &#39;divider&#39; }}
+        &gt;
+          &lt;Stack direction=&quot;row&quot; spacing={1.5} sx={{ alignItems: &#39;center&#39;, width: 220, flexShrink: 0 }}&gt;
+            &lt;RiPaletteLine size={16} color={designTokens.color.text.disabled} /&gt;
+            &lt;Typography variant=&quot;body2&quot;&gt;{row.name}&lt;/Typography&gt;
+          &lt;/Stack&gt;
+          &lt;Stack
+            direction=&quot;row&quot;
+            spacing={1}
+            sx={{
+              alignItems: &#39;center&#39;,
+              border: &#39;1px solid&#39;,
+              borderColor: &#39;divider&#39;,
+              borderRadius: 1.5,
+              px: 1,
+              py: 0.5,
+              display: &#39;inline-flex&#39;,
+            }}
+          &gt;
+            &lt;Box
+              sx={{
+                width: 20,
+                height: 20,
+                borderRadius: 0.75,
+                border: &#39;1px solid&#39;,
+                borderColor: &#39;divider&#39;,
+                backgroundColor: row.hex,
+                flexShrink: 0,
+              }}
+            /&gt;
+            &lt;Typography variant=&quot;body2&quot;&gt;{row.ref}&lt;/Typography&gt;
+          &lt;/Stack&gt;
+        &lt;/Stack&gt;
+      ))}
+    &lt;/Stack&gt;
+  );
+}
+
+function SubgroupHeading({ parent, name }: { parent: string; name: string }) {
+  return (
+    &lt;Typography variant=&quot;body2&quot; sx={{ mt: 2, mb: 0.5 }}&gt;
+      &lt;Typography component=&quot;span&quot; variant=&quot;body2&quot; color=&quot;text.disabled&quot;&gt;
+        {parent} /{&#39; &#39;}
+      &lt;/Typography&gt;
+      &lt;Typography component=&quot;span&quot; variant=&quot;body2&quot; sx={{ fontWeight: 700 }}&gt;
+        {name}
+      &lt;/Typography&gt;
+    &lt;/Typography&gt;
+  );
+}
+
+function ThemeGroup({ name, node }: { name: string; node: Record&lt;string, unknown&gt; }) {
+  const leafEntries = Object.fromEntries(Object.entries(node).filter(([, v]) =&gt; isColorLeaf(v)));
+  const subgroups = Object.entries(node).filter(
+    ([, v]) =&gt; !isColorLeaf(v) &amp;&amp; typeof v === &#39;object&#39; &amp;&amp; v !== null &amp;&amp; Object.keys(v as object).length &gt; 0,
+  );
+  const rows = buildRows(leafEntries);
+  if (!rows.length &amp;&amp; !subgroups.length) return null;
+
+  return (
+    &lt;Stack spacing={1}&gt;
+      &lt;Typography variant=&quot;body1&quot; sx={{ fontWeight: 600, textTransform: &#39;capitalize&#39; }}&gt;
+        {name}
+      &lt;/Typography&gt;
+      &lt;TokenTable rows={rows} /&gt;
+      {subgroups.map(([subName, subNode]) =&gt; (
+        &lt;Box key={subName}&gt;
+          &lt;SubgroupHeading parent={name} name={subName} /&gt;
+          &lt;TokenTable rows={buildRows(subNode as Record&lt;string, unknown&gt;)} /&gt;
+        &lt;/Box&gt;
+      ))}
+    &lt;/Stack&gt;
+  );
+}
+
+function ThemeSection() {
+  const rootLeaves = Object.fromEntries(Object.entries(semantic.color).filter(([, v]) =&gt; isColorLeaf(v)));
+  const groups = Object.entries(semantic.color).filter(
+    ([, v]) =&gt; !isColorLeaf(v) &amp;&amp; typeof v === &#39;object&#39; &amp;&amp; v !== null &amp;&amp; Object.keys(v as object).length &gt; 0,
+  );
+
+  return (
+    &lt;Stack spacing={4}&gt;
+      {Object.keys(rootLeaves).length &gt; 0 &amp;&amp; (
+        &lt;Stack spacing={1}&gt;
+          &lt;Typography variant=&quot;body1&quot; sx={{ fontWeight: 600 }}&gt;
+            Racine
+          &lt;/Typography&gt;
+          &lt;TokenTable rows={buildRows(rootLeaves)} /&gt;
+        &lt;/Stack&gt;
+      )}
+      {groups.map(([name, node]) =&gt; (
+        &lt;ThemeGroup key={name} name={name} node={node as Record&lt;string, unknown&gt;} /&gt;
+      ))}
+    &lt;/Stack&gt;
+  );
+}
+
+function TokensFoundations() {
+  return (
+    &lt;PageLayout title=&quot;Tokens&quot;&gt;
+      &lt;Sections&gt;
+        &lt;Section title=&quot;Core&quot;&gt;
+          &lt;Typography variant=&quot;body2&quot; color=&quot;text.secondary&quot; sx={{ mb: 2, maxWidth: 640 }}&gt;
+            Primitives Material (&lt;code&gt;tokens/core.json&lt;/code&gt;) réellement référencées par Theme
+            ci-dessous — sur les 19 familles complètes du nuancier Material que le fichier importe,
+            seules celles utilisées par la charte Logbook sont listées ici.
+          &lt;/Typography&gt;
+          &lt;CoreSection /&gt;
+        &lt;/Section&gt;
+
+        &lt;Section title=&quot;Theme&quot;&gt;
+          &lt;Typography variant=&quot;body2&quot; color=&quot;text.secondary&quot; sx={{ mb: 2, maxWidth: 640 }}&gt;
+            Palette sémantique consommée par les composants MUI (&lt;code&gt;tokens/semantic.json&lt;/code&gt; →{&#39; &#39;}
+            &lt;code&gt;src/theme/&lt;/code&gt;). Chaque valeur référence une primitive Core ci-dessus, ou une
+            superposition calculée (ex. les états de survol/focus).
+          &lt;/Typography&gt;
+          &lt;ThemeSection /&gt;
+        &lt;/Section&gt;
+      &lt;/Sections&gt;
+    &lt;/PageLayout&gt;
+  );
+}
+
+const meta: Meta&lt;typeof TokensFoundations&gt; = {
+  title: &#39;Foundations/Tokens&#39;,
+  component: TokensFoundations,
+  parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
+};
+
+export default meta;
+type Story = StoryObj&lt;typeof TokensFoundations&gt;;
+
+export const Reference: Story = {};
+</code></pre></div>
+    </div>
+        </div>
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+        </div>
+    
+    
+        <div class="panel panel-stories">
+          
+            <div class="note err">
+              <div class="row">
+                <span class="ex-name">Reference</span>
+                <span class="badge err">story error</span>
+              </div>
+              
+              
+              
+              <pre><code>Could not generate snippet without component name.</code></pre>
+            </div>
+          
+          
+          <div class="note ok">
+                <div class="row">
+                  <span class="ex-name">Imports</span>
+                </div>
+                <pre><code>import { Box, Stack, Typography } from "@mui/material";
+import { PageLayout, RiPaletteLine, Section, Sections } from "logbook-design-system";</code></pre>
+              </div>
+          
+          
+        </div>
+    
+    
+  </div>
+</article>
+<article
+  class="card 
+  has-error 
+  has-info 
   no-story-error
   no-doc-error"
   role="listitem"
@@ -3657,9 +4033,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> TypographyFoundations</h2>
       <div class="badges">
-        <label for="c-24-foundations-typography-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-24-foundations-typography-info" class="badge info as-toggle">1 info</label>
-        <label for="c-24-foundations-typography-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-25-foundations-typography-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-25-foundations-typography-info" class="badge info as-toggle">1 info</label>
+        <label for="c-25-foundations-typography-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -3671,9 +4047,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-24-foundations-typography-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-24-foundations-typography-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-24-foundations-typography-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-25-foundations-typography-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-25-foundations-typography-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-25-foundations-typography-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -3757,9 +4133,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> VisualsFoundations</h2>
       <div class="badges">
-        <label for="c-25-foundations-visuals-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-25-foundations-visuals-info" class="badge info as-toggle">1 info</label>
-        <label for="c-25-foundations-visuals-stories" class="badge err as-toggle">1/1 story errors</label>
+        <label for="c-26-foundations-visuals-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-26-foundations-visuals-info" class="badge info as-toggle">1 info</label>
+        <label for="c-26-foundations-visuals-stories" class="badge err as-toggle">1/1 story errors</label>
         
         
       </div>
@@ -3771,9 +4147,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-25-foundations-visuals-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-25-foundations-visuals-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-25-foundations-visuals-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-26-foundations-visuals-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-26-foundations-visuals-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-26-foundations-visuals-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -5127,6 +5503,8 @@ Code:
             &lt;Chip label=&quot;Secondary&quot; color=&quot;secondary&quot; /&gt;
             &lt;Chip label=&quot;Succès&quot; color=&quot;success&quot; /&gt;
             &lt;Chip label=&quot;Attention&quot; color=&quot;warning&quot; /&gt;
+            &lt;Chip label=&quot;Erreur&quot; color=&quot;error&quot; /&gt;
+            &lt;Chip label=&quot;Info&quot; color=&quot;info&quot; /&gt;
         &lt;/Stack&gt;
     &lt;/Section&gt;
     &lt;Section title=&quot;Subtle&quot;&gt;
@@ -6450,7 +6828,7 @@ Code:
           <label for="no-component-import-found-toggle" class="group-header">
             <span class="caret">▸</span>
             <span class="group-title">No component import found</span>
-            <span class="group-count">5</span>
+            <span class="group-count">6</span>
           </label>
           <div class="group-cards">
 <article
@@ -7059,14 +7437,388 @@ import { PageLayout } from "logbook-design-system";</code></pre>
   has-story-error
   no-doc-error"
   role="listitem"
+  aria-label="TokensFoundations">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-err"></span> TokensFoundations</h2>
+      <div class="badges">
+        <label for="c-error-4-foundations-tokens-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-4-foundations-tokens-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-4-foundations-tokens-stories" class="badge err as-toggle">1/1 story errors</label>
+        
+        
+      </div>
+    </div>
+    <div class="meta" title="./src/stories/Foundations/Tokens.stories.tsx">foundations-tokens · ./src/stories/Foundations/Tokens.stories.tsx</div>
+    
+    
+    
+  </div>
+
+  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
+  <input id="c-error-4-foundations-tokens-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-4-foundations-tokens-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-4-foundations-tokens-stories" class="tg tg-stories" type="checkbox" hidden />
+  
+  
+  
+
+  <div class="panels">
+    
+        <div class="panel panel-err">
+          
+    <div class="note err">
+      <div class="note-title">Prop type error</div>
+      <div class="note-body"><pre><code>No component file found for the &quot;TokensFoundations&quot; component.
+  273 | }
+  274 |
+&gt; 275 | const meta: Meta&lt;typeof TokensFoundations&gt; = {
+      | ^
+  276 |   title: &#39;Foundations/Tokens&#39;,
+  277 |   component: TokensFoundations,
+  278 |   parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
+
+./src/stories/Foundations/Tokens.stories.tsx:
+import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;;
+import { Box, Stack, Typography } from &#39;@mui/material&#39;;
+import { RiPaletteLine } from &#39;../../icons&#39;;
+import { PageLayout, Sections, Section } from &#39;../PageLayout&#39;;
+import { designTokens } from &#39;../../theme/generated/tokens&#39;;
+import coreJson from &#39;../../../tokens/core.json&#39;;
+import semanticJson from &#39;../../../tokens/semantic.json&#39;;
+
+// Lit les fichiers de tokens bruts (pas designTokens/generated, qui a déjà
+// résolu chaque référence en hex et perdu l&#39;alias d&#39;origine) pour retrouver
+// la chaîne de référence telle que Tokens Studio/Figma l&#39;affiche
+// (&quot;cyan / 900&quot;), pas seulement la couleur finale.
+
+const core = coreJson as unknown as { color: Record&lt;string, Record&lt;string, { value: string }&gt;&gt; };
+const semantic = semanticJson as unknown as { color: Record&lt;string, unknown&gt; };
+
+type ColorLeaf = { value: string; type: string };
+
+function isColorLeaf(node: unknown): node is ColorLeaf {
+  return (
+    typeof node === &#39;object&#39; &amp;&amp;
+    node !== null &amp;&amp;
+    (node as Record&lt;string, unknown&gt;).type === &#39;color&#39; &amp;&amp;
+    typeof (node as Record&lt;string, unknown&gt;).value === &#39;string&#39;
+  );
+}
+
+const REF_RE = /^\{color\.([\w-]+)\.([\w-]+)\}$/;
+
+function resolve(raw: string): { hex: string; ref: string } {
+  const match = REF_RE.exec(raw);
+  if (match) {
+    const [, family, step] = match;
+    const hex = core.color[family]?.[step]?.value ?? raw;
+    return { hex, ref: `${family} / ${step}` };
+  }
+  // Valeur littérale (ex. superposition d&#39;état en alpha) : pas de primitive
+  // à référencer, la valeur elle-même sert de repère.
+  return { hex: raw, ref: raw };
+}
+
+const DISPLAY_NAMES: Record&lt;string, string&gt; = {
+  contrasttext: &#39;contrastText&#39;,
+  focusvisible: &#39;focusVisible&#39;,
+  outlinedborder: &#39;outlinedBorder&#39;,
+  disabledbackground: &#39;disabledBackground&#39;,
+};
+
+function displayName(key: string) {
+  return DISPLAY_NAMES[key] ?? key;
+}
+
+// ---------- Core : primitives Material réellement référencées par Theme ----------
+// tokens/core.json importe les 19 familles complètes du nuancier Material
+// (~270 teintes) : n&#39;affiche ici que les familles/crans que le thème
+// référence vraiment, pas le nuancier Material brut au complet.
+
+function usedCorePrimitives() {
+  const used = new Map&lt;string, Set&lt;string&gt;&gt;();
+  const re = /\{color\.([\w-]+)\.([\w-]+)\}/g;
+  const text = JSON.stringify(semantic);
+  let match: RegExpExecArray | null;
+  while ((match = re.exec(text))) {
+    const [, family, step] = match;
+    if (!used.has(family)) used.set(family, new Set());
+    used.get(family)!.add(step);
+  }
+  return Array.from(used.entries())
+    .map(([family, steps]) =&gt; [family, Array.from(steps).sort()] as const)
+    .sort(([a], [b]) =&gt; a.localeCompare(b));
+}
+
+function CoreSwatch({ family, step }: { family: string; step: string }) {
+  const hex = core.color[family][step].value;
+  return (
+    &lt;Stack spacing={0.5} sx={{ width: 76 }}&gt;
+      &lt;Box sx={{ width: 56, height: 56, borderRadius: 1, border: &#39;1px solid&#39;, borderColor: &#39;divider&#39;, backgroundColor: hex }} /&gt;
+      &lt;Typography variant=&quot;caption&quot; sx={{ fontWeight: 600 }}&gt;
+        {family}/{step}
+      &lt;/Typography&gt;
+      &lt;Typography variant=&quot;caption&quot; color=&quot;text.secondary&quot;&gt;
+        {hex}
+      &lt;/Typography&gt;
+    &lt;/Stack&gt;
+  );
+}
+
+function CoreSection() {
+  return (
+    &lt;Stack spacing={3}&gt;
+      {usedCorePrimitives().map(([family, steps]) =&gt; (
+        &lt;Stack key={family} spacing={1}&gt;
+          &lt;Typography variant=&quot;body1&quot; sx={{ fontWeight: 600 }}&gt;
+            {family}
+          &lt;/Typography&gt;
+          &lt;Stack direction=&quot;row&quot; spacing={2} useFlexGap sx={{ flexWrap: &#39;wrap&#39; }}&gt;
+            {steps.map((step) =&gt; (
+              &lt;CoreSwatch key={step} family={family} step={step} /&gt;
+            ))}
+          &lt;/Stack&gt;
+        &lt;/Stack&gt;
+      ))}
+    &lt;/Stack&gt;
+  );
+}
+
+// ---------- Theme : palette sémantique, présentation façon Figma ----------
+
+interface Row {
+  name: string;
+  hex: string;
+  ref: string;
+}
+
+// Fusionne les champs qui résolvent exactement à la même valeur (ex. les 24
+// paper-elevation-N à #ffffff, ou focus/focusVisible partageant la même
+// opacité) en une seule ligne, plutôt que de répéter la même couleur.
+function buildRows(node: Record&lt;string, unknown&gt;): Row[] {
+  const byValue = new Map&lt;string, { hex: string; ref: string; names: string[] }&gt;();
+  for (const [key, value] of Object.entries(node)) {
+    if (!isColorLeaf(value)) continue;
+    const { hex, ref } = resolve(value.value);
+    const mapKey = `${hex}__${ref}`;
+    const entry = byValue.get(mapKey) ?? { hex, ref, names: [] };
+    entry.names.push(displayName(key));
+    byValue.set(mapKey, entry);
+  }
+  return Array.from(byValue.values()).map(({ hex, ref, names }) =&gt; ({
+    hex,
+    ref,
+    name: names.length &gt; 3 ? `${names.slice(0, 2).join(&#39;, &#39;)} +${names.length - 2} autres` : names.join(&#39;, &#39;),
+  }));
+}
+
+function TokenTable({ rows }: { rows: Row[] }) {
+  if (!rows.length) return null;
+  return (
+    &lt;Stack sx={{ border: &#39;1px solid&#39;, borderColor: &#39;divider&#39;, borderRadius: 2, overflow: &#39;hidden&#39;, maxWidth: 560 }}&gt;
+      &lt;Stack direction=&quot;row&quot; sx={{ backgroundColor: &#39;background.paper&#39;, px: 2, py: 1 }}&gt;
+        &lt;Typography variant=&quot;caption&quot; sx={{ fontWeight: 700, width: 220, flexShrink: 0 }}&gt;
+          Name
+        &lt;/Typography&gt;
+        &lt;Typography variant=&quot;caption&quot; sx={{ fontWeight: 700 }}&gt;
+          Valeur
+        &lt;/Typography&gt;
+      &lt;/Stack&gt;
+      {rows.map((row) =&gt; (
+        &lt;Stack
+          key={row.name}
+          direction=&quot;row&quot;
+          sx={{ alignItems: &#39;center&#39;, px: 2, py: 1.25, borderTop: &#39;1px solid&#39;, borderColor: &#39;divider&#39; }}
+        &gt;
+          &lt;Stack direction=&quot;row&quot; spacing={1.5} sx={{ alignItems: &#39;center&#39;, width: 220, flexShrink: 0 }}&gt;
+            &lt;RiPaletteLine size={16} color={designTokens.color.text.disabled} /&gt;
+            &lt;Typography variant=&quot;body2&quot;&gt;{row.name}&lt;/Typography&gt;
+          &lt;/Stack&gt;
+          &lt;Stack
+            direction=&quot;row&quot;
+            spacing={1}
+            sx={{
+              alignItems: &#39;center&#39;,
+              border: &#39;1px solid&#39;,
+              borderColor: &#39;divider&#39;,
+              borderRadius: 1.5,
+              px: 1,
+              py: 0.5,
+              display: &#39;inline-flex&#39;,
+            }}
+          &gt;
+            &lt;Box
+              sx={{
+                width: 20,
+                height: 20,
+                borderRadius: 0.75,
+                border: &#39;1px solid&#39;,
+                borderColor: &#39;divider&#39;,
+                backgroundColor: row.hex,
+                flexShrink: 0,
+              }}
+            /&gt;
+            &lt;Typography variant=&quot;body2&quot;&gt;{row.ref}&lt;/Typography&gt;
+          &lt;/Stack&gt;
+        &lt;/Stack&gt;
+      ))}
+    &lt;/Stack&gt;
+  );
+}
+
+function SubgroupHeading({ parent, name }: { parent: string; name: string }) {
+  return (
+    &lt;Typography variant=&quot;body2&quot; sx={{ mt: 2, mb: 0.5 }}&gt;
+      &lt;Typography component=&quot;span&quot; variant=&quot;body2&quot; color=&quot;text.disabled&quot;&gt;
+        {parent} /{&#39; &#39;}
+      &lt;/Typography&gt;
+      &lt;Typography component=&quot;span&quot; variant=&quot;body2&quot; sx={{ fontWeight: 700 }}&gt;
+        {name}
+      &lt;/Typography&gt;
+    &lt;/Typography&gt;
+  );
+}
+
+function ThemeGroup({ name, node }: { name: string; node: Record&lt;string, unknown&gt; }) {
+  const leafEntries = Object.fromEntries(Object.entries(node).filter(([, v]) =&gt; isColorLeaf(v)));
+  const subgroups = Object.entries(node).filter(
+    ([, v]) =&gt; !isColorLeaf(v) &amp;&amp; typeof v === &#39;object&#39; &amp;&amp; v !== null &amp;&amp; Object.keys(v as object).length &gt; 0,
+  );
+  const rows = buildRows(leafEntries);
+  if (!rows.length &amp;&amp; !subgroups.length) return null;
+
+  return (
+    &lt;Stack spacing={1}&gt;
+      &lt;Typography variant=&quot;body1&quot; sx={{ fontWeight: 600, textTransform: &#39;capitalize&#39; }}&gt;
+        {name}
+      &lt;/Typography&gt;
+      &lt;TokenTable rows={rows} /&gt;
+      {subgroups.map(([subName, subNode]) =&gt; (
+        &lt;Box key={subName}&gt;
+          &lt;SubgroupHeading parent={name} name={subName} /&gt;
+          &lt;TokenTable rows={buildRows(subNode as Record&lt;string, unknown&gt;)} /&gt;
+        &lt;/Box&gt;
+      ))}
+    &lt;/Stack&gt;
+  );
+}
+
+function ThemeSection() {
+  const rootLeaves = Object.fromEntries(Object.entries(semantic.color).filter(([, v]) =&gt; isColorLeaf(v)));
+  const groups = Object.entries(semantic.color).filter(
+    ([, v]) =&gt; !isColorLeaf(v) &amp;&amp; typeof v === &#39;object&#39; &amp;&amp; v !== null &amp;&amp; Object.keys(v as object).length &gt; 0,
+  );
+
+  return (
+    &lt;Stack spacing={4}&gt;
+      {Object.keys(rootLeaves).length &gt; 0 &amp;&amp; (
+        &lt;Stack spacing={1}&gt;
+          &lt;Typography variant=&quot;body1&quot; sx={{ fontWeight: 600 }}&gt;
+            Racine
+          &lt;/Typography&gt;
+          &lt;TokenTable rows={buildRows(rootLeaves)} /&gt;
+        &lt;/Stack&gt;
+      )}
+      {groups.map(([name, node]) =&gt; (
+        &lt;ThemeGroup key={name} name={name} node={node as Record&lt;string, unknown&gt;} /&gt;
+      ))}
+    &lt;/Stack&gt;
+  );
+}
+
+function TokensFoundations() {
+  return (
+    &lt;PageLayout title=&quot;Tokens&quot;&gt;
+      &lt;Sections&gt;
+        &lt;Section title=&quot;Core&quot;&gt;
+          &lt;Typography variant=&quot;body2&quot; color=&quot;text.secondary&quot; sx={{ mb: 2, maxWidth: 640 }}&gt;
+            Primitives Material (&lt;code&gt;tokens/core.json&lt;/code&gt;) réellement référencées par Theme
+            ci-dessous — sur les 19 familles complètes du nuancier Material que le fichier importe,
+            seules celles utilisées par la charte Logbook sont listées ici.
+          &lt;/Typography&gt;
+          &lt;CoreSection /&gt;
+        &lt;/Section&gt;
+
+        &lt;Section title=&quot;Theme&quot;&gt;
+          &lt;Typography variant=&quot;body2&quot; color=&quot;text.secondary&quot; sx={{ mb: 2, maxWidth: 640 }}&gt;
+            Palette sémantique consommée par les composants MUI (&lt;code&gt;tokens/semantic.json&lt;/code&gt; →{&#39; &#39;}
+            &lt;code&gt;src/theme/&lt;/code&gt;). Chaque valeur référence une primitive Core ci-dessus, ou une
+            superposition calculée (ex. les états de survol/focus).
+          &lt;/Typography&gt;
+          &lt;ThemeSection /&gt;
+        &lt;/Section&gt;
+      &lt;/Sections&gt;
+    &lt;/PageLayout&gt;
+  );
+}
+
+const meta: Meta&lt;typeof TokensFoundations&gt; = {
+  title: &#39;Foundations/Tokens&#39;,
+  component: TokensFoundations,
+  parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
+};
+
+export default meta;
+type Story = StoryObj&lt;typeof TokensFoundations&gt;;
+
+export const Reference: Story = {};
+</code></pre></div>
+    </div>
+        </div>
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+        </div>
+    
+    
+        <div class="panel panel-stories">
+          
+            <div class="note err">
+              <div class="row">
+                <span class="ex-name">Reference</span>
+                <span class="badge err">story error</span>
+              </div>
+              
+              
+              
+              <pre><code>Could not generate snippet without component name.</code></pre>
+            </div>
+          
+          
+          <div class="note ok">
+                <div class="row">
+                  <span class="ex-name">Imports</span>
+                </div>
+                <pre><code>import { Box, Stack, Typography } from "@mui/material";
+import { PageLayout, RiPaletteLine, Section, Sections } from "logbook-design-system";</code></pre>
+              </div>
+          
+          
+        </div>
+    
+    
+  </div>
+</article>
+<article
+  class="card 
+  has-error 
+  has-info 
+  has-story-error
+  no-doc-error"
+  role="listitem"
   aria-label="VisualsFoundations">
   <div class="head">
     <div class="title">
       <h2><span class="status-dot dot-err"></span> VisualsFoundations</h2>
       <div class="badges">
-        <label for="c-error-4-foundations-visuals-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-4-foundations-visuals-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-4-foundations-visuals-stories" class="badge err as-toggle">1/1 story errors</label>
+        <label for="c-error-5-foundations-visuals-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-5-foundations-visuals-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-5-foundations-visuals-stories" class="badge err as-toggle">1/1 story errors</label>
         
         
       </div>
@@ -7078,9 +7830,9 @@ import { PageLayout } from "logbook-design-system";</code></pre>
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-4-foundations-visuals-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-4-foundations-visuals-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-4-foundations-visuals-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-5-foundations-visuals-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-5-foundations-visuals-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-5-foundations-visuals-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
