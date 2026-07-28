@@ -1,1 +1,0 @@
-import{n as e,t}from"./DocsRenderer-JROSPFPF-Ban_GSDM.js";t();export{e as MDXProvider};
