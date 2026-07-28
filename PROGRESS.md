@@ -29,6 +29,12 @@ Factuel uniquement. Mis à jour à la fin de chaque session (cf. CLAUDE.md).
 - Tokens `strong.background` ajoutés pour error/warning (`{color.orange.800}`) et info (`{color.teal.700}`, remplace l'ancien `{color.deeppurple.700}` hors palette) : le fond "Strong" de Chip ne lit plus les primitives `core.json` directement.
 - Tokens `subtle.background` ajoutés pour success (`{color.green.100}`) et info (`{color.teal.100}`) ; celui de warning corrigé de `{color.orange.100}` (qui collisionnait avec error) à `{color.yellow.200}` — les 5 fonds "Subtle" de Chip viennent maintenant uniquement des tokens, plus aucune couleur posée en dur dans les stories.
 - `Table` (`MuiTable`) a désormais un fond blanc explicite (`color.background['paper-elevation-0']`) au lieu de dépendre par transparence du fond de page (`background.default`) — même rendu, composant autonome.
+- Header de `MuiTableCell` (toutes les tables du DS) : texte passé de `text.primary` à `text.secondary`, et de la variante `head` native de MUI (fontWeight medium, lineHeight 24px) au token `typography.subtitle1` (`body1` essayé d'abord, jugé trop imposant par Marjorie).
+- `CorrectionsTable`, colonne "Élève" : `TableSortLabel` remplacé par un `Button` (`color="secondary"`, `size="small"`, finalement `variant="text"` après essais `contained`/`outlined`) + icône `RiArrowDownLine` pivotant selon le sens de tri — comportement de tri et `aria-sort` (porté par `TableCell`) inchangés.
+- `LogbookListenProgress` : override `fontWeight: semibold` retiré du pourcentage affiché, désormais identique en style (`body2` + `text.secondary`) à la colonne Note de `CorrectionsTable`, incohérence non documentée à l'origine.
+- `Card` (`MuiCard`) : `boxShadow` forcé à `'none'` (au lieu du token `shadow.sm`) — plus aucune ombre portée sur les Card du DS, changement global. Note "À savoir" de `Components/Card.stories.tsx` corrigée en conséquence (elle décrivait l'ancienne ombre).
+- Nouveau composant `LogbookStatCard` (`src/components/LogbookStatCard.tsx`, story `Logbook/StatCard`) : carte stat (icône + libellé + valeur + suffixe optionnel), construite sur `Card` sans aucun override de fond/bordure/rayon (le style par défaut de `Card` correspond déjà à la maquette). Props : `icon`, `iconAlt`, `label`, `value`, `suffix`. Réglages actuels : icône 48×48 (réutilise `Certification.svg`, déjà dans `src/assets/illustrations`), libellé en `body1`, valeur en `h4`, suffixe en `subtitle2`, largeur fixe 128px, padding 8px (`spacing.xs`).
+- Nouveau thème `MuiTabs`/`MuiTab` (`src/theme/components/Tabs.ts`, story `Components/Tabs`) : onglets à coins arrondis en haut (`borderRadius.lg`), contour `divider`, fond `background.paper` uniquement sur l'onglet actif, indicator natif de MUI élargi à 4px (aucun token dédié à une épaisseur de trait dans le DS, valeur figée assumée) en `primary.main`. Couleur du libellé/icône identique actif/inactif — déroge à l'atténuation native de MUI sur les onglets inactifs, choix assumé pour coller à la maquette de Marjorie, documenté dans le "À savoir" de la story.
 
 ## En cours / à moitié fait
 
@@ -40,6 +46,8 @@ Factuel uniquement. Mis à jour à la fin de chaque session (cf. CLAUDE.md).
 
 - **Version MUI** : v9 utilisée actuellement, non tranchée — à valider avec l'équipe dev Logbook avant toute nouvelle génération de composants.
 - **Chip vs Bouton pour la colonne État de `CorrectionsTable`** : convention actuelle dans le Storybook — chip pour un statut passif ("Rendue", "Consultée"), bouton pour une action à faire ("À corriger", "À analyser") — pas encore validée contre l'implémentation prod réelle.
+- **Catégorisation Storybook de `Tabs`** : rangé sous `Components/Tabs` (composant MUI thémé, même logique que Button/Chip/Card) plutôt que sous `Logbook/`, alors que la demande initiale mentionnait "pour Logbook" — à confirmer avec Marjorie.
+- **Contour `outlined secondary` (Button.ts)** : exception déjà assumée (contraste 1.30:1 contre blanc, sous le seuil de 3:1) désormais aussi visible sur fond beige de header de table (encore moins contrasté) depuis les essais sur le bouton "Élève" de `CorrectionsTable` — à revisiter si l'usage se généralise.
 
 ## Prochaine étape
 

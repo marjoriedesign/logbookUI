@@ -33,8 +33,15 @@ export const MuiTableCell: Components<Theme>['MuiTableCell'] = {
     // = #fdfaf3, cf. palette.ts) encadré d'un contour beige (même
     // theme.palette.divider qu'ailleurs) et arrondi à 8px
     // (borderRadius.md) sur les coins extérieurs de la rangée d'en-tête.
+    // Texte demandé en text.secondary (au lieu du text.primary natif de
+    // MUI pour variant="head") et en style subtitle1 (au lieu du
+    // fontWeight medium/lineHeight 24px imposés par MUI) : body1 (20px)
+    // essayé d'abord, jugé trop imposant pour un header de tableau ;
+    // subtitle1 (16px) retenu à la place.
     head: ({ theme }) => ({
       backgroundColor: theme.palette.background.paper,
+      color: theme.palette.text.secondary,
+      ...theme.typography.subtitle1,
       borderTop: `1px solid ${theme.palette.divider}`,
       '&:first-of-type': {
         borderLeft: `1px solid ${theme.palette.divider}`,

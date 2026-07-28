@@ -6,7 +6,6 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  TableSortLabel,
   Avatar,
   Switch,
   Chip,
@@ -25,6 +24,7 @@ import {
   RiArrowRightSLine,
   RiBallPenLine,
   RiBardLine,
+  RiArrowDownLine,
 } from '../../icons';
 import { LogbookIconButton } from '../../components/LogbookIconButton';
 import { LogbookListenProgress } from '../../components/LogbookListenProgress';
@@ -265,13 +265,24 @@ function CorrectionsTable() {
       <TableHead>
         <TableRow>
           <TableCell sortDirection={order}>
-            <TableSortLabel
-              active
-              direction={order}
+            <Button
+              variant="outlined"
+              color="secondary"
+              size="small"
+              endIcon={
+                <RiArrowDownLine
+                  style={{
+                    transform: order === 'asc' ? 'rotate(180deg)' : 'none',
+                    transition: theme.transitions.create('transform', {
+                      duration: theme.transitions.duration.shorter,
+                    }),
+                  }}
+                />
+              }
               onClick={() => setOrder((prev) => (prev === 'asc' ? 'desc' : 'asc'))}
             >
               Élève
-            </TableSortLabel>
+            </Button>
           </TableCell>
           <TableCell>Non réalisée</TableCell>
           <TableCell>État</TableCell>

@@ -36,7 +36,7 @@ function AudioFeedbackCard() {
 }
 
 const NOTES = [
-  'defaultProps : elevation=0 + variant="outlined" — jamais d’ombre CSS native de MUI, l’ombre visible vient uniquement du token shadow.sm posé explicitement dans le styleOverrides.',
+  'defaultProps : elevation=0 + variant="outlined", boxShadow forcé à \'none\' dans le styleOverrides (aucune ombre portée, y compris si un appelant passe une autre elevation).',
 ];
 
 const meta: Meta<typeof AudioFeedbackCard> = {

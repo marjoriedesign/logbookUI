@@ -14,6 +14,7 @@ import { MuiAlert } from './Alert';
 import { MuiCheckbox } from './Checkbox';
 import { MuiSelect } from './Select';
 import { MuiTable, MuiTableCell } from './Table';
+import { MuiTabs, MuiTab } from './Tabs';
 
 export const components: Components<Theme> = {
   MuiButton,
@@ -35,4 +36,6 @@ export const components: Components<Theme> = {
   MuiSelect,
   MuiTable,
   MuiTableCell,
+  MuiTabs,
+  MuiTab,
 };
