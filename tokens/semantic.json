@@ -162,6 +162,12 @@
           "value": "{color.orange.100}",
           "type": "color"
         }
+      },
+      "strong": {
+        "background": {
+          "value": "{color.orange.800}",
+          "type": "color"
+        }
       }
     },
     "error": {
@@ -204,6 +210,12 @@
           "value": "{color.orange.100}",
           "type": "color"
         }
+      },
+      "strong": {
+        "background": {
+          "value": "{color.orange.800}",
+          "type": "color"
+        }
       }
     },
     "info": {
@@ -240,6 +252,12 @@
       "contrasttext": {
         "value": "{color.grey.800}",
         "type": "color"
+      },
+      "strong": {
+        "background": {
+          "value": "{color.deeppurple.700}",
+          "type": "color"
+        }
       }
     },
     "background": {

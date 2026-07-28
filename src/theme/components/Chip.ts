@@ -37,23 +37,26 @@ export const MuiChip: Components<Theme>['MuiChip'] = {
       style: { backgroundColor: color.success.dark },
     },
     // Fond imposé par Marjorie (orange.800, hors palette error habituelle),
-    // texte contrastText (blanc) déjà correct par défaut : 4.64:1.
+    // désormais un cran dédié color.error.strong.background — texte
+    // contrastText (blanc) déjà correct par défaut : 4.64:1.
     {
       props: { variant: 'filled', color: 'error' },
-      style: { backgroundColor: color.orange['800'] },
+      style: { backgroundColor: color.error.strong.background },
     },
-    // Fond imposé par Marjorie (orange.800, plus le jaune) + texte comme
-    // Primary (blanc) : 4.64:1, conforme (contrairement au jaune.600 testé
-    // précédemment, qui échouait à 2.03:1 avec du texte blanc).
+    // Fond imposé par Marjorie (orange.800, plus le jaune ; même valeur que
+    // error.strong.background, cran dédié color.warning.strong.background)
+    // + texte comme Primary (blanc) : 4.64:1, conforme (contrairement au
+    // jaune.600 testé précédemment, qui échouait à 2.03:1 avec du texte blanc).
     {
       props: { variant: 'filled', color: 'warning' },
-      style: { backgroundColor: color.orange['800'], color: color.primary.contrastText },
+      style: { backgroundColor: color.warning.strong.background, color: color.primary.contrastText },
     },
-    // Fond imposé par Marjorie (deeppurple.700, hors palette info habituelle)
-    // + texte comme Primary (contrastText blanc) : 9.17:1, conforme.
+    // Fond imposé par Marjorie (deeppurple.700, hors palette info habituelle),
+    // désormais un cran dédié color.info.strong.background — texte comme
+    // Primary (contrastText blanc) : 9.17:1, conforme.
     {
       props: { variant: 'filled', color: 'info' },
-      style: { backgroundColor: color.deeppurple['700'], color: color.primary.contrastText },
+      style: { backgroundColor: color.info.strong.background, color: color.primary.contrastText },
     },
 
     // Variant 'subtle' : fond pastel + texte foncé, pour les statuts

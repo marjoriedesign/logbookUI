@@ -366,6 +366,9 @@ export const designTokens = {
       "contrastText": "#47453f",
       "subtle": {
         "background": "#faccbb"
+      },
+      "strong": {
+        "background": "#cb4a13"
       }
     },
     "error": {
@@ -381,6 +384,9 @@ export const designTokens = {
       "contrastText": "#ffffff",
       "subtle": {
         "background": "#faccbb"
+      },
+      "strong": {
+        "background": "#cb4a13"
       }
     },
     "info": {
@@ -393,7 +399,10 @@ export const designTokens = {
         "focusvisible": "#b2dfdb1F",
         "outlinedborder": "#b2dfdb80"
       },
-      "contrastText": "#47453f"
+      "contrastText": "#47453f",
+      "strong": {
+        "background": "#512da8"
+      }
     },
     "background": {
       "default": "#ffffff",
