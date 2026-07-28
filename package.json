@@ -3,6 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
   "scripts": {
     "dev": "concurrently --names \"tokens,storybook\" --prefix \"[{name}]\" \"npm run tokens:watch\" \"npm run storybook\"",
     "build": "tsc -b && vite build",
