@@ -24,5 +24,12 @@ export {
   LogbookListenProgress,
   type LogbookListenProgressProps,
 } from './components/LogbookListenProgress';
+export {
+  CorrectionsTable,
+  type CorrectionsTableProps,
+  type CorrectionsTableRow,
+  type CorrectionState,
+  type CorrectionReaction,
+} from './components/CorrectionsTable';
 
 export * from './icons';
