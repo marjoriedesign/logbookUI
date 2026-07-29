@@ -19,7 +19,10 @@ export function LogbookSidePanelHeader({ studentName, avatarSrc, avatarAlt, onCl
         alignItems: 'center',
         justifyContent: 'space-between',
         p: 2,
-        backgroundColor: 'background.default',
+        // paper-elevation-0 plutôt que theme.palette.background.paper
+        // (paper-elevation-1, réservé ailleurs) : non câblé sur palette.ts,
+        // lu directement depuis designTokens (même pattern que MuiTable).
+        backgroundColor: designTokens.color.background['paper-elevation-0'],
         borderBottom: '1px solid',
         borderColor: 'divider',
       }}
