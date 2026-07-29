@@ -13,7 +13,6 @@ export {
 export {
   LogbookIconButton,
   type LogbookIconButtonProps,
-  type LogbookIconButtonVariant,
 } from './components/LogbookIconButton';
 export {
   LogbookNavbar,

@@ -7,9 +7,10 @@ import { LogbookIconButton } from '../../components/LogbookIconButton';
 const semanticColors = ['primary', 'secondary', 'success', 'warning', 'error', 'info'] as const;
 
 const NOTES = [
-  'IconButton MUI natif n’a pas de prop `variant` (contrairement à Button/Chip) : impossible à étendre via theme.components.MuiIconButton.variants. Les variants filled/outlined vivent dans le wrapper src/components/LogbookIconButton.tsx, pas dans le thème.',
+  'IconButton MUI natif n’a pas de prop `variant` (contrairement à Button/Chip) : impossible à étendre via theme.components.MuiIconButton.variants. Le rendu par couleur vit dans le wrapper src/components/LogbookIconButton.tsx, pas dans le thème.',
+  'Aligné sur la bibliothèque Figma de Marjorie (pas de variant séparé) : chaque `color` de LogbookIconButton détermine à elle seule un rendu fixe — primary = contour beige, secondary = fond plein teal + icône blanche. primary/secondary sont donc délibérément inversés par rapport aux tokens de palette du même nom (cf. Button.ts), ce n’est pas une incohérence mais un choix propre à ce composant.',
   'Tailles d’icône (20px small, 24px medium/large) et padding figés en dur dans IconButton.ts : aucun cran de spacing existant ne correspond — exception documentée.',
-  '⚠️ Filled primary, survol : color.primary.dark (#4ad09a) est un vert, pas une nuance de teal — incohérence connue du nuancier, reproduite à l’identique (déjà présente sur Button Primary Contained), signalée pour arbitrage plutôt que corrigée en douce.',
+  '⚠️ LogbookIconButton secondary, survol : color.primary.dark (#4ad09a) est un vert, pas une nuance de teal — incohérence connue du nuancier, reproduite à l’identique (déjà présente sur Button Primary Contained), signalée pour arbitrage plutôt que corrigée en douce.',
 ];
 
 const meta: Meta<typeof IconButton> = {
@@ -32,7 +33,7 @@ export const Default: Story = {
         <IconButton {...args} />
       </Section>
 
-      <Section title="Colors">
+      <Section title="Colors (natif, sans fond)">
         <Stack direction="row" spacing={1}>
           <IconButton {...args} color="primary" />
           <IconButton {...args} color="secondary" />
@@ -40,18 +41,10 @@ export const Default: Story = {
         </Stack>
       </Section>
 
-      <Section title="Filled">
+      <Section title="LogbookIconButton (rendu fixe par couleur)">
         <Stack direction="row" spacing={1}>
           {semanticColors.map((c) => (
-            <LogbookIconButton key={c} {...args} variant="filled" color={c} />
-          ))}
-        </Stack>
-      </Section>
-
-      <Section title="Outlined">
-        <Stack direction="row" spacing={1}>
-          {semanticColors.map((c) => (
-            <LogbookIconButton key={c} {...args} variant="outlined" color={c} />
+            <LogbookIconButton key={c} {...args} color={c} />
           ))}
         </Stack>
       </Section>

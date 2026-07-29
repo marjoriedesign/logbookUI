@@ -193,8 +193,7 @@ function CorrectionsRow({
         <TableCell>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: `${designTokens.spacing.xs}px` }}>
             <LogbookIconButton
-              variant="outlined"
-              color="secondary"
+              color="primary"
               aria-label="Actions"
               size="small"
               onClick={(event) => {

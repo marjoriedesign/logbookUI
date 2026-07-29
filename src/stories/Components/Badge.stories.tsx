@@ -23,7 +23,7 @@ export const Default: Story = {
     <Sections>
       <Section title="Count">
         <Badge badgeContent={3} color="primary">
-          <LogbookIconButton variant="outlined" color="secondary" aria-label="Corrections reçues">
+          <LogbookIconButton color="primary" aria-label="Corrections reçues">
             <RiFileTextLine size="1em" />
           </LogbookIconButton>
         </Badge>
@@ -31,7 +31,7 @@ export const Default: Story = {
 
       <Section title="Dot">
         <Badge variant="dot" color="primary">
-          <LogbookIconButton variant="outlined" color="secondary" aria-label="Nouvelles corrections">
+          <LogbookIconButton color="primary" aria-label="Nouvelles corrections">
             <RiFileTextLine size="1em" />
           </LogbookIconButton>
         </Badge>
@@ -39,7 +39,7 @@ export const Default: Story = {
 
       <Section title="Max">
         <Badge badgeContent={120} max={99} color="primary">
-          <LogbookIconButton variant="outlined" color="secondary" aria-label="Corrections reçues">
+          <LogbookIconButton color="primary" aria-label="Corrections reçues">
             <RiFileTextLine size="1em" />
           </LogbookIconButton>
         </Badge>

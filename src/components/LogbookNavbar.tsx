@@ -95,8 +95,7 @@ export function LogbookNavbar({
             Feedback
           </Button>
           <LogbookIconButton
-            variant="outlined"
-            color="secondary"
+            color="primary"
             size="large"
             aria-label="Feedback"
             onClick={onFeedback}
@@ -107,8 +106,7 @@ export function LogbookNavbar({
 
           <Badge badgeContent={notificationCount} color="primary">
             <LogbookIconButton
-              variant="outlined"
-              color="secondary"
+              color="primary"
               size="large"
               aria-label="Notifications"
               onClick={onNotifications}
@@ -130,8 +128,7 @@ export function LogbookNavbar({
             {userName}
           </Button>
           <LogbookIconButton
-            variant="outlined"
-            color="secondary"
+            color="primary"
             size="large"
             aria-label={userName}
             onClick={onProfile}
