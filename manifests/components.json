@@ -514,21 +514,156 @@
     },
     "logbook-correctionstable": {
       "id": "logbook-correctionstable",
-      "name": "CorrectionsTable",
+      "name": "CorrectionsTableDemo",
       "path": "./src/stories/Logbook/CorrectionsTable.stories.tsx",
       "jsDocTags": {},
-      "error": {
-        "name": "Component file in node_modules",
-        "message": "File: /Users/marjorie/logbook-design-system/node_modules/@mui/material/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "CorrectionsTable",
+        "definedInFile": "/Users/marjorie/logbook-design-system/src/components/CorrectionsTable.tsx",
+        "actualName": "CorrectionsTable",
+        "exportName": "CorrectionsTable",
+        "props": {
+          "rows": {
+            "required": true,
+            "tsType": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "CorrectionsTableRow"
+                }
+              ],
+              "raw": "CorrectionsTableRow[]"
+            },
+            "description": ""
+          },
+          "onToggleSubmitted": {
+            "required": false,
+            "tsType": {
+              "name": "signature",
+              "type": "function",
+              "raw": "(row: CorrectionsTableRow, submitted: boolean) => void",
+              "signature": {
+                "arguments": [
+                  {
+                    "type": {
+                      "name": "CorrectionsTableRow"
+                    },
+                    "name": "row"
+                  },
+                  {
+                    "type": {
+                      "name": "boolean"
+                    },
+                    "name": "submitted"
+                  }
+                ],
+                "return": {
+                  "name": "void"
+                }
+              }
+            },
+            "description": "Coche/décoche \"Non réalisée\" — le composant ne gère pas l'état de remise lui-même."
+          },
+          "onCorrect": {
+            "required": false,
+            "tsType": {
+              "name": "signature",
+              "type": "function",
+              "raw": "(row: CorrectionsTableRow) => void",
+              "signature": {
+                "arguments": [
+                  {
+                    "type": {
+                      "name": "CorrectionsTableRow"
+                    },
+                    "name": "row"
+                  }
+                ],
+                "return": {
+                  "name": "void"
+                }
+              }
+            },
+            "description": ""
+          },
+          "onAnalyze": {
+            "required": false,
+            "tsType": {
+              "name": "signature",
+              "type": "function",
+              "raw": "(row: CorrectionsTableRow) => void",
+              "signature": {
+                "arguments": [
+                  {
+                    "type": {
+                      "name": "CorrectionsTableRow"
+                    },
+                    "name": "row"
+                  }
+                ],
+                "return": {
+                  "name": "void"
+                }
+              }
+            },
+            "description": ""
+          },
+          "onOpenStudent": {
+            "required": false,
+            "tsType": {
+              "name": "signature",
+              "type": "function",
+              "raw": "(row: CorrectionsTableRow) => void",
+              "signature": {
+                "arguments": [
+                  {
+                    "type": {
+                      "name": "CorrectionsTableRow"
+                    },
+                    "name": "row"
+                  }
+                ],
+                "return": {
+                  "name": "void"
+                }
+              }
+            },
+            "description": "Clic sur la ligne / la flèche : ouvre l'écran de correction de l'élève."
+          },
+          "onOpenActions": {
+            "required": false,
+            "tsType": {
+              "name": "signature",
+              "type": "function",
+              "raw": "(row: CorrectionsTableRow) => void",
+              "signature": {
+                "arguments": [
+                  {
+                    "type": {
+                      "name": "CorrectionsTableRow"
+                    },
+                    "name": "row"
+                  }
+                ],
+                "return": {
+                  "name": "void"
+                }
+              }
+            },
+            "description": "Clic sur le \"...\" : menu d'actions annexes (à définir par l'app consommatrice)."
+          }
+        }
       },
       "stories": [
         {
           "id": "logbook-correctionstable--default",
           "name": "Default",
-          "snippet": "const Default = () => <Table />;"
+          "snippet": "const Default = () => <CorrectionsTable />;"
         }
       ],
-      "import": "import {\n    Avatar,\n    Box,\n    Button,\n    Chip,\n    LogbookIconButton,\n    LogbookListenProgress,\n    PageLayout,\n    RiArrowDownLine,\n    RiArrowRightSLine,\n    RiBallPenLine,\n    RiBardLine,\n    RiChat3Line,\n    RiMoreFill,\n    Switch,\n    Table,\n    TableBody,\n    TableCell,\n    TableHead,\n    TableRow,\n    Typography,\n} from \"@mui/material\";"
+      "import": "import { CorrectionsTable, PageLayout } from \"logbook-design-system\";"
     },
     "logbook-statcard": {
       "id": "logbook-statcard",
@@ -605,6 +740,6 @@
   },
   "meta": {
     "docgen": "react-docgen",
-    "durationMs": 272
+    "durationMs": 354
   }
 }

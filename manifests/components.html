@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">27/29 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">29/29 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">4/29 story errors</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">26/29 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">29/29 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">4/29 story errors</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note info" style="margin-bottom: 16px;">
-            <strong>Tip:</strong> You are using <code>react-docgen</code> (the default). Generation took <strong>0.3s</strong>. For higher quality prop types, consider switching to <code>react-docgen-typescript</code> in your <code>main.ts</code>:
+            <strong>Tip:</strong> You are using <code>react-docgen</code> (the default). Generation took <strong>0.4s</strong>. For higher quality prop types, consider switching to <code>react-docgen-typescript</code> in your <code>main.ts</code>:
             <pre><code>typescript: {
   reactDocgen: 'react-docgen-typescript',
 }</code></pre>
@@ -2062,17 +2062,17 @@ Code:
 </article>
 <article
   class="card 
-  has-error 
+  no-error 
   has-info 
   no-story-error
   no-doc-error"
   role="listitem"
-  aria-label="CorrectionsTable">
+  aria-label="CorrectionsTableDemo">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-err"></span> CorrectionsTable</h2>
+      <h2><span class="status-dot dot-ok"></span> CorrectionsTableDemo</h2>
       <div class="badges">
-        <label for="c-11-logbook-correctionstable-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-11-logbook-correctionstable-props" class="badge ok as-toggle">6 prop types</label>
         <label for="c-11-logbook-correctionstable-info" class="badge info as-toggle">1 info</label>
         <label for="c-11-logbook-correctionstable-stories" class="badge ok as-toggle">1 story</label>
         
@@ -2086,44 +2086,15 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-11-logbook-correctionstable-err" class="tg tg-err" type="checkbox" hidden />
+  
   <input id="c-11-logbook-correctionstable-info" class="tg tg-info" type="checkbox" hidden />
   <input id="c-11-logbook-correctionstable-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
-  
+  <input id="c-11-logbook-correctionstable-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
-        <div class="panel panel-err">
-          
-    <div class="note err">
-      <div class="note-title">Prop type error</div>
-      <div class="note-body"><pre><code>File: /Users/marjorie/logbook-design-system/node_modules/@mui/material/index.mjs
-Error:
-Component files in node_modules are not supported.
-The distributed files in node_modules usually don&#39;t contain the necessary comments or types needed to analyze component information.
-Configure TypeScript path aliases to map your package name to the source file instead.
-
-Example (tsconfig.json):
-{
-  &quot;compilerOptions&quot;: {
-    &quot;baseUrl&quot;: &quot;.&quot;,
-    &quot;paths&quot;: {
-      &quot;@design-system/button&quot;: [&quot;src/components/Button.tsx&quot;],
-      &quot;@design-system/*&quot;: [&quot;src/components/*&quot;]
-    }
-  }
-}
-
-Then import using:
-import { Button } from &#39;@design-system/button&#39;
-
-Storybook resolves tsconfig paths automatically.
-Code:
-/* File in node_modules */</code></pre></div>
-    </div>
-        </div>
     
         <div class="panel panel-info">
           
@@ -2133,6 +2104,36 @@ Code:
     </div>
         </div>
     
+        <div class="panel panel-props">
+          <div class="note ok">
+            <div class="row">
+              <span class="ex-name">Prop types <small>(react-docgen)</small></span>
+              <span class="badge ok">6 prop types</span>
+            </div>
+            <pre><code>Component: src/components/CorrectionsTable.tsx::CorrectionsTable</code></pre>
+            <pre><code>Props:</code></pre>
+            <pre><code>onAnalyze?: (row: CorrectionsTableRow) =&gt; void
+
+onCorrect?: (row: CorrectionsTableRow) =&gt; void
+
+/**
+ * Clic sur le &quot;...&quot; : menu d&#39;actions annexes (à définir par l&#39;app consommatrice).
+ */
+onOpenActions?: (row: CorrectionsTableRow) =&gt; void
+
+/**
+ * Clic sur la ligne / la flèche : ouvre l&#39;écran de correction de l&#39;élève.
+ */
+onOpenStudent?: (row: CorrectionsTableRow) =&gt; void
+
+/**
+ * Coche/décoche &quot;Non réalisée&quot; — le composant ne gère pas l&#39;état de remise lui-même.
+ */
+onToggleSubmitted?: (row: CorrectionsTableRow, submitted: boolean) =&gt; void
+
+rows: CorrectionsTableRow[]</code></pre>
+          </div>
+        </div>
     
         <div class="panel panel-stories">
           
@@ -2142,28 +2143,7 @@ Code:
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import {
-    Avatar,
-    Box,
-    Button,
-    Chip,
-    LogbookIconButton,
-    LogbookListenProgress,
-    PageLayout,
-    RiArrowDownLine,
-    RiArrowRightSLine,
-    RiBallPenLine,
-    RiBardLine,
-    RiChat3Line,
-    RiMoreFill,
-    Switch,
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableRow,
-    Typography,
-} from "@mui/material";</code></pre>
+                <pre><code>import { CorrectionsTable, PageLayout } from "logbook-design-system";</code></pre>
               </div>
           
           
@@ -2174,7 +2154,7 @@ Code:
               </div>
               
               
-              <pre><code>const Default = () =&gt; &lt;Table /&gt;;</code></pre>
+              <pre><code>const Default = () =&gt; &lt;CorrectionsTable /&gt;;</code></pre>
             </div>
         </div>
     
@@ -4591,7 +4571,7 @@ import { PageLayout, Section, Sections } from "logbook-design-system";</code></p
           <label for="component-file-in-node-modules-toggle" class="group-header">
             <span class="caret">▸</span>
             <span class="group-title">Component file in node_modules</span>
-            <span class="group-count">21</span>
+            <span class="group-count">20</span>
           </label>
           <div class="group-cards">
 <article
@@ -5868,135 +5848,14 @@ Code:
   no-story-error
   no-doc-error"
   role="listitem"
-  aria-label="CorrectionsTable">
-  <div class="head">
-    <div class="title">
-      <h2><span class="status-dot dot-err"></span> CorrectionsTable</h2>
-      <div class="badges">
-        <label for="c-error-10-logbook-correctionstable-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-10-logbook-correctionstable-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-10-logbook-correctionstable-stories" class="badge ok as-toggle">1 story</label>
-        
-        
-      </div>
-    </div>
-    <div class="meta" title="./src/stories/Logbook/CorrectionsTable.stories.tsx">logbook-correctionstable · ./src/stories/Logbook/CorrectionsTable.stories.tsx</div>
-    
-    
-    
-  </div>
-
-  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-10-logbook-correctionstable-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-10-logbook-correctionstable-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-10-logbook-correctionstable-stories" class="tg tg-stories" type="checkbox" hidden />
-  
-  
-  
-
-  <div class="panels">
-    
-        <div class="panel panel-err">
-          
-    <div class="note err">
-      <div class="note-title">Prop type error</div>
-      <div class="note-body"><pre><code>File: /Users/marjorie/logbook-design-system/node_modules/@mui/material/index.mjs
-Error:
-Component files in node_modules are not supported.
-The distributed files in node_modules usually don&#39;t contain the necessary comments or types needed to analyze component information.
-Configure TypeScript path aliases to map your package name to the source file instead.
-
-Example (tsconfig.json):
-{
-  &quot;compilerOptions&quot;: {
-    &quot;baseUrl&quot;: &quot;.&quot;,
-    &quot;paths&quot;: {
-      &quot;@design-system/button&quot;: [&quot;src/components/Button.tsx&quot;],
-      &quot;@design-system/*&quot;: [&quot;src/components/*&quot;]
-    }
-  }
-}
-
-Then import using:
-import { Button } from &#39;@design-system/button&#39;
-
-Storybook resolves tsconfig paths automatically.
-Code:
-/* File in node_modules */</code></pre></div>
-    </div>
-        </div>
-    
-        <div class="panel panel-info">
-          
-    <div class="note info">
-      <div class="note-title">Info</div>
-      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
-    </div>
-        </div>
-    
-    
-        <div class="panel panel-stories">
-          
-          
-          
-          <div class="note ok">
-                <div class="row">
-                  <span class="ex-name">Imports</span>
-                </div>
-                <pre><code>import {
-    Avatar,
-    Box,
-    Button,
-    Chip,
-    LogbookIconButton,
-    LogbookListenProgress,
-    PageLayout,
-    RiArrowDownLine,
-    RiArrowRightSLine,
-    RiBallPenLine,
-    RiBardLine,
-    RiChat3Line,
-    RiMoreFill,
-    Switch,
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableRow,
-    Typography,
-} from "@mui/material";</code></pre>
-              </div>
-          
-          
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Default</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const Default = () =&gt; &lt;Table /&gt;;</code></pre>
-            </div>
-        </div>
-    
-    
-  </div>
-</article>
-<article
-  class="card 
-  has-error 
-  has-info 
-  no-story-error
-  no-doc-error"
-  role="listitem"
   aria-label="CorrectionTabs">
   <div class="head">
     <div class="title">
       <h2><span class="status-dot dot-err"></span> CorrectionTabs</h2>
       <div class="badges">
-        <label for="c-error-11-components-tabs-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-11-components-tabs-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-11-components-tabs-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-10-components-tabs-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-10-components-tabs-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-10-components-tabs-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -6008,9 +5867,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-11-components-tabs-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-11-components-tabs-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-11-components-tabs-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-10-components-tabs-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-10-components-tabs-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-10-components-tabs-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -6100,9 +5959,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> CorrectionTypeSelect</h2>
       <div class="badges">
-        <label for="c-error-12-components-select-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-12-components-select-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-12-components-select-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-11-components-select-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-11-components-select-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-11-components-select-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -6114,9 +5973,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-12-components-select-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-12-components-select-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-12-components-select-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-11-components-select-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-11-components-select-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-11-components-select-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -6218,9 +6077,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> DemoGrid</h2>
       <div class="badges">
-        <label for="c-error-13-components-grid-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-13-components-grid-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-13-components-grid-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-12-components-grid-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-12-components-grid-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-12-components-grid-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -6232,9 +6091,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-13-components-grid-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-13-components-grid-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-13-components-grid-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-12-components-grid-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-12-components-grid-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-12-components-grid-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -6318,9 +6177,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> IconButton</h2>
       <div class="badges">
-        <label for="c-error-14-components-iconbutton-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-14-components-iconbutton-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-14-components-iconbutton-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-13-components-iconbutton-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-13-components-iconbutton-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-13-components-iconbutton-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -6332,9 +6191,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-14-components-iconbutton-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-14-components-iconbutton-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-14-components-iconbutton-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-13-components-iconbutton-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-13-components-iconbutton-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-13-components-iconbutton-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -6460,9 +6319,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> LinearProgress</h2>
       <div class="badges">
-        <label for="c-error-15-components-linearprogress-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-15-components-linearprogress-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-15-components-linearprogress-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-14-components-linearprogress-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-14-components-linearprogress-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-14-components-linearprogress-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -6474,9 +6333,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-15-components-linearprogress-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-15-components-linearprogress-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-15-components-linearprogress-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-14-components-linearprogress-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-14-components-linearprogress-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-14-components-linearprogress-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -6585,9 +6444,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Paper</h2>
       <div class="badges">
-        <label for="c-error-16-components-paper-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-16-components-paper-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-16-components-paper-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-15-components-paper-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-15-components-paper-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-15-components-paper-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -6599,9 +6458,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-16-components-paper-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-16-components-paper-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-16-components-paper-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-15-components-paper-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-15-components-paper-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-15-components-paper-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -6703,9 +6562,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Stack</h2>
       <div class="badges">
-        <label for="c-error-17-components-stack-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-17-components-stack-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-17-components-stack-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-16-components-stack-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-16-components-stack-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-16-components-stack-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -6717,9 +6576,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-17-components-stack-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-17-components-stack-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-17-components-stack-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-16-components-stack-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-16-components-stack-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-16-components-stack-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -6821,9 +6680,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Switch</h2>
       <div class="badges">
-        <label for="c-error-18-components-switch-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-18-components-switch-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-18-components-switch-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-17-components-switch-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-17-components-switch-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-17-components-switch-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -6835,9 +6694,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-18-components-switch-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-18-components-switch-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-18-components-switch-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-17-components-switch-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-17-components-switch-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-17-components-switch-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -6931,9 +6790,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> TextField</h2>
       <div class="badges">
-        <label for="c-error-19-components-textfield-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-19-components-textfield-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-19-components-textfield-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-18-components-textfield-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-18-components-textfield-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-18-components-textfield-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -6945,9 +6804,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-19-components-textfield-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-19-components-textfield-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-19-components-textfield-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-18-components-textfield-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-18-components-textfield-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-18-components-textfield-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -7051,9 +6910,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> TypographyFoundations</h2>
       <div class="badges">
-        <label for="c-error-20-foundations-typography-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-20-foundations-typography-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-20-foundations-typography-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-19-foundations-typography-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-19-foundations-typography-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-19-foundations-typography-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -7065,9 +6924,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-20-foundations-typography-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-20-foundations-typography-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-20-foundations-typography-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-19-foundations-typography-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-19-foundations-typography-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-19-foundations-typography-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
