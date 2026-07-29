@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note info" style="margin-bottom: 16px;">
-            <strong>Tip:</strong> You are using <code>react-docgen</code> (the default). Generation took <strong>0.4s</strong>. For higher quality prop types, consider switching to <code>react-docgen-typescript</code> in your <code>main.ts</code>:
+            <strong>Tip:</strong> You are using <code>react-docgen</code> (the default). Generation took <strong>0.3s</strong>. For higher quality prop types, consider switching to <code>react-docgen-typescript</code> in your <code>main.ts</code>:
             <pre><code>typescript: {
   reactDocgen: 'react-docgen-typescript',
 }</code></pre>
@@ -2072,7 +2072,7 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> CorrectionsTableDemo</h2>
       <div class="badges">
-        <label for="c-11-logbook-correctionstable-props" class="badge ok as-toggle">6 prop types</label>
+        <label for="c-11-logbook-correctionstable-props" class="badge ok as-toggle">4 prop types</label>
         <label for="c-11-logbook-correctionstable-info" class="badge info as-toggle">1 info</label>
         <label for="c-11-logbook-correctionstable-stories" class="badge ok as-toggle">1 story</label>
         
@@ -2108,21 +2108,17 @@ Code:
           <div class="note ok">
             <div class="row">
               <span class="ex-name">Prop types <small>(react-docgen)</small></span>
-              <span class="badge ok">6 prop types</span>
+              <span class="badge ok">4 prop types</span>
             </div>
             <pre><code>Component: src/components/CorrectionsTable.tsx::CorrectionsTable</code></pre>
             <pre><code>Props:</code></pre>
-            <pre><code>onAnalyze?: (row: CorrectionsTableRow) =&gt; void
-
-onCorrect?: (row: CorrectionsTableRow) =&gt; void
-
-/**
+            <pre><code>/**
  * Clic sur le &quot;...&quot; : menu d&#39;actions annexes (à définir par l&#39;app consommatrice).
  */
 onOpenActions?: (row: CorrectionsTableRow) =&gt; void
 
 /**
- * Clic sur la ligne / la flèche : ouvre l&#39;écran de correction de l&#39;élève.
+ * Clic n&#39;importe où sur la ligne (hors Switch et &quot;...&quot; Actions) : ouvre le side panel de l&#39;élève.
  */
 onOpenStudent?: (row: CorrectionsTableRow) =&gt; void
 

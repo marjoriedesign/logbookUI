@@ -566,50 +566,6 @@
             },
             "description": "Coche/décoche \"Non réalisée\" — le composant ne gère pas l'état de remise lui-même."
           },
-          "onCorrect": {
-            "required": false,
-            "tsType": {
-              "name": "signature",
-              "type": "function",
-              "raw": "(row: CorrectionsTableRow) => void",
-              "signature": {
-                "arguments": [
-                  {
-                    "type": {
-                      "name": "CorrectionsTableRow"
-                    },
-                    "name": "row"
-                  }
-                ],
-                "return": {
-                  "name": "void"
-                }
-              }
-            },
-            "description": ""
-          },
-          "onAnalyze": {
-            "required": false,
-            "tsType": {
-              "name": "signature",
-              "type": "function",
-              "raw": "(row: CorrectionsTableRow) => void",
-              "signature": {
-                "arguments": [
-                  {
-                    "type": {
-                      "name": "CorrectionsTableRow"
-                    },
-                    "name": "row"
-                  }
-                ],
-                "return": {
-                  "name": "void"
-                }
-              }
-            },
-            "description": ""
-          },
           "onOpenStudent": {
             "required": false,
             "tsType": {
@@ -630,7 +586,7 @@
                 }
               }
             },
-            "description": "Clic sur la ligne / la flèche : ouvre l'écran de correction de l'élève."
+            "description": "Clic n'importe où sur la ligne (hors Switch et \"...\" Actions) : ouvre le side panel de l'élève."
           },
           "onOpenActions": {
             "required": false,
@@ -740,6 +696,6 @@
   },
   "meta": {
     "docgen": "react-docgen",
-    "durationMs": 354
+    "durationMs": 327
   }
 }
