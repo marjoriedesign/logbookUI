@@ -39,7 +39,7 @@ export function LogbookNavbar({
   onProfile,
 }: LogbookNavbarProps) {
   return (
-    <AppBar position="static">
+    <AppBar position="sticky">
       {/* Padding géré par le thème (MuiToolbar, cf. theme/components/Toolbar.ts) */}
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: `${designTokens.spacing.lg}px` }}>
