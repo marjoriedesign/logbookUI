@@ -4,7 +4,7 @@ import { PageLayout, Sections, Section } from '../PageLayout';
 
 const NOTES = [
   'variant="subtle" est une extension custom (officiellement supportée par MUI), pas un variant natif — fond pastel + texte unifié sur text.secondary, pour les statuts discrets.',
-  'Strong error/warning partagent la même teinte (orange.800), hors nuancier error/warning habituel — écart assumé par Marjorie pour tenir le contraste AA (4.64:1). Strong info (teal.700) reste dans la palette info habituelle (= info.dark), 5.32:1.',
+  'Strong error/warning partagent la même teinte (orange.800), hors nuancier error/warning habituel — écart assumé par Marjorie pour tenir le contraste AA (4.64:1). Strong info (purple.700) reste dans la palette info habituelle (= info.dark), 7.94:1.',
 ];
 
 const meta: Meta<typeof Chip> = {
@@ -40,11 +40,11 @@ export const Default: Story = {
       <Section title="Subtle">
         {/* Rendue/Autre/Analysée/Consultée reprennent les 4 mêmes teintes que
             les avatars illustrés et les Initials (Components/Avatar) :
-            orange.100/yellow.200/green.100/teal.100 — toutes via
+            orange.100/yellow.200/green.100/purple.100 — toutes via
             color.{X}.subtle.background (cf. tokens/semantic.json), sans sx
             dédié : Non réalisée=grey.200, Rendue=green.100 (success),
             Autre=yellow.200 (warning), Analysée=orange.100 (error),
-            Consultée=teal.100 (info). */}
+            Consultée=purple.100 (info). */}
         <Stack direction="row" spacing={1}>
           <Chip label="Non réalisée" color="secondary" variant="subtle" />
           <Chip label="Rendue" color="success" variant="subtle" />

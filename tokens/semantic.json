@@ -226,32 +226,32 @@
     },
     "info": {
       "main": {
-        "value": "{color.teal.100}",
+        "value": "{color.purple.100}",
         "type": "color"
       },
       "dark": {
-        "value": "{color.teal.700}",
+        "value": "{color.purple.700}",
         "type": "color"
       },
       "light": {
-        "value": "{color.teal.50}",
+        "value": "{color.purple.50}",
         "type": "color"
       },
       "_states": {
         "hover": {
-          "value": "{color.teal.800}",
+          "value": "#cbcde514",
           "type": "color"
         },
         "selected": {
-          "value": "#b2dfdb14",
+          "value": "#cbcde514",
           "type": "color"
         },
         "focusvisible": {
-          "value": "#b2dfdb1F",
+          "value": "#cbcde51F",
           "type": "color"
         },
         "outlinedborder": {
-          "value": "#b2dfdb80",
+          "value": "#cbcde580",
           "type": "color"
         }
       },
@@ -261,13 +261,13 @@
       },
       "strong": {
         "background": {
-          "value": "{color.teal.700}",
+          "value": "{color.purple.700}",
           "type": "color"
         }
       },
       "subtle": {
         "background": {
-          "value": "{color.teal.100}",
+          "value": "{color.purple.100}",
           "type": "color"
         }
       }

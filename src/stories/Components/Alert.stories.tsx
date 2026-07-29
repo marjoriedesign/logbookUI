@@ -11,7 +11,7 @@ const messages: Record<(typeof severities)[number], string> = {
 };
 
 const NOTES = [
-  'Fond filled corrigé à l’AA : success/error passent à .dark (.main est trop pastel pour porter du texte blanc à 4.5:1) ; warning/info restent en .main, déjà lisibles avec leur contrastText (7.14–7.36:1).',
+  'Fond filled corrigé à l’AA : success/error passent à .dark (.main est trop pastel pour porter du texte blanc à 4.5:1) ; warning/info restent en .main, déjà lisibles avec leur contrastText (6.12–7.36:1).',
   'Icône du variant filled non redéfinie : elle hérite de currentColor (= contrastText), comportement natif MUI, pas un oubli.',
 ];
 

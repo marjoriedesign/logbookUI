@@ -37,16 +37,16 @@ export const designTokens = {
       "a700": "#2962ff"
     },
     "purple": {
-      "50": "#f3e5f5",
-      "100": "#e1bee7",
-      "200": "#ce93d8",
-      "300": "#ba68c8",
-      "400": "#ab47bc",
-      "500": "#9c27b0",
-      "600": "#8e24aa",
-      "700": "#7b1fa2",
-      "800": "#6a1b9a",
-      "900": "#4a148c",
+      "50": "#eaebf4",
+      "100": "#cbcde5",
+      "200": "#a9add7",
+      "300": "#878cca",
+      "400": "#6d72c0",
+      "500": "#5658b6",
+      "600": "#5050ab",
+      "700": "#47469f",
+      "800": "#3f3c93",
+      "900": "#32297e",
       "a100": "#ea80fc",
       "a200": "#e040fb",
       "a400": "#d500f9",
@@ -393,21 +393,21 @@ export const designTokens = {
       }
     },
     "info": {
-      "main": "#b2dfdb",
-      "dark": "#00796b",
-      "light": "#e0f2f1",
+      "main": "#cbcde5",
+      "dark": "#47469f",
+      "light": "#eaebf4",
       "_states": {
-        "hover": "#00695c",
-        "selected": "#b2dfdb14",
-        "focusvisible": "#b2dfdb1F",
-        "outlinedborder": "#b2dfdb80"
+        "hover": "#cbcde514",
+        "selected": "#cbcde514",
+        "focusvisible": "#cbcde51F",
+        "outlinedborder": "#cbcde580"
       },
       "contrastText": "#47453f",
       "strong": {
-        "background": "#00796b"
+        "background": "#47469f"
       },
       "subtle": {
-        "background": "#b2dfdb"
+        "background": "#cbcde5"
       }
     },
     "background": {

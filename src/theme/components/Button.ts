@@ -97,10 +97,10 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
     },
     {
       // Bug latent détecté à l'audit des survols : au repos, fond .main +
-      // texte contrastText (#404040) passe l'AA (7.14:1). Mais MUI bascule
-      // nativement le fond vers .dark au survol sans toucher au texte —
-      // #404040 sur le teal foncé de .dark tombe à 1.95:1. Le texte doit
-      // donc aussi passer au blanc au survol.
+      // texte contrastText passe l'AA (6.12:1). Mais MUI bascule nativement
+      // le fond vers .dark au survol sans toucher au texte — contrastText
+      // sur le purple foncé de .dark tombe à 1.21:1. Le texte doit donc
+      // aussi passer au blanc au survol (7.94:1).
       props: { variant: 'contained', color: 'info' },
       style: {
         '&:hover': { '--variant-containedColor': white },

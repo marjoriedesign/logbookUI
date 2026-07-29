@@ -51,10 +51,9 @@ export const MuiChip: Components<Theme>['MuiChip'] = {
       props: { variant: 'filled', color: 'warning' },
       style: { backgroundColor: color.warning.strong.background, color: color.primary.contrastText },
     },
-    // Fond en teal.700 (= color.info.dark, donc dans la palette info
-    // habituelle — remplace l'ancien deeppurple.700, hors palette),
-    // via le cran dédié color.info.strong.background — texte comme
-    // Primary (contrastText blanc) : 5.32:1, conforme.
+    // Fond en purple.700 (= color.info.dark, donc dans la palette info
+    // habituelle), via le cran dédié color.info.strong.background — texte
+    // comme Primary (contrastText blanc) : 7.94:1, conforme.
     {
       props: { variant: 'filled', color: 'info' },
       style: { backgroundColor: color.info.strong.background, color: color.primary.contrastText },
@@ -65,7 +64,7 @@ export const MuiChip: Components<Theme>['MuiChip'] = {
     // son propre cran dédié `subtle.background` (les 4 mêmes teintes que les
     // avatars illustrés/Initials, cf. Components/Avatar) : secondary:
     // grey.200 ; success: green.100 ; warning: yellow.200 (pas orange.100,
-    // qui collisionnait avec error) ; error: orange.100 ; info: teal.100.
+    // qui collisionnait avec error) ; error: orange.100 ; info: purple.100.
     // Texte unifié sur `text.secondary` (#47453f) pour les 5 : déjà présent
     // dans le nuancier (repris jusqu'ici par warning/info.contrastText) et
     // seule valeur qui atteint l'AA sur les 5 fonds à la fois (6.58:1 sur

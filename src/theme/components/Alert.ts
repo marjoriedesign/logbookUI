@@ -6,8 +6,8 @@ const { color } = designTokens;
 type Severity = 'success' | 'warning' | 'error' | 'info';
 
 // Icône/contour : même logique que Button (cf. Button.ts) — .dark pour
-// success/error/info (assez saturé pour l'AA, 3.5–4.6:1 sur fond .light,
-// 4.66–5.32:1 sur blanc), .contrastText pour warning dont .main et .dark
+// success/error/info (assez saturé pour l'AA, 3.5–6.7:1 sur fond .light,
+// 4.66–7.94:1 sur blanc), .contrastText pour warning dont .main et .dark
 // restent tous deux trop pâles pour tenir le seuil UI de 3:1.
 const accentColor: Record<Severity, string> = {
   success: color.success.dark,
@@ -18,7 +18,7 @@ const accentColor: Record<Severity, string> = {
 
 // Filled : même correction AA que Button/Chip contained — .main est trop
 // pastel pour porter un texte blanc à 4.5:1 sur success/error, donc .dark ;
-// warning/info gardent .main (déjà lisible avec contrastText, 7.14–7.36:1).
+// warning/info gardent .main (déjà lisible avec contrastText, 6.12–7.36:1).
 const filledBackground: Record<Severity, string> = {
   success: color.success.dark,
   warning: color.warning.main,
