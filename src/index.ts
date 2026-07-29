@@ -30,5 +30,9 @@ export {
   type CorrectionState,
   type CorrectionReaction,
 } from './components/CorrectionsTable';
+export {
+  LogbookSidePanelHeader,
+  type LogbookSidePanelHeaderProps,
+} from './components/LogbookSidePanelHeader';
 
 export * from './icons';
