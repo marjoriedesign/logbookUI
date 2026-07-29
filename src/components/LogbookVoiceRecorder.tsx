@@ -65,7 +65,8 @@ export function LogbookVoiceRecorder({ status, elapsedSeconds = 0, onToggle }: L
   return (
     <Card
       sx={{
-        width: 448,
+        width: { xs: '100%', sm: 448 },
+        boxSizing: 'border-box',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

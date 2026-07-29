@@ -14,7 +14,8 @@ export function LogbookSidePanelHeader({ studentName, avatarSrc, avatarAlt, onCl
   return (
     <Box
       sx={{
-        width: 480,
+        width: { xs: '100%', sm: 480 },
+        boxSizing: 'border-box',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
