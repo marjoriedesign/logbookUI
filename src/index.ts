@@ -34,5 +34,10 @@ export {
   LogbookSidePanelHeader,
   type LogbookSidePanelHeaderProps,
 } from './components/LogbookSidePanelHeader';
+export {
+  LogbookVoiceRecorder,
+  type LogbookVoiceRecorderProps,
+  type LogbookVoiceRecorderStatus,
+} from './components/LogbookVoiceRecorder';
 
 export * from './icons';
