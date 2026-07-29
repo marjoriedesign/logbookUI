@@ -588,7 +588,7 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">26/29 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">29/29 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">4/29 story errors</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">27/31 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">31/31 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">4/31 story errors</a></div>
   </div>
 </header>
 <main>
@@ -1112,7 +1112,7 @@ Code:
   &lt;Sections&gt;
     &lt;Section title=&quot;Count&quot;&gt;
       &lt;Badge badgeContent={3} color=&quot;primary&quot;&gt;
-        &lt;LogbookIconButton variant=&quot;outlined&quot; color=&quot;secondary&quot; aria-label=&quot;Corrections reçues&quot;&gt;
+        &lt;LogbookIconButton color=&quot;primary&quot; aria-label=&quot;Corrections reçues&quot;&gt;
           &lt;RiFileTextLine size=&quot;1em&quot; /&gt;
         &lt;/LogbookIconButton&gt;
       &lt;/Badge&gt;
@@ -1120,7 +1120,7 @@ Code:
 
     &lt;Section title=&quot;Dot&quot;&gt;
       &lt;Badge variant=&quot;dot&quot; color=&quot;primary&quot;&gt;
-        &lt;LogbookIconButton variant=&quot;outlined&quot; color=&quot;secondary&quot; aria-label=&quot;Nouvelles corrections&quot;&gt;
+        &lt;LogbookIconButton color=&quot;primary&quot; aria-label=&quot;Nouvelles corrections&quot;&gt;
           &lt;RiFileTextLine size=&quot;1em&quot; /&gt;
         &lt;/LogbookIconButton&gt;
       &lt;/Badge&gt;
@@ -1128,7 +1128,7 @@ Code:
 
     &lt;Section title=&quot;Max&quot;&gt;
       &lt;Badge badgeContent={120} max={99} color=&quot;primary&quot;&gt;
-        &lt;LogbookIconButton variant=&quot;outlined&quot; color=&quot;secondary&quot; aria-label=&quot;Corrections reçues&quot;&gt;
+        &lt;LogbookIconButton color=&quot;primary&quot; aria-label=&quot;Corrections reçues&quot;&gt;
           &lt;RiFileTextLine size=&quot;1em&quot; /&gt;
         &lt;/LogbookIconButton&gt;
       &lt;/Badge&gt;
@@ -2586,24 +2586,17 @@ Code:
     &lt;Section title=&quot;Default&quot;&gt;
         &lt;IconButton aria-label=&quot;Démarrer l’enregistrement&quot;&gt;&lt;RiMicLine size=&quot;1em&quot; /&gt;&lt;/IconButton&gt;
     &lt;/Section&gt;
-    &lt;Section title=&quot;Colors&quot;&gt;
+    &lt;Section title=&quot;Colors (natif, sans fond)&quot;&gt;
         &lt;Stack direction=&quot;row&quot; spacing={1}&gt;
             &lt;IconButton aria-label=&quot;Démarrer l’enregistrement&quot; color=&quot;primary&quot;&gt;&lt;RiMicLine size=&quot;1em&quot; /&gt;&lt;/IconButton&gt;
             &lt;IconButton aria-label=&quot;Démarrer l’enregistrement&quot; color=&quot;secondary&quot;&gt;&lt;RiMicLine size=&quot;1em&quot; /&gt;&lt;/IconButton&gt;
             &lt;IconButton aria-label=&quot;Démarrer l’enregistrement&quot; color=&quot;default&quot;&gt;&lt;RiMicLine size=&quot;1em&quot; /&gt;&lt;/IconButton&gt;
         &lt;/Stack&gt;
     &lt;/Section&gt;
-    &lt;Section title=&quot;Filled&quot;&gt;
+    &lt;Section title=&quot;LogbookIconButton (rendu fixe par couleur)&quot;&gt;
         &lt;Stack direction=&quot;row&quot; spacing={1}&gt;
             {semanticColors.map((c) =&gt; (
-              &lt;LogbookIconButton key={c} {...args} variant=&quot;filled&quot; color={c} /&gt;
-            ))}
-        &lt;/Stack&gt;
-    &lt;/Section&gt;
-    &lt;Section title=&quot;Outlined&quot;&gt;
-        &lt;Stack direction=&quot;row&quot; spacing={1}&gt;
-            {semanticColors.map((c) =&gt; (
-              &lt;LogbookIconButton key={c} {...args} variant=&quot;outlined&quot; color={c} /&gt;
+              &lt;LogbookIconButton key={c} {...args} color={c} /&gt;
             ))}
         &lt;/Stack&gt;
     &lt;/Section&gt;
@@ -2999,14 +2992,110 @@ import { Stack } from "@mui/material";</code></pre>
   no-story-error
   no-doc-error"
   role="listitem"
+  aria-label="LogbookSidePanelHeader">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-ok"></span> LogbookSidePanelHeader</h2>
+      <div class="badges">
+        <label for="c-19-logbook-sidepanelheader-props" class="badge ok as-toggle">4 prop types</label>
+        <label for="c-19-logbook-sidepanelheader-info" class="badge info as-toggle">1 info</label>
+        <label for="c-19-logbook-sidepanelheader-stories" class="badge ok as-toggle">1 story</label>
+        
+        
+      </div>
+    </div>
+    <div class="meta" title="./src/stories/Logbook/SidePanelHeader.stories.tsx">logbook-sidepanelheader · ./src/stories/Logbook/SidePanelHeader.stories.tsx</div>
+    
+    
+    
+  </div>
+
+  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
+  
+  <input id="c-19-logbook-sidepanelheader-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-19-logbook-sidepanelheader-stories" class="tg tg-stories" type="checkbox" hidden />
+  
+  
+  <input id="c-19-logbook-sidepanelheader-props" class="tg tg-props" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+        </div>
+    
+        <div class="panel panel-props">
+          <div class="note ok">
+            <div class="row">
+              <span class="ex-name">Prop types <small>(react-docgen)</small></span>
+              <span class="badge ok">4 prop types</span>
+            </div>
+            <pre><code>Component: src/components/LogbookSidePanelHeader.tsx::LogbookSidePanelHeader</code></pre>
+            <pre><code>Props:</code></pre>
+            <pre><code>avatarAlt?: string
+
+avatarSrc?: string
+
+onClose?: () =&gt; void
+
+studentName: string</code></pre>
+          </div>
+        </div>
+    
+        <div class="panel panel-stories">
+          
+          
+          
+          <div class="note ok">
+                <div class="row">
+                  <span class="ex-name">Imports</span>
+                </div>
+                <pre><code>import { LogbookSidePanelHeader, PageLayout, Section, Sections } from "logbook-design-system";</code></pre>
+              </div>
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Default</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Default = () =&gt; &lt;Sections&gt;
+    &lt;Section title=&quot;Default&quot;&gt;
+        &lt;LogbookSidePanelHeader
+            studentName=&quot;Camille Dupont&quot;
+            avatarSrc={boy1}
+            avatarAlt=&quot;Camille Dupont&quot;
+            onClose={() =&gt; {}} /&gt;
+    &lt;/Section&gt;
+&lt;/Sections&gt;;</code></pre>
+            </div>
+        </div>
+    
+    
+  </div>
+</article>
+<article
+  class="card 
+  no-error 
+  has-info 
+  no-story-error
+  no-doc-error"
+  role="listitem"
   aria-label="LogbookStatCard">
   <div class="head">
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> LogbookStatCard</h2>
       <div class="badges">
-        <label for="c-19-logbook-statcard-props" class="badge ok as-toggle">5 prop types</label>
-        <label for="c-19-logbook-statcard-info" class="badge info as-toggle">1 info</label>
-        <label for="c-19-logbook-statcard-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-20-logbook-statcard-props" class="badge ok as-toggle">5 prop types</label>
+        <label for="c-20-logbook-statcard-info" class="badge info as-toggle">1 info</label>
+        <label for="c-20-logbook-statcard-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -3019,11 +3108,11 @@ import { Stack } from "@mui/material";</code></pre>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="c-19-logbook-statcard-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-19-logbook-statcard-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-20-logbook-statcard-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-20-logbook-statcard-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
-  <input id="c-19-logbook-statcard-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-20-logbook-statcard-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -3126,9 +3215,9 @@ import { Stack } from "@mui/material";</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-err"></span> NavbarDemo</h2>
       <div class="badges">
-        <label for="c-20-logbook-navbar-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-20-logbook-navbar-info" class="badge info as-toggle">1 info</label>
-        <label for="c-20-logbook-navbar-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-21-logbook-navbar-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-21-logbook-navbar-info" class="badge info as-toggle">1 info</label>
+        <label for="c-21-logbook-navbar-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -3140,9 +3229,9 @@ import { Stack } from "@mui/material";</code></pre>
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-20-logbook-navbar-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-20-logbook-navbar-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-20-logbook-navbar-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-21-logbook-navbar-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-21-logbook-navbar-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-21-logbook-navbar-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -3263,9 +3352,9 @@ export const Default: Story = {
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Paper</h2>
       <div class="badges">
-        <label for="c-21-components-paper-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-21-components-paper-info" class="badge info as-toggle">1 info</label>
-        <label for="c-21-components-paper-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-22-components-paper-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-22-components-paper-info" class="badge info as-toggle">1 info</label>
+        <label for="c-22-components-paper-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -3277,9 +3366,9 @@ export const Default: Story = {
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-21-components-paper-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-21-components-paper-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-21-components-paper-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-22-components-paper-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-22-components-paper-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-22-components-paper-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -3381,9 +3470,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> SpacingFoundations</h2>
       <div class="badges">
-        <label for="c-22-foundations-spacing-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-22-foundations-spacing-info" class="badge info as-toggle">1 info</label>
-        <label for="c-22-foundations-spacing-stories" class="badge err as-toggle">1/1 story errors</label>
+        <label for="c-23-foundations-spacing-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-23-foundations-spacing-info" class="badge info as-toggle">1 info</label>
+        <label for="c-23-foundations-spacing-stories" class="badge err as-toggle">1/1 story errors</label>
         
         
       </div>
@@ -3395,9 +3484,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-22-foundations-spacing-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-22-foundations-spacing-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-22-foundations-spacing-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-23-foundations-spacing-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-23-foundations-spacing-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-23-foundations-spacing-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -3507,9 +3596,9 @@ import { PageLayout } from "logbook-design-system";</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Stack</h2>
       <div class="badges">
-        <label for="c-23-components-stack-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-23-components-stack-info" class="badge info as-toggle">1 info</label>
-        <label for="c-23-components-stack-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-24-components-stack-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-24-components-stack-info" class="badge info as-toggle">1 info</label>
+        <label for="c-24-components-stack-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -3521,9 +3610,9 @@ import { PageLayout } from "logbook-design-system";</code></pre>
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-23-components-stack-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-23-components-stack-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-23-components-stack-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-24-components-stack-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-24-components-stack-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-24-components-stack-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -3625,9 +3714,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Switch</h2>
       <div class="badges">
-        <label for="c-24-components-switch-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-24-components-switch-info" class="badge info as-toggle">1 info</label>
-        <label for="c-24-components-switch-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-25-components-switch-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-25-components-switch-info" class="badge info as-toggle">1 info</label>
+        <label for="c-25-components-switch-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -3639,9 +3728,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-24-components-switch-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-24-components-switch-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-24-components-switch-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-25-components-switch-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-25-components-switch-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-25-components-switch-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -3735,9 +3824,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> TextField</h2>
       <div class="badges">
-        <label for="c-25-components-textfield-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-25-components-textfield-info" class="badge info as-toggle">1 info</label>
-        <label for="c-25-components-textfield-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-26-components-textfield-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-26-components-textfield-info" class="badge info as-toggle">1 info</label>
+        <label for="c-26-components-textfield-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -3749,9 +3838,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-25-components-textfield-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-25-components-textfield-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-25-components-textfield-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-26-components-textfield-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-26-components-textfield-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-26-components-textfield-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -3855,9 +3944,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> TokensFoundations</h2>
       <div class="badges">
-        <label for="c-26-foundations-tokens-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-26-foundations-tokens-info" class="badge info as-toggle">1 info</label>
-        <label for="c-26-foundations-tokens-stories" class="badge err as-toggle">1/1 story errors</label>
+        <label for="c-27-foundations-tokens-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-27-foundations-tokens-info" class="badge info as-toggle">1 info</label>
+        <label for="c-27-foundations-tokens-stories" class="badge err as-toggle">1/1 story errors</label>
         
         
       </div>
@@ -3869,9 +3958,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-26-foundations-tokens-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-26-foundations-tokens-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-26-foundations-tokens-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-27-foundations-tokens-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-27-foundations-tokens-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-27-foundations-tokens-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -4229,9 +4318,9 @@ import { PageLayout, RiPaletteLine, Section, Sections } from "logbook-design-sys
     <div class="title">
       <h2><span class="status-dot dot-err"></span> TypographyFoundations</h2>
       <div class="badges">
-        <label for="c-27-foundations-typography-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-27-foundations-typography-info" class="badge info as-toggle">1 info</label>
-        <label for="c-27-foundations-typography-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-28-foundations-typography-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-28-foundations-typography-info" class="badge info as-toggle">1 info</label>
+        <label for="c-28-foundations-typography-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -4243,9 +4332,9 @@ import { PageLayout, RiPaletteLine, Section, Sections } from "logbook-design-sys
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-27-foundations-typography-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-27-foundations-typography-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-27-foundations-typography-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-28-foundations-typography-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-28-foundations-typography-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-28-foundations-typography-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -4329,9 +4418,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> VisualsFoundations</h2>
       <div class="badges">
-        <label for="c-28-foundations-visuals-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-28-foundations-visuals-info" class="badge info as-toggle">1 info</label>
-        <label for="c-28-foundations-visuals-stories" class="badge err as-toggle">1/1 story errors</label>
+        <label for="c-29-foundations-visuals-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-29-foundations-visuals-info" class="badge info as-toggle">1 info</label>
+        <label for="c-29-foundations-visuals-stories" class="badge err as-toggle">1/1 story errors</label>
         
         
       </div>
@@ -4343,9 +4432,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-28-foundations-visuals-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-28-foundations-visuals-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-28-foundations-visuals-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-29-foundations-visuals-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-29-foundations-visuals-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-29-foundations-visuals-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -4555,6 +4644,156 @@ import { PageLayout, Section, Sections } from "logbook-design-system";</code></p
               </div>
           
           
+        </div>
+    
+    
+  </div>
+</article>
+<article
+  class="card 
+  has-error 
+  has-info 
+  no-story-error
+  no-doc-error"
+  role="listitem"
+  aria-label="VoiceRecorderDemo">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-err"></span> VoiceRecorderDemo</h2>
+      <div class="badges">
+        <label for="c-30-logbook-voicerecorder-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-30-logbook-voicerecorder-info" class="badge info as-toggle">1 info</label>
+        <label for="c-30-logbook-voicerecorder-stories" class="badge ok as-toggle">1 story</label>
+        
+        
+      </div>
+    </div>
+    <div class="meta" title="./src/stories/Logbook/VoiceRecorder.stories.tsx">logbook-voicerecorder · ./src/stories/Logbook/VoiceRecorder.stories.tsx</div>
+    
+    
+    
+  </div>
+
+  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
+  <input id="c-30-logbook-voicerecorder-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-30-logbook-voicerecorder-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-30-logbook-voicerecorder-stories" class="tg tg-stories" type="checkbox" hidden />
+  
+  
+  
+
+  <div class="panels">
+    
+        <div class="panel panel-err">
+          
+    <div class="note err">
+      <div class="note-title">Prop type error</div>
+      <div class="note-body"><pre><code>No component file found for the &quot;VoiceRecorderDemo&quot; component.
+  36 | }
+  37 |
+&gt; 38 | const meta: Meta&lt;typeof VoiceRecorderDemo&gt; = {
+     | ^
+  39 |   title: &#39;Logbook/VoiceRecorder&#39;,
+  40 |   component: VoiceRecorderDemo,
+  41 |   decorators: [(Story) =&gt; (&lt;PageLayout title=&quot;VoiceRecorder&quot;&gt;&lt;Story /&gt;&lt;/PageLayout&gt;)],
+
+./src/stories/Logbook/VoiceRecorder.stories.tsx:
+import { useEffect, useState } from &#39;react&#39;;
+import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;;
+import { LogbookVoiceRecorder, type LogbookVoiceRecorderStatus } from &#39;../../components/LogbookVoiceRecorder&#39;;
+import { PageLayout, Sections, Section } from &#39;../PageLayout&#39;;
+
+// Story-only : porte l&#39;état local (statut + minuteur) et le raccourci
+// clavier espace pour démontrer l&#39;interaction. Une vraie app branche
+// l&#39;enregistrement audio réel (MediaRecorder, minuteur serveur...) plutôt
+// que de le court-circuiter comme ici.
+function VoiceRecorderDemo() {
+  const [status, setStatus] = useState&lt;LogbookVoiceRecorderStatus&gt;(&#39;idle&#39;);
+  const [elapsedSeconds, setElapsedSeconds] = useState(0);
+
+  function toggle() {
+    setStatus((prev) =&gt; (prev === &#39;idle&#39; ? &#39;recording&#39; : &#39;idle&#39;));
+  }
+
+  useEffect(() =&gt; {
+    if (status !== &#39;recording&#39;) return;
+    const id = setInterval(() =&gt; setElapsedSeconds((s) =&gt; s + 1), 1000);
+    return () =&gt; clearInterval(id);
+  }, [status]);
+
+  useEffect(() =&gt; {
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.code === &#39;Space&#39;) {
+        event.preventDefault();
+        toggle();
+      }
+    }
+    window.addEventListener(&#39;keydown&#39;, onKeyDown);
+    return () =&gt; window.removeEventListener(&#39;keydown&#39;, onKeyDown);
+  }, []);
+
+  return &lt;LogbookVoiceRecorder status={status} elapsedSeconds={elapsedSeconds} onToggle={toggle} /&gt;;
+}
+
+const meta: Meta&lt;typeof VoiceRecorderDemo&gt; = {
+  title: &#39;Logbook/VoiceRecorder&#39;,
+  component: VoiceRecorderDemo,
+  decorators: [(Story) =&gt; (&lt;PageLayout title=&quot;VoiceRecorder&quot;&gt;&lt;Story /&gt;&lt;/PageLayout&gt;)],
+  parameters: { controls: { disable: true } },
+};
+
+export default meta;
+type Story = StoryObj&lt;typeof VoiceRecorderDemo&gt;;
+
+export const Default: Story = {
+  render: () =&gt; (
+    &lt;Sections&gt;
+      &lt;Section title=&quot;Default (cliquer ou espace pour démarrer/arrêter)&quot;&gt;
+        &lt;VoiceRecorderDemo /&gt;
+      &lt;/Section&gt;
+    &lt;/Sections&gt;
+  ),
+};
+</code></pre></div>
+    </div>
+        </div>
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+        </div>
+    
+    
+        <div class="panel panel-stories">
+          
+          
+          
+          <div class="note ok">
+                <div class="row">
+                  <span class="ex-name">Imports</span>
+                </div>
+                <pre><code>import { LogbookVoiceRecorder, PageLayout, Section, Sections } from "logbook-design-system";</code></pre>
+              </div>
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Default</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Default = () =&gt; (
+  &lt;Sections&gt;
+    &lt;Section title=&quot;Default (cliquer ou espace pour démarrer/arrêter)&quot;&gt;
+      &lt;VoiceRecorderDemo /&gt;
+    &lt;/Section&gt;
+  &lt;/Sections&gt;
+);</code></pre>
+            </div>
         </div>
     
     
@@ -5078,7 +5317,7 @@ Code:
   &lt;Sections&gt;
     &lt;Section title=&quot;Count&quot;&gt;
       &lt;Badge badgeContent={3} color=&quot;primary&quot;&gt;
-        &lt;LogbookIconButton variant=&quot;outlined&quot; color=&quot;secondary&quot; aria-label=&quot;Corrections reçues&quot;&gt;
+        &lt;LogbookIconButton color=&quot;primary&quot; aria-label=&quot;Corrections reçues&quot;&gt;
           &lt;RiFileTextLine size=&quot;1em&quot; /&gt;
         &lt;/LogbookIconButton&gt;
       &lt;/Badge&gt;
@@ -5086,7 +5325,7 @@ Code:
 
     &lt;Section title=&quot;Dot&quot;&gt;
       &lt;Badge variant=&quot;dot&quot; color=&quot;primary&quot;&gt;
-        &lt;LogbookIconButton variant=&quot;outlined&quot; color=&quot;secondary&quot; aria-label=&quot;Nouvelles corrections&quot;&gt;
+        &lt;LogbookIconButton color=&quot;primary&quot; aria-label=&quot;Nouvelles corrections&quot;&gt;
           &lt;RiFileTextLine size=&quot;1em&quot; /&gt;
         &lt;/LogbookIconButton&gt;
       &lt;/Badge&gt;
@@ -5094,7 +5333,7 @@ Code:
 
     &lt;Section title=&quot;Max&quot;&gt;
       &lt;Badge badgeContent={120} max={99} color=&quot;primary&quot;&gt;
-        &lt;LogbookIconButton variant=&quot;outlined&quot; color=&quot;secondary&quot; aria-label=&quot;Corrections reçues&quot;&gt;
+        &lt;LogbookIconButton color=&quot;primary&quot; aria-label=&quot;Corrections reçues&quot;&gt;
           &lt;RiFileTextLine size=&quot;1em&quot; /&gt;
         &lt;/LogbookIconButton&gt;
       &lt;/Badge&gt;
@@ -6266,24 +6505,17 @@ Code:
     &lt;Section title=&quot;Default&quot;&gt;
         &lt;IconButton aria-label=&quot;Démarrer l’enregistrement&quot;&gt;&lt;RiMicLine size=&quot;1em&quot; /&gt;&lt;/IconButton&gt;
     &lt;/Section&gt;
-    &lt;Section title=&quot;Colors&quot;&gt;
+    &lt;Section title=&quot;Colors (natif, sans fond)&quot;&gt;
         &lt;Stack direction=&quot;row&quot; spacing={1}&gt;
             &lt;IconButton aria-label=&quot;Démarrer l’enregistrement&quot; color=&quot;primary&quot;&gt;&lt;RiMicLine size=&quot;1em&quot; /&gt;&lt;/IconButton&gt;
             &lt;IconButton aria-label=&quot;Démarrer l’enregistrement&quot; color=&quot;secondary&quot;&gt;&lt;RiMicLine size=&quot;1em&quot; /&gt;&lt;/IconButton&gt;
             &lt;IconButton aria-label=&quot;Démarrer l’enregistrement&quot; color=&quot;default&quot;&gt;&lt;RiMicLine size=&quot;1em&quot; /&gt;&lt;/IconButton&gt;
         &lt;/Stack&gt;
     &lt;/Section&gt;
-    &lt;Section title=&quot;Filled&quot;&gt;
+    &lt;Section title=&quot;LogbookIconButton (rendu fixe par couleur)&quot;&gt;
         &lt;Stack direction=&quot;row&quot; spacing={1}&gt;
             {semanticColors.map((c) =&gt; (
-              &lt;LogbookIconButton key={c} {...args} variant=&quot;filled&quot; color={c} /&gt;
-            ))}
-        &lt;/Stack&gt;
-    &lt;/Section&gt;
-    &lt;Section title=&quot;Outlined&quot;&gt;
-        &lt;Stack direction=&quot;row&quot; spacing={1}&gt;
-            {semanticColors.map((c) =&gt; (
-              &lt;LogbookIconButton key={c} {...args} variant=&quot;outlined&quot; color={c} /&gt;
+              &lt;LogbookIconButton key={c} {...args} color={c} /&gt;
             ))}
         &lt;/Stack&gt;
     &lt;/Section&gt;
@@ -7001,7 +7233,7 @@ Code:
           <label for="no-component-import-found-toggle" class="group-header">
             <span class="caret">▸</span>
             <span class="group-title">No component import found</span>
-            <span class="group-count">6</span>
+            <span class="group-count">7</span>
           </label>
           <div class="group-cards">
 <article
@@ -8215,6 +8447,156 @@ import { PageLayout, Section, Sections } from "logbook-design-system";</code></p
               </div>
           
           
+        </div>
+    
+    
+  </div>
+</article>
+<article
+  class="card 
+  has-error 
+  has-info 
+  no-story-error
+  no-doc-error"
+  role="listitem"
+  aria-label="VoiceRecorderDemo">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-err"></span> VoiceRecorderDemo</h2>
+      <div class="badges">
+        <label for="c-error-6-logbook-voicerecorder-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-6-logbook-voicerecorder-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-6-logbook-voicerecorder-stories" class="badge ok as-toggle">1 story</label>
+        
+        
+      </div>
+    </div>
+    <div class="meta" title="./src/stories/Logbook/VoiceRecorder.stories.tsx">logbook-voicerecorder · ./src/stories/Logbook/VoiceRecorder.stories.tsx</div>
+    
+    
+    
+  </div>
+
+  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
+  <input id="c-error-6-logbook-voicerecorder-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-6-logbook-voicerecorder-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-6-logbook-voicerecorder-stories" class="tg tg-stories" type="checkbox" hidden />
+  
+  
+  
+
+  <div class="panels">
+    
+        <div class="panel panel-err">
+          
+    <div class="note err">
+      <div class="note-title">Prop type error</div>
+      <div class="note-body"><pre><code>No component file found for the &quot;VoiceRecorderDemo&quot; component.
+  36 | }
+  37 |
+&gt; 38 | const meta: Meta&lt;typeof VoiceRecorderDemo&gt; = {
+     | ^
+  39 |   title: &#39;Logbook/VoiceRecorder&#39;,
+  40 |   component: VoiceRecorderDemo,
+  41 |   decorators: [(Story) =&gt; (&lt;PageLayout title=&quot;VoiceRecorder&quot;&gt;&lt;Story /&gt;&lt;/PageLayout&gt;)],
+
+./src/stories/Logbook/VoiceRecorder.stories.tsx:
+import { useEffect, useState } from &#39;react&#39;;
+import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;;
+import { LogbookVoiceRecorder, type LogbookVoiceRecorderStatus } from &#39;../../components/LogbookVoiceRecorder&#39;;
+import { PageLayout, Sections, Section } from &#39;../PageLayout&#39;;
+
+// Story-only : porte l&#39;état local (statut + minuteur) et le raccourci
+// clavier espace pour démontrer l&#39;interaction. Une vraie app branche
+// l&#39;enregistrement audio réel (MediaRecorder, minuteur serveur...) plutôt
+// que de le court-circuiter comme ici.
+function VoiceRecorderDemo() {
+  const [status, setStatus] = useState&lt;LogbookVoiceRecorderStatus&gt;(&#39;idle&#39;);
+  const [elapsedSeconds, setElapsedSeconds] = useState(0);
+
+  function toggle() {
+    setStatus((prev) =&gt; (prev === &#39;idle&#39; ? &#39;recording&#39; : &#39;idle&#39;));
+  }
+
+  useEffect(() =&gt; {
+    if (status !== &#39;recording&#39;) return;
+    const id = setInterval(() =&gt; setElapsedSeconds((s) =&gt; s + 1), 1000);
+    return () =&gt; clearInterval(id);
+  }, [status]);
+
+  useEffect(() =&gt; {
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.code === &#39;Space&#39;) {
+        event.preventDefault();
+        toggle();
+      }
+    }
+    window.addEventListener(&#39;keydown&#39;, onKeyDown);
+    return () =&gt; window.removeEventListener(&#39;keydown&#39;, onKeyDown);
+  }, []);
+
+  return &lt;LogbookVoiceRecorder status={status} elapsedSeconds={elapsedSeconds} onToggle={toggle} /&gt;;
+}
+
+const meta: Meta&lt;typeof VoiceRecorderDemo&gt; = {
+  title: &#39;Logbook/VoiceRecorder&#39;,
+  component: VoiceRecorderDemo,
+  decorators: [(Story) =&gt; (&lt;PageLayout title=&quot;VoiceRecorder&quot;&gt;&lt;Story /&gt;&lt;/PageLayout&gt;)],
+  parameters: { controls: { disable: true } },
+};
+
+export default meta;
+type Story = StoryObj&lt;typeof VoiceRecorderDemo&gt;;
+
+export const Default: Story = {
+  render: () =&gt; (
+    &lt;Sections&gt;
+      &lt;Section title=&quot;Default (cliquer ou espace pour démarrer/arrêter)&quot;&gt;
+        &lt;VoiceRecorderDemo /&gt;
+      &lt;/Section&gt;
+    &lt;/Sections&gt;
+  ),
+};
+</code></pre></div>
+    </div>
+        </div>
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+        </div>
+    
+    
+        <div class="panel panel-stories">
+          
+          
+          
+          <div class="note ok">
+                <div class="row">
+                  <span class="ex-name">Imports</span>
+                </div>
+                <pre><code>import { LogbookVoiceRecorder, PageLayout, Section, Sections } from "logbook-design-system";</code></pre>
+              </div>
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Default</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Default = () =&gt; (
+  &lt;Sections&gt;
+    &lt;Section title=&quot;Default (cliquer ou espace pour démarrer/arrêter)&quot;&gt;
+      &lt;VoiceRecorderDemo /&gt;
+    &lt;/Section&gt;
+  &lt;/Sections&gt;
+);</code></pre>
+            </div>
         </div>
     
     

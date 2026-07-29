@@ -152,7 +152,7 @@
         {
           "id": "components-iconbutton--default",
           "name": "Default",
-          "snippet": "const Default = () => <Sections>\n    <Section title=\"Default\">\n        <IconButton aria-label=\"Démarrer l’enregistrement\"><RiMicLine size=\"1em\" /></IconButton>\n    </Section>\n    <Section title=\"Colors\">\n        <Stack direction=\"row\" spacing={1}>\n            <IconButton aria-label=\"Démarrer l’enregistrement\" color=\"primary\"><RiMicLine size=\"1em\" /></IconButton>\n            <IconButton aria-label=\"Démarrer l’enregistrement\" color=\"secondary\"><RiMicLine size=\"1em\" /></IconButton>\n            <IconButton aria-label=\"Démarrer l’enregistrement\" color=\"default\"><RiMicLine size=\"1em\" /></IconButton>\n        </Stack>\n    </Section>\n    <Section title=\"Filled\">\n        <Stack direction=\"row\" spacing={1}>\n            {semanticColors.map((c) => (\n              <LogbookIconButton key={c} {...args} variant=\"filled\" color={c} />\n            ))}\n        </Stack>\n    </Section>\n    <Section title=\"Outlined\">\n        <Stack direction=\"row\" spacing={1}>\n            {semanticColors.map((c) => (\n              <LogbookIconButton key={c} {...args} variant=\"outlined\" color={c} />\n            ))}\n        </Stack>\n    </Section>\n    <Section title=\"Sizes\">\n        <Stack direction=\"row\" spacing={1} sx={{ alignItems: 'center' }}>\n            <IconButton aria-label=\"Démarrer l’enregistrement\" size=\"small\"><RiMicLine size=\"1em\" /></IconButton>\n            <IconButton aria-label=\"Démarrer l’enregistrement\" size=\"medium\"><RiMicLine size=\"1em\" /></IconButton>\n        </Stack>\n    </Section>\n    <Section title=\"Disabled\">\n        <IconButton aria-label=\"Démarrer l’enregistrement\" disabled><RiMicLine size=\"1em\" /></IconButton>\n    </Section>\n</Sections>;"
+          "snippet": "const Default = () => <Sections>\n    <Section title=\"Default\">\n        <IconButton aria-label=\"Démarrer l’enregistrement\"><RiMicLine size=\"1em\" /></IconButton>\n    </Section>\n    <Section title=\"Colors (natif, sans fond)\">\n        <Stack direction=\"row\" spacing={1}>\n            <IconButton aria-label=\"Démarrer l’enregistrement\" color=\"primary\"><RiMicLine size=\"1em\" /></IconButton>\n            <IconButton aria-label=\"Démarrer l’enregistrement\" color=\"secondary\"><RiMicLine size=\"1em\" /></IconButton>\n            <IconButton aria-label=\"Démarrer l’enregistrement\" color=\"default\"><RiMicLine size=\"1em\" /></IconButton>\n        </Stack>\n    </Section>\n    <Section title=\"LogbookIconButton (rendu fixe par couleur)\">\n        <Stack direction=\"row\" spacing={1}>\n            {semanticColors.map((c) => (\n              <LogbookIconButton key={c} {...args} color={c} />\n            ))}\n        </Stack>\n    </Section>\n    <Section title=\"Sizes\">\n        <Stack direction=\"row\" spacing={1} sx={{ alignItems: 'center' }}>\n            <IconButton aria-label=\"Démarrer l’enregistrement\" size=\"small\"><RiMicLine size=\"1em\" /></IconButton>\n            <IconButton aria-label=\"Démarrer l’enregistrement\" size=\"medium\"><RiMicLine size=\"1em\" /></IconButton>\n        </Stack>\n    </Section>\n    <Section title=\"Disabled\">\n        <IconButton aria-label=\"Démarrer l’enregistrement\" disabled><RiMicLine size=\"1em\" /></IconButton>\n    </Section>\n</Sections>;"
         }
       ],
       "import": "import {\n    IconButton,\n    LogbookIconButton,\n    PageLayout,\n    RiMicLine,\n    Section,\n    Sections,\n    Stack,\n} from \"@mui/material\";"
@@ -278,7 +278,7 @@
         {
           "id": "components-badge--default",
           "name": "Default",
-          "snippet": "const Default = () => (\n  <Sections>\n    <Section title=\"Count\">\n      <Badge badgeContent={3} color=\"primary\">\n        <LogbookIconButton variant=\"outlined\" color=\"secondary\" aria-label=\"Corrections reçues\">\n          <RiFileTextLine size=\"1em\" />\n        </LogbookIconButton>\n      </Badge>\n    </Section>\n\n    <Section title=\"Dot\">\n      <Badge variant=\"dot\" color=\"primary\">\n        <LogbookIconButton variant=\"outlined\" color=\"secondary\" aria-label=\"Nouvelles corrections\">\n          <RiFileTextLine size=\"1em\" />\n        </LogbookIconButton>\n      </Badge>\n    </Section>\n\n    <Section title=\"Max\">\n      <Badge badgeContent={120} max={99} color=\"primary\">\n        <LogbookIconButton variant=\"outlined\" color=\"secondary\" aria-label=\"Corrections reçues\">\n          <RiFileTextLine size=\"1em\" />\n        </LogbookIconButton>\n      </Badge>\n    </Section>\n  </Sections>\n);"
+          "snippet": "const Default = () => (\n  <Sections>\n    <Section title=\"Count\">\n      <Badge badgeContent={3} color=\"primary\">\n        <LogbookIconButton color=\"primary\" aria-label=\"Corrections reçues\">\n          <RiFileTextLine size=\"1em\" />\n        </LogbookIconButton>\n      </Badge>\n    </Section>\n\n    <Section title=\"Dot\">\n      <Badge variant=\"dot\" color=\"primary\">\n        <LogbookIconButton color=\"primary\" aria-label=\"Nouvelles corrections\">\n          <RiFileTextLine size=\"1em\" />\n        </LogbookIconButton>\n      </Badge>\n    </Section>\n\n    <Section title=\"Max\">\n      <Badge badgeContent={120} max={99} color=\"primary\">\n        <LogbookIconButton color=\"primary\" aria-label=\"Corrections reçues\">\n          <RiFileTextLine size=\"1em\" />\n        </LogbookIconButton>\n      </Badge>\n    </Section>\n  </Sections>\n);"
         }
       ],
       "import": "import { Badge, LogbookIconButton, PageLayout, RiFileTextLine, Section, Sections } from \"@mui/material\";"
@@ -621,6 +621,66 @@
       ],
       "import": "import { CorrectionsTable, PageLayout } from \"logbook-design-system\";"
     },
+    "logbook-sidepanelheader": {
+      "id": "logbook-sidepanelheader",
+      "name": "LogbookSidePanelHeader",
+      "path": "./src/stories/Logbook/SidePanelHeader.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "LogbookSidePanelHeader",
+        "definedInFile": "/Users/marjorie/logbook-design-system/src/components/LogbookSidePanelHeader.tsx",
+        "actualName": "LogbookSidePanelHeader",
+        "exportName": "LogbookSidePanelHeader",
+        "props": {
+          "studentName": {
+            "required": true,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "avatarSrc": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "avatarAlt": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "onClose": {
+            "required": false,
+            "tsType": {
+              "name": "signature",
+              "type": "function",
+              "raw": "() => void",
+              "signature": {
+                "arguments": [],
+                "return": {
+                  "name": "void"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "logbook-sidepanelheader--default",
+          "name": "Default",
+          "snippet": "const Default = () => <Sections>\n    <Section title=\"Default\">\n        <LogbookSidePanelHeader\n            studentName=\"Camille Dupont\"\n            avatarSrc={boy1}\n            avatarAlt=\"Camille Dupont\"\n            onClose={() => {}} />\n    </Section>\n</Sections>;"
+        }
+      ],
+      "import": "import { LogbookSidePanelHeader, PageLayout, Section, Sections } from \"logbook-design-system\";"
+    },
     "logbook-statcard": {
       "id": "logbook-statcard",
       "name": "LogbookStatCard",
@@ -692,10 +752,28 @@
         }
       ],
       "import": "import { LogbookStatCard, PageLayout, Section, Sections } from \"logbook-design-system\";\nimport { Stack } from \"@mui/material\";"
+    },
+    "logbook-voicerecorder": {
+      "id": "logbook-voicerecorder",
+      "name": "VoiceRecorderDemo",
+      "path": "./src/stories/Logbook/VoiceRecorder.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "No component import found",
+        "message": "No component file found for the \"VoiceRecorderDemo\" component.\n  36 | }\n  37 |\n> 38 | const meta: Meta<typeof VoiceRecorderDemo> = {\n     | ^\n  39 |   title: 'Logbook/VoiceRecorder',\n  40 |   component: VoiceRecorderDemo,\n  41 |   decorators: [(Story) => (<PageLayout title=\"VoiceRecorder\"><Story /></PageLayout>)],\n\n./src/stories/Logbook/VoiceRecorder.stories.tsx:\nimport { useEffect, useState } from 'react';\nimport type { Meta, StoryObj } from '@storybook/react-vite';\nimport { LogbookVoiceRecorder, type LogbookVoiceRecorderStatus } from '../../components/LogbookVoiceRecorder';\nimport { PageLayout, Sections, Section } from '../PageLayout';\n\n// Story-only : porte l'état local (statut + minuteur) et le raccourci\n// clavier espace pour démontrer l'interaction. Une vraie app branche\n// l'enregistrement audio réel (MediaRecorder, minuteur serveur...) plutôt\n// que de le court-circuiter comme ici.\nfunction VoiceRecorderDemo() {\n  const [status, setStatus] = useState<LogbookVoiceRecorderStatus>('idle');\n  const [elapsedSeconds, setElapsedSeconds] = useState(0);\n\n  function toggle() {\n    setStatus((prev) => (prev === 'idle' ? 'recording' : 'idle'));\n  }\n\n  useEffect(() => {\n    if (status !== 'recording') return;\n    const id = setInterval(() => setElapsedSeconds((s) => s + 1), 1000);\n    return () => clearInterval(id);\n  }, [status]);\n\n  useEffect(() => {\n    function onKeyDown(event: KeyboardEvent) {\n      if (event.code === 'Space') {\n        event.preventDefault();\n        toggle();\n      }\n    }\n    window.addEventListener('keydown', onKeyDown);\n    return () => window.removeEventListener('keydown', onKeyDown);\n  }, []);\n\n  return <LogbookVoiceRecorder status={status} elapsedSeconds={elapsedSeconds} onToggle={toggle} />;\n}\n\nconst meta: Meta<typeof VoiceRecorderDemo> = {\n  title: 'Logbook/VoiceRecorder',\n  component: VoiceRecorderDemo,\n  decorators: [(Story) => (<PageLayout title=\"VoiceRecorder\"><Story /></PageLayout>)],\n  parameters: { controls: { disable: true } },\n};\n\nexport default meta;\ntype Story = StoryObj<typeof VoiceRecorderDemo>;\n\nexport const Default: Story = {\n  render: () => (\n    <Sections>\n      <Section title=\"Default (cliquer ou espace pour démarrer/arrêter)\">\n        <VoiceRecorderDemo />\n      </Section>\n    </Sections>\n  ),\n};\n"
+      },
+      "stories": [
+        {
+          "id": "logbook-voicerecorder--default",
+          "name": "Default",
+          "snippet": "const Default = () => (\n  <Sections>\n    <Section title=\"Default (cliquer ou espace pour démarrer/arrêter)\">\n      <VoiceRecorderDemo />\n    </Section>\n  </Sections>\n);"
+        }
+      ],
+      "import": "import { LogbookVoiceRecorder, PageLayout, Section, Sections } from \"logbook-design-system\";"
     }
   },
   "meta": {
     "docgen": "react-docgen",
-    "durationMs": 329
+    "durationMs": 331
   }
 }

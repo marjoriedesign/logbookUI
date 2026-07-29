@@ -1,0 +1,1 @@
+import{i as e}from"./preload-helper-BdFrVu1K.js";var t,n=e((()=>{t=``+new URL(`Boy1-BV1cmwlK.svg`,import.meta.url).href}));export{n,t};
