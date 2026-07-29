@@ -34,13 +34,18 @@ import { designTokens } from '../theme/generated/tokens';
 // story pour un exemple d'intégration complet avec état contrôlé.
 
 // Le switch "Non réalisée" porte l'état de remise du devoir : coché = rendu.
-// Une fois rendu, quatre cas possibles pour la colonne État :
-// - "toCorrect" : le prof n'a pas encore corrigé -> bouton "À corriger" (pas
-//   un chip, c'est une action à faire). C'est l'état par défaut dès qu'on
-//   active le switch.
+// Une fois rendu, quatre cas possibles pour la colonne État — uniquement des
+// chips (pas de bouton) : la ligne entière est cliquable dans l'app
+// consommatrice, un bouton imbriqué dans cet élément cliquable poserait un
+// problème d'imbrication de contrôles interactifs. Les chips "À
+// corriger"/"À analyser" restent donc en `color="primary"` (même teinte que
+// les anciens boutons contained) mais purement présentationnelles : c'est le
+// clic sur la ligne (pas la chip) qui doit déclencher l'action côté app
+// consommatrice.
+// - "toCorrect" : le prof n'a pas encore corrigé -> chip "À corriger". C'est
+//   l'état par défaut dès qu'on active le switch.
 // - "toAnalyze" : le prof a corrigé mais n'a pas encore lancé l'analyse de
-//   sa correction -> bouton "À analyser" (même logique que "À corriger",
-//   une action à faire, pas un statut).
+//   sa correction -> chip "À analyser" (même logique que "À corriger").
 // - "corrected" : corrigé et analysé, mais pas encore consulté par l'élève
 //   -> chip "Rendue" (même tonalité verte que le statut "Rendue" utilisé
 //   ailleurs dans le design system).
@@ -67,9 +72,7 @@ export interface CorrectionsTableProps {
   rows: CorrectionsTableRow[];
   /** Coche/décoche "Non réalisée" — le composant ne gère pas l'état de remise lui-même. */
   onToggleSubmitted?: (row: CorrectionsTableRow, submitted: boolean) => void;
-  onCorrect?: (row: CorrectionsTableRow) => void;
-  onAnalyze?: (row: CorrectionsTableRow) => void;
-  /** Clic sur la ligne / la flèche : ouvre l'écran de correction de l'élève. */
+  /** Clic n'importe où sur la ligne (hors Switch et "..." Actions) : ouvre le side panel de l'élève. */
   onOpenStudent?: (row: CorrectionsTableRow) => void;
   /** Clic sur le "..." : menu d'actions annexes (à définir par l'app consommatrice). */
   onOpenActions?: (row: CorrectionsTableRow) => void;
@@ -89,8 +92,6 @@ interface CorrectionsRowProps {
   row: CorrectionsTableRow;
   isNarrow: boolean;
   onToggleSubmitted?: CorrectionsTableProps['onToggleSubmitted'];
-  onCorrect?: CorrectionsTableProps['onCorrect'];
-  onAnalyze?: CorrectionsTableProps['onAnalyze'];
   onOpenStudent?: CorrectionsTableProps['onOpenStudent'];
   onOpenActions?: CorrectionsTableProps['onOpenActions'];
 }
@@ -99,15 +100,17 @@ function CorrectionsRow({
   row,
   isNarrow,
   onToggleSubmitted,
-  onCorrect,
-  onAnalyze,
   onOpenStudent,
   onOpenActions,
 }: CorrectionsRowProps) {
   const reaction = row.reaction ? reactionIcons[row.reaction] : null;
 
   return (
-    <TableRow hover>
+    <TableRow
+      hover
+      onClick={() => onOpenStudent?.(row)}
+      sx={{ cursor: onOpenStudent ? 'pointer' : undefined }}
+    >
       <TableCell>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: `${designTokens.spacing.xs}px` }}>
           <Avatar src={row.avatarSrc} alt={row.avatarAlt ?? ''} sx={{ width: 40, height: 40 }} />
@@ -121,7 +124,7 @@ function CorrectionsRow({
           </Box>
         </Box>
       </TableCell>
-      <TableCell>
+      <TableCell onClick={(event) => event.stopPropagation()}>
         <Switch
           checked={row.state !== 'notDone'}
           onChange={(event) => onToggleSubmitted?.(row, event.target.checked)}
@@ -131,28 +134,22 @@ function CorrectionsRow({
       <TableCell>
         {row.state === 'notDone' && <Chip label="Non réalisée" color="secondary" variant="subtle" sx={{ width: etatWidth }} />}
         {row.state === 'toCorrect' && (
-          <Button
-            variant="contained"
+          <Chip
+            label="À corriger"
             color="primary"
-            size="small"
-            startIcon={<RiBallPenLine size="1em" />}
+            variant="filled"
+            icon={<RiBallPenLine size={16} />}
             sx={{ width: etatWidth }}
-            onClick={() => onCorrect?.(row)}
-          >
-            À corriger
-          </Button>
+          />
         )}
         {row.state === 'toAnalyze' && (
-          <Button
-            variant="contained"
+          <Chip
+            label="À analyser"
             color="primary"
-            size="small"
-            startIcon={<RiBardLine size="1em" />}
+            variant="filled"
+            icon={<RiBardLine size={16} />}
             sx={{ width: etatWidth }}
-            onClick={() => onAnalyze?.(row)}
-          >
-            À analyser
-          </Button>
+          />
         )}
         {row.state === 'corrected' && (
           <Chip label="Rendue" color="success" variant="subtle" sx={{ width: etatWidth }} />
@@ -200,16 +197,17 @@ function CorrectionsRow({
               color="secondary"
               aria-label="Actions"
               size="small"
-              onClick={() => onOpenActions?.(row)}
+              onClick={(event) => {
+                event.stopPropagation();
+                onOpenActions?.(row);
+              }}
             >
               <RiMoreFill size="1em" />
             </LogbookIconButton>
-            <RiArrowRightSLine
-              size={20}
-              color={designTokens.color.primary.main}
-              onClick={() => onOpenStudent?.(row)}
-              style={{ cursor: onOpenStudent ? 'pointer' : undefined }}
-            />
+            {/* Pas de onClick ici : le clic remonte au TableRow, qui porte
+                déjà onOpenStudent — cette flèche n'est qu'une affordance
+                visuelle. */}
+            <RiArrowRightSLine size={20} color={designTokens.color.primary.main} />
           </Box>
         </TableCell>
       )}
@@ -223,8 +221,6 @@ function CorrectionsRow({
 export function CorrectionsTable({
   rows,
   onToggleSubmitted,
-  onCorrect,
-  onAnalyze,
   onOpenStudent,
   onOpenActions,
 }: CorrectionsTableProps) {
@@ -275,8 +271,6 @@ export function CorrectionsTable({
             row={row}
             isNarrow={isNarrow}
             onToggleSubmitted={onToggleSubmitted}
-            onCorrect={onCorrect}
-            onAnalyze={onAnalyze}
             onOpenStudent={onOpenStudent}
             onOpenActions={onOpenActions}
           />

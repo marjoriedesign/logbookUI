@@ -84,9 +84,9 @@ const initialRows: CorrectionsTableRow[] = [
   },
 ];
 
-// Story-only : porte l'état local pour démontrer l'interaction du Switch et
-// des boutons "À corriger"/"À analyser". Une vraie app branche ces callbacks
-// sur son propre state/API plutôt que de les court-circuiter comme ici.
+// Story-only : porte l'état local pour démontrer l'interaction du Switch.
+// Une vraie app branche ce callback sur son propre state/API plutôt que de
+// le court-circuiter comme ici.
 function CorrectionsTableDemo() {
   const [rows, setRows] = useState(initialRows);
 
@@ -98,8 +98,6 @@ function CorrectionsTableDemo() {
           prev.map((r) => (r.id === row.id ? { ...r, state: submitted ? 'toCorrect' : 'notDone' } : r)),
         )
       }
-      onCorrect={(row) => setRows((prev) => prev.map((r) => (r.id === row.id ? { ...r, state: 'toAnalyze' } : r)))}
-      onAnalyze={(row) => setRows((prev) => prev.map((r) => (r.id === row.id ? { ...r, state: 'corrected' } : r)))}
     />
   );
 }

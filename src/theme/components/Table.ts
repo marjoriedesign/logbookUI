@@ -29,6 +29,14 @@ export const MuiTableCell: Components<Theme>['MuiTableCell'] = {
     root: ({ theme }) => ({
       borderBottom: `1px solid ${theme.palette.divider}`,
     }),
+    // Padding vertical des lignes du corps réduit à 8px (spacing.xs) au lieu
+    // des 16px par défaut de MUI ("medium") : demandé par Marjorie
+    // spécifiquement sur les lignes, pas sur le header (qui garde son
+    // padding normal). Padding horizontal (paddingInline) volontairement
+    // inchangé, seul le vertical a été demandé.
+    body: {
+      paddingBlock: `${designTokens.spacing.xs}px`,
+    },
     // Header demandé sur un fond beige (background.paper, {color.grey.50}
     // = #fdfaf3, cf. palette.ts) encadré d'un contour beige (même
     // theme.palette.divider qu'ailleurs) et arrondi à 8px
