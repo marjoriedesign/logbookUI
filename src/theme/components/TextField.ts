@@ -26,6 +26,15 @@ export const MuiOutlinedInput: Components<Theme>['MuiOutlinedInput'] = {
         borderColor: designTokens.color.error.dark,
       },
     },
+    // Texte saisi ("input/value" dans le nuancier Figma) : typography.textField.text,
+    // jusqu'ici défini mais jamais branché — l'input retombait sur le body1
+    // du thème (20px) au lieu de ses 16px/24 dédiés.
+    input: {
+      fontFamily: designTokens.typography.textField.text.fontFamily,
+      fontWeight: designTokens.typography.textField.text.fontWeight,
+      fontSize: designTokens.typography.textField.text.fontSize,
+      lineHeight: `${designTokens.typography.textField.text.lineHeight}px`,
+    },
   },
 };
 
