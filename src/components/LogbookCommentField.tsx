@@ -28,7 +28,11 @@ export function LogbookCommentField({
     <Box sx={{ width: '100%' }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
         {icon}
-        <Typography variant="h4" color="text.primary">
+        {/* "textSecondary" (camelCase) et non "text.secondary" : seule syntaxe
+            reconnue par les variants internes de MUI Typography pour la prop
+            `color`, cf. PROGRESS.md sur le bug plus large du même type
+            repéré ailleurs dans le repo. */}
+        <Typography variant="h4" color="textSecondary">
           {label}
         </Typography>
       </Box>
