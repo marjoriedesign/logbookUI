@@ -621,6 +621,61 @@
       ],
       "import": "import { CorrectionsTable, PageLayout } from \"logbook-design-system\";"
     },
+    "logbook-commentfield": {
+      "id": "logbook-commentfield",
+      "name": "LogbookCommentField",
+      "path": "./src/stories/Logbook/CommentField.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "LogbookCommentField",
+        "definedInFile": "/Users/marjorie/logbook-design-system/src/components/LogbookCommentField.tsx",
+        "actualName": "LogbookCommentField",
+        "exportName": "LogbookCommentField",
+        "props": {
+          "icon": {
+            "required": true,
+            "tsType": {
+              "name": "ReactNode"
+            },
+            "description": "Icône de la catégorie (ex. pouce levé pour \"Points positifs\"), déjà dimensionnée/colorée par l'appelant."
+          },
+          "label": {
+            "required": true,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "multiline": {
+            "defaultValue": {
+              "value": "true",
+              "computed": false
+            },
+            "required": false
+          },
+          "minRows": {
+            "defaultValue": {
+              "value": "2",
+              "computed": false
+            },
+            "required": false
+          }
+        },
+        "composes": [
+          "Omit"
+        ]
+      },
+      "stories": [
+        {
+          "id": "logbook-commentfield--default",
+          "name": "Default",
+          "snippet": "const Default = () => (\n  <Sections>\n    <Section title=\"Rempli (side panel, 480px de large)\">\n      <CommentFieldDemo />\n    </Section>\n    <Section title=\"Vide (placeholder)\">\n      <Box sx={{ width: { xs: '100%', sm: 480 } }}>\n        <LogbookCommentField\n          icon={<RiThumbUpLine size={24} color={designTokens.color.purple[500]} />}\n          label=\"Points positifs\"\n          placeholder=\"Écrire un commentaire...\"\n        />\n      </Box>\n    </Section>\n  </Sections>\n);"
+        }
+      ],
+      "import": "import { Box } from \"@mui/material\";\nimport { LogbookCommentField, PageLayout, RiThumbUpLine, Section, Sections } from \"logbook-design-system\";"
+    },
     "logbook-sidepanelfooter": {
       "id": "logbook-sidepanelfooter",
       "name": "LogbookSidePanelFooter",
@@ -830,6 +885,6 @@
   },
   "meta": {
     "docgen": "react-docgen",
-    "durationMs": 413
+    "durationMs": 327
   }
 }
