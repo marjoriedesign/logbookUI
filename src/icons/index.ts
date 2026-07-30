@@ -70,6 +70,10 @@ export {
   RiForward30Line,
   RiReplay30Line,
   RiPlayLine,
+  // Exception explicite au principe "outline only" (demandée pour le bouton
+  // play de LogbookVoicePlayer précisément, cf. RiMoreFill plus bas pour le
+  // même type d'exception) : RiPlayFill plutôt que RiPlayLine.
+  RiPlayFill,
   RiPlayLargeLine,
   RiPauseLine,
   RiPauseLargeLine,

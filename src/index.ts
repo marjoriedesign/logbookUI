@@ -39,5 +39,14 @@ export {
   type LogbookVoiceRecorderProps,
   type LogbookVoiceRecorderStatus,
 } from './components/LogbookVoiceRecorder';
+export {
+  LogbookVoicePlayer,
+  type LogbookVoicePlayerProps,
+} from './components/LogbookVoicePlayer';
+export {
+  LogbookSidePanelFooter,
+  type LogbookSidePanelFooterProps,
+  type LogbookSidePanelFooterAction,
+} from './components/LogbookSidePanelFooter';
 
 export * from './icons';
