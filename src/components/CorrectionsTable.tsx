@@ -124,10 +124,11 @@ function CorrectionsRow({
           </Box>
         </Box>
       </TableCell>
-      <TableCell onClick={(event) => event.stopPropagation()}>
+      <TableCell>
         <Switch
           checked={row.state !== 'notDone'}
           onChange={(event) => onToggleSubmitted?.(row, event.target.checked)}
+          onClick={(event) => event.stopPropagation()}
           slotProps={{ input: { 'aria-label': `Devoir rendu — ${row.student}` } }}
         />
       </TableCell>
