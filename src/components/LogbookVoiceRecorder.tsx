@@ -87,16 +87,16 @@ export function LogbookVoiceRecorder({ status, elapsedSeconds = 0, onToggle }: L
         {isRecording ? <RiPauseLine size={28} /> : <RiMicLine size={28} />}
       </Fab>
 
-      <Typography variant="h5" color="text.primary" sx={{ mt: 2 }}>
+      <Typography variant="h5" color="textPrimary" sx={{ mt: 2 }}>
         {isRecording ? 'À vous les studios !' : 'Commencer à parler'}
       </Typography>
 
       {isRecording && (
         <>
-          <Typography variant="subtitle2" color="text.secondary" sx={{ mt: 1 }}>
+          <Typography variant="subtitle2" color="textSecondary" sx={{ mt: 1 }}>
             Appuyez sur espace pour pause/reprise
           </Typography>
-          <Typography variant="subtitle2" color="text.secondary" sx={{ mt: 1 }}>
+          <Typography variant="subtitle2" color="textSecondary" sx={{ mt: 1 }}>
             {formatElapsed(elapsedSeconds)}
           </Typography>
           <Box sx={{ mt: 1 }}>

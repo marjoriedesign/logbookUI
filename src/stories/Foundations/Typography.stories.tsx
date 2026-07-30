@@ -55,10 +55,10 @@ function Row({ path, token }: { path: string; token: FontStyleToken }) {
   return (
     <Stack spacing={0.25} sx={{ py: 1 }}>
       <Stack direction="row" spacing={1.5} sx={{ alignItems: 'baseline', flexWrap: 'wrap' }}>
-        <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 600 }}>
+        <Typography variant="caption" color="textSecondary" sx={{ fontWeight: 600 }}>
           typography.{path}
         </Typography>
-        <Typography variant="caption" color="text.secondary">
+        <Typography variant="caption" color="textSecondary">
           {token.fontSize}px · {token.fontWeight}
         </Typography>
       </Stack>

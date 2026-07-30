@@ -22,7 +22,7 @@ function Swatch({ label, hex }: { label: string; hex: string }) {
       <Typography variant="caption" sx={{ fontWeight: 600, wordBreak: 'break-word' }}>
         {label}
       </Typography>
-      <Typography variant="caption" color="text.secondary" sx={{ wordBreak: 'break-word' }}>
+      <Typography variant="caption" color="textSecondary" sx={{ wordBreak: 'break-word' }}>
         {hex}
       </Typography>
     </Stack>

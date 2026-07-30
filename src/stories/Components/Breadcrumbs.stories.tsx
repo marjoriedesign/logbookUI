@@ -25,7 +25,7 @@ export const Default: Story = {
       <Link underline="hover" color="inherit" href="#">
         4ᵉ B
       </Link>
-      <Typography color="text.primary">Camille Dupont</Typography>
+      <Typography color="textPrimary">Camille Dupont</Typography>
     </Breadcrumbs>
   ),
 };

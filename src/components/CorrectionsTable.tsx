@@ -118,7 +118,7 @@ function CorrectionsRow({
             <Typography variant="body2" sx={{ fontWeight: designTokens.fontWeights.bold }}>
               {row.student}
             </Typography>
-            <Typography variant="caption" color="text.secondary">
+            <Typography variant="caption" color="textSecondary">
               {row.loginCode}
             </Typography>
           </Box>
@@ -161,7 +161,7 @@ function CorrectionsRow({
         {/* Sous 900px, la Note (qui perd sa propre colonne) s'affiche ici,
             sous le chip/bouton d'État — rien du tout si pas de note. */}
         {isNarrow && row.state === 'consulted' && row.note !== null && (
-          <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
+          <Typography variant="body2" color="textSecondary" sx={{ mt: 0.5 }}>
             {row.note}/20
           </Typography>
         )}
@@ -174,7 +174,7 @@ function CorrectionsRow({
       {!isNarrow && (
         <TableCell>
           {row.state === 'consulted' && row.note !== null && (
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="textSecondary">
               {row.note}/20
             </Typography>
           )}

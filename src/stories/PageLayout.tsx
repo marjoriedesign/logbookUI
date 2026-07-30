@@ -31,7 +31,7 @@ function TokenNotes({ notes }: { notes?: string[] }) {
       </Stack>
       <Stack component="ul" spacing={0.5} sx={{ m: 0, pl: 2.5 }}>
         {notes.map((n, i) => (
-          <Typography key={i} component="li" variant="body2" color="text.secondary">
+          <Typography key={i} component="li" variant="body2" color="textSecondary">
             {n}
           </Typography>
         ))}

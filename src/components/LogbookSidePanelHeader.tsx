@@ -30,7 +30,7 @@ export function LogbookSidePanelHeader({ studentName, avatarSrc, avatarAlt, onCl
     >
       <Box sx={{ display: 'flex', alignItems: 'center', gap: `${designTokens.spacing.xs}px` }}>
         <Avatar src={avatarSrc} alt={avatarAlt ?? ''} sx={{ width: 48, height: 48 }} />
-        <Typography variant="h4" color="text.secondary">
+        <Typography variant="h4" color="textSecondary">
           {studentName}
         </Typography>
       </Box>

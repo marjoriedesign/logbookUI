@@ -49,7 +49,7 @@ export function LogbookListenProgress({ value }: LogbookListenProgressProps) {
           );
         })}
       </Box>
-      <Typography variant="body2" color="text.secondary">
+      <Typography variant="body2" color="textSecondary">
         {Math.round(listened)}%
       </Typography>
     </Box>

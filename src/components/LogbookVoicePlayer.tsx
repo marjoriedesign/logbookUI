@@ -41,7 +41,7 @@ export function LogbookVoicePlayer({
     // = paper-elevation-1, cf. MuiCard dans theme/components/Card.ts), pas de
     // styleOverrides supplémentaire nécessaire ici.
     <Card sx={{ width: { xs: '100%', sm: 448 }, boxSizing: 'border-box', p: 2 }}>
-      <Typography variant="subtitle2" color="text.secondary">
+      <Typography variant="subtitle2" color="textSecondary">
         {formatTime(currentSeconds)} / {formatTime(durationSeconds)}
       </Typography>
 

@@ -74,7 +74,7 @@ export const Default: Story = {
           {avatarVisuals.map(({ name, src }) => (
             <Box key={name} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0.5 }}>
               <Avatar src={src} alt={name} />
-              <Typography variant="caption" color="text.secondary">
+              <Typography variant="caption" color="textSecondary">
                 {name}
               </Typography>
             </Box>

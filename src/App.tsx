@@ -5,7 +5,7 @@ function App() {
   return (
     <Stack spacing={3} sx={{ maxWidth: 480, mx: 'auto', mt: 8, px: 2 }}>
       <Typography variant="h2">Logbook Design System</Typography>
-      <Typography variant="body1" color="text.secondary">
+      <Typography variant="body1" color="textSecondary">
         Ceci est un aperçu rapide. L'environnement complet de test des
         composants vit dans Storybook — voir le README.
       </Typography>

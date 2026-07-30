@@ -22,7 +22,7 @@ export const Default: Story = {
     <Sections>
       <Section title="Determinate">
         <Stack spacing={1} sx={{ width: 280 }}>
-          <Typography id="linear-progress-label" variant="body2" color="text.secondary">
+          <Typography id="linear-progress-label" variant="body2" color="textSecondary">
             12 corrections sur 20 terminées
           </Typography>
           <LinearProgress variant="determinate" value={60} aria-labelledby="linear-progress-label" />

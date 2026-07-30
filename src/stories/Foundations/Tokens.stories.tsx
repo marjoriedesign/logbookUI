@@ -78,7 +78,7 @@ function CoreSwatch({ family, step }: { family: string; step: string }) {
       <Typography variant="caption" sx={{ fontWeight: 600 }}>
         {family}/{step}
       </Typography>
-      <Typography variant="caption" color="text.secondary">
+      <Typography variant="caption" color="textSecondary">
         {hex}
       </Typography>
     </Stack>
@@ -189,7 +189,7 @@ function TokenTable({ rows }: { rows: Row[] }) {
 function SubgroupHeading({ parent, name }: { parent: string; name: string }) {
   return (
     <Typography variant="body2" sx={{ mt: 2, mb: 0.5 }}>
-      <Typography component="span" variant="body2" color="text.disabled">
+      <Typography component="span" variant="body2" color="textDisabled">
         {parent} /{' '}
       </Typography>
       <Typography component="span" variant="body2" sx={{ fontWeight: 700 }}>
@@ -251,7 +251,7 @@ function TokensFoundations() {
     <PageLayout title="Tokens">
       <Sections>
         <Section title="Core">
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 2, maxWidth: 640 }}>
+          <Typography variant="body2" color="textSecondary" sx={{ mb: 2, maxWidth: 640 }}>
             Primitives Material (<code>tokens/core.json</code>) réellement référencées par Theme
             ci-dessous — sur les 19 familles complètes du nuancier Material que le fichier importe,
             seules celles utilisées par la charte Logbook sont listées ici.
@@ -260,7 +260,7 @@ function TokensFoundations() {
         </Section>
 
         <Section title="Theme">
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 2, maxWidth: 640 }}>
+          <Typography variant="body2" color="textSecondary" sx={{ mb: 2, maxWidth: 640 }}>
             Palette sémantique consommée par les composants MUI (<code>tokens/semantic.json</code> →{' '}
             <code>src/theme/</code>). Chaque valeur référence une primitive Core ci-dessus, ou une
             superposition calculée (ex. les états de survol/focus).

@@ -17,7 +17,7 @@ function AudioFeedbackCard() {
             </Stack>
             <Chip label="Analysée par IA" size="small" color="secondary" />
           </Stack>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="textSecondary">
             « Bonne structure argumentative, attention à la conjugaison au
             subjonctif dans le second paragraphe. »
           </Typography>
@@ -25,7 +25,7 @@ function AudioFeedbackCard() {
             <IconButton size="small" color="primary" aria-label="Écouter la correction audio">
               <RiPlayCircleLine size="1em" />
             </IconButton>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="textSecondary">
               1 min 24
             </Typography>
           </Stack>

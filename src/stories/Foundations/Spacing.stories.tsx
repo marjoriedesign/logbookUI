@@ -14,7 +14,7 @@ function SpacingFoundations() {
               {name}
             </Typography>
             <Box sx={{ width: px, height: 16, backgroundColor: 'primary.main', borderRadius: 0.5 }} />
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="textSecondary">
               {px}px
             </Typography>
           </Stack>
