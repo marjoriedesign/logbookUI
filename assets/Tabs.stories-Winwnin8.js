@@ -1,7 +1,0 @@
-import{i as e,s as t}from"./preload-helper-BdFrVu1K.js";import{Ot as n,S as r,c as i,ln as a,r as o}from"./iframe-TdOe9Jhp.js";import{i as s,n as c,o as l,p as u,r as d,t as f,x as p}from"./PageLayout-BSEDKeca.js";function m(){let[e,t]=(0,h.useState)(`corrections`);return(0,g.jsxs)(i,{value:e,onChange:(e,n)=>t(n),children:[(0,g.jsx)(r,{value:`corrections`,label:`Corrections`,icon:(0,g.jsx)(p,{size:20})}),(0,g.jsx)(r,{value:`analyse`,label:`Analyse`,icon:(0,g.jsx)(u,{size:20})})]})}var h,g,_,v,y,b;e((()=>{h=t(a(),1),o(),l(),s(),g=n(),_=[`Couleur du libellé/icône identique actif et inactif (color.primary.main) : seuls le fond (background.paper à l’état actif, transparent sinon) et l’indicator distinguent l’onglet sélectionné, contrairement à l’atténuation native de MUI sur les onglets inactifs.`,`Pas de bordure basse sur les Tab eux-mêmes : c’est l’indicator de Tabs (élargi à 4px, sans token dédié à cette épaisseur dans le DS) qui joue ce rôle, uniquement sous l’onglet actif.`],v={title:`Components/Tabs`,component:m,decorators:[e=>(0,g.jsx)(f,{title:`Tabs`,notes:_,children:(0,g.jsx)(e,{})})],parameters:{controls:{disable:!0}}},y={render:()=>(0,g.jsx)(d,{children:(0,g.jsx)(c,{title:`Default`,children:(0,g.jsx)(m,{})})})},y.parameters={...y.parameters,docs:{...y.parameters?.docs,source:{originalSource:`{
-  render: () => <Sections>
-      <Section title="Default">
-        <CorrectionTabs />
-      </Section>
-    </Sections>
-}`,...y.parameters?.docs?.source}}},b=[`Default`]}))();export{y as Default,b as __namedExportsOrder,v as default};
