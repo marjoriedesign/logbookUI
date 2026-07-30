@@ -5,6 +5,7 @@
 
 export { LogbookThemeProvider } from './theme/LogbookThemeProvider';
 export { logbookTheme } from './theme';
+export { designTokens } from './theme/generated/tokens';
 
 export {
   LogbookStatCard,
