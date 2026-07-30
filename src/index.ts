@@ -48,5 +48,9 @@ export {
   type LogbookSidePanelFooterProps,
   type LogbookSidePanelFooterAction,
 } from './components/LogbookSidePanelFooter';
+export {
+  LogbookCommentField,
+  type LogbookCommentFieldProps,
+} from './components/LogbookCommentField';
 
 export * from './icons';
