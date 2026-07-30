@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">27/31 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">31/31 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">4/31 story errors</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">28/33 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">33/33 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">4/33 story errors</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note info" style="margin-bottom: 16px;">
-            <strong>Tip:</strong> You are using <code>react-docgen</code> (the default). Generation took <strong>0.3s</strong>. For higher quality prop types, consider switching to <code>react-docgen-typescript</code> in your <code>main.ts</code>:
+            <strong>Tip:</strong> You are using <code>react-docgen</code> (the default). Generation took <strong>0.4s</strong>. For higher quality prop types, consider switching to <code>react-docgen-typescript</code> in your <code>main.ts</code>:
             <pre><code>typescript: {
   reactDocgen: 'react-docgen-typescript',
 }</code></pre>
@@ -2992,14 +2992,128 @@ import { Stack } from "@mui/material";</code></pre>
   no-story-error
   no-doc-error"
   role="listitem"
+  aria-label="LogbookSidePanelFooter">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-ok"></span> LogbookSidePanelFooter</h2>
+      <div class="badges">
+        <label for="c-19-logbook-sidepanelfooter-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-19-logbook-sidepanelfooter-info" class="badge info as-toggle">1 info</label>
+        <label for="c-19-logbook-sidepanelfooter-stories" class="badge ok as-toggle">1 story</label>
+        
+        
+      </div>
+    </div>
+    <div class="meta" title="./src/stories/Logbook/SidePanelFooter.stories.tsx">logbook-sidepanelfooter · ./src/stories/Logbook/SidePanelFooter.stories.tsx</div>
+    
+    
+    
+  </div>
+
+  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
+  
+  <input id="c-19-logbook-sidepanelfooter-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-19-logbook-sidepanelfooter-stories" class="tg tg-stories" type="checkbox" hidden />
+  
+  
+  <input id="c-19-logbook-sidepanelfooter-props" class="tg tg-props" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+        </div>
+    
+        <div class="panel panel-props">
+          <div class="note ok">
+            <div class="row">
+              <span class="ex-name">Prop types <small>(react-docgen)</small></span>
+              <span class="badge ok">2 prop types</span>
+            </div>
+            <pre><code>Component: src/components/LogbookSidePanelFooter.tsx::LogbookSidePanelFooter</code></pre>
+            <pre><code>Props:</code></pre>
+            <pre><code>/**
+ * Action principale, seule à droite si `secondaryAction` est fourni.
+ */
+primaryAction: LogbookSidePanelFooterAction
+
+/**
+ * Action secondaire, affichée à gauche de la principale.
+ */
+secondaryAction?: LogbookSidePanelFooterAction</code></pre>
+          </div>
+        </div>
+    
+        <div class="panel panel-stories">
+          
+          
+          
+          <div class="note ok">
+                <div class="row">
+                  <span class="ex-name">Imports</span>
+                </div>
+                <pre><code>import { LogbookSidePanelFooter, PageLayout, Section, Sections } from "logbook-design-system";</code></pre>
+              </div>
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Default</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Default = () =&gt; (
+  &lt;Sections&gt;
+    &lt;Section title=&quot;Un seul bouton&quot;&gt;
+      &lt;LogbookSidePanelFooter primaryAction={{ label: &#39;Envoyer la correction&#39;, onClick: () =&gt; {} }} /&gt;
+    &lt;/Section&gt;
+    &lt;Section title=&quot;Deux boutons, libellés de longueur proche&quot;&gt;
+      &lt;LogbookSidePanelFooter
+        primaryAction={{ label: &#39;Envoyer&#39;, onClick: () =&gt; {} }}
+        secondaryAction={{ label: &#39;Annuler&#39;, onClick: () =&gt; {} }}
+      /&gt;
+    &lt;/Section&gt;
+    &lt;Section title=&quot;Deux boutons, un libellé plus long&quot;&gt;
+      &lt;LogbookSidePanelFooter
+        primaryAction={{ label: &#39;Envoyer la correction&#39;, onClick: () =&gt; {} }}
+        secondaryAction={{ label: &#39;Annuler&#39;, onClick: () =&gt; {} }}
+      /&gt;
+    &lt;/Section&gt;
+    &lt;Section title=&quot;Variant/couleur surchargés&quot;&gt;
+      &lt;LogbookSidePanelFooter
+        primaryAction={{ label: &#39;Enregistrer&#39;, onClick: () =&gt; {} }}
+        secondaryAction={{ label: &#39;Supprimer le brouillon&#39;, onClick: () =&gt; {}, variant: &#39;outlined&#39;, color: &#39;error&#39; }}
+      /&gt;
+    &lt;/Section&gt;
+  &lt;/Sections&gt;
+);</code></pre>
+            </div>
+        </div>
+    
+    
+  </div>
+</article>
+<article
+  class="card 
+  no-error 
+  has-info 
+  no-story-error
+  no-doc-error"
+  role="listitem"
   aria-label="LogbookSidePanelHeader">
   <div class="head">
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> LogbookSidePanelHeader</h2>
       <div class="badges">
-        <label for="c-19-logbook-sidepanelheader-props" class="badge ok as-toggle">4 prop types</label>
-        <label for="c-19-logbook-sidepanelheader-info" class="badge info as-toggle">1 info</label>
-        <label for="c-19-logbook-sidepanelheader-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-20-logbook-sidepanelheader-props" class="badge ok as-toggle">4 prop types</label>
+        <label for="c-20-logbook-sidepanelheader-info" class="badge info as-toggle">1 info</label>
+        <label for="c-20-logbook-sidepanelheader-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -3012,11 +3126,11 @@ import { Stack } from "@mui/material";</code></pre>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="c-19-logbook-sidepanelheader-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-19-logbook-sidepanelheader-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-20-logbook-sidepanelheader-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-20-logbook-sidepanelheader-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
-  <input id="c-19-logbook-sidepanelheader-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-20-logbook-sidepanelheader-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -3093,9 +3207,9 @@ studentName: string</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> LogbookStatCard</h2>
       <div class="badges">
-        <label for="c-20-logbook-statcard-props" class="badge ok as-toggle">5 prop types</label>
-        <label for="c-20-logbook-statcard-info" class="badge info as-toggle">1 info</label>
-        <label for="c-20-logbook-statcard-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-21-logbook-statcard-props" class="badge ok as-toggle">5 prop types</label>
+        <label for="c-21-logbook-statcard-info" class="badge info as-toggle">1 info</label>
+        <label for="c-21-logbook-statcard-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -3108,11 +3222,11 @@ studentName: string</code></pre>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="c-20-logbook-statcard-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-20-logbook-statcard-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-21-logbook-statcard-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-21-logbook-statcard-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
-  <input id="c-20-logbook-statcard-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-21-logbook-statcard-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -3215,9 +3329,9 @@ import { Stack } from "@mui/material";</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-err"></span> NavbarDemo</h2>
       <div class="badges">
-        <label for="c-21-logbook-navbar-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-21-logbook-navbar-info" class="badge info as-toggle">1 info</label>
-        <label for="c-21-logbook-navbar-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-22-logbook-navbar-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-22-logbook-navbar-info" class="badge info as-toggle">1 info</label>
+        <label for="c-22-logbook-navbar-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -3229,9 +3343,9 @@ import { Stack } from "@mui/material";</code></pre>
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-21-logbook-navbar-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-21-logbook-navbar-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-21-logbook-navbar-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-22-logbook-navbar-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-22-logbook-navbar-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-22-logbook-navbar-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -3352,9 +3466,9 @@ export const Default: Story = {
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Paper</h2>
       <div class="badges">
-        <label for="c-22-components-paper-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-22-components-paper-info" class="badge info as-toggle">1 info</label>
-        <label for="c-22-components-paper-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-23-components-paper-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-23-components-paper-info" class="badge info as-toggle">1 info</label>
+        <label for="c-23-components-paper-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -3366,9 +3480,9 @@ export const Default: Story = {
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-22-components-paper-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-22-components-paper-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-22-components-paper-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-23-components-paper-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-23-components-paper-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-23-components-paper-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -3470,9 +3584,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> SpacingFoundations</h2>
       <div class="badges">
-        <label for="c-23-foundations-spacing-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-23-foundations-spacing-info" class="badge info as-toggle">1 info</label>
-        <label for="c-23-foundations-spacing-stories" class="badge err as-toggle">1/1 story errors</label>
+        <label for="c-24-foundations-spacing-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-24-foundations-spacing-info" class="badge info as-toggle">1 info</label>
+        <label for="c-24-foundations-spacing-stories" class="badge err as-toggle">1/1 story errors</label>
         
         
       </div>
@@ -3484,9 +3598,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-23-foundations-spacing-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-23-foundations-spacing-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-23-foundations-spacing-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-24-foundations-spacing-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-24-foundations-spacing-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-24-foundations-spacing-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -3596,9 +3710,9 @@ import { PageLayout } from "logbook-design-system";</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Stack</h2>
       <div class="badges">
-        <label for="c-24-components-stack-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-24-components-stack-info" class="badge info as-toggle">1 info</label>
-        <label for="c-24-components-stack-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-25-components-stack-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-25-components-stack-info" class="badge info as-toggle">1 info</label>
+        <label for="c-25-components-stack-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -3610,9 +3724,9 @@ import { PageLayout } from "logbook-design-system";</code></pre>
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-24-components-stack-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-24-components-stack-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-24-components-stack-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-25-components-stack-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-25-components-stack-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-25-components-stack-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -3714,9 +3828,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Switch</h2>
       <div class="badges">
-        <label for="c-25-components-switch-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-25-components-switch-info" class="badge info as-toggle">1 info</label>
-        <label for="c-25-components-switch-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-26-components-switch-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-26-components-switch-info" class="badge info as-toggle">1 info</label>
+        <label for="c-26-components-switch-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -3728,9 +3842,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-25-components-switch-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-25-components-switch-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-25-components-switch-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-26-components-switch-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-26-components-switch-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-26-components-switch-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -3824,9 +3938,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> TextField</h2>
       <div class="badges">
-        <label for="c-26-components-textfield-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-26-components-textfield-info" class="badge info as-toggle">1 info</label>
-        <label for="c-26-components-textfield-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-27-components-textfield-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-27-components-textfield-info" class="badge info as-toggle">1 info</label>
+        <label for="c-27-components-textfield-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -3838,9 +3952,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-26-components-textfield-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-26-components-textfield-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-26-components-textfield-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-27-components-textfield-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-27-components-textfield-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-27-components-textfield-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -3944,9 +4058,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> TokensFoundations</h2>
       <div class="badges">
-        <label for="c-27-foundations-tokens-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-27-foundations-tokens-info" class="badge info as-toggle">1 info</label>
-        <label for="c-27-foundations-tokens-stories" class="badge err as-toggle">1/1 story errors</label>
+        <label for="c-28-foundations-tokens-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-28-foundations-tokens-info" class="badge info as-toggle">1 info</label>
+        <label for="c-28-foundations-tokens-stories" class="badge err as-toggle">1/1 story errors</label>
         
         
       </div>
@@ -3958,9 +4072,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-27-foundations-tokens-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-27-foundations-tokens-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-27-foundations-tokens-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-28-foundations-tokens-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-28-foundations-tokens-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-28-foundations-tokens-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -4318,9 +4432,9 @@ import { PageLayout, RiPaletteLine, Section, Sections } from "logbook-design-sys
     <div class="title">
       <h2><span class="status-dot dot-err"></span> TypographyFoundations</h2>
       <div class="badges">
-        <label for="c-28-foundations-typography-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-28-foundations-typography-info" class="badge info as-toggle">1 info</label>
-        <label for="c-28-foundations-typography-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-29-foundations-typography-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-29-foundations-typography-info" class="badge info as-toggle">1 info</label>
+        <label for="c-29-foundations-typography-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -4332,9 +4446,9 @@ import { PageLayout, RiPaletteLine, Section, Sections } from "logbook-design-sys
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-28-foundations-typography-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-28-foundations-typography-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-28-foundations-typography-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-29-foundations-typography-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-29-foundations-typography-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-29-foundations-typography-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -4418,9 +4532,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> VisualsFoundations</h2>
       <div class="badges">
-        <label for="c-29-foundations-visuals-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-29-foundations-visuals-info" class="badge info as-toggle">1 info</label>
-        <label for="c-29-foundations-visuals-stories" class="badge err as-toggle">1/1 story errors</label>
+        <label for="c-30-foundations-visuals-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-30-foundations-visuals-info" class="badge info as-toggle">1 info</label>
+        <label for="c-30-foundations-visuals-stories" class="badge err as-toggle">1/1 story errors</label>
         
         
       </div>
@@ -4432,9 +4546,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-29-foundations-visuals-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-29-foundations-visuals-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-29-foundations-visuals-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-30-foundations-visuals-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-30-foundations-visuals-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-30-foundations-visuals-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -4656,14 +4770,188 @@ import { PageLayout, Section, Sections } from "logbook-design-system";</code></p
   no-story-error
   no-doc-error"
   role="listitem"
+  aria-label="VoicePlayerDemo">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-err"></span> VoicePlayerDemo</h2>
+      <div class="badges">
+        <label for="c-31-logbook-voiceplayer-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-31-logbook-voiceplayer-info" class="badge info as-toggle">1 info</label>
+        <label for="c-31-logbook-voiceplayer-stories" class="badge ok as-toggle">1 story</label>
+        
+        
+      </div>
+    </div>
+    <div class="meta" title="./src/stories/Logbook/VoicePlayer.stories.tsx">logbook-voiceplayer · ./src/stories/Logbook/VoicePlayer.stories.tsx</div>
+    
+    
+    
+  </div>
+
+  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
+  <input id="c-31-logbook-voiceplayer-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-31-logbook-voiceplayer-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-31-logbook-voiceplayer-stories" class="tg tg-stories" type="checkbox" hidden />
+  
+  
+  
+
+  <div class="panels">
+    
+        <div class="panel panel-err">
+          
+    <div class="note err">
+      <div class="note-title">Prop type error</div>
+      <div class="note-body"><pre><code>No component file found for the &quot;VoicePlayerDemo&quot; component.
+  60 | }
+  61 |
+&gt; 62 | const meta: Meta&lt;typeof VoicePlayerDemo&gt; = {
+     | ^
+  63 |   title: &#39;Logbook/VoicePlayer&#39;,
+  64 |   component: VoicePlayerDemo,
+  65 |   decorators: [(Story) =&gt; (&lt;PageLayout title=&quot;VoicePlayer&quot;&gt;&lt;Story /&gt;&lt;/PageLayout&gt;)],
+
+./src/stories/Logbook/VoicePlayer.stories.tsx:
+import { useEffect, useState } from &#39;react&#39;;
+import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;;
+import { LogbookVoicePlayer } from &#39;../../components/LogbookVoicePlayer&#39;;
+import { PageLayout, Sections, Section } from &#39;../PageLayout&#39;;
+
+const durationSeconds = 12;
+const playbackRateSteps = [1, 1.25, 1.5, 2, 0.75];
+
+// Story-only : porte l&#39;état local (lecture, position, vitesse). Une vraie
+// app branche un &lt;audio&gt; réel (currentTime/timeupdate) plutôt que ce
+// minuteur simulé.
+function VoicePlayerDemo() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentSeconds, setCurrentSeconds] = useState(3);
+  const [playbackRateIndex, setPlaybackRateIndex] = useState(0);
+
+  useEffect(() =&gt; {
+    if (!isPlaying) return;
+    let frameId: number;
+    let lastTimestamp: number | null = null;
+
+    // requestAnimationFrame + temps réel écoulé (fractions de seconde) plutôt
+    // qu&#39;un setInterval à +1s : incréments entiers toutes les secondes
+    // produisaient des saccades visibles sur la LinearProgress (elle saute
+    // puis reste figée), MUI ne pouvant lisser un pas aussi large avec sa
+    // transition CSS de 0.4s.
+    function tick(timestamp: number) {
+      const deltaSeconds = lastTimestamp === null ? 0 : (timestamp - lastTimestamp) / 1000;
+      lastTimestamp = timestamp;
+
+      setCurrentSeconds((s) =&gt; {
+        const next = s + deltaSeconds;
+        if (next &gt;= durationSeconds) {
+          setIsPlaying(false);
+          return durationSeconds;
+        }
+        return next;
+      });
+
+      frameId = requestAnimationFrame(tick);
+    }
+
+    frameId = requestAnimationFrame(tick);
+    return () =&gt; cancelAnimationFrame(frameId);
+  }, [isPlaying]);
+
+  return (
+    &lt;LogbookVoicePlayer
+      isPlaying={isPlaying}
+      currentSeconds={currentSeconds}
+      durationSeconds={durationSeconds}
+      playbackRate={playbackRateSteps[playbackRateIndex]}
+      onPlayPause={() =&gt; setIsPlaying((prev) =&gt; !prev)}
+      onSkipBack={() =&gt; setCurrentSeconds((s) =&gt; Math.max(0, s - 30))}
+      onSkipForward={() =&gt; setCurrentSeconds((s) =&gt; Math.min(durationSeconds, s + 30))}
+      onPlaybackRateClick={() =&gt; setPlaybackRateIndex((i) =&gt; (i + 1) % playbackRateSteps.length)}
+      onTranscriptClick={() =&gt; {}}
+    /&gt;
+  );
+}
+
+const meta: Meta&lt;typeof VoicePlayerDemo&gt; = {
+  title: &#39;Logbook/VoicePlayer&#39;,
+  component: VoicePlayerDemo,
+  decorators: [(Story) =&gt; (&lt;PageLayout title=&quot;VoicePlayer&quot;&gt;&lt;Story /&gt;&lt;/PageLayout&gt;)],
+  parameters: { controls: { disable: true } },
+};
+
+export default meta;
+type Story = StoryObj&lt;typeof VoicePlayerDemo&gt;;
+
+export const Default: Story = {
+  render: () =&gt; (
+    &lt;Sections&gt;
+      &lt;Section title=&quot;Default (play/pause, ±30s, vitesse, transcription)&quot;&gt;
+        &lt;VoicePlayerDemo /&gt;
+      &lt;/Section&gt;
+    &lt;/Sections&gt;
+  ),
+};
+</code></pre></div>
+    </div>
+        </div>
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+        </div>
+    
+    
+        <div class="panel panel-stories">
+          
+          
+          
+          <div class="note ok">
+                <div class="row">
+                  <span class="ex-name">Imports</span>
+                </div>
+                <pre><code>import { LogbookVoicePlayer, PageLayout, Section, Sections } from "logbook-design-system";</code></pre>
+              </div>
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Default</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Default = () =&gt; (
+  &lt;Sections&gt;
+    &lt;Section title=&quot;Default (play/pause, ±30s, vitesse, transcription)&quot;&gt;
+      &lt;VoicePlayerDemo /&gt;
+    &lt;/Section&gt;
+  &lt;/Sections&gt;
+);</code></pre>
+            </div>
+        </div>
+    
+    
+  </div>
+</article>
+<article
+  class="card 
+  has-error 
+  has-info 
+  no-story-error
+  no-doc-error"
+  role="listitem"
   aria-label="VoiceRecorderDemo">
   <div class="head">
     <div class="title">
       <h2><span class="status-dot dot-err"></span> VoiceRecorderDemo</h2>
       <div class="badges">
-        <label for="c-30-logbook-voicerecorder-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-30-logbook-voicerecorder-info" class="badge info as-toggle">1 info</label>
-        <label for="c-30-logbook-voicerecorder-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-32-logbook-voicerecorder-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-32-logbook-voicerecorder-info" class="badge info as-toggle">1 info</label>
+        <label for="c-32-logbook-voicerecorder-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -4675,9 +4963,9 @@ import { PageLayout, Section, Sections } from "logbook-design-system";</code></p
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-30-logbook-voicerecorder-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-30-logbook-voicerecorder-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-30-logbook-voicerecorder-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-32-logbook-voicerecorder-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-32-logbook-voicerecorder-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-32-logbook-voicerecorder-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -7233,7 +7521,7 @@ Code:
           <label for="no-component-import-found-toggle" class="group-header">
             <span class="caret">▸</span>
             <span class="group-title">No component import found</span>
-            <span class="group-count">7</span>
+            <span class="group-count">8</span>
           </label>
           <div class="group-cards">
 <article
@@ -8459,14 +8747,188 @@ import { PageLayout, Section, Sections } from "logbook-design-system";</code></p
   no-story-error
   no-doc-error"
   role="listitem"
+  aria-label="VoicePlayerDemo">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-err"></span> VoicePlayerDemo</h2>
+      <div class="badges">
+        <label for="c-error-6-logbook-voiceplayer-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-6-logbook-voiceplayer-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-6-logbook-voiceplayer-stories" class="badge ok as-toggle">1 story</label>
+        
+        
+      </div>
+    </div>
+    <div class="meta" title="./src/stories/Logbook/VoicePlayer.stories.tsx">logbook-voiceplayer · ./src/stories/Logbook/VoicePlayer.stories.tsx</div>
+    
+    
+    
+  </div>
+
+  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
+  <input id="c-error-6-logbook-voiceplayer-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-6-logbook-voiceplayer-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-6-logbook-voiceplayer-stories" class="tg tg-stories" type="checkbox" hidden />
+  
+  
+  
+
+  <div class="panels">
+    
+        <div class="panel panel-err">
+          
+    <div class="note err">
+      <div class="note-title">Prop type error</div>
+      <div class="note-body"><pre><code>No component file found for the &quot;VoicePlayerDemo&quot; component.
+  60 | }
+  61 |
+&gt; 62 | const meta: Meta&lt;typeof VoicePlayerDemo&gt; = {
+     | ^
+  63 |   title: &#39;Logbook/VoicePlayer&#39;,
+  64 |   component: VoicePlayerDemo,
+  65 |   decorators: [(Story) =&gt; (&lt;PageLayout title=&quot;VoicePlayer&quot;&gt;&lt;Story /&gt;&lt;/PageLayout&gt;)],
+
+./src/stories/Logbook/VoicePlayer.stories.tsx:
+import { useEffect, useState } from &#39;react&#39;;
+import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;;
+import { LogbookVoicePlayer } from &#39;../../components/LogbookVoicePlayer&#39;;
+import { PageLayout, Sections, Section } from &#39;../PageLayout&#39;;
+
+const durationSeconds = 12;
+const playbackRateSteps = [1, 1.25, 1.5, 2, 0.75];
+
+// Story-only : porte l&#39;état local (lecture, position, vitesse). Une vraie
+// app branche un &lt;audio&gt; réel (currentTime/timeupdate) plutôt que ce
+// minuteur simulé.
+function VoicePlayerDemo() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentSeconds, setCurrentSeconds] = useState(3);
+  const [playbackRateIndex, setPlaybackRateIndex] = useState(0);
+
+  useEffect(() =&gt; {
+    if (!isPlaying) return;
+    let frameId: number;
+    let lastTimestamp: number | null = null;
+
+    // requestAnimationFrame + temps réel écoulé (fractions de seconde) plutôt
+    // qu&#39;un setInterval à +1s : incréments entiers toutes les secondes
+    // produisaient des saccades visibles sur la LinearProgress (elle saute
+    // puis reste figée), MUI ne pouvant lisser un pas aussi large avec sa
+    // transition CSS de 0.4s.
+    function tick(timestamp: number) {
+      const deltaSeconds = lastTimestamp === null ? 0 : (timestamp - lastTimestamp) / 1000;
+      lastTimestamp = timestamp;
+
+      setCurrentSeconds((s) =&gt; {
+        const next = s + deltaSeconds;
+        if (next &gt;= durationSeconds) {
+          setIsPlaying(false);
+          return durationSeconds;
+        }
+        return next;
+      });
+
+      frameId = requestAnimationFrame(tick);
+    }
+
+    frameId = requestAnimationFrame(tick);
+    return () =&gt; cancelAnimationFrame(frameId);
+  }, [isPlaying]);
+
+  return (
+    &lt;LogbookVoicePlayer
+      isPlaying={isPlaying}
+      currentSeconds={currentSeconds}
+      durationSeconds={durationSeconds}
+      playbackRate={playbackRateSteps[playbackRateIndex]}
+      onPlayPause={() =&gt; setIsPlaying((prev) =&gt; !prev)}
+      onSkipBack={() =&gt; setCurrentSeconds((s) =&gt; Math.max(0, s - 30))}
+      onSkipForward={() =&gt; setCurrentSeconds((s) =&gt; Math.min(durationSeconds, s + 30))}
+      onPlaybackRateClick={() =&gt; setPlaybackRateIndex((i) =&gt; (i + 1) % playbackRateSteps.length)}
+      onTranscriptClick={() =&gt; {}}
+    /&gt;
+  );
+}
+
+const meta: Meta&lt;typeof VoicePlayerDemo&gt; = {
+  title: &#39;Logbook/VoicePlayer&#39;,
+  component: VoicePlayerDemo,
+  decorators: [(Story) =&gt; (&lt;PageLayout title=&quot;VoicePlayer&quot;&gt;&lt;Story /&gt;&lt;/PageLayout&gt;)],
+  parameters: { controls: { disable: true } },
+};
+
+export default meta;
+type Story = StoryObj&lt;typeof VoicePlayerDemo&gt;;
+
+export const Default: Story = {
+  render: () =&gt; (
+    &lt;Sections&gt;
+      &lt;Section title=&quot;Default (play/pause, ±30s, vitesse, transcription)&quot;&gt;
+        &lt;VoicePlayerDemo /&gt;
+      &lt;/Section&gt;
+    &lt;/Sections&gt;
+  ),
+};
+</code></pre></div>
+    </div>
+        </div>
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+        </div>
+    
+    
+        <div class="panel panel-stories">
+          
+          
+          
+          <div class="note ok">
+                <div class="row">
+                  <span class="ex-name">Imports</span>
+                </div>
+                <pre><code>import { LogbookVoicePlayer, PageLayout, Section, Sections } from "logbook-design-system";</code></pre>
+              </div>
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Default</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Default = () =&gt; (
+  &lt;Sections&gt;
+    &lt;Section title=&quot;Default (play/pause, ±30s, vitesse, transcription)&quot;&gt;
+      &lt;VoicePlayerDemo /&gt;
+    &lt;/Section&gt;
+  &lt;/Sections&gt;
+);</code></pre>
+            </div>
+        </div>
+    
+    
+  </div>
+</article>
+<article
+  class="card 
+  has-error 
+  has-info 
+  no-story-error
+  no-doc-error"
+  role="listitem"
   aria-label="VoiceRecorderDemo">
   <div class="head">
     <div class="title">
       <h2><span class="status-dot dot-err"></span> VoiceRecorderDemo</h2>
       <div class="badges">
-        <label for="c-error-6-logbook-voicerecorder-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-6-logbook-voicerecorder-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-6-logbook-voicerecorder-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-7-logbook-voicerecorder-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-7-logbook-voicerecorder-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-7-logbook-voicerecorder-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -8478,9 +8940,9 @@ import { PageLayout, Section, Sections } from "logbook-design-system";</code></p
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-6-logbook-voicerecorder-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-6-logbook-voicerecorder-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-6-logbook-voicerecorder-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-7-logbook-voicerecorder-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-7-logbook-voicerecorder-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-7-logbook-voicerecorder-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   

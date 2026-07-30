@@ -621,6 +621,44 @@
       ],
       "import": "import { CorrectionsTable, PageLayout } from \"logbook-design-system\";"
     },
+    "logbook-sidepanelfooter": {
+      "id": "logbook-sidepanelfooter",
+      "name": "LogbookSidePanelFooter",
+      "path": "./src/stories/Logbook/SidePanelFooter.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "LogbookSidePanelFooter",
+        "definedInFile": "/Users/marjorie/logbook-design-system/src/components/LogbookSidePanelFooter.tsx",
+        "actualName": "LogbookSidePanelFooter",
+        "exportName": "LogbookSidePanelFooter",
+        "props": {
+          "primaryAction": {
+            "required": true,
+            "tsType": {
+              "name": "LogbookSidePanelFooterAction"
+            },
+            "description": "Action principale, seule à droite si `secondaryAction` est fourni."
+          },
+          "secondaryAction": {
+            "required": false,
+            "tsType": {
+              "name": "LogbookSidePanelFooterAction"
+            },
+            "description": "Action secondaire, affichée à gauche de la principale."
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "logbook-sidepanelfooter--default",
+          "name": "Default",
+          "snippet": "const Default = () => (\n  <Sections>\n    <Section title=\"Un seul bouton\">\n      <LogbookSidePanelFooter primaryAction={{ label: 'Envoyer la correction', onClick: () => {} }} />\n    </Section>\n    <Section title=\"Deux boutons, libellés de longueur proche\">\n      <LogbookSidePanelFooter\n        primaryAction={{ label: 'Envoyer', onClick: () => {} }}\n        secondaryAction={{ label: 'Annuler', onClick: () => {} }}\n      />\n    </Section>\n    <Section title=\"Deux boutons, un libellé plus long\">\n      <LogbookSidePanelFooter\n        primaryAction={{ label: 'Envoyer la correction', onClick: () => {} }}\n        secondaryAction={{ label: 'Annuler', onClick: () => {} }}\n      />\n    </Section>\n    <Section title=\"Variant/couleur surchargés\">\n      <LogbookSidePanelFooter\n        primaryAction={{ label: 'Enregistrer', onClick: () => {} }}\n        secondaryAction={{ label: 'Supprimer le brouillon', onClick: () => {}, variant: 'outlined', color: 'error' }}\n      />\n    </Section>\n  </Sections>\n);"
+        }
+      ],
+      "import": "import { LogbookSidePanelFooter, PageLayout, Section, Sections } from \"logbook-design-system\";"
+    },
     "logbook-sidepanelheader": {
       "id": "logbook-sidepanelheader",
       "name": "LogbookSidePanelHeader",
@@ -753,6 +791,24 @@
       ],
       "import": "import { LogbookStatCard, PageLayout, Section, Sections } from \"logbook-design-system\";\nimport { Stack } from \"@mui/material\";"
     },
+    "logbook-voiceplayer": {
+      "id": "logbook-voiceplayer",
+      "name": "VoicePlayerDemo",
+      "path": "./src/stories/Logbook/VoicePlayer.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "No component import found",
+        "message": "No component file found for the \"VoicePlayerDemo\" component.\n  60 | }\n  61 |\n> 62 | const meta: Meta<typeof VoicePlayerDemo> = {\n     | ^\n  63 |   title: 'Logbook/VoicePlayer',\n  64 |   component: VoicePlayerDemo,\n  65 |   decorators: [(Story) => (<PageLayout title=\"VoicePlayer\"><Story /></PageLayout>)],\n\n./src/stories/Logbook/VoicePlayer.stories.tsx:\nimport { useEffect, useState } from 'react';\nimport type { Meta, StoryObj } from '@storybook/react-vite';\nimport { LogbookVoicePlayer } from '../../components/LogbookVoicePlayer';\nimport { PageLayout, Sections, Section } from '../PageLayout';\n\nconst durationSeconds = 12;\nconst playbackRateSteps = [1, 1.25, 1.5, 2, 0.75];\n\n// Story-only : porte l'état local (lecture, position, vitesse). Une vraie\n// app branche un <audio> réel (currentTime/timeupdate) plutôt que ce\n// minuteur simulé.\nfunction VoicePlayerDemo() {\n  const [isPlaying, setIsPlaying] = useState(false);\n  const [currentSeconds, setCurrentSeconds] = useState(3);\n  const [playbackRateIndex, setPlaybackRateIndex] = useState(0);\n\n  useEffect(() => {\n    if (!isPlaying) return;\n    let frameId: number;\n    let lastTimestamp: number | null = null;\n\n    // requestAnimationFrame + temps réel écoulé (fractions de seconde) plutôt\n    // qu'un setInterval à +1s : incréments entiers toutes les secondes\n    // produisaient des saccades visibles sur la LinearProgress (elle saute\n    // puis reste figée), MUI ne pouvant lisser un pas aussi large avec sa\n    // transition CSS de 0.4s.\n    function tick(timestamp: number) {\n      const deltaSeconds = lastTimestamp === null ? 0 : (timestamp - lastTimestamp) / 1000;\n      lastTimestamp = timestamp;\n\n      setCurrentSeconds((s) => {\n        const next = s + deltaSeconds;\n        if (next >= durationSeconds) {\n          setIsPlaying(false);\n          return durationSeconds;\n        }\n        return next;\n      });\n\n      frameId = requestAnimationFrame(tick);\n    }\n\n    frameId = requestAnimationFrame(tick);\n    return () => cancelAnimationFrame(frameId);\n  }, [isPlaying]);\n\n  return (\n    <LogbookVoicePlayer\n      isPlaying={isPlaying}\n      currentSeconds={currentSeconds}\n      durationSeconds={durationSeconds}\n      playbackRate={playbackRateSteps[playbackRateIndex]}\n      onPlayPause={() => setIsPlaying((prev) => !prev)}\n      onSkipBack={() => setCurrentSeconds((s) => Math.max(0, s - 30))}\n      onSkipForward={() => setCurrentSeconds((s) => Math.min(durationSeconds, s + 30))}\n      onPlaybackRateClick={() => setPlaybackRateIndex((i) => (i + 1) % playbackRateSteps.length)}\n      onTranscriptClick={() => {}}\n    />\n  );\n}\n\nconst meta: Meta<typeof VoicePlayerDemo> = {\n  title: 'Logbook/VoicePlayer',\n  component: VoicePlayerDemo,\n  decorators: [(Story) => (<PageLayout title=\"VoicePlayer\"><Story /></PageLayout>)],\n  parameters: { controls: { disable: true } },\n};\n\nexport default meta;\ntype Story = StoryObj<typeof VoicePlayerDemo>;\n\nexport const Default: Story = {\n  render: () => (\n    <Sections>\n      <Section title=\"Default (play/pause, ±30s, vitesse, transcription)\">\n        <VoicePlayerDemo />\n      </Section>\n    </Sections>\n  ),\n};\n"
+      },
+      "stories": [
+        {
+          "id": "logbook-voiceplayer--default",
+          "name": "Default",
+          "snippet": "const Default = () => (\n  <Sections>\n    <Section title=\"Default (play/pause, ±30s, vitesse, transcription)\">\n      <VoicePlayerDemo />\n    </Section>\n  </Sections>\n);"
+        }
+      ],
+      "import": "import { LogbookVoicePlayer, PageLayout, Section, Sections } from \"logbook-design-system\";"
+    },
     "logbook-voicerecorder": {
       "id": "logbook-voicerecorder",
       "name": "VoiceRecorderDemo",
@@ -774,6 +830,6 @@
   },
   "meta": {
     "docgen": "react-docgen",
-    "durationMs": 331
+    "durationMs": 413
   }
 }
