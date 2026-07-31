@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">28/34 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">34/34 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">4/34 story errors</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">28/35 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">35/35 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">4/35 story errors</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note info" style="margin-bottom: 16px;">
-            <strong>Tip:</strong> You are using <code>react-docgen</code> (the default). Generation took <strong>0.3s</strong>. For higher quality prop types, consider switching to <code>react-docgen-typescript</code> in your <code>main.ts</code>:
+            <strong>Tip:</strong> You are using <code>react-docgen</code> (the default). Generation took <strong>0.4s</strong>. For higher quality prop types, consider switching to <code>react-docgen-typescript</code> in your <code>main.ts</code>:
             <pre><code>typescript: {
   reactDocgen: 'react-docgen-typescript',
 }</code></pre>
@@ -3002,14 +3002,130 @@ import { LogbookCommentField, PageLayout, RiThumbUpLine, Section, Sections } fro
   no-story-error
   no-doc-error"
   role="listitem"
+  aria-label="LogbookDropzone">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-ok"></span> LogbookDropzone</h2>
+      <div class="badges">
+        <label for="c-19-logbook-dropzone-props" class="badge ok as-toggle">6 prop types</label>
+        <label for="c-19-logbook-dropzone-info" class="badge info as-toggle">1 info</label>
+        <label for="c-19-logbook-dropzone-stories" class="badge ok as-toggle">1 story</label>
+        
+        
+      </div>
+    </div>
+    <div class="meta" title="./src/stories/Logbook/Dropzone.stories.tsx">logbook-dropzone · ./src/stories/Logbook/Dropzone.stories.tsx</div>
+    
+    
+    
+  </div>
+
+  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
+  
+  <input id="c-19-logbook-dropzone-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-19-logbook-dropzone-stories" class="tg tg-stories" type="checkbox" hidden />
+  
+  
+  <input id="c-19-logbook-dropzone-props" class="tg tg-props" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+        </div>
+    
+        <div class="panel panel-props">
+          <div class="note ok">
+            <div class="row">
+              <span class="ex-name">Prop types <small>(react-docgen)</small></span>
+              <span class="badge ok">6 prop types</span>
+            </div>
+            <pre><code>Component: src/components/LogbookDropzone.tsx::LogbookDropzone</code></pre>
+            <pre><code>Props:</code></pre>
+            <pre><code>accept?: string
+
+disabled?: boolean = false
+
+helperText?: string = &#39;Sujet, corrigé, grille d’évaluation...&#39;
+
+label?: string = &#39;Sélectionner un document&#39;
+
+multiple?: boolean = true
+
+onFilesSelected?: (files: File[]) =&gt; void</code></pre>
+          </div>
+        </div>
+    
+        <div class="panel panel-stories">
+          
+          
+          
+          <div class="note ok">
+                <div class="row">
+                  <span class="ex-name">Imports</span>
+                </div>
+                <pre><code>import { Box } from "@mui/material";
+import { LogbookDropzone, PageLayout, Section, Sections } from "logbook-design-system";</code></pre>
+              </div>
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Default</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Default = () =&gt; (
+  &lt;Sections&gt;
+    &lt;Section title=&quot;Default (clic ou glisser-déposer, 480px de large)&quot;&gt;
+      &lt;Box sx={{ width: { xs: &#39;100%&#39;, sm: 480 } }}&gt;
+        &lt;LogbookDropzone onFilesSelected={(files) =&gt; console.log(&#39;files&#39;, files)} /&gt;
+      &lt;/Box&gt;
+    &lt;/Section&gt;
+    &lt;Section title=&quot;Libellés personnalisés&quot;&gt;
+      &lt;Box sx={{ width: { xs: &#39;100%&#39;, sm: 480 } }}&gt;
+        &lt;LogbookDropzone
+          label=&quot;Déposer la grille d&#39;évaluation&quot;
+          helperText=&quot;PDF, jusqu&#39;à 10 Mo&quot;
+          accept=&quot;application/pdf&quot;
+          multiple={false}
+        /&gt;
+      &lt;/Box&gt;
+    &lt;/Section&gt;
+    &lt;Section title=&quot;Désactivé&quot;&gt;
+      &lt;Box sx={{ width: { xs: &#39;100%&#39;, sm: 480 } }}&gt;
+        &lt;LogbookDropzone disabled /&gt;
+      &lt;/Box&gt;
+    &lt;/Section&gt;
+  &lt;/Sections&gt;
+);</code></pre>
+            </div>
+        </div>
+    
+    
+  </div>
+</article>
+<article
+  class="card 
+  no-error 
+  has-info 
+  no-story-error
+  no-doc-error"
+  role="listitem"
   aria-label="LogbookListenProgress">
   <div class="head">
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> LogbookListenProgress</h2>
       <div class="badges">
-        <label for="c-19-logbook-listenprogress-props" class="badge ok as-toggle">1 prop type</label>
-        <label for="c-19-logbook-listenprogress-info" class="badge info as-toggle">1 info</label>
-        <label for="c-19-logbook-listenprogress-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-20-logbook-listenprogress-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-20-logbook-listenprogress-info" class="badge info as-toggle">1 info</label>
+        <label for="c-20-logbook-listenprogress-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -3022,11 +3138,11 @@ import { LogbookCommentField, PageLayout, RiThumbUpLine, Section, Sections } fro
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="c-19-logbook-listenprogress-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-19-logbook-listenprogress-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-20-logbook-listenprogress-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-20-logbook-listenprogress-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
-  <input id="c-19-logbook-listenprogress-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-20-logbook-listenprogress-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -3104,9 +3220,9 @@ import { Stack } from "@mui/material";</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> LogbookSidePanelFooter</h2>
       <div class="badges">
-        <label for="c-20-logbook-sidepanelfooter-props" class="badge ok as-toggle">2 prop types</label>
-        <label for="c-20-logbook-sidepanelfooter-info" class="badge info as-toggle">1 info</label>
-        <label for="c-20-logbook-sidepanelfooter-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-21-logbook-sidepanelfooter-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-21-logbook-sidepanelfooter-info" class="badge info as-toggle">1 info</label>
+        <label for="c-21-logbook-sidepanelfooter-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -3119,11 +3235,11 @@ import { Stack } from "@mui/material";</code></pre>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="c-20-logbook-sidepanelfooter-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-20-logbook-sidepanelfooter-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-21-logbook-sidepanelfooter-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-21-logbook-sidepanelfooter-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
-  <input id="c-20-logbook-sidepanelfooter-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-21-logbook-sidepanelfooter-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -3218,9 +3334,9 @@ secondaryAction?: LogbookSidePanelFooterAction</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> LogbookSidePanelHeader</h2>
       <div class="badges">
-        <label for="c-21-logbook-sidepanelheader-props" class="badge ok as-toggle">4 prop types</label>
-        <label for="c-21-logbook-sidepanelheader-info" class="badge info as-toggle">1 info</label>
-        <label for="c-21-logbook-sidepanelheader-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-22-logbook-sidepanelheader-props" class="badge ok as-toggle">4 prop types</label>
+        <label for="c-22-logbook-sidepanelheader-info" class="badge info as-toggle">1 info</label>
+        <label for="c-22-logbook-sidepanelheader-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -3233,11 +3349,11 @@ secondaryAction?: LogbookSidePanelFooterAction</code></pre>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="c-21-logbook-sidepanelheader-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-21-logbook-sidepanelheader-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-22-logbook-sidepanelheader-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-22-logbook-sidepanelheader-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
-  <input id="c-21-logbook-sidepanelheader-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-22-logbook-sidepanelheader-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -3314,9 +3430,9 @@ studentName: string</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> LogbookStatCard</h2>
       <div class="badges">
-        <label for="c-22-logbook-statcard-props" class="badge ok as-toggle">5 prop types</label>
-        <label for="c-22-logbook-statcard-info" class="badge info as-toggle">1 info</label>
-        <label for="c-22-logbook-statcard-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-23-logbook-statcard-props" class="badge ok as-toggle">5 prop types</label>
+        <label for="c-23-logbook-statcard-info" class="badge info as-toggle">1 info</label>
+        <label for="c-23-logbook-statcard-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -3329,11 +3445,11 @@ studentName: string</code></pre>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="c-22-logbook-statcard-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-22-logbook-statcard-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-23-logbook-statcard-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-23-logbook-statcard-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
-  <input id="c-22-logbook-statcard-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-23-logbook-statcard-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -3436,9 +3552,9 @@ import { Stack } from "@mui/material";</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-err"></span> NavbarDemo</h2>
       <div class="badges">
-        <label for="c-23-logbook-navbar-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-23-logbook-navbar-info" class="badge info as-toggle">1 info</label>
-        <label for="c-23-logbook-navbar-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-24-logbook-navbar-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-24-logbook-navbar-info" class="badge info as-toggle">1 info</label>
+        <label for="c-24-logbook-navbar-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -3450,9 +3566,9 @@ import { Stack } from "@mui/material";</code></pre>
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-23-logbook-navbar-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-23-logbook-navbar-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-23-logbook-navbar-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-24-logbook-navbar-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-24-logbook-navbar-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-24-logbook-navbar-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -3573,9 +3689,9 @@ export const Default: Story = {
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Paper</h2>
       <div class="badges">
-        <label for="c-24-components-paper-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-24-components-paper-info" class="badge info as-toggle">1 info</label>
-        <label for="c-24-components-paper-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-25-components-paper-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-25-components-paper-info" class="badge info as-toggle">1 info</label>
+        <label for="c-25-components-paper-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -3587,9 +3703,9 @@ export const Default: Story = {
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-24-components-paper-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-24-components-paper-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-24-components-paper-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-25-components-paper-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-25-components-paper-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-25-components-paper-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -3691,9 +3807,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> SpacingFoundations</h2>
       <div class="badges">
-        <label for="c-25-foundations-spacing-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-25-foundations-spacing-info" class="badge info as-toggle">1 info</label>
-        <label for="c-25-foundations-spacing-stories" class="badge err as-toggle">1/1 story errors</label>
+        <label for="c-26-foundations-spacing-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-26-foundations-spacing-info" class="badge info as-toggle">1 info</label>
+        <label for="c-26-foundations-spacing-stories" class="badge err as-toggle">1/1 story errors</label>
         
         
       </div>
@@ -3705,9 +3821,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-25-foundations-spacing-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-25-foundations-spacing-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-25-foundations-spacing-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-26-foundations-spacing-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-26-foundations-spacing-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-26-foundations-spacing-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -3817,9 +3933,9 @@ import { PageLayout } from "logbook-design-system";</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Stack</h2>
       <div class="badges">
-        <label for="c-26-components-stack-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-26-components-stack-info" class="badge info as-toggle">1 info</label>
-        <label for="c-26-components-stack-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-27-components-stack-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-27-components-stack-info" class="badge info as-toggle">1 info</label>
+        <label for="c-27-components-stack-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -3831,9 +3947,9 @@ import { PageLayout } from "logbook-design-system";</code></pre>
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-26-components-stack-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-26-components-stack-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-26-components-stack-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-27-components-stack-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-27-components-stack-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-27-components-stack-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -3935,9 +4051,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Switch</h2>
       <div class="badges">
-        <label for="c-27-components-switch-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-27-components-switch-info" class="badge info as-toggle">1 info</label>
-        <label for="c-27-components-switch-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-28-components-switch-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-28-components-switch-info" class="badge info as-toggle">1 info</label>
+        <label for="c-28-components-switch-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -3949,9 +4065,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-27-components-switch-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-27-components-switch-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-27-components-switch-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-28-components-switch-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-28-components-switch-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-28-components-switch-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -4045,9 +4161,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> TextField</h2>
       <div class="badges">
-        <label for="c-28-components-textfield-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-28-components-textfield-info" class="badge info as-toggle">1 info</label>
-        <label for="c-28-components-textfield-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-29-components-textfield-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-29-components-textfield-info" class="badge info as-toggle">1 info</label>
+        <label for="c-29-components-textfield-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -4059,9 +4175,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-28-components-textfield-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-28-components-textfield-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-28-components-textfield-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-29-components-textfield-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-29-components-textfield-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-29-components-textfield-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -4165,9 +4281,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> TokensFoundations</h2>
       <div class="badges">
-        <label for="c-29-foundations-tokens-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-29-foundations-tokens-info" class="badge info as-toggle">1 info</label>
-        <label for="c-29-foundations-tokens-stories" class="badge err as-toggle">1/1 story errors</label>
+        <label for="c-30-foundations-tokens-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-30-foundations-tokens-info" class="badge info as-toggle">1 info</label>
+        <label for="c-30-foundations-tokens-stories" class="badge err as-toggle">1/1 story errors</label>
         
         
       </div>
@@ -4179,9 +4295,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-29-foundations-tokens-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-29-foundations-tokens-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-29-foundations-tokens-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-30-foundations-tokens-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-30-foundations-tokens-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-30-foundations-tokens-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -4539,9 +4655,9 @@ import { PageLayout, RiPaletteLine, Section, Sections } from "logbook-design-sys
     <div class="title">
       <h2><span class="status-dot dot-err"></span> TypographyFoundations</h2>
       <div class="badges">
-        <label for="c-30-foundations-typography-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-30-foundations-typography-info" class="badge info as-toggle">1 info</label>
-        <label for="c-30-foundations-typography-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-31-foundations-typography-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-31-foundations-typography-info" class="badge info as-toggle">1 info</label>
+        <label for="c-31-foundations-typography-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -4553,9 +4669,9 @@ import { PageLayout, RiPaletteLine, Section, Sections } from "logbook-design-sys
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-30-foundations-typography-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-30-foundations-typography-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-30-foundations-typography-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-31-foundations-typography-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-31-foundations-typography-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-31-foundations-typography-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -4639,9 +4755,9 @@ Code:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> VisualsFoundations</h2>
       <div class="badges">
-        <label for="c-31-foundations-visuals-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-31-foundations-visuals-info" class="badge info as-toggle">1 info</label>
-        <label for="c-31-foundations-visuals-stories" class="badge err as-toggle">1/1 story errors</label>
+        <label for="c-32-foundations-visuals-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-32-foundations-visuals-info" class="badge info as-toggle">1 info</label>
+        <label for="c-32-foundations-visuals-stories" class="badge err as-toggle">1/1 story errors</label>
         
         
       </div>
@@ -4653,9 +4769,9 @@ Code:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-31-foundations-visuals-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-31-foundations-visuals-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-31-foundations-visuals-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-32-foundations-visuals-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-32-foundations-visuals-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-32-foundations-visuals-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -4882,9 +4998,9 @@ import { PageLayout, Section, Sections } from "logbook-design-system";</code></p
     <div class="title">
       <h2><span class="status-dot dot-err"></span> VoicePlayerDemo</h2>
       <div class="badges">
-        <label for="c-32-logbook-voiceplayer-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-32-logbook-voiceplayer-info" class="badge info as-toggle">1 info</label>
-        <label for="c-32-logbook-voiceplayer-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-33-logbook-voiceplayer-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-33-logbook-voiceplayer-info" class="badge info as-toggle">1 info</label>
+        <label for="c-33-logbook-voiceplayer-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -4896,9 +5012,9 @@ import { PageLayout, Section, Sections } from "logbook-design-system";</code></p
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-32-logbook-voiceplayer-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-32-logbook-voiceplayer-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-32-logbook-voiceplayer-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-33-logbook-voiceplayer-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-33-logbook-voiceplayer-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-33-logbook-voiceplayer-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -5056,9 +5172,9 @@ export const Default: Story = {
     <div class="title">
       <h2><span class="status-dot dot-err"></span> VoiceRecorderDemo</h2>
       <div class="badges">
-        <label for="c-33-logbook-voicerecorder-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-33-logbook-voicerecorder-info" class="badge info as-toggle">1 info</label>
-        <label for="c-33-logbook-voicerecorder-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-34-logbook-voicerecorder-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-34-logbook-voicerecorder-info" class="badge info as-toggle">1 info</label>
+        <label for="c-34-logbook-voicerecorder-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -5070,9 +5186,9 @@ export const Default: Story = {
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-33-logbook-voicerecorder-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-33-logbook-voicerecorder-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-33-logbook-voicerecorder-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-34-logbook-voicerecorder-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-34-logbook-voicerecorder-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-34-logbook-voicerecorder-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   

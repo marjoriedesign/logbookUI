@@ -676,6 +676,109 @@
       ],
       "import": "import { Box } from \"@mui/material\";\nimport { LogbookCommentField, PageLayout, RiThumbUpLine, Section, Sections } from \"logbook-design-system\";"
     },
+    "logbook-dropzone": {
+      "id": "logbook-dropzone",
+      "name": "LogbookDropzone",
+      "path": "./src/stories/Logbook/Dropzone.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "LogbookDropzone",
+        "definedInFile": "/Users/marjorie/logbook-design-system/src/components/LogbookDropzone.tsx",
+        "actualName": "LogbookDropzone",
+        "exportName": "LogbookDropzone",
+        "props": {
+          "label": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "'Sélectionner un document'",
+              "computed": false
+            }
+          },
+          "helperText": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "'Sujet, corrigé, grille d’évaluation...'",
+              "computed": false
+            }
+          },
+          "accept": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "multiple": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "true",
+              "computed": false
+            }
+          },
+          "disabled": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "false",
+              "computed": false
+            }
+          },
+          "onFilesSelected": {
+            "required": false,
+            "tsType": {
+              "name": "signature",
+              "type": "function",
+              "raw": "(files: File[]) => void",
+              "signature": {
+                "arguments": [
+                  {
+                    "type": {
+                      "name": "Array",
+                      "elements": [
+                        {
+                          "name": "File"
+                        }
+                      ],
+                      "raw": "File[]"
+                    },
+                    "name": "files"
+                  }
+                ],
+                "return": {
+                  "name": "void"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "logbook-dropzone--default",
+          "name": "Default",
+          "snippet": "const Default = () => (\n  <Sections>\n    <Section title=\"Default (clic ou glisser-déposer, 480px de large)\">\n      <Box sx={{ width: { xs: '100%', sm: 480 } }}>\n        <LogbookDropzone onFilesSelected={(files) => console.log('files', files)} />\n      </Box>\n    </Section>\n    <Section title=\"Libellés personnalisés\">\n      <Box sx={{ width: { xs: '100%', sm: 480 } }}>\n        <LogbookDropzone\n          label=\"Déposer la grille d'évaluation\"\n          helperText=\"PDF, jusqu'à 10 Mo\"\n          accept=\"application/pdf\"\n          multiple={false}\n        />\n      </Box>\n    </Section>\n    <Section title=\"Désactivé\">\n      <Box sx={{ width: { xs: '100%', sm: 480 } }}>\n        <LogbookDropzone disabled />\n      </Box>\n    </Section>\n  </Sections>\n);"
+        }
+      ],
+      "import": "import { Box } from \"@mui/material\";\nimport { LogbookDropzone, PageLayout, Section, Sections } from \"logbook-design-system\";"
+    },
     "logbook-sidepanelfooter": {
       "id": "logbook-sidepanelfooter",
       "name": "LogbookSidePanelFooter",
@@ -885,6 +988,6 @@
   },
   "meta": {
     "docgen": "react-docgen",
-    "durationMs": 344
+    "durationMs": 374
   }
 }
