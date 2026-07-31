@@ -53,5 +53,9 @@ export {
   LogbookCommentField,
   type LogbookCommentFieldProps,
 } from './components/LogbookCommentField';
+export {
+  LogbookDropzone,
+  type LogbookDropzoneProps,
+} from './components/LogbookDropzone';
 
 export * from './icons';
