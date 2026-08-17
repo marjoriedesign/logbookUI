@@ -69,6 +69,7 @@ Factuel uniquement. Mis à jour à la fin de chaque session (cf. CLAUDE.md).
 - Nouvelle illustration "Time" dans `Foundations/Visuals` → "Icon Illustrations" (`src/assets/illustrations/Time.svg`, fournie par Marjorie), même gabarit 136px que les 7 illustrations existantes.
 - Vérifié : `tsc -b --force` clean, rendu live confirmé en Storybook (Playwright), `build-storybook` réussi. Violation a11y "Heading order" (Moderate) constatée sur `Foundations/Visuals` — préexistante (structure `PageLayout`/`Section`, h3→h6, commune à toutes les pages Foundations), pas introduite par ces ajouts, pas traitée.
 - `RiBookletLine` ajouté au barrel d'icônes (`src/icons/index.ts`) : demandé par `logbook-dashboard` pour l'onglet "Bulletins" de sa nouvelle page `EvaluationsPage` (liste des évaluations d'une classe) — aucune icône déjà réexportée ne correspondait sémantiquement (livret/bulletin).
+- `LogbookNavbar` : nouvelle prop optionnelle `classPlaceholder` (défaut `"Classe"`), affichée à la place du libellé de classe quand `selectedClass` vaut `""` (`displayEmpty`/`renderValue` sur le `Select` interne). Changement rétrocompatible — demandé par `logbook-dashboard` pour sa nouvelle page `Home` (accueil listant toutes les classes, avant toute sélection). Nouvelle section de démo dans la story `Logbook/Navbar` ("Sans classe sélectionnée").
 
 ## Dette technique
 
