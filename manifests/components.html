@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note info" style="margin-bottom: 16px;">
-            <strong>Tip:</strong> You are using <code>react-docgen</code> (the default). Generation took <strong>0.4s</strong>. For higher quality prop types, consider switching to <code>react-docgen-typescript</code> in your <code>main.ts</code>:
+            <strong>Tip:</strong> You are using <code>react-docgen</code> (the default). Generation took <strong>0.3s</strong>. For higher quality prop types, consider switching to <code>react-docgen-typescript</code> in your <code>main.ts</code>:
             <pre><code>typescript: {
   reactDocgen: 'react-docgen-typescript',
 }</code></pre>
@@ -4783,13 +4783,13 @@ Code:
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>No component file found for the &quot;VisualsFoundations&quot; component.
-  142 | }
-  143 |
-&gt; 144 | const meta: Meta&lt;typeof VisualsFoundations&gt; = {
+  184 | }
+  185 |
+&gt; 186 | const meta: Meta&lt;typeof VisualsFoundations&gt; = {
       | ^
-  145 |   title: &#39;Foundations/Visuals&#39;,
-  146 |   component: VisualsFoundations,
-  147 |   parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
+  187 |   title: &#39;Foundations/Visuals&#39;,
+  188 |   component: VisualsFoundations,
+  189 |   parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
 
 ./src/stories/Foundations/Visuals.stories.tsx:
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;;
@@ -4809,6 +4809,11 @@ import girl2 from &#39;../../assets/avatars/Girl2.svg&#39;;
 import girl3 from &#39;../../assets/avatars/Girl3.svg&#39;;
 import girl4 from &#39;../../assets/avatars/Girl4.svg&#39;;
 
+import class1 from &#39;../../assets/avatars/Class1.svg&#39;;
+import class2 from &#39;../../assets/avatars/Class2.svg&#39;;
+import class3 from &#39;../../assets/avatars/Class3.svg&#39;;
+import class4 from &#39;../../assets/avatars/Class4.svg&#39;;
+
 import announcement from &#39;../../assets/illustrations/Announcement.svg&#39;;
 import certification from &#39;../../assets/illustrations/Certification.svg&#39;;
 import editing from &#39;../../assets/illustrations/Editing.svg&#39;;
@@ -4816,6 +4821,7 @@ import feedback from &#39;../../assets/illustrations/Feedback.svg&#39;;
 import growth from &#39;../../assets/illustrations/Growth.svg&#39;;
 import inbox from &#39;../../assets/illustrations/Inbox.svg&#39;;
 import oralPractice from &#39;../../assets/illustrations/OralPractice.svg&#39;;
+import time from &#39;../../assets/illustrations/Time.svg&#39;;
 
 const avatarVisuals = [
   { name: &#39;Boy1&#39;, src: boy1 },
@@ -4828,6 +4834,13 @@ const avatarVisuals = [
   { name: &#39;Girl4&#39;, src: girl4 },
 ];
 
+const classAvatarVisuals = [
+  { name: &#39;Class1&#39;, src: class1 },
+  { name: &#39;Class2&#39;, src: class2 },
+  { name: &#39;Class3&#39;, src: class3 },
+  { name: &#39;Class4&#39;, src: class4 },
+];
+
 const iconIllustrations = [
   { name: &#39;Announcement&#39;, src: announcement },
   { name: &#39;Certification&#39;, src: certification },
@@ -4836,6 +4849,7 @@ const iconIllustrations = [
   { name: &#39;Growth&#39;, src: growth },
   { name: &#39;Inbox&#39;, src: inbox },
   { name: &#39;Oral Practice&#39;, src: oralPractice },
+  { name: &#39;Time&#39;, src: time },
 ];
 
 const avatarCellSize = designTokens.spacing[&#39;12&#39;]; // 96px, même cran que Foundations/Icons
@@ -4884,6 +4898,34 @@ function VisualsFoundations() {
             }}
           &gt;
             {avatarVisuals.map(({ name, src }) =&gt; (
+              &lt;Box
+                key={name}
+                sx={{
+                  width: avatarCellSize,
+                  display: &#39;flex&#39;,
+                  flexDirection: &#39;column&#39;,
+                  alignItems: &#39;center&#39;,
+                  gap: 1,
+                }}
+              &gt;
+                &lt;Avatar src={src} alt={name} sx={{ width: 56, height: 56 }} /&gt;
+                &lt;Typography variant=&quot;caption&quot; sx={{ textAlign: &#39;center&#39; }}&gt;
+                  {name}
+                &lt;/Typography&gt;
+              &lt;/Box&gt;
+            ))}
+          &lt;/Box&gt;
+        &lt;/Section&gt;
+
+        &lt;Section title=&quot;Class Avatars&quot;&gt;
+          &lt;Box
+            sx={{
+              display: &#39;grid&#39;,
+              gridTemplateColumns: `repeat(auto-fill, ${avatarCellSize}px)`,
+              gap: 2,
+            }}
+          &gt;
+            {classAvatarVisuals.map(({ name, src }) =&gt; (
               &lt;Box
                 key={name}
                 sx={{
@@ -8760,13 +8802,13 @@ import { PageLayout, RiPaletteLine, Section, Sections } from "logbook-design-sys
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>No component file found for the &quot;VisualsFoundations&quot; component.
-  142 | }
-  143 |
-&gt; 144 | const meta: Meta&lt;typeof VisualsFoundations&gt; = {
+  184 | }
+  185 |
+&gt; 186 | const meta: Meta&lt;typeof VisualsFoundations&gt; = {
       | ^
-  145 |   title: &#39;Foundations/Visuals&#39;,
-  146 |   component: VisualsFoundations,
-  147 |   parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
+  187 |   title: &#39;Foundations/Visuals&#39;,
+  188 |   component: VisualsFoundations,
+  189 |   parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
 
 ./src/stories/Foundations/Visuals.stories.tsx:
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;;
@@ -8786,6 +8828,11 @@ import girl2 from &#39;../../assets/avatars/Girl2.svg&#39;;
 import girl3 from &#39;../../assets/avatars/Girl3.svg&#39;;
 import girl4 from &#39;../../assets/avatars/Girl4.svg&#39;;
 
+import class1 from &#39;../../assets/avatars/Class1.svg&#39;;
+import class2 from &#39;../../assets/avatars/Class2.svg&#39;;
+import class3 from &#39;../../assets/avatars/Class3.svg&#39;;
+import class4 from &#39;../../assets/avatars/Class4.svg&#39;;
+
 import announcement from &#39;../../assets/illustrations/Announcement.svg&#39;;
 import certification from &#39;../../assets/illustrations/Certification.svg&#39;;
 import editing from &#39;../../assets/illustrations/Editing.svg&#39;;
@@ -8793,6 +8840,7 @@ import feedback from &#39;../../assets/illustrations/Feedback.svg&#39;;
 import growth from &#39;../../assets/illustrations/Growth.svg&#39;;
 import inbox from &#39;../../assets/illustrations/Inbox.svg&#39;;
 import oralPractice from &#39;../../assets/illustrations/OralPractice.svg&#39;;
+import time from &#39;../../assets/illustrations/Time.svg&#39;;
 
 const avatarVisuals = [
   { name: &#39;Boy1&#39;, src: boy1 },
@@ -8805,6 +8853,13 @@ const avatarVisuals = [
   { name: &#39;Girl4&#39;, src: girl4 },
 ];
 
+const classAvatarVisuals = [
+  { name: &#39;Class1&#39;, src: class1 },
+  { name: &#39;Class2&#39;, src: class2 },
+  { name: &#39;Class3&#39;, src: class3 },
+  { name: &#39;Class4&#39;, src: class4 },
+];
+
 const iconIllustrations = [
   { name: &#39;Announcement&#39;, src: announcement },
   { name: &#39;Certification&#39;, src: certification },
@@ -8813,6 +8868,7 @@ const iconIllustrations = [
   { name: &#39;Growth&#39;, src: growth },
   { name: &#39;Inbox&#39;, src: inbox },
   { name: &#39;Oral Practice&#39;, src: oralPractice },
+  { name: &#39;Time&#39;, src: time },
 ];
 
 const avatarCellSize = designTokens.spacing[&#39;12&#39;]; // 96px, même cran que Foundations/Icons
@@ -8861,6 +8917,34 @@ function VisualsFoundations() {
             }}
           &gt;
             {avatarVisuals.map(({ name, src }) =&gt; (
+              &lt;Box
+                key={name}
+                sx={{
+                  width: avatarCellSize,
+                  display: &#39;flex&#39;,
+                  flexDirection: &#39;column&#39;,
+                  alignItems: &#39;center&#39;,
+                  gap: 1,
+                }}
+              &gt;
+                &lt;Avatar src={src} alt={name} sx={{ width: 56, height: 56 }} /&gt;
+                &lt;Typography variant=&quot;caption&quot; sx={{ textAlign: &#39;center&#39; }}&gt;
+                  {name}
+                &lt;/Typography&gt;
+              &lt;/Box&gt;
+            ))}
+          &lt;/Box&gt;
+        &lt;/Section&gt;
+
+        &lt;Section title=&quot;Class Avatars&quot;&gt;
+          &lt;Box
+            sx={{
+              display: &#39;grid&#39;,
+              gridTemplateColumns: `repeat(auto-fill, ${avatarCellSize}px)`,
+              gap: 2,
+            }}
+          &gt;
+            {classAvatarVisuals.map(({ name, src }) =&gt; (
               &lt;Box
                 key={name}
                 sx={{
