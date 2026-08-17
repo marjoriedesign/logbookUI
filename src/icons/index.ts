@@ -139,6 +139,7 @@ export {
   RiStickyNoteAddLine,
   RiFileCopyLine,
   RiFileCheckLine,
+  RiBookletLine,
   RiQrCodeLine,
   RiKeyLine,
   RiLockLine,
