@@ -68,6 +68,7 @@ Factuel uniquement. Mis à jour à la fin de chaque session (cf. CLAUDE.md).
 - Nouvelle section "Class Avatars" sur `Foundations/Visuals` : 4 avatars de classe (`src/assets/avatars/Class1.svg`–`Class4.svg`, fournis par Marjorie) affichés entre "Avatars" et "Icon Illustrations", même grille/cellule 96px que la section Avatars existante.
 - Nouvelle illustration "Time" dans `Foundations/Visuals` → "Icon Illustrations" (`src/assets/illustrations/Time.svg`, fournie par Marjorie), même gabarit 136px que les 7 illustrations existantes.
 - Vérifié : `tsc -b --force` clean, rendu live confirmé en Storybook (Playwright), `build-storybook` réussi. Violation a11y "Heading order" (Moderate) constatée sur `Foundations/Visuals` — préexistante (structure `PageLayout`/`Section`, h3→h6, commune à toutes les pages Foundations), pas introduite par ces ajouts, pas traitée.
+- `RiBookletLine` ajouté au barrel d'icônes (`src/icons/index.ts`) : demandé par `logbook-dashboard` pour l'onglet "Bulletins" de sa nouvelle page `EvaluationsPage` (liste des évaluations d'une classe) — aucune icône déjà réexportée ne correspondait sémantiquement (livret/bulletin).
 
 ## Dette technique
 
