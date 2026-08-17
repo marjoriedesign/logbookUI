@@ -12,8 +12,11 @@ export interface LogbookNavbarClassOption {
 
 export interface LogbookNavbarProps {
   classOptions: LogbookNavbarClassOption[];
+  /** Chaîne vide = aucune classe sélectionnée (ex. page d'accueil) : affiche `classPlaceholder`. */
   selectedClass: string;
   onClassChange: (value: string) => void;
+  /** Affiché quand `selectedClass` est vide. */
+  classPlaceholder?: string;
   userName: string;
   notificationCount?: number;
   onShareAccess?: () => void;
@@ -31,6 +34,7 @@ export function LogbookNavbar({
   classOptions,
   selectedClass,
   onClassChange,
+  classPlaceholder = 'Classe',
   userName,
   notificationCount = 0,
   onShareAccess,
@@ -57,6 +61,10 @@ export function LogbookNavbar({
               size="small"
               value={selectedClass}
               onChange={(event: SelectChangeEvent) => onClassChange(event.target.value)}
+              displayEmpty
+              renderValue={(value) =>
+                value ? (classOptions.find((option) => option.value === value)?.label ?? value) : classPlaceholder
+              }
               sx={{ minWidth: 96 }}
               aria-label="Classe"
             >

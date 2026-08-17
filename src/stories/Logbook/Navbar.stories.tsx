@@ -9,8 +9,8 @@ const classOptions = [
   { value: '1eres', label: '1ÈRE S' },
 ];
 
-function NavbarDemo() {
-  const [selectedClass, setSelectedClass] = useState('2de2');
+function NavbarDemo({ initialSelectedClass = '2de2' }: { initialSelectedClass?: string }) {
+  const [selectedClass, setSelectedClass] = useState(initialSelectedClass);
   return (
     <LogbookNavbar
       classOptions={classOptions}
@@ -37,6 +37,9 @@ export const Default: Story = {
     <Sections>
       <Section title="Default">
         <NavbarDemo />
+      </Section>
+      <Section title="Sans classe sélectionnée (ex. page d'accueil)">
+        <NavbarDemo initialSelectedClass="" />
       </Section>
     </Sections>
   ),
