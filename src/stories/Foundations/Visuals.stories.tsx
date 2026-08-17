@@ -15,6 +15,11 @@ import girl2 from '../../assets/avatars/Girl2.svg';
 import girl3 from '../../assets/avatars/Girl3.svg';
 import girl4 from '../../assets/avatars/Girl4.svg';
 
+import class1 from '../../assets/avatars/Class1.svg';
+import class2 from '../../assets/avatars/Class2.svg';
+import class3 from '../../assets/avatars/Class3.svg';
+import class4 from '../../assets/avatars/Class4.svg';
+
 import announcement from '../../assets/illustrations/Announcement.svg';
 import certification from '../../assets/illustrations/Certification.svg';
 import editing from '../../assets/illustrations/Editing.svg';
@@ -22,6 +27,7 @@ import feedback from '../../assets/illustrations/Feedback.svg';
 import growth from '../../assets/illustrations/Growth.svg';
 import inbox from '../../assets/illustrations/Inbox.svg';
 import oralPractice from '../../assets/illustrations/OralPractice.svg';
+import time from '../../assets/illustrations/Time.svg';
 
 const avatarVisuals = [
   { name: 'Boy1', src: boy1 },
@@ -34,6 +40,13 @@ const avatarVisuals = [
   { name: 'Girl4', src: girl4 },
 ];
 
+const classAvatarVisuals = [
+  { name: 'Class1', src: class1 },
+  { name: 'Class2', src: class2 },
+  { name: 'Class3', src: class3 },
+  { name: 'Class4', src: class4 },
+];
+
 const iconIllustrations = [
   { name: 'Announcement', src: announcement },
   { name: 'Certification', src: certification },
@@ -42,6 +55,7 @@ const iconIllustrations = [
   { name: 'Growth', src: growth },
   { name: 'Inbox', src: inbox },
   { name: 'Oral Practice', src: oralPractice },
+  { name: 'Time', src: time },
 ];
 
 const avatarCellSize = designTokens.spacing['12']; // 96px, même cran que Foundations/Icons
@@ -90,6 +104,34 @@ function VisualsFoundations() {
             }}
           >
             {avatarVisuals.map(({ name, src }) => (
+              <Box
+                key={name}
+                sx={{
+                  width: avatarCellSize,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: 1,
+                }}
+              >
+                <Avatar src={src} alt={name} sx={{ width: 56, height: 56 }} />
+                <Typography variant="caption" sx={{ textAlign: 'center' }}>
+                  {name}
+                </Typography>
+              </Box>
+            ))}
+          </Box>
+        </Section>
+
+        <Section title="Class Avatars">
+          <Box
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: `repeat(auto-fill, ${avatarCellSize}px)`,
+              gap: 2,
+            }}
+          >
+            {classAvatarVisuals.map(({ name, src }) => (
               <Box
                 key={name}
                 sx={{
