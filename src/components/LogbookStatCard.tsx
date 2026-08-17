@@ -12,9 +12,9 @@ export interface LogbookStatCardProps {
 
 export function LogbookStatCard({ icon, iconAlt = '', label, value, suffix }: LogbookStatCardProps) {
   return (
-    <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', width: 128, p: 1, gap: 2 }}>
+    <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', minWidth: 128, p: 1, gap: 2 }}>
       <Box component="img" src={icon} alt={iconAlt} sx={{ width: 48, height: 48 }} />
-      <Typography variant="h5" color="textPrimary">
+      <Typography variant="h5" color="textPrimary" sx={{ whiteSpace: 'nowrap' }}>
         {label}
       </Typography>
       <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 0.5 }}>
