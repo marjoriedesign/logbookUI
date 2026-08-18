@@ -1,5 +1,5 @@
 import { AppBar, Toolbar, Box, Button, ButtonBase, Select, MenuItem, Badge } from '@mui/material';
-import type { SelectChangeEvent } from '@mui/material';
+import type { SelectChangeEvent, Theme } from '@mui/material';
 import { RiShareLine, RiFeedbackLine, RiNotificationLine, RiAccountCircleLine } from '../icons';
 import { LogbookIconButton } from './LogbookIconButton';
 import { designTokens } from '../theme/generated/tokens';
@@ -27,6 +27,29 @@ export interface LogbookNavbarProps {
   onProfile?: () => void;
 }
 
+// Seuil de bascule mobile/desktop propre à la navbar (ni md/900px ni
+// lg/1200px du DS) : calé au plus près du besoin réel du contenu desktop
+// complet (logo + select + "Partager les accès" + "Feedback" + cloche +
+// profil), mesuré à ~925px (Playwright, somme des largeurs naturelles des
+// deux groupes + padding du Toolbar à 40px) + une marge de sécurité
+// modeste (~15px, variations de rendu de police entre navigateurs/OS).
+// md (900px) faisait passer "Partager les accès" sur 2 lignes faute de
+// place ; lg (1200px), essayé ensuite, laissait un entre-deux large où la
+// navbar restait en mode compact alors qu'elle avait déjà la place —
+// signalé par Marjorie. theme.breakpoints.up/down() avec un nombre brut
+// reste l'API de breakpoints MUI (pas une media query écrite à la main),
+// seul moyen d'obtenir ce point de rupture précis, propre à ce composant
+// (pas une redéfinition globale de md/lg, qui affecterait tout le thème).
+const NAVBAR_DESKTOP_BREAKPOINT = 940;
+const showAboveNavbarBreakpoint = (theme: Theme) => ({
+  display: 'none',
+  [theme.breakpoints.up(NAVBAR_DESKTOP_BREAKPOINT)]: { display: 'inline-flex' },
+});
+const hideAboveNavbarBreakpoint = (theme: Theme) => ({
+  display: 'inline-flex',
+  [theme.breakpoints.up(NAVBAR_DESKTOP_BREAKPOINT)]: { display: 'none' },
+});
+
 // Menu du haut du produit Logbook : logo, sélecteur de classe + partage des
 // accès à gauche, feedback/notifications/profil à droite. Composé à partir
 // des composants déjà thémés (AppBar, Button Outlined Secondary, Select,
@@ -50,17 +73,17 @@ export function LogbookNavbar({
       {/* Padding géré par le thème (MuiToolbar, cf. theme/components/Toolbar.ts) */}
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: `${designTokens.spacing.lg}px` }}>
-          {/* Logo : masqué sous 1200px (breakpoint lg) pour laisser la place
-              au reste de la navbar sur petit écran. ButtonBase (pas un
-              Box img nu) pour l'accessibilité clavier native du clic
+          {/* Logo : masqué sous NAVBAR_DESKTOP_BREAKPOINT pour laisser la
+              place au reste de la navbar sur petit écran. ButtonBase (pas
+              un Box img nu) pour l'accessibilité clavier native du clic
               (retour à l'accueil). */}
           <ButtonBase
             onClick={onLogoClick}
             aria-label="Accueil"
-            sx={{
-              display: { xs: 'none', lg: 'inline-flex' },
+            sx={(theme) => ({
+              ...showAboveNavbarBreakpoint(theme),
               borderRadius: designTokens.borderRadius.sm,
-            }}
+            })}
           >
             <Box component="img" src={logoGreen} alt="" sx={{ height: 32, display: 'block' }} />
           </ButtonBase>
@@ -90,14 +113,14 @@ export function LogbookNavbar({
               ))}
             </Select>
 
-            {/* Masqué sous 1200px, comme le logo. */}
+            {/* Masqué sous NAVBAR_DESKTOP_BREAKPOINT, comme le logo. */}
             <Button
               variant="outlined"
               color="secondary"
               size="large"
               startIcon={<RiShareLine size="1em" />}
               onClick={onShareAccess}
-              sx={{ display: { xs: 'none', lg: 'inline-flex' } }}
+              sx={showAboveNavbarBreakpoint}
             >
               Partager les accès
             </Button>
@@ -105,15 +128,15 @@ export function LogbookNavbar({
         </Box>
 
         <Box sx={{ display: 'flex', alignItems: 'center', gap: `${designTokens.spacing.sm}px` }}>
-          {/* Feedback : bouton texte+icône à partir de 1200px, icon button
-              seul en dessous. */}
+          {/* Feedback : bouton texte+icône à partir de NAVBAR_DESKTOP_BREAKPOINT,
+              icon button seul en dessous. */}
           <Button
             variant="outlined"
             color="secondary"
             size="large"
             startIcon={<RiFeedbackLine size="1em" />}
             onClick={onFeedback}
-            sx={{ display: { xs: 'none', lg: 'inline-flex' } }}
+            sx={showAboveNavbarBreakpoint}
           >
             Feedback
           </Button>
@@ -122,7 +145,7 @@ export function LogbookNavbar({
             size="large"
             aria-label="Feedback"
             onClick={onFeedback}
-            sx={{ display: { xs: 'inline-flex', lg: 'none' } }}
+            sx={hideAboveNavbarBreakpoint}
           >
             <RiFeedbackLine size="1em" />
           </LogbookIconButton>
@@ -139,14 +162,14 @@ export function LogbookNavbar({
           </Badge>
 
           {/* Profil : même bascule bouton texte+icône / icon button que
-              Feedback sous 1200px. */}
+              Feedback sous NAVBAR_DESKTOP_BREAKPOINT. */}
           <Button
             variant="outlined"
             color="secondary"
             size="large"
             startIcon={<RiAccountCircleLine size="1em" />}
             onClick={onProfile}
-            sx={{ display: { xs: 'none', lg: 'inline-flex' } }}
+            sx={showAboveNavbarBreakpoint}
           >
             {userName}
           </Button>
@@ -155,7 +178,7 @@ export function LogbookNavbar({
             size="large"
             aria-label={userName}
             onClick={onProfile}
-            sx={{ display: { xs: 'inline-flex', lg: 'none' } }}
+            sx={hideAboveNavbarBreakpoint}
           >
             <RiAccountCircleLine size="1em" />
           </LogbookIconButton>
