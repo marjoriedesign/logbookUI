@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note info" style="margin-bottom: 16px;">
-            <strong>Tip:</strong> You are using <code>react-docgen</code> (the default). Generation took <strong>0.3s</strong>. For higher quality prop types, consider switching to <code>react-docgen-typescript</code> in your <code>main.ts</code>:
+            <strong>Tip:</strong> You are using <code>react-docgen</code> (the default). Generation took <strong>0.4s</strong>. For higher quality prop types, consider switching to <code>react-docgen-typescript</code> in your <code>main.ts</code>:
             <pre><code>typescript: {
   reactDocgen: 'react-docgen-typescript',
 }</code></pre>
@@ -686,7 +686,7 @@ Code:
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Alert, PageLayout, Section, Sections, Stack } from "@mui/material";</code></pre>
+                <pre><code>import { Alert, AlertTitle, PageLayout, Section, Sections, Stack } from "@mui/material";</code></pre>
               </div>
           
           
@@ -727,6 +727,13 @@ Code:
           &lt;/Alert&gt;
         ))}
       &lt;/Stack&gt;
+    &lt;/Section&gt;
+
+    &lt;Section title=&quot;Avec AlertTitle&quot;&gt;
+      &lt;Alert severity=&quot;info&quot; variant=&quot;filled&quot;&gt;
+        &lt;AlertTitle&gt;Professeur de lycée en Île-de-France ?&lt;/AlertTitle&gt;
+        Vous pouvez désormais commander une licence Logbook sur le catalogue de la Région.
+      &lt;/Alert&gt;
     &lt;/Section&gt;
   &lt;/Sections&gt;
 );</code></pre>
@@ -3533,6 +3540,25 @@ import { Stack } from "@mui/material";</code></pre>
                 suffix=&quot;%&quot; /&gt;
         &lt;/Stack&gt;
     &lt;/Section&gt;
+    &lt;Section title=&quot;Groupe aligné sur la carte la plus large&quot;&gt;
+        {/* minWidth (pas width) sur la Card + colonnes de grille 1fr égales :
+            toutes les cartes s&#39;élargissent au niveau de la plus large plutôt
+            que de laisser un libellé long passer sur 2 lignes. */}
+        &lt;Stack
+            sx={{ display: &#39;grid&#39;, gridAutoFlow: &#39;column&#39;, gridAutoColumns: &#39;1fr&#39;, gap: 2 }}&gt;
+            &lt;LogbookStatCard
+                icon={certification}
+                iconAlt=&quot;Certification&quot;
+                label=&quot;Correction&quot;
+                value={16}
+                suffix=&quot;%&quot; /&gt;
+            &lt;LogbookStatCard
+                icon={growth}
+                iconAlt=&quot;Croissance&quot;
+                label=&quot;Temps moyen d&#39;un audio&quot;
+                value=&quot;0min10s&quot; /&gt;
+        &lt;/Stack&gt;
+    &lt;/Section&gt;
 &lt;/Sections&gt;;</code></pre>
             </div>
         </div>
@@ -3600,8 +3626,8 @@ const classOptions = [
   { value: &#39;1eres&#39;, label: &#39;1ÈRE S&#39; },
 ];
 
-function NavbarDemo() {
-  const [selectedClass, setSelectedClass] = useState(&#39;2de2&#39;);
+function NavbarDemo({ initialSelectedClass = &#39;2de2&#39; }: { initialSelectedClass?: string }) {
+  const [selectedClass, setSelectedClass] = useState(initialSelectedClass);
   return (
     &lt;LogbookNavbar
       classOptions={classOptions}
@@ -3628,6 +3654,9 @@ export const Default: Story = {
     &lt;Sections&gt;
       &lt;Section title=&quot;Default&quot;&gt;
         &lt;NavbarDemo /&gt;
+      &lt;/Section&gt;
+      &lt;Section title=&quot;Sans classe sélectionnée (ex. page d&#39;accueil)&quot;&gt;
+        &lt;NavbarDemo initialSelectedClass=&quot;&quot; /&gt;
       &lt;/Section&gt;
     &lt;/Sections&gt;
   ),
@@ -3668,6 +3697,9 @@ export const Default: Story = {
   &lt;Sections&gt;
     &lt;Section title=&quot;Default&quot;&gt;
       &lt;NavbarDemo /&gt;
+    &lt;/Section&gt;
+    &lt;Section title=&quot;Sans classe sélectionnée (ex. page d&#39;accueil)&quot;&gt;
+      &lt;NavbarDemo initialSelectedClass=&quot;&quot; /&gt;
     &lt;/Section&gt;
   &lt;/Sections&gt;
 );</code></pre>
@@ -4783,13 +4815,13 @@ Code:
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>No component file found for the &quot;VisualsFoundations&quot; component.
-  184 | }
-  185 |
-&gt; 186 | const meta: Meta&lt;typeof VisualsFoundations&gt; = {
+  214 | }
+  215 |
+&gt; 216 | const meta: Meta&lt;typeof VisualsFoundations&gt; = {
       | ^
-  187 |   title: &#39;Foundations/Visuals&#39;,
-  188 |   component: VisualsFoundations,
-  189 |   parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
+  217 |   title: &#39;Foundations/Visuals&#39;,
+  218 |   component: VisualsFoundations,
+  219 |   parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
 
 ./src/stories/Foundations/Visuals.stories.tsx:
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;;
@@ -4822,6 +4854,7 @@ import growth from &#39;../../assets/illustrations/Growth.svg&#39;;
 import inbox from &#39;../../assets/illustrations/Inbox.svg&#39;;
 import oralPractice from &#39;../../assets/illustrations/OralPractice.svg&#39;;
 import time from &#39;../../assets/illustrations/Time.svg&#39;;
+import welcome from &#39;../../assets/illustrations/Welcome.png&#39;;
 
 const avatarVisuals = [
   { name: &#39;Boy1&#39;, src: boy1 },
@@ -4852,8 +4885,15 @@ const iconIllustrations = [
   { name: &#39;Time&#39;, src: time },
 ];
 
+// Portrait (240×300, ratio 4:5), pas un badge carré comme iconIllustrations
+// ci-dessus — scène de bienvenue (plante/livre/café), pas une icône
+// pictogramme. Rendu au format PNG fourni par Marjorie (pas de vectorisation
+// SVG faite ici), à la différence des autres illustrations du DS.
+const spotIllustrations = [{ name: &#39;Welcome&#39;, src: welcome }];
+
 const avatarCellSize = designTokens.spacing[&#39;12&#39;]; // 96px, même cran que Foundations/Icons
 const illustrationCellSize = 136; // taille native des assets (viewBox 136x136)
+const spotIllustrationCellWidth = 96;
 
 function VisualsFoundations() {
   return (
@@ -4965,6 +5005,28 @@ function VisualsFoundations() {
                 }}
               &gt;
                 &lt;Box component=&quot;img&quot; src={src} alt={name} sx={{ width: illustrationCellSize, height: illustrationCellSize }} /&gt;
+                &lt;Typography variant=&quot;caption&quot; sx={{ textAlign: &#39;center&#39; }}&gt;
+                  {name}
+                &lt;/Typography&gt;
+              &lt;/Box&gt;
+            ))}
+          &lt;/Box&gt;
+        &lt;/Section&gt;
+
+        &lt;Section title=&quot;Spot Illustrations&quot;&gt;
+          &lt;Box sx={{ display: &#39;grid&#39;, gridTemplateColumns: `repeat(auto-fill, ${spotIllustrationCellWidth}px)`, gap: 2 }}&gt;
+            {spotIllustrations.map(({ name, src }) =&gt; (
+              &lt;Box
+                key={name}
+                sx={{
+                  width: spotIllustrationCellWidth,
+                  display: &#39;flex&#39;,
+                  flexDirection: &#39;column&#39;,
+                  alignItems: &#39;center&#39;,
+                  gap: 1,
+                }}
+              &gt;
+                &lt;Box component=&quot;img&quot; src={src} alt={name} sx={{ width: spotIllustrationCellWidth, height: &#39;auto&#39; }} /&gt;
                 &lt;Typography variant=&quot;caption&quot; sx={{ textAlign: &#39;center&#39; }}&gt;
                   {name}
                 &lt;/Typography&gt;
@@ -5444,7 +5506,7 @@ Code:
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Alert, PageLayout, Section, Sections, Stack } from "@mui/material";</code></pre>
+                <pre><code>import { Alert, AlertTitle, PageLayout, Section, Sections, Stack } from "@mui/material";</code></pre>
               </div>
           
           
@@ -5485,6 +5547,13 @@ Code:
           &lt;/Alert&gt;
         ))}
       &lt;/Stack&gt;
+    &lt;/Section&gt;
+
+    &lt;Section title=&quot;Avec AlertTitle&quot;&gt;
+      &lt;Alert severity=&quot;info&quot; variant=&quot;filled&quot;&gt;
+        &lt;AlertTitle&gt;Professeur de lycée en Île-de-France ?&lt;/AlertTitle&gt;
+        Vous pouvez désormais commander une licence Logbook sur le catalogue de la Région.
+      &lt;/Alert&gt;
     &lt;/Section&gt;
   &lt;/Sections&gt;
 );</code></pre>
@@ -8185,8 +8254,8 @@ const classOptions = [
   { value: &#39;1eres&#39;, label: &#39;1ÈRE S&#39; },
 ];
 
-function NavbarDemo() {
-  const [selectedClass, setSelectedClass] = useState(&#39;2de2&#39;);
+function NavbarDemo({ initialSelectedClass = &#39;2de2&#39; }: { initialSelectedClass?: string }) {
+  const [selectedClass, setSelectedClass] = useState(initialSelectedClass);
   return (
     &lt;LogbookNavbar
       classOptions={classOptions}
@@ -8213,6 +8282,9 @@ export const Default: Story = {
     &lt;Sections&gt;
       &lt;Section title=&quot;Default&quot;&gt;
         &lt;NavbarDemo /&gt;
+      &lt;/Section&gt;
+      &lt;Section title=&quot;Sans classe sélectionnée (ex. page d&#39;accueil)&quot;&gt;
+        &lt;NavbarDemo initialSelectedClass=&quot;&quot; /&gt;
       &lt;/Section&gt;
     &lt;/Sections&gt;
   ),
@@ -8253,6 +8325,9 @@ export const Default: Story = {
   &lt;Sections&gt;
     &lt;Section title=&quot;Default&quot;&gt;
       &lt;NavbarDemo /&gt;
+    &lt;/Section&gt;
+    &lt;Section title=&quot;Sans classe sélectionnée (ex. page d&#39;accueil)&quot;&gt;
+      &lt;NavbarDemo initialSelectedClass=&quot;&quot; /&gt;
     &lt;/Section&gt;
   &lt;/Sections&gt;
 );</code></pre>
@@ -8802,13 +8877,13 @@ import { PageLayout, RiPaletteLine, Section, Sections } from "logbook-design-sys
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>No component file found for the &quot;VisualsFoundations&quot; component.
-  184 | }
-  185 |
-&gt; 186 | const meta: Meta&lt;typeof VisualsFoundations&gt; = {
+  214 | }
+  215 |
+&gt; 216 | const meta: Meta&lt;typeof VisualsFoundations&gt; = {
       | ^
-  187 |   title: &#39;Foundations/Visuals&#39;,
-  188 |   component: VisualsFoundations,
-  189 |   parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
+  217 |   title: &#39;Foundations/Visuals&#39;,
+  218 |   component: VisualsFoundations,
+  219 |   parameters: { layout: &#39;padded&#39;, controls: { disable: true } },
 
 ./src/stories/Foundations/Visuals.stories.tsx:
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;;
@@ -8841,6 +8916,7 @@ import growth from &#39;../../assets/illustrations/Growth.svg&#39;;
 import inbox from &#39;../../assets/illustrations/Inbox.svg&#39;;
 import oralPractice from &#39;../../assets/illustrations/OralPractice.svg&#39;;
 import time from &#39;../../assets/illustrations/Time.svg&#39;;
+import welcome from &#39;../../assets/illustrations/Welcome.png&#39;;
 
 const avatarVisuals = [
   { name: &#39;Boy1&#39;, src: boy1 },
@@ -8871,8 +8947,15 @@ const iconIllustrations = [
   { name: &#39;Time&#39;, src: time },
 ];
 
+// Portrait (240×300, ratio 4:5), pas un badge carré comme iconIllustrations
+// ci-dessus — scène de bienvenue (plante/livre/café), pas une icône
+// pictogramme. Rendu au format PNG fourni par Marjorie (pas de vectorisation
+// SVG faite ici), à la différence des autres illustrations du DS.
+const spotIllustrations = [{ name: &#39;Welcome&#39;, src: welcome }];
+
 const avatarCellSize = designTokens.spacing[&#39;12&#39;]; // 96px, même cran que Foundations/Icons
 const illustrationCellSize = 136; // taille native des assets (viewBox 136x136)
+const spotIllustrationCellWidth = 96;
 
 function VisualsFoundations() {
   return (
@@ -8984,6 +9067,28 @@ function VisualsFoundations() {
                 }}
               &gt;
                 &lt;Box component=&quot;img&quot; src={src} alt={name} sx={{ width: illustrationCellSize, height: illustrationCellSize }} /&gt;
+                &lt;Typography variant=&quot;caption&quot; sx={{ textAlign: &#39;center&#39; }}&gt;
+                  {name}
+                &lt;/Typography&gt;
+              &lt;/Box&gt;
+            ))}
+          &lt;/Box&gt;
+        &lt;/Section&gt;
+
+        &lt;Section title=&quot;Spot Illustrations&quot;&gt;
+          &lt;Box sx={{ display: &#39;grid&#39;, gridTemplateColumns: `repeat(auto-fill, ${spotIllustrationCellWidth}px)`, gap: 2 }}&gt;
+            {spotIllustrations.map(({ name, src }) =&gt; (
+              &lt;Box
+                key={name}
+                sx={{
+                  width: spotIllustrationCellWidth,
+                  display: &#39;flex&#39;,
+                  flexDirection: &#39;column&#39;,
+                  alignItems: &#39;center&#39;,
+                  gap: 1,
+                }}
+              &gt;
+                &lt;Box component=&quot;img&quot; src={src} alt={name} sx={{ width: spotIllustrationCellWidth, height: &#39;auto&#39; }} /&gt;
                 &lt;Typography variant=&quot;caption&quot; sx={{ textAlign: &#39;center&#39; }}&gt;
                   {name}
                 &lt;/Typography&gt;
