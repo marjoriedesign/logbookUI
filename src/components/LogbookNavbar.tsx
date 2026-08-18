@@ -50,7 +50,7 @@ export function LogbookNavbar({
       {/* Padding géré par le thème (MuiToolbar, cf. theme/components/Toolbar.ts) */}
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: `${designTokens.spacing.lg}px` }}>
-          {/* Logo : masqué sous 900px (breakpoint md) pour laisser la place
+          {/* Logo : masqué sous 1200px (breakpoint lg) pour laisser la place
               au reste de la navbar sur petit écran. ButtonBase (pas un
               Box img nu) pour l'accessibilité clavier native du clic
               (retour à l'accueil). */}
@@ -58,7 +58,7 @@ export function LogbookNavbar({
             onClick={onLogoClick}
             aria-label="Accueil"
             sx={{
-              display: { xs: 'none', md: 'inline-flex' },
+              display: { xs: 'none', lg: 'inline-flex' },
               borderRadius: designTokens.borderRadius.sm,
             }}
           >
@@ -90,14 +90,14 @@ export function LogbookNavbar({
               ))}
             </Select>
 
-            {/* Masqué sous 900px, comme le logo. */}
+            {/* Masqué sous 1200px, comme le logo. */}
             <Button
               variant="outlined"
               color="secondary"
               size="large"
               startIcon={<RiShareLine size="1em" />}
               onClick={onShareAccess}
-              sx={{ display: { xs: 'none', md: 'inline-flex' } }}
+              sx={{ display: { xs: 'none', lg: 'inline-flex' } }}
             >
               Partager les accès
             </Button>
@@ -105,7 +105,7 @@ export function LogbookNavbar({
         </Box>
 
         <Box sx={{ display: 'flex', alignItems: 'center', gap: `${designTokens.spacing.sm}px` }}>
-          {/* Feedback : bouton texte+icône à partir de 900px, icon button
+          {/* Feedback : bouton texte+icône à partir de 1200px, icon button
               seul en dessous. */}
           <Button
             variant="outlined"
@@ -113,7 +113,7 @@ export function LogbookNavbar({
             size="large"
             startIcon={<RiFeedbackLine size="1em" />}
             onClick={onFeedback}
-            sx={{ display: { xs: 'none', md: 'inline-flex' } }}
+            sx={{ display: { xs: 'none', lg: 'inline-flex' } }}
           >
             Feedback
           </Button>
@@ -122,7 +122,7 @@ export function LogbookNavbar({
             size="large"
             aria-label="Feedback"
             onClick={onFeedback}
-            sx={{ display: { xs: 'inline-flex', md: 'none' } }}
+            sx={{ display: { xs: 'inline-flex', lg: 'none' } }}
           >
             <RiFeedbackLine size="1em" />
           </LogbookIconButton>
@@ -139,14 +139,14 @@ export function LogbookNavbar({
           </Badge>
 
           {/* Profil : même bascule bouton texte+icône / icon button que
-              Feedback sous 900px. */}
+              Feedback sous 1200px. */}
           <Button
             variant="outlined"
             color="secondary"
             size="large"
             startIcon={<RiAccountCircleLine size="1em" />}
             onClick={onProfile}
-            sx={{ display: { xs: 'none', md: 'inline-flex' } }}
+            sx={{ display: { xs: 'none', lg: 'inline-flex' } }}
           >
             {userName}
           </Button>
@@ -155,7 +155,7 @@ export function LogbookNavbar({
             size="large"
             aria-label={userName}
             onClick={onProfile}
-            sx={{ display: { xs: 'inline-flex', md: 'none' } }}
+            sx={{ display: { xs: 'inline-flex', lg: 'none' } }}
           >
             <RiAccountCircleLine size="1em" />
           </LogbookIconButton>
