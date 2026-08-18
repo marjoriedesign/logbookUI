@@ -32,6 +32,17 @@ export const MuiTabs: Components<Theme>['MuiTabs'] = {
       // "valeurs en dur".
       height: 4,
     },
+    // MUI réserve la largeur des boutons de scroll (variant="scrollable")
+    // même désactivés (ex. bouton gauche quand on est déjà tout au début
+    // de la liste), décalant tous les onglets vers la droite — repéré par
+    // Marjorie sur mobile (EvaluationsPage/EvaluationDetail, 4 onglets
+    // scrollables). Masqué quand désactivé ; le bouton reste visible et
+    // fonctionnel côté où le scroll est réellement possible.
+    scrollButtons: {
+      '&.Mui-disabled': {
+        display: 'none',
+      },
+    },
   },
 };
 
