@@ -458,10 +458,10 @@
         {
           "id": "components-tabs--default",
           "name": "Default",
-          "snippet": "const Default = () => (\n  <Sections>\n    <Section title=\"Default\">\n      <CorrectionTabs />\n    </Section>\n  </Sections>\n);"
+          "snippet": "const Default = () => (\n  <Sections>\n    <Section title=\"Default\">\n      <CorrectionTabs />\n    </Section>\n    <Section title=\"Scrollable (conteneur étroit, 4 onglets)\">\n      <ScrollableTabs />\n    </Section>\n  </Sections>\n);"
         }
       ],
-      "import": "import { PageLayout, RiLineChartLine, RiMicLine, Section, Sections, Tab, Tabs } from \"@mui/material\";"
+      "import": "import {\n    Box,\n    PageLayout,\n    RiBookletLine,\n    RiFileTextLine,\n    RiGroupLine,\n    RiLineChartLine,\n    RiMicLine,\n    Section,\n    Sections,\n    Tab,\n    Tabs,\n} from \"@mui/material\";"
     },
     "logbook-navbar": {
       "id": "logbook-navbar",
@@ -988,6 +988,6 @@
   },
   "meta": {
     "docgen": "react-docgen",
-    "durationMs": 387
+    "durationMs": 358
   }
 }
