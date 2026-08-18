@@ -63,9 +63,11 @@ export const MuiTab: Components<Theme>['MuiTab'] = {
       '& .MuiTab-icon': {
         margin: 0,
       },
-      // Onglets plus compacts sous md (mobile exclusivement) : padding
-      // uniforme réduit à spacing.xs (8px) et typo en h5 (au lieu de
-      // typography.button.large) — demandé par Marjorie pour les onglets
+      // Onglets plus compacts sous md (mobile exclusivement) : seul le
+      // padding vertical est réduit (spacing.xs, 8px) — l'horizontal garde
+      // sa valeur habituelle (paddingInline ci-dessus, spacing.md) sur
+      // demande explicite de Marjorie. Typo en h5 (au lieu de
+      // typography.button.large) — demandé pour les onglets
       // d'EvaluationsPage/EvaluationDetail côté logbook-dashboard. La
       // taille d'icône (16×16 au lieu de 20×20 demandée) reste gérée côté
       // page consommatrice : la prop `size` de RiXxxLine n'est pas
@@ -73,7 +75,6 @@ export const MuiTab: Components<Theme>['MuiTab'] = {
       // MUI Tab pour ça, contrairement à `& .MuiTab-icon` qui ne cible que
       // le wrapper).
       [theme.breakpoints.down('md')]: {
-        paddingInline: designTokens.spacing.xs,
         paddingBlock: designTokens.spacing.xs,
         ...theme.typography.h5,
       },
