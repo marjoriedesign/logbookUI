@@ -16,9 +16,15 @@ export const MuiTabs: Components<Theme>['MuiTabs'] = {
     },
     // Rebaptisé `list` (au lieu de `flexContainer`) dans cette version de
     // MUI, cf. TabsClasses.
-    list: {
+    list: ({ theme }) => ({
       gap: designTokens.spacing.xs,
-    },
+      // Gap entre onglets réduit sous md (mobile exclusivement), demandé
+      // par Marjorie pour EvaluationsPage/EvaluationDetail côté
+      // logbook-dashboard.
+      [theme.breakpoints.down('md')]: {
+        gap: designTokens.spacing['3xs'],
+      },
+    }),
     indicator: {
       backgroundColor: color.primary.main,
       // Pas de token dédié à une épaisseur de trait/indicateur dans le DS
