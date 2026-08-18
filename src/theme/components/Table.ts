@@ -28,6 +28,16 @@ export const MuiTableCell: Components<Theme>['MuiTableCell'] = {
   styleOverrides: {
     root: ({ theme }) => ({
       borderBottom: `1px solid ${theme.palette.divider}`,
+      // Sous md, les tables (CorrectionsTable, tableau d'évaluations de
+      // logbook-dashboard) débordaient de leur conteneur en mobile avec le
+      // paddingInline 16px par défaut de MUI — réduit à spacing.xs (8px)
+      // sous ce seuil pour que le tableau tienne dans la largeur avec un
+      // padding de page de 16px, plutôt que de défiler horizontalement.
+      // Head et body concernés (même règle sur root) pour que les colonnes
+      // restent alignées entre l'en-tête et les lignes.
+      [theme.breakpoints.down('md')]: {
+        paddingInline: designTokens.spacing.xs,
+      },
     }),
     // Padding vertical des lignes du corps réduit à 8px (spacing.xs) au lieu
     // des 16px par défaut de MUI ("medium") : demandé par Marjorie
