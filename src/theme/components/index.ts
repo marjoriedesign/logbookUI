@@ -10,7 +10,7 @@ import { MuiAvatarGroup } from './AvatarGroup';
 import { MuiAvatar } from './Avatar';
 import { MuiSwitch } from './Switch';
 import { MuiFormControlLabel } from './FormControlLabel';
-import { MuiAlert } from './Alert';
+import { MuiAlert, MuiAlertTitle } from './Alert';
 import { MuiCheckbox } from './Checkbox';
 import { MuiSelect } from './Select';
 import { MuiTable, MuiTableCell } from './Table';
@@ -34,6 +34,7 @@ export const components: Components<Theme> = {
   MuiSwitch,
   MuiFormControlLabel,
   MuiAlert,
+  MuiAlertTitle,
   MuiCheckbox,
   MuiSelect,
   MuiTable,

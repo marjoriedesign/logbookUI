@@ -28,6 +28,25 @@ const filledBackground: Record<Severity, string> = {
 
 const severities: Severity[] = ['success', 'warning', 'error', 'info'];
 
+// typography.alert.title était défini dans les tokens (16/400/24, Zain)
+// mais jamais consommé — AlertTitle héritait du style par défaut de MUI
+// (subtitle2 + margin). Couleur en text.primary (noir), pas la couleur
+// héritée de la variante (ex. info.contrastText en filled) : demandé par
+// Marjorie pour que le titre ressorte davantage que le corps du message.
+const alertTitleTypography = designTokens.typography.alert.title;
+
+export const MuiAlertTitle: Components<Theme>['MuiAlertTitle'] = {
+  styleOverrides: {
+    root: {
+      fontFamily: alertTitleTypography.fontFamily,
+      fontWeight: alertTitleTypography.fontWeight,
+      fontSize: alertTitleTypography.fontSize,
+      lineHeight: `${alertTitleTypography.lineHeight}px`,
+      color: color.text.primary,
+    },
+  },
+};
+
 export const MuiAlert: Components<Theme>['MuiAlert'] = {
   styleOverrides: {
     root: {
