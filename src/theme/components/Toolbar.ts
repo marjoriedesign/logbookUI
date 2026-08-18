@@ -1,7 +1,10 @@
 import type { Components, Theme } from '@mui/material/styles';
 import { designTokens } from '../generated/tokens';
 
-// Padding demandé : 32px horizontal, 16px vertical (cf. LogbookNavbar).
+// Padding demandé : 16px horizontal en mobile, 40px horizontal en web
+// (16px vertical inchangé, cf. LogbookNavbar). Seuil mobile/web aligné sur
+// `md` (900px), le même breakpoint que le reste de LogbookNavbar utilise
+// déjà pour basculer logo/boutons (seul consommateur actuel de Toolbar).
 // MUI applique nativement un padding horizontal responsive (16px, puis 24px
 // dès `sm`, cf. Toolbar.js) via son propre mécanisme de variants interne : un
 // simple `sx` sur le composant ne suffit pas à le supplanter au-delà de
@@ -11,13 +14,13 @@ import { designTokens } from '../generated/tokens';
 export const MuiToolbar: Components<Theme>['MuiToolbar'] = {
   styleOverrides: {
     root: ({ theme }) => ({
-      paddingLeft: designTokens.spacing.lg,
-      paddingRight: designTokens.spacing.lg,
+      paddingLeft: designTokens.spacing.sm,
+      paddingRight: designTokens.spacing.sm,
       paddingTop: designTokens.spacing.sm,
       paddingBottom: designTokens.spacing.sm,
-      [theme.breakpoints.up('sm')]: {
-        paddingLeft: designTokens.spacing.lg,
-        paddingRight: designTokens.spacing.lg,
+      [theme.breakpoints.up('md')]: {
+        paddingLeft: designTokens.spacing.xl,
+        paddingRight: designTokens.spacing.xl,
       },
     }),
   },

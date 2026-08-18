@@ -69,6 +69,13 @@ export const MuiButton: Components<Theme>['MuiButton'] = {
   // `.contrastText` quand `.dark` reste lui-même trop clair) — toujours une
   // teinte existante de la même famille, jamais une couleur inventée.
   variants: [
+    // Demandé par Marjorie : aucun padding en variant text, quelle que soit
+    // la taille (les paddingInline/paddingBlock de root/sizeSmall/Medium/Large
+    // ci-dessus sont donc annulés ici pour ce variant précis).
+    {
+      props: { variant: 'text' },
+      style: { paddingInline: 0, paddingBlock: 0 },
+    },
     // En variant contained, MUI utilise `color.{X}.main` comme fond avec
     // `color.{X}.contrastText` en texte. Pour success/error, `.main` est une
     // teinte trop pastel du groupe pour porter le contrastText existant à

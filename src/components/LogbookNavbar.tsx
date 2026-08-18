@@ -65,7 +65,13 @@ export function LogbookNavbar({
               renderValue={(value) =>
                 value ? (classOptions.find((option) => option.value === value)?.label ?? value) : classPlaceholder
               }
-              sx={{ minWidth: 96 }}
+              // Hauteur alignée sur les IconButton size="large" de la navbar
+              // (46px + 2×1px de bordure = 48px, cf. IconButton.ts) : même
+              // cran que designTokens.spacing['6']. Scopé à cette instance
+              // (pas au thème MuiSelect) car c'est un alignement avec ses
+              // voisins dans cette composition précise, pas une règle
+              // générale pour tout Select size="small" du DS.
+              sx={{ minWidth: 96, height: designTokens.spacing['6'] }}
               aria-label="Classe"
             >
               {classOptions.map((option) => (
