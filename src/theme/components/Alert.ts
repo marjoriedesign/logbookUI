@@ -53,6 +53,11 @@ export const MuiAlert: Components<Theme>['MuiAlert'] = {
   styleOverrides: {
     root: {
       borderRadius: designTokens.borderRadius.md,
+      // MUI aligne l'icône en haut par défaut (flex-start), pertinent pour
+      // un message d'une ligne mais pas pour un AlertTitle + description
+      // sur plusieurs lignes (icône visuellement décalée) : centrée sur
+      // toute la hauteur du contenu, demandé par Marjorie.
+      alignItems: 'center',
     },
   },
   variants: [
@@ -77,6 +82,15 @@ export const MuiAlert: Components<Theme>['MuiAlert'] = {
       style: {
         backgroundColor: filledBackground[severity],
         color: color[severity].contrastText,
+        // Filled n'avait jusqu'ici aucune couleur d'icône dédiée (héritait
+        // de color[severity].contrastText, la couleur du texte). Alignée
+        // sur accentColor pour info uniquement (demandé par Marjorie pour
+        // la bannière d'accueil de logbook-dashboard) : pour success/error,
+        // accentColor vaut la même couleur que filledBackground (tous deux
+        // en .dark) — appliquer le même changement rendrait leur icône
+        // invisible (confondue avec le fond). warning n'a pas besoin de
+        // l'override, accentColor.warning égale déjà contrastText.
+        ...(severity === 'info' && { '& .MuiAlert-icon': { color: accentColor.info } }),
       },
     })),
   ],
