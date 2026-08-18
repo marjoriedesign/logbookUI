@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Box, Button, Select, MenuItem, Badge } from '@mui/material';
+import { AppBar, Toolbar, Box, Button, ButtonBase, Select, MenuItem, Badge } from '@mui/material';
 import type { SelectChangeEvent } from '@mui/material';
 import { RiShareLine, RiFeedbackLine, RiNotificationLine, RiAccountCircleLine } from '../icons';
 import { LogbookIconButton } from './LogbookIconButton';
@@ -19,6 +19,8 @@ export interface LogbookNavbarProps {
   classPlaceholder?: string;
   userName: string;
   notificationCount?: number;
+  /** Clic sur le logo (ex. retour à l'accueil). */
+  onLogoClick?: () => void;
   onShareAccess?: () => void;
   onFeedback?: () => void;
   onNotifications?: () => void;
@@ -37,6 +39,7 @@ export function LogbookNavbar({
   classPlaceholder = 'Classe',
   userName,
   notificationCount = 0,
+  onLogoClick,
   onShareAccess,
   onFeedback,
   onNotifications,
@@ -48,13 +51,19 @@ export function LogbookNavbar({
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: `${designTokens.spacing.lg}px` }}>
           {/* Logo : masqué sous 900px (breakpoint md) pour laisser la place
-              au reste de la navbar sur petit écran. */}
-          <Box
-            component="img"
-            src={logoGreen}
-            alt="Logbook"
-            sx={{ height: 32, display: { xs: 'none', md: 'block' } }}
-          />
+              au reste de la navbar sur petit écran. ButtonBase (pas un
+              Box img nu) pour l'accessibilité clavier native du clic
+              (retour à l'accueil). */}
+          <ButtonBase
+            onClick={onLogoClick}
+            aria-label="Accueil"
+            sx={{
+              display: { xs: 'none', md: 'inline-flex' },
+              borderRadius: designTokens.borderRadius.sm,
+            }}
+          >
+            <Box component="img" src={logoGreen} alt="" sx={{ height: 32, display: 'block' }} />
+          </ButtonBase>
 
           <Box sx={{ display: 'flex', alignItems: 'center', gap: `${designTokens.spacing.sm}px` }}>
             <Select
