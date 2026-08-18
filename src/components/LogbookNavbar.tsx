@@ -113,7 +113,9 @@ export function LogbookNavbar({
               ))}
             </Select>
 
-            {/* Masqué sous NAVBAR_DESKTOP_BREAKPOINT, comme le logo. */}
+            {/* Bouton texte+icône à partir de NAVBAR_DESKTOP_BREAKPOINT,
+                icon button seul en dessous (même bascule que
+                Feedback/Profil) — logo, lui, reste masqué en dessous. */}
             <Button
               variant="outlined"
               color="secondary"
@@ -124,6 +126,15 @@ export function LogbookNavbar({
             >
               Partager les accès
             </Button>
+            <LogbookIconButton
+              color="primary"
+              size="large"
+              aria-label="Partager les accès"
+              onClick={onShareAccess}
+              sx={hideAboveNavbarBreakpoint}
+            >
+              <RiShareLine size="1em" />
+            </LogbookIconButton>
           </Box>
         </Box>
 
