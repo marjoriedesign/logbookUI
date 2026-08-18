@@ -33,7 +33,16 @@ export function LogbookStatCard({ icon, iconAlt = '', label, value, suffix }: Lo
       }}
     >
       <Box component="img" src={icon} alt={iconAlt} sx={{ width: 48, height: 48 }} />
-      <Typography variant="h5" color="textPrimary" sx={{ whiteSpace: { xs: 'normal', sm: 'nowrap' } }}>
+      {/* width: 100% sous xs, sinon `alignItems: center` du Card (nécessaire
+          pour centrer l'icône/valeur) laisse ce Typography se dimensionner
+          à son contenu (max-content) au lieu de se contraindre à la
+          largeur de la carte — whiteSpace: normal seul ne suffit pas à
+          déclencher un retour à la ligne sans cette contrainte de largeur. */}
+      <Typography
+        variant="h5"
+        color="textPrimary"
+        sx={{ whiteSpace: { xs: 'normal', sm: 'nowrap' }, width: { xs: '100%', sm: 'auto' } }}
+      >
         {label}
       </Typography>
       <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 0.5 }}>
