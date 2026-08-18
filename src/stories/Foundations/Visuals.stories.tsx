@@ -28,6 +28,7 @@ import growth from '../../assets/illustrations/Growth.svg';
 import inbox from '../../assets/illustrations/Inbox.svg';
 import oralPractice from '../../assets/illustrations/OralPractice.svg';
 import time from '../../assets/illustrations/Time.svg';
+import welcome from '../../assets/illustrations/Welcome.png';
 
 const avatarVisuals = [
   { name: 'Boy1', src: boy1 },
@@ -58,8 +59,15 @@ const iconIllustrations = [
   { name: 'Time', src: time },
 ];
 
+// Portrait (240×300, ratio 4:5), pas un badge carré comme iconIllustrations
+// ci-dessus — scène de bienvenue (plante/livre/café), pas une icône
+// pictogramme. Rendu au format PNG fourni par Marjorie (pas de vectorisation
+// SVG faite ici), à la différence des autres illustrations du DS.
+const spotIllustrations = [{ name: 'Welcome', src: welcome }];
+
 const avatarCellSize = designTokens.spacing['12']; // 96px, même cran que Foundations/Icons
 const illustrationCellSize = 136; // taille native des assets (viewBox 136x136)
+const spotIllustrationCellWidth = 96;
 
 function VisualsFoundations() {
   return (
@@ -171,6 +179,28 @@ function VisualsFoundations() {
                 }}
               >
                 <Box component="img" src={src} alt={name} sx={{ width: illustrationCellSize, height: illustrationCellSize }} />
+                <Typography variant="caption" sx={{ textAlign: 'center' }}>
+                  {name}
+                </Typography>
+              </Box>
+            ))}
+          </Box>
+        </Section>
+
+        <Section title="Spot Illustrations">
+          <Box sx={{ display: 'grid', gridTemplateColumns: `repeat(auto-fill, ${spotIllustrationCellWidth}px)`, gap: 2 }}>
+            {spotIllustrations.map(({ name, src }) => (
+              <Box
+                key={name}
+                sx={{
+                  width: spotIllustrationCellWidth,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: 1,
+                }}
+              >
+                <Box component="img" src={src} alt={name} sx={{ width: spotIllustrationCellWidth, height: 'auto' }} />
                 <Typography variant="caption" sx={{ textAlign: 'center' }}>
                   {name}
                 </Typography>
