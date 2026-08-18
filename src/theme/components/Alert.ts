@@ -33,13 +33,15 @@ const severities: Severity[] = ['success', 'warning', 'error', 'info'];
 // (subtitle2 + margin). Couleur en text.primary (noir), pas la couleur
 // héritée de la variante (ex. info.contrastText en filled) : demandé par
 // Marjorie pour que le titre ressorte davantage que le corps du message.
+// fontWeight explicitement remonté à bold (le token est en 400) : même
+// demande, le titre doit se distinguer visuellement du corps du message.
 const alertTitleTypography = designTokens.typography.alert.title;
 
 export const MuiAlertTitle: Components<Theme>['MuiAlertTitle'] = {
   styleOverrides: {
     root: {
       fontFamily: alertTitleTypography.fontFamily,
-      fontWeight: alertTitleTypography.fontWeight,
+      fontWeight: designTokens.fontWeights.bold,
       fontSize: alertTitleTypography.fontSize,
       lineHeight: `${alertTitleTypography.lineHeight}px`,
       color: color.text.primary,
