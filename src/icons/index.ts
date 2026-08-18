@@ -116,6 +116,7 @@ export {
 
   // Personnes & compte
   RiUserAddLine,
+  RiUserUnfollowLine,
   RiUserSmileLine,
   RiAccountCircleLine,
   RiGroupLine,
