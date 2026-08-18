@@ -113,9 +113,12 @@ export function LogbookNavbar({
               ))}
             </Select>
 
-            {/* Bouton texte+icône à partir de NAVBAR_DESKTOP_BREAKPOINT,
-                icon button seul en dessous (même bascule que
-                Feedback/Profil) — logo, lui, reste masqué en dessous. */}
+            {/* Bouton texte à partir de NAVBAR_DESKTOP_BREAKPOINT (reste à
+                côté du Select ici) ; sa version icon button, elle, est
+                regroupée avec les autres icon buttons à droite en
+                dessous du seuil (cf. Box de droite) — demandé par
+                Marjorie : tous les icon buttons de la navbar mobile
+                (hors Select) alignés ensemble à droite. */}
             <Button
               variant="outlined"
               color="secondary"
@@ -126,19 +129,32 @@ export function LogbookNavbar({
             >
               Partager les accès
             </Button>
-            <LogbookIconButton
-              color="primary"
-              size="large"
-              aria-label="Partager les accès"
-              onClick={onShareAccess}
-              sx={hideAboveNavbarBreakpoint}
-            >
-              <RiShareLine size="1em" />
-            </LogbookIconButton>
           </Box>
         </Box>
 
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: `${designTokens.spacing.sm}px` }}>
+        <Box
+          sx={(theme) => ({
+            display: 'flex',
+            alignItems: 'center',
+            gap: `${designTokens.spacing.xs}px`,
+            [theme.breakpoints.up(NAVBAR_DESKTOP_BREAKPOINT)]: {
+              gap: `${designTokens.spacing.sm}px`,
+            },
+          })}
+        >
+          {/* Partager les accès : icon button seul sous
+              NAVBAR_DESKTOP_BREAKPOINT (sa version texte, à côté du
+              Select, est dans le groupe de gauche ci-dessus). */}
+          <LogbookIconButton
+            color="primary"
+            size="large"
+            aria-label="Partager les accès"
+            onClick={onShareAccess}
+            sx={hideAboveNavbarBreakpoint}
+          >
+            <RiShareLine size="1em" />
+          </LogbookIconButton>
+
           {/* Feedback : bouton texte+icône à partir de NAVBAR_DESKTOP_BREAKPOINT,
               icon button seul en dessous. */}
           <Button
