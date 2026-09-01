@@ -1,6 +1,6 @@
-import { AppBar, Toolbar, Box, Button, ButtonBase, Select, MenuItem, Badge } from '@mui/material';
+import { AppBar, Toolbar, Box, Button, ButtonBase, Select, MenuItem, Divider, Badge } from '@mui/material';
 import type { SelectChangeEvent, Theme } from '@mui/material';
-import { RiShareLine, RiFeedbackLine, RiNotificationLine, RiAccountCircleLine } from '../icons';
+import { RiShareLine, RiFeedbackLine, RiNotificationLine, RiAccountCircleLine, RiAddLine } from '../icons';
 import { LogbookIconButton } from './LogbookIconButton';
 import { designTokens } from '../theme/generated/tokens';
 import logoGreen from '../assets/logo/LogoGreen.svg';
@@ -17,6 +17,8 @@ export interface LogbookNavbarProps {
   onClassChange: (value: string) => void;
   /** Affiché quand `selectedClass` est vide. */
   classPlaceholder?: string;
+  /** Clic sur "+ Ajouter", en bas de la liste des classes du Select. */
+  onAddClass?: () => void;
   userName: string;
   notificationCount?: number;
   /** Clic sur le logo (ex. retour à l'accueil). */
@@ -50,6 +52,12 @@ const hideAboveNavbarBreakpoint = (theme: Theme) => ({
   [theme.breakpoints.up(NAVBAR_DESKTOP_BREAKPOINT)]: { display: 'none' },
 });
 
+// Valeur factice du MenuItem "+ Ajouter" du Select classe : jamais une
+// vraie classe, interceptée dans onChange pour déclencher onAddClass au
+// lieu de onClassChange — le Select restant contrôlé par `selectedClass`
+// depuis le parent, cette valeur n'est jamais reflétée à l'affichage.
+const ADD_CLASS_VALUE = '__add-class__';
+
 // Menu du haut du produit Logbook : logo, sélecteur de classe + partage des
 // accès à gauche, feedback/notifications/profil à droite. Composé à partir
 // des composants déjà thémés (AppBar, Button Outlined Secondary, Select,
@@ -60,6 +68,7 @@ export function LogbookNavbar({
   selectedClass,
   onClassChange,
   classPlaceholder = 'Classe',
+  onAddClass,
   userName,
   notificationCount = 0,
   onLogoClick,
@@ -92,7 +101,14 @@ export function LogbookNavbar({
             <Select
               size="small"
               value={selectedClass}
-              onChange={(event: SelectChangeEvent) => onClassChange(event.target.value)}
+              onChange={(event: SelectChangeEvent) => {
+                const value = event.target.value;
+                if (value === ADD_CLASS_VALUE) {
+                  onAddClass?.();
+                  return;
+                }
+                onClassChange(value);
+              }}
               displayEmpty
               renderValue={(value) =>
                 value ? (classOptions.find((option) => option.value === value)?.label ?? value) : classPlaceholder
@@ -111,6 +127,16 @@ export function LogbookNavbar({
                   {option.label}
                 </MenuItem>
               ))}
+              {onAddClass && <Divider />}
+              {onAddClass && (
+                <MenuItem
+                  value={ADD_CLASS_VALUE}
+                  sx={{ display: 'flex', alignItems: 'center', gap: `${designTokens.spacing['2xs']}px`, color: 'primary.main' }}
+                >
+                  <RiAddLine size="1em" />
+                  Ajouter
+                </MenuItem>
+              )}
             </Select>
 
             {/* Bouton texte à partir de NAVBAR_DESKTOP_BREAKPOINT (reste à

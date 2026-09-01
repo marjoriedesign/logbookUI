@@ -9,13 +9,20 @@ const classOptions = [
   { value: '1eres', label: '1ÈRE S' },
 ];
 
-function NavbarDemo({ initialSelectedClass = '2de2' }: { initialSelectedClass?: string }) {
+function NavbarDemo({
+  initialSelectedClass = '2de2',
+  withAddClass = false,
+}: {
+  initialSelectedClass?: string;
+  withAddClass?: boolean;
+}) {
   const [selectedClass, setSelectedClass] = useState(initialSelectedClass);
   return (
     <LogbookNavbar
       classOptions={classOptions}
       selectedClass={selectedClass}
       onClassChange={setSelectedClass}
+      onAddClass={withAddClass ? () => {} : undefined}
       userName="Axelle"
       notificationCount={1}
     />
@@ -40,6 +47,9 @@ export const Default: Story = {
       </Section>
       <Section title="Sans classe sélectionnée (ex. page d'accueil)">
         <NavbarDemo initialSelectedClass="" />
+      </Section>
+      <Section title="Avec &quot;+ Ajouter&quot; dans le Select classe">
+        <NavbarDemo withAddClass />
       </Section>
     </Sections>
   ),
