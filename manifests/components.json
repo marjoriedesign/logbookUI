@@ -779,6 +779,73 @@
       ],
       "import": "import { Box } from \"@mui/material\";\nimport { LogbookDropzone, PageLayout, Section, Sections } from \"logbook-design-system\";"
     },
+    "logbook-footer": {
+      "id": "logbook-footer",
+      "name": "LogbookFooter",
+      "path": "./src/stories/Logbook/Footer.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "LogbookFooter",
+        "definedInFile": "/Users/marjorie/logbook-design-system/src/components/LogbookFooter.tsx",
+        "actualName": "LogbookFooter",
+        "exportName": "LogbookFooter",
+        "props": {
+          "legalLinks": {
+            "required": true,
+            "tsType": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "LogbookFooterLink"
+                }
+              ],
+              "raw": "LogbookFooterLink[]"
+            },
+            "description": "Ex. CGU, Mentions Légales, Confidentialité."
+          },
+          "copyrightYear": {
+            "required": true,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": "Ex. 2026."
+          },
+          "instagram": {
+            "required": false,
+            "tsType": {
+              "name": "LogbookFooterSocialLink"
+            },
+            "description": ""
+          },
+          "facebook": {
+            "required": false,
+            "tsType": {
+              "name": "LogbookFooterSocialLink"
+            },
+            "description": ""
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "logbook-footer--default",
+          "name": "Default",
+          "snippet": "const Default = () => (\n  <Sections>\n    {/* Basculer le viewport (toolbar Storybook) pour voir la disposition\n        mobile (deux lignes) sous le seuil sm/600px. */}\n    <Section title=\"Footer produit\">\n      <LogbookFooter\n        legalLinks={legalLinks}\n        copyrightYear={2026}\n        instagram={{ label: 'Suivez nos actualités', onClick: () => {} }}\n        facebook={{ label: \"Rejoignez le groupe d'échange\", onClick: () => {} }}\n      />\n    </Section>\n  </Sections>\n);"
+        }
+      ],
+      "import": "import { LogbookFooter, PageLayout, Section, Sections } from \"logbook-design-system\";"
+    },
     "logbook-sidepanelfooter": {
       "id": "logbook-sidepanelfooter",
       "name": "LogbookSidePanelFooter",
@@ -988,6 +1055,6 @@
   },
   "meta": {
     "docgen": "react-docgen",
-    "durationMs": 358
+    "durationMs": 359
   }
 }
