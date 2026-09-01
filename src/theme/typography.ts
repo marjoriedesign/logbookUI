@@ -22,8 +22,18 @@ export const typographyOptions: TypographyVariantsOptions = {
   body2: { ...typography.body2, lineHeight },
   caption: { ...typography.caption, lineHeight },
   overline: { ...typography.overline, lineHeight },
-  // Aucun token "button" dans tokens/semantic.json pour l'instant : seule la
-  // police est pilotée par les tokens, le reste vient des défauts MUI en
-  // attendant qu'un style de texte dédié soit défini côté Figma.
-  button: { fontFamily: fontFamilies.body, textTransform: 'none', lineHeight },
+  // typography.button.medium (le seul des 3 crans small/medium/large
+  // exposable ici : la variante Typography "button" n'a pas de prop taille,
+  // contrairement à Button lui-même qui lit sa propre taille directement
+  // depuis le token, cf. Button.ts). fontSize (14px) valait déjà par
+  // coïncidence le défaut MUI (0.875rem) ; fontWeight ne l'était pas (500
+  // medium par défaut chez MUI, pas les 700 bold du token) — corrigé ici.
+  button: {
+    fontFamily: fontFamilies.body,
+    fontSize: typography.button.medium.fontSize,
+    fontWeight: typography.button.medium.fontWeight,
+    letterSpacing: typography.button.medium.letterSpacing,
+    textTransform: 'none',
+    lineHeight,
+  },
 };

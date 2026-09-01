@@ -57,5 +57,11 @@ export {
   LogbookDropzone,
   type LogbookDropzoneProps,
 } from './components/LogbookDropzone';
+export {
+  LogbookFooter,
+  type LogbookFooterProps,
+  type LogbookFooterLink,
+  type LogbookFooterSocialLink,
+} from './components/LogbookFooter';
 
 export * from './icons';

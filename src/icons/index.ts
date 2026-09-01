@@ -154,7 +154,12 @@ export {
   // Partage & réseaux
   RiShareLine,
   RiLinksLine,
-  RiInstagramLine,
+  // Exception explicite au principe "outline only" (cf. RiPlayFill/RiMoreFill
+  // plus haut pour le même type d'exception) : demandée par Marjorie pour les
+  // icônes réseaux sociaux du footer précisément, les pictos de marque
+  // (Instagram/Facebook) étant attendus pleins, pas en contour.
+  RiInstagramFill,
+  RiFacebookCircleFill,
   RiLinkedinLine,
   RiYoutubeLine,
 
@@ -164,4 +169,7 @@ export {
 
   // Design & tokens
   RiPaletteLine,
+
+  // Légal & pied de page
+  RiCopyrightLine,
 } from '@remixicon/react';
