@@ -45,6 +45,9 @@ const initialRows: CorrectionsTableRow[] = [
     note: null,
     reaction: null,
     hasComment: false,
+    // Fratrie avec Amir Haddad (cf. ligne '4') : malgré l'ordre alphabétique
+    // ('Sofia' après 'Amir'), le clustering la ramène juste après lui.
+    groupId: 'fratrie-haddad',
   },
   {
     id: '4',
@@ -57,6 +60,7 @@ const initialRows: CorrectionsTableRow[] = [
     note: null,
     reaction: null,
     hasComment: false,
+    groupId: 'fratrie-haddad',
   },
   {
     id: '5',

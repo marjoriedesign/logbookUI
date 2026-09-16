@@ -66,6 +66,8 @@ export interface CorrectionsTableRow {
   note: number | null;
   reaction: CorrectionReaction | null;
   hasComment: boolean;
+  /** Regroupe visuellement les lignes qui partagent le même id (ex. une fratrie) — cf. `clusterByGroup`. */
+  groupId?: string;
 }
 
 export interface CorrectionsTableProps {
@@ -91,6 +93,11 @@ const reactionIcons: Record<CorrectionReaction, { Icon: typeof RiEmotionLaughLin
 interface CorrectionsRowProps {
   row: CorrectionsTableRow;
   isNarrow: boolean;
+  /** Fausse pour toutes les lignes non groupées : leur bordure basse reste normale. */
+  isLastOfGroup: boolean;
+  /** Vraie pour toutes les lignes du groupe survolé, pas seulement celle sous le curseur. */
+  isGroupHighlighted: boolean;
+  onGroupHover: (groupId: string | undefined) => void;
   onToggleSubmitted?: CorrectionsTableProps['onToggleSubmitted'];
   onOpenStudent?: CorrectionsTableProps['onOpenStudent'];
   onOpenActions?: CorrectionsTableProps['onOpenActions'];
@@ -99,6 +106,9 @@ interface CorrectionsRowProps {
 function CorrectionsRow({
   row,
   isNarrow,
+  isLastOfGroup,
+  isGroupHighlighted,
+  onGroupHover,
   onToggleSubmitted,
   onOpenStudent,
   onOpenActions,
@@ -109,7 +119,20 @@ function CorrectionsRow({
     <TableRow
       hover
       onClick={() => onOpenStudent?.(row)}
-      sx={{ cursor: onOpenStudent ? 'pointer' : undefined }}
+      onMouseEnter={row.groupId ? () => onGroupHover(row.groupId) : undefined}
+      onMouseLeave={row.groupId ? () => onGroupHover(undefined) : undefined}
+      sx={[
+        { cursor: onOpenStudent ? 'pointer' : undefined },
+        // Lignes d'un même groupe rendues visuellement contiguës : pas de
+        // bordure basse entre elles, seule la dernière du groupe garde la
+        // bordure normale (portée par MuiTableCell.root, cf. Table.ts).
+        !isLastOfGroup && { '& > .MuiTableCell-root': { borderBottom: 'none' } },
+        // Survol synchronisé sur tout le groupe (pas seulement la ligne sous
+        // le curseur) : même couleur que le survol natif MUI (`hover` ci-
+        // dessus), piloté ici manuellement car `:hover` ne peut cibler que
+        // l'élément physiquement survolé.
+        isGroupHighlighted && ((theme) => ({ backgroundColor: theme.palette.action.hover })),
+      ]}
     >
       <TableCell>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: `${designTokens.spacing.xs}px` }}>
@@ -215,6 +238,35 @@ function CorrectionsRow({
   );
 }
 
+// Deuxième passe après le tri alphabétique : les lignes qui partagent un
+// `groupId` (ex. une fratrie) sont rassemblées à la position du premier
+// membre du groupe rencontré dans l'ordre courant (asc/desc), en
+// conservant entre elles leur ordre alphabétique relatif — le tri reste
+// donc cohérent avec l'ordre asc/desc affiché, seul le regroupement
+// physique des lignes change. Les lignes sans `groupId` ne bougent pas.
+function clusterByGroup(rows: CorrectionsTableRow[]): CorrectionsTableRow[] {
+  const byGroup = new Map<string, CorrectionsTableRow[]>();
+  for (const row of rows) {
+    if (!row.groupId) continue;
+    const members = byGroup.get(row.groupId);
+    if (members) members.push(row);
+    else byGroup.set(row.groupId, [row]);
+  }
+
+  const placedGroups = new Set<string>();
+  const result: CorrectionsTableRow[] = [];
+  for (const row of rows) {
+    if (!row.groupId) {
+      result.push(row);
+      continue;
+    }
+    if (placedGroups.has(row.groupId)) continue;
+    placedGroups.add(row.groupId);
+    result.push(...byGroup.get(row.groupId)!);
+  }
+  return result;
+}
+
 // Le tri par nom est un état purement présentationnel (ordre d'affichage),
 // géré en interne — contrairement aux données des lignes (remise,
 // correction, réaction...) qui restent contrôlées par l'app consommatrice.
@@ -225,11 +277,14 @@ export function CorrectionsTable({
   onOpenActions,
 }: CorrectionsTableProps) {
   const [order, setOrder] = useState<'asc' | 'desc'>('asc');
+  const [hoveredGroupId, setHoveredGroupId] = useState<string | undefined>(undefined);
   const theme = useTheme();
   const isNarrow = useMediaQuery(theme.breakpoints.down('md'));
 
-  const sortedRows = [...rows].sort((a, b) =>
-    order === 'asc' ? a.student.localeCompare(b.student) : b.student.localeCompare(a.student),
+  const sortedRows = clusterByGroup(
+    [...rows].sort((a, b) =>
+      order === 'asc' ? a.student.localeCompare(b.student) : b.student.localeCompare(a.student),
+    ),
   );
 
   return (
@@ -265,16 +320,23 @@ export function CorrectionsTable({
         </TableRow>
       </TableHead>
       <TableBody>
-        {sortedRows.map((row) => (
-          <CorrectionsRow
-            key={row.id}
-            row={row}
-            isNarrow={isNarrow}
-            onToggleSubmitted={onToggleSubmitted}
-            onOpenStudent={onOpenStudent}
-            onOpenActions={onOpenActions}
-          />
-        ))}
+        {sortedRows.map((row, index) => {
+          const nextRow = sortedRows[index + 1];
+          const isLastOfGroup = !row.groupId || nextRow?.groupId !== row.groupId;
+          return (
+            <CorrectionsRow
+              key={row.id}
+              row={row}
+              isNarrow={isNarrow}
+              isLastOfGroup={isLastOfGroup}
+              isGroupHighlighted={!!row.groupId && row.groupId === hoveredGroupId}
+              onGroupHover={setHoveredGroupId}
+              onToggleSubmitted={onToggleSubmitted}
+              onOpenStudent={onOpenStudent}
+              onOpenActions={onOpenActions}
+            />
+          );
+        })}
       </TableBody>
     </Table>
   );
