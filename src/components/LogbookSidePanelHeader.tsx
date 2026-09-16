@@ -1,4 +1,4 @@
-import { Avatar, Box, Typography } from '@mui/material';
+import { Avatar, AvatarGroup, Box, Typography } from '@mui/material';
 import { RiCloseLine } from '../icons';
 import { designTokens } from '../theme/generated/tokens';
 import { LogbookIconButton } from './LogbookIconButton';
@@ -38,25 +38,18 @@ export function LogbookSidePanelHeader({ students, onClose }: LogbookSidePanelHe
     >
       {isGroup ? (
         <Box sx={{ display: 'flex', alignItems: 'center', gap: `${designTokens.spacing.xs}px`, minWidth: 0 }}>
-          {/* Avatars légèrement superposés : chaque avatar après le premier
-              chevauche le précédent (margin négative), avec un liseré de la
-              couleur de fond du panel pour les séparer visuellement. */}
-          <Box sx={{ display: 'flex', flexShrink: 0 }}>
+          {/* <AvatarGroup> MUI (cf. Figma node 252:9126, qui documente
+              explicitement ce composant) : avatars 32px, léger chevauchement
+              natif (spacing négatif), liseré de la couleur de fond du panel
+              pour les séparer visuellement. */}
+          <AvatarGroup
+            spacing={16}
+            sx={{ flexShrink: 0, '& .MuiAvatar-root': { width: 32, height: 32, border: '2px solid', borderColor: designTokens.color.background['paper-elevation-0'] } }}
+          >
             {students.map((student, index) => (
-              <Avatar
-                key={index}
-                src={student.avatarSrc}
-                alt={student.avatarAlt ?? ''}
-                sx={{
-                  width: 40,
-                  height: 40,
-                  ml: index === 0 ? 0 : -1.5,
-                  border: '2px solid',
-                  borderColor: designTokens.color.background['paper-elevation-0'],
-                }}
-              />
+              <Avatar key={index} src={student.avatarSrc} alt={student.avatarAlt ?? ''} />
             ))}
-          </Box>
+          </AvatarGroup>
           <Typography
             variant="h4"
             color="textSecondary"

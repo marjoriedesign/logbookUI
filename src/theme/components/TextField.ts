@@ -15,7 +15,12 @@ export const MuiTextField: Components<Theme>['MuiTextField'] = {
 export const MuiOutlinedInput: Components<Theme>['MuiOutlinedInput'] = {
   styleOverrides: {
     root: {
-      borderRadius: designTokens.borderRadius.sm,
+      // borderRadius.md (8px), pas .sm (4px) : la maquette Figma du Side
+      // Panel de correction (node 252:8955) montre systématiquement 8px sur
+      // tous les inputs ("Input" y référence littéralement --borderradius,8px)
+      // — écart repéré par Marjorie sur ce chantier, corrigé ici plutôt que
+      // localement, ce token pilotant tous les TextField de l'app.
+      borderRadius: designTokens.borderRadius.md,
       // Bordure par défaut demandée en beige (secondary.main) : même teinte
       // et même exception de contraste (1.30:1) déjà acceptée pour le
       // contour de Secondary Outlined sur Button, cf. Button.ts.
