@@ -3728,13 +3728,13 @@ import { Stack } from "@mui/material";</code></pre>
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>No component file found for the &quot;NavbarDemo&quot; component.
-  23 | }
-  24 |
-&gt; 25 | const meta: Meta&lt;typeof NavbarDemo&gt; = {
+  30 | }
+  31 |
+&gt; 32 | const meta: Meta&lt;typeof NavbarDemo&gt; = {
      | ^
-  26 |   title: &#39;Logbook/Navbar&#39;,
-  27 |   component: NavbarDemo,
-  28 |   decorators: [(Story) =&gt; (&lt;PageLayout title=&quot;Navbar&quot;&gt;&lt;Story /&gt;&lt;/PageLayout&gt;)],
+  33 |   title: &#39;Logbook/Navbar&#39;,
+  34 |   component: NavbarDemo,
+  35 |   decorators: [(Story) =&gt; (&lt;PageLayout title=&quot;Navbar&quot;&gt;&lt;Story /&gt;&lt;/PageLayout&gt;)],
 
 ./src/stories/Logbook/Navbar.stories.tsx:
 import { useState } from &#39;react&#39;;
@@ -3748,13 +3748,20 @@ const classOptions = [
   { value: &#39;1eres&#39;, label: &#39;1ÈRE S&#39; },
 ];
 
-function NavbarDemo({ initialSelectedClass = &#39;2de2&#39; }: { initialSelectedClass?: string }) {
+function NavbarDemo({
+  initialSelectedClass = &#39;2de2&#39;,
+  withAddClass = false,
+}: {
+  initialSelectedClass?: string;
+  withAddClass?: boolean;
+}) {
   const [selectedClass, setSelectedClass] = useState(initialSelectedClass);
   return (
     &lt;LogbookNavbar
       classOptions={classOptions}
       selectedClass={selectedClass}
       onClassChange={setSelectedClass}
+      onAddClass={withAddClass ? () =&gt; {} : undefined}
       userName=&quot;Axelle&quot;
       notificationCount={1}
     /&gt;
@@ -3779,6 +3786,9 @@ export const Default: Story = {
       &lt;/Section&gt;
       &lt;Section title=&quot;Sans classe sélectionnée (ex. page d&#39;accueil)&quot;&gt;
         &lt;NavbarDemo initialSelectedClass=&quot;&quot; /&gt;
+      &lt;/Section&gt;
+      &lt;Section title=&quot;Avec &amp;quot;+ Ajouter&amp;quot; dans le Select classe&quot;&gt;
+        &lt;NavbarDemo withAddClass /&gt;
       &lt;/Section&gt;
     &lt;/Sections&gt;
   ),
@@ -3822,6 +3832,9 @@ export const Default: Story = {
     &lt;/Section&gt;
     &lt;Section title=&quot;Sans classe sélectionnée (ex. page d&#39;accueil)&quot;&gt;
       &lt;NavbarDemo initialSelectedClass=&quot;&quot; /&gt;
+    &lt;/Section&gt;
+    &lt;Section title=&quot;Avec &amp;quot;+ Ajouter&amp;quot; dans le Select classe&quot;&gt;
+      &lt;NavbarDemo withAddClass /&gt;
     &lt;/Section&gt;
   &lt;/Sections&gt;
 );</code></pre>
@@ -8371,13 +8384,13 @@ import { PageLayout } from "logbook-design-system";</code></pre>
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>No component file found for the &quot;NavbarDemo&quot; component.
-  23 | }
-  24 |
-&gt; 25 | const meta: Meta&lt;typeof NavbarDemo&gt; = {
+  30 | }
+  31 |
+&gt; 32 | const meta: Meta&lt;typeof NavbarDemo&gt; = {
      | ^
-  26 |   title: &#39;Logbook/Navbar&#39;,
-  27 |   component: NavbarDemo,
-  28 |   decorators: [(Story) =&gt; (&lt;PageLayout title=&quot;Navbar&quot;&gt;&lt;Story /&gt;&lt;/PageLayout&gt;)],
+  33 |   title: &#39;Logbook/Navbar&#39;,
+  34 |   component: NavbarDemo,
+  35 |   decorators: [(Story) =&gt; (&lt;PageLayout title=&quot;Navbar&quot;&gt;&lt;Story /&gt;&lt;/PageLayout&gt;)],
 
 ./src/stories/Logbook/Navbar.stories.tsx:
 import { useState } from &#39;react&#39;;
@@ -8391,13 +8404,20 @@ const classOptions = [
   { value: &#39;1eres&#39;, label: &#39;1ÈRE S&#39; },
 ];
 
-function NavbarDemo({ initialSelectedClass = &#39;2de2&#39; }: { initialSelectedClass?: string }) {
+function NavbarDemo({
+  initialSelectedClass = &#39;2de2&#39;,
+  withAddClass = false,
+}: {
+  initialSelectedClass?: string;
+  withAddClass?: boolean;
+}) {
   const [selectedClass, setSelectedClass] = useState(initialSelectedClass);
   return (
     &lt;LogbookNavbar
       classOptions={classOptions}
       selectedClass={selectedClass}
       onClassChange={setSelectedClass}
+      onAddClass={withAddClass ? () =&gt; {} : undefined}
       userName=&quot;Axelle&quot;
       notificationCount={1}
     /&gt;
@@ -8422,6 +8442,9 @@ export const Default: Story = {
       &lt;/Section&gt;
       &lt;Section title=&quot;Sans classe sélectionnée (ex. page d&#39;accueil)&quot;&gt;
         &lt;NavbarDemo initialSelectedClass=&quot;&quot; /&gt;
+      &lt;/Section&gt;
+      &lt;Section title=&quot;Avec &amp;quot;+ Ajouter&amp;quot; dans le Select classe&quot;&gt;
+        &lt;NavbarDemo withAddClass /&gt;
       &lt;/Section&gt;
     &lt;/Sections&gt;
   ),
@@ -8465,6 +8488,9 @@ export const Default: Story = {
     &lt;/Section&gt;
     &lt;Section title=&quot;Sans classe sélectionnée (ex. page d&#39;accueil)&quot;&gt;
       &lt;NavbarDemo initialSelectedClass=&quot;&quot; /&gt;
+    &lt;/Section&gt;
+    &lt;Section title=&quot;Avec &amp;quot;+ Ajouter&amp;quot; dans le Select classe&quot;&gt;
+      &lt;NavbarDemo withAddClass /&gt;
     &lt;/Section&gt;
   &lt;/Sections&gt;
 );</code></pre>
