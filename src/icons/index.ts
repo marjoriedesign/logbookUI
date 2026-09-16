@@ -83,6 +83,7 @@ export {
   RiSearchLine,
   RiSendPlaneLine,
   RiThumbUpLine,
+  RiScalesLine,
 
   // Statuts, alertes & feedback
   RiAlarmLine,

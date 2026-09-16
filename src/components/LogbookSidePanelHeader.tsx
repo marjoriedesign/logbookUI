@@ -3,14 +3,22 @@ import { RiCloseLine } from '../icons';
 import { designTokens } from '../theme/generated/tokens';
 import { LogbookIconButton } from './LogbookIconButton';
 
-export interface LogbookSidePanelHeaderProps {
-  studentName: string;
+export interface LogbookSidePanelHeaderStudent {
+  name: string;
   avatarSrc?: string;
   avatarAlt?: string;
+}
+
+export interface LogbookSidePanelHeaderProps {
+  /** Un seul élève : header classique (avatar 48px + nom). Plusieurs : avatars
+   * superposés + noms sur 1-2 lignes (ex. correction d'un devoir de groupe). */
+  students: LogbookSidePanelHeaderStudent[];
   onClose?: () => void;
 }
 
-export function LogbookSidePanelHeader({ studentName, avatarSrc, avatarAlt, onClose }: LogbookSidePanelHeaderProps) {
+export function LogbookSidePanelHeader({ students, onClose }: LogbookSidePanelHeaderProps) {
+  const isGroup = students.length > 1;
+
   return (
     <Box
       sx={{
@@ -28,12 +36,48 @@ export function LogbookSidePanelHeader({ studentName, avatarSrc, avatarAlt, onCl
         borderColor: 'divider',
       }}
     >
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: `${designTokens.spacing.xs}px` }}>
-        <Avatar src={avatarSrc} alt={avatarAlt ?? ''} sx={{ width: 48, height: 48 }} />
-        <Typography variant="h4" color="textSecondary">
-          {studentName}
-        </Typography>
-      </Box>
+      {isGroup ? (
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: `${designTokens.spacing.xs}px`, minWidth: 0 }}>
+          {/* Avatars légèrement superposés : chaque avatar après le premier
+              chevauche le précédent (margin négative), avec un liseré de la
+              couleur de fond du panel pour les séparer visuellement. */}
+          <Box sx={{ display: 'flex', flexShrink: 0 }}>
+            {students.map((student, index) => (
+              <Avatar
+                key={index}
+                src={student.avatarSrc}
+                alt={student.avatarAlt ?? ''}
+                sx={{
+                  width: 40,
+                  height: 40,
+                  ml: index === 0 ? 0 : -1.5,
+                  border: '2px solid',
+                  borderColor: designTokens.color.background['paper-elevation-0'],
+                }}
+              />
+            ))}
+          </Box>
+          <Typography
+            variant="h4"
+            color="textSecondary"
+            sx={{
+              display: '-webkit-box',
+              WebkitBoxOrient: 'vertical',
+              WebkitLineClamp: 2,
+              overflow: 'hidden',
+            }}
+          >
+            {students.map((student) => student.name).join(', ')}
+          </Typography>
+        </Box>
+      ) : (
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: `${designTokens.spacing.xs}px` }}>
+          <Avatar src={students[0]?.avatarSrc} alt={students[0]?.avatarAlt ?? ''} sx={{ width: 48, height: 48 }} />
+          <Typography variant="h4" color="textSecondary">
+            {students[0]?.name}
+          </Typography>
+        </Box>
+      )}
       <LogbookIconButton color="primary" size="small" aria-label="Fermer" onClick={onClose}>
         <RiCloseLine size="1em" />
       </LogbookIconButton>
