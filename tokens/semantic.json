@@ -272,6 +272,18 @@
         }
       }
     },
+    "premium": {
+      "main": {
+        "value": "#ffb400",
+        "type": "color",
+        "description": "Pastille des fonctionnalités Premium (Figma : _components/rating/activefill)."
+      },
+      "contrasttext": {
+        "value": "{color.primary.main}",
+        "type": "color",
+        "description": "Icône sur premium.main : 4.95:1 (AA ≥ 3:1 pour une icône). Le blanc de la maquette ne fait que 1.78:1."
+      }
+    },
     "background": {
       "default": {
         "value": "{color.common.white}",

@@ -29,6 +29,8 @@ import inbox from '../../assets/illustrations/Inbox.svg';
 import oralPractice from '../../assets/illustrations/OralPractice.svg';
 import time from '../../assets/illustrations/Time.svg';
 import welcome from '../../assets/illustrations/Welcome.png';
+import reportCards from '../../assets/illustrations/ReportCards.svg';
+import oralAssignment from '../../assets/illustrations/OralAssignment.svg';
 
 const avatarVisuals = [
   { name: 'Boy1', src: boy1 },
@@ -64,6 +66,16 @@ const iconIllustrations = [
 // pictogramme. Rendu au format PNG fourni par Marjorie (pas de vectorisation
 // SVG faite ici), à la différence des autres illustrations du DS.
 const spotIllustrations = [{ name: 'Welcome', src: welcome }];
+
+// Illustrations de présentation de fonctionnalité (paywall premium des
+// onglets "Bulletins" et "À l'oral" côté logbook-dashboard) : compositions
+// paysage exportées telles quelles depuis Figma (fichier Logbook-UI, nœuds
+// 12215:16352 et 12215:16457), fond de page retiré. Affichées à leur taille
+// native (≈315×255), pas redimensionnées dans une grille.
+const featureIllustrations = [
+  { name: 'ReportCards', src: reportCards },
+  { name: 'OralAssignment', src: oralAssignment },
+];
 
 const avatarCellSize = designTokens.spacing['12']; // 96px, même cran que Foundations/Icons
 const illustrationCellSize = 136; // taille native des assets (viewBox 136x136)
@@ -201,6 +213,19 @@ function VisualsFoundations() {
                 }}
               >
                 <Box component="img" src={src} alt={name} sx={{ width: spotIllustrationCellWidth, height: 'auto' }} />
+                <Typography variant="caption" sx={{ textAlign: 'center' }}>
+                  {name}
+                </Typography>
+              </Box>
+            ))}
+          </Box>
+        </Section>
+
+        <Section title="Feature Illustrations">
+          <Box sx={{ display: 'flex', gap: 3, flexWrap: 'wrap' }}>
+            {featureIllustrations.map(({ name, src }) => (
+              <Box key={name} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1 }}>
+                <Box component="img" src={src} alt={name} />
                 <Typography variant="caption" sx={{ textAlign: 'center' }}>
                   {name}
                 </Typography>

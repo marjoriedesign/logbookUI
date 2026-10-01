@@ -410,6 +410,10 @@ export const designTokens = {
         "background": "#cbcde5"
       }
     },
+    "premium": {
+      "main": "#ffb400",
+      "contrastText": "#025358"
+    },
     "background": {
       "default": "#ffffff",
       "paper-elevation-0": "#ffffff",

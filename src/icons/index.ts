@@ -88,6 +88,11 @@ export {
   // Statuts, alertes & feedback
   RiAlarmLine,
   RiSparklingLine,
+  // Exception explicite au principe "outline only" : demandée par Marjorie
+  // pour les présentations Premium côté logbook-dashboard (badge
+  // "Fonctionnalité Premium" + bouton "Découvrir l'offre Premium"), tracé
+  // plein identique à la maquette Figma.
+  RiBardFill,
   RiEmotionLine,
   RiEmotionNormalLine,
   RiEmotionLaughLine,
