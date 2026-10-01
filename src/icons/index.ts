@@ -93,9 +93,6 @@ export {
   // "Fonctionnalité Premium" + bouton "Découvrir l'offre Premium"), tracé
   // plein identique à la maquette Figma.
   RiBardFill,
-  // Exception explicite au principe "outline only" : demandée par Marjorie
-  // pour la pastille ronde Premium des onglets côté logbook-dashboard.
-  RiShining2Fill,
   RiEmotionLine,
   RiEmotionNormalLine,
   RiEmotionLaughLine,

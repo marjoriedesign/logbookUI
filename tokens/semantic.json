@@ -272,18 +272,6 @@
         }
       }
     },
-    "premium": {
-      "main": {
-        "value": "#ffb400",
-        "type": "color",
-        "description": "Pastille des fonctionnalités Premium (Figma : _components/rating/activefill)."
-      },
-      "contrasttext": {
-        "value": "{color.primary.contrasttext}",
-        "type": "color",
-        "description": "Icône sur premium.main. Exception AA assumée par Marjorie (2026-10-01) : 1.78:1, sous le seuil de 3:1 pour une icône."
-      }
-    },
     "background": {
       "default": {
         "value": "{color.common.white}",
