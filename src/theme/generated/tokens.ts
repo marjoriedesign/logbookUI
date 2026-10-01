@@ -412,7 +412,7 @@ export const designTokens = {
     },
     "premium": {
       "main": "#ffb400",
-      "contrastText": "#025358"
+      "contrastText": "#ffffff"
     },
     "background": {
       "default": "#ffffff",

@@ -279,9 +279,9 @@
         "description": "Pastille des fonctionnalités Premium (Figma : _components/rating/activefill)."
       },
       "contrasttext": {
-        "value": "{color.primary.main}",
+        "value": "{color.primary.contrasttext}",
         "type": "color",
-        "description": "Icône sur premium.main : 4.95:1 (AA ≥ 3:1 pour une icône). Le blanc de la maquette ne fait que 1.78:1."
+        "description": "Icône sur premium.main. Exception AA assumée par Marjorie (2026-10-01) : 1.78:1, sous le seuil de 3:1 pour une icône."
       }
     },
     "background": {
